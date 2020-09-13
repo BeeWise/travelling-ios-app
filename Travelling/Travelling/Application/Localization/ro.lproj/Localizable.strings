@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Travelling
+
+  Created by Dimitri Strauneanu on 12/09/2020.
+  
+*/
+
+"Explore.tab.title" = "Explorează";
+"MyFavorites.tab.title" = "Favorite";
+"MyProfile.tab.title" = "Profil";
