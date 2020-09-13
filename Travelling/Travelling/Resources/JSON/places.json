@@ -1,0 +1,67 @@
+[
+    {
+        "id": "0",
+        "name": "",
+        "image_url": "",
+        "image_name": "",
+        "location": {
+            "id": "0",
+            "latitude": 0,
+            "longitude": 0,
+            "city": "Toronto",
+            "country": "Canada"
+        }
+    },
+    {
+        "id": "1",
+        "name": "",
+        "image_url": "",
+        "image_name": "",
+        "location": {
+            "id": "1",
+            "latitude": 0,
+            "longitude": 0,
+            "city": "San Francisco",
+            "country": "USA"
+        }
+    },
+    {
+        "id": "2",
+        "name": "",
+        "image_url": "",
+        "image_name": "",
+        "location": {
+            "id": "2",
+            "latitude": 0,
+            "longitude": 0,
+            "city": "Venice",
+            "country": "Italy"
+        }
+    },
+    {
+        "id": "3",
+        "name": "",
+        "image_url": "",
+        "image_name": "",
+        "location": {
+            "id": "3",
+            "latitude": 0,
+            "longitude": 0,
+            "city": "Paris",
+            "country": "France"
+        }
+    },
+    {
+        "id": "4",
+        "name": "",
+        "image_url": "",
+        "image_name": "",
+        "location": {
+            "id": "4",
+            "latitude": 0,
+            "longitude": 0,
+            "city": "Prague",
+            "country": "Czech Republic"
+        }
+    }
+]

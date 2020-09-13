@@ -37,5 +37,13 @@ class ApplicationStyle {
         static func regular(size: CGFloat) -> UIFont {
             return UIFont.systemFont(ofSize: size)
         }
+        
+        static func bold(size: CGFloat) -> UIFont {
+            return UIFont.boldSystemFont(ofSize: size)
+        }
+        
+        static func preferredFont(style: UIFont.TextStyle) -> UIFont {
+            return UIFont.preferredFont(forTextStyle: style)
+        }
     }
 }
