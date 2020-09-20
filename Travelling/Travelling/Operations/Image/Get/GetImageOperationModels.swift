@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 enum GetImageOperationModels {
     struct Request {
         let imageName: String?
+    }
+    
+    struct Response {
+        let image: UIImage?
     }
 }

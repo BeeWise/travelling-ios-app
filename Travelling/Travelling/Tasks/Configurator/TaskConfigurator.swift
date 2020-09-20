@@ -19,4 +19,8 @@ class TaskConfigurator {
     func placesTask() -> PlacesTaskProtocol {
         return PlacesTask(environment: self.environment)
     }
+    
+    func imageTask() -> ImageTaskProtocol {
+        return ImageTask(environment: self.environment)
+    }
 }

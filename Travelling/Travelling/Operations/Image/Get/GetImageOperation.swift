@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class GetImageOperation: DataTaskOperation<UIImage?> {
+class GetImageOperation: DataTaskOperation<GetImageOperationModels.Response> {
     override func main() {
         DispatchQueue.global().async {
             guard let model = self.model as? GetImageOperationModels.Request else {
@@ -16,7 +16,7 @@ class GetImageOperation: DataTaskOperation<UIImage?> {
                 return
             }
             let image = model.imageName?.literalImage()
-            self.successfulResultBlock(value: image)
+            self.successfulResultBlock(value: GetImageOperationModels.Response(image: image))
         }
     }
 }

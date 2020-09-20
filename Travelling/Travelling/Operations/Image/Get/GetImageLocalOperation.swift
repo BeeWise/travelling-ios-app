@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class GetImageLocalOperation: DataTaskOperation<UIImage?> {
+class GetImageLocalOperation: DataTaskOperation<GetImageOperationModels.Response> {
     var shouldFail: Bool = false
     var delay: Int = Int.random(in: 1000 ... 3000)
     
@@ -24,7 +24,7 @@ class GetImageLocalOperation: DataTaskOperation<UIImage?> {
             if self.shouldFail {
                 self.noDataAvailableErrorBlock()
             } else {
-                self.successfulResultBlock(value: UIImage())
+                self.successfulResultBlock(value: GetImageOperationModels.Response(image: UIImage()))
             }
         }
     }

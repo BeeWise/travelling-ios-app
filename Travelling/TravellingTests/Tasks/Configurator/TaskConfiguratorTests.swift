@@ -48,4 +48,24 @@ class TaskConfiguratorTests: XCTestCase {
         let task = self.sut.placesTask()
         XCTAssertEqual(task.environment, environment)
     }
+    
+    // MARK: - Image task
+    
+    func testImageTaskForProduction() {
+        self.shouldTestImageTaskForEnvironment(environment: .production)
+    }
+    
+    func testImageTaskForDevelopment() {
+        self.shouldTestImageTaskForEnvironment(environment: .development)
+    }
+    
+    func testImageTaskForMemory() {
+        self.shouldTestImageTaskForEnvironment(environment: .memory)
+    }
+    
+    private func shouldTestImageTaskForEnvironment(environment: TaskEnvironment) {
+        self.sut.environment = environment
+        let task = self.sut.imageTask()
+        XCTAssertEqual(task.environment, environment)
+    }
 }

@@ -3,7 +3,7 @@
 //  Travelling
 //
 //  Created by Dimitri Strauneanu on 13/09/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
+//  Copyright (c) 2020 Travelling. All rights reserved.
 //
 
 import Foundation

@@ -30,7 +30,7 @@ class GetImageLocalOperationTests: XCTestCase {
     func setupSubjectUnderTest() {
         self.sut = GetImageLocalOperation(completionHandler: { result in
             switch result {
-                case .success(let value): self.value = value; break
+                case .success(let value): self.value = value.image; break
                 case .failure(let error): self.error = error; break
             }
         })

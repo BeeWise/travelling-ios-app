@@ -86,6 +86,11 @@
 		287A35732517578B00898B51 /* String+LiteralImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A35722517578B00898B51 /* String+LiteralImage.swift */; };
 		287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A3574251757A200898B51 /* GetImageLocalOperation.swift */; };
 		287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A3578251757DD00898B51 /* GetImageLocalOperationTests.swift */; };
+		287A357C2517588A00898B51 /* ImageTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A357B2517588A00898B51 /* ImageTaskProtocol.swift */; };
+		287A357E251758A600898B51 /* ImageTaskModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A357D251758A600898B51 /* ImageTaskModels.swift */; };
+		287A35802517592B00898B51 /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A357F2517592B00898B51 /* ImageTask.swift */; };
+		287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A358225175DC000898B51 /* ImageTaskTests.swift */; };
+		287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A358425175DEC00898B51 /* ImageTaskSpy.swift */; };
 		28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889783250E25420017B0B1 /* GetPlacesOperation.swift */; };
 		28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */; };
 		28889789250E27110017B0B1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889788250E27110017B0B1 /* Location.swift */; };
@@ -211,6 +216,11 @@
 		287A35722517578B00898B51 /* String+LiteralImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LiteralImage.swift"; sourceTree = "<group>"; };
 		287A3574251757A200898B51 /* GetImageLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageLocalOperation.swift; sourceTree = "<group>"; };
 		287A3578251757DD00898B51 /* GetImageLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageLocalOperationTests.swift; sourceTree = "<group>"; };
+		287A357B2517588A00898B51 /* ImageTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskProtocol.swift; sourceTree = "<group>"; };
+		287A357D251758A600898B51 /* ImageTaskModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskModels.swift; sourceTree = "<group>"; };
+		287A357F2517592B00898B51 /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
+		287A358225175DC000898B51 /* ImageTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskTests.swift; sourceTree = "<group>"; };
+		287A358425175DEC00898B51 /* ImageTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskSpy.swift; sourceTree = "<group>"; };
 		28889783250E25420017B0B1 /* GetPlacesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesOperation.swift; sourceTree = "<group>"; };
 		28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesLocalOperation.swift; sourceTree = "<group>"; };
 		28889788250E27110017B0B1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -567,6 +577,7 @@
 		28179ED9250E004D0081FD3A /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				287A357A2517588300898B51 /* Image */,
 				28179EE4250E00DC0081FD3A /* Places */,
 				28179EE1250E00C70081FD3A /* Protocol */,
 				28179EDE250E00900081FD3A /* Configurator */,
@@ -747,6 +758,24 @@
 			path = Get;
 			sourceTree = "<group>";
 		};
+		287A357A2517588300898B51 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				287A357B2517588A00898B51 /* ImageTaskProtocol.swift */,
+				287A357D251758A600898B51 /* ImageTaskModels.swift */,
+				287A357F2517592B00898B51 /* ImageTask.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		287A358125175DBA00898B51 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				287A358225175DC000898B51 /* ImageTaskTests.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		28889781250E25300017B0B1 /* Places */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +848,7 @@
 		2888979D250E33940017B0B1 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				287A358125175DBA00898B51 /* Image */,
 				288897A0250E33AD0017B0B1 /* Places */,
 				2888979F250E33A60017B0B1 /* Configurator */,
 				2888979E250E339D0017B0B1 /* Spies */,
@@ -830,6 +860,7 @@
 			isa = PBXGroup;
 			children = (
 				288897A5250E346F0017B0B1 /* PlacesTaskSpy.swift */,
+				287A358425175DEC00898B51 /* ImageTaskSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1026,6 +1057,7 @@
 				28889789250E27110017B0B1 /* Location.swift in Sources */,
 				287A356F2517575800898B51 /* GetImageOperationModels.swift in Sources */,
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
+				287A357E251758A600898B51 /* ImageTaskModels.swift in Sources */,
 				28179EA6250DFC700081FD3A /* ExplorePresenter.swift in Sources */,
 				28179EAD250DFC700081FD3A /* ExploreViewController+DisplayLogic.swift in Sources */,
 				28179EAC250DFC700081FD3A /* ExploreInteractor.swift in Sources */,
@@ -1049,6 +1081,7 @@
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
+				287A35802517592B00898B51 /* ImageTask.swift in Sources */,
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
@@ -1062,6 +1095,7 @@
 				2812D465250CDAC90079F879 /* MainRouter.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
 				28179EDC250E006D0081FD3A /* TaskEnvironment.swift in Sources */,
+				287A357C2517588A00898B51 /* ImageTaskProtocol.swift in Sources */,
 				28179ECA250DFF2A0081FD3A /* TableViewTitleHeaderFooterView.swift in Sources */,
 				287A35732517578B00898B51 /* String+LiteralImage.swift in Sources */,
 				28179EA8250DFC700081FD3A /* ExploreRouter.swift in Sources */,
@@ -1075,6 +1109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
+				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28889798250E33050017B0B1 /* DataTaskOperationTests.swift in Sources */,
 				2812D49A250CE79C0079F879 /* AppDisplayLogicSpy.swift in Sources */,
 				2812D493250CE7760079F879 /* AppPresenterTests.swift in Sources */,
@@ -1082,6 +1117,7 @@
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
+				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
 				2812D480250CDB150079F879 /* MainPresentationLogicSpy.swift in Sources */,
 				288897B6250E34D00017B0B1 /* ExploreWorkerDelegateSpy.swift in Sources */,
