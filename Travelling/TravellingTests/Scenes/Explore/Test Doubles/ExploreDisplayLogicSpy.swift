@@ -38,6 +38,8 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     var displayEnableSearchBarCalled: Bool = false
     var displayDisableSearchBarCalled: Bool = false
     
+    var displayNavigateToPlaceDetailsCalled: Bool = false
+    
     func displayWillFetchItems() {
         self.displayWillFetchItemsCalled = true
     }
@@ -98,5 +100,9 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     
     func displayDisableSearchBar() {
         self.displayDisableSearchBarCalled = true
+    }
+    
+    func displayNavigateToPlaceDetails(viewModel: ExploreModels.ItemNavigation.ViewModel) {
+        self.displayNavigateToPlaceDetailsCalled = true
     }
 }

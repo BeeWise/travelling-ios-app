@@ -120,4 +120,18 @@ enum ExploreModels {
             let items: [Place]
         }
     }
+    
+    enum ItemNavigation {
+        struct Request {
+            let id: String
+        }
+        
+        struct Response {
+            let place: Place
+        }
+        
+        struct ViewModel {
+            let place: Place
+        }
+    }
 }

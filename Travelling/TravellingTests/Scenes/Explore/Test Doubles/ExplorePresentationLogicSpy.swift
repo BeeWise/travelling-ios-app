@@ -37,6 +37,8 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     var presentEnableSearchBarCalled: Bool = false
     var presentDisableSearchBarCalled: Bool = false
     
+    var presentNavigateToPlaceDetailsCalled: Bool = false
+    
     func presentWillFetchItems() {
         self.presentWillFetchItemsCalled = true
     }
@@ -103,5 +105,9 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     
     func presentDisableSearchBar() {
         self.presentDisableSearchBarCalled = true
+    }
+    
+    func presentNavigateToPlaceDetails(response: ExploreModels.ItemNavigation.Response) {
+        self.presentNavigateToPlaceDetailsCalled = true
     }
 }

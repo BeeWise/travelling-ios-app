@@ -12,10 +12,6 @@
 
 import UIKit
 
-protocol ExploreTableViewCellDelegate: AnyObject {
-    
-}
-
 protocol ExploreTableViewCellInterface: AnyObject {
     func setImage(image: UIImage?, contentMode: UIView.ContentMode)
     func setIsLoadingImage(isLoading: Bool)
@@ -27,8 +23,6 @@ class ExploreTableViewCell: UITableViewCell, ExploreTableViewCellInterface {
     weak var blurredBackgroundView: UIView!
     weak var activityIndicatorView: UIActivityIndicatorView!
     weak var titleLabel: UILabel!
-    
-    weak var delegate: ExploreTableViewCellDelegate?
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: ExploreTableViewCell.defaultReuseIdentifier)

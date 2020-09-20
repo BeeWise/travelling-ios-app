@@ -120,6 +120,7 @@
 		288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C8250E40040017B0B1 /* String+Attributes.swift */; };
 		28B0FC8825177C23007E276D /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8725177C23007E276D /* String+Contains.swift */; };
 		28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8925177DD2007E276D /* String+RangeOf.swift */; };
+		28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 		288897C8250E40040017B0B1 /* String+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributes.swift"; sourceTree = "<group>"; };
 		28B0FC8725177C23007E276D /* String+Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		28B0FC8925177DD2007E276D /* String+RangeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RangeOf.swift"; sourceTree = "<group>"; };
+		28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -919,6 +921,7 @@
 			children = (
 				288897C0250E35D40017B0B1 /* UITableViewSpy.swift */,
 				288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */,
+				28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1126,6 +1129,7 @@
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
 				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
+				28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
 				2812D480250CDB150079F879 /* MainPresentationLogicSpy.swift in Sources */,
 				288897B6250E34D00017B0B1 /* ExploreWorkerDelegateSpy.swift in Sources */,

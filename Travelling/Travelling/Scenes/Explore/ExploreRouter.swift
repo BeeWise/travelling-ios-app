@@ -12,10 +12,17 @@
 
 import UIKit
 
-@objc protocol ExploreRoutingLogic {
-    
+protocol ExploreRoutingLogic {
+    func navigateToPlaceDetails(place: Place)
 }
 
-class ExploreRouter: NSObject, ExploreRoutingLogic {
+class ExploreRouter: ExploreRoutingLogic {
     weak var viewController: ExploreViewController?
+    
+    func navigateToPlaceDetails(place: Place) {
+        // TODO: - Replace with place details view controller!
+        let placeDetailsViewController = UIViewController()
+        placeDetailsViewController.hidesBottomBarWhenPushed = true
+        self.viewController?.navigationController?.pushViewController(placeDetailsViewController, animated: true)
+    }
 }

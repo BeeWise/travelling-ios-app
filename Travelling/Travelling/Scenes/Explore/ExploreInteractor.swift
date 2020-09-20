@@ -19,6 +19,8 @@ protocol ExploreBusinessLogic {
     func shouldBeginSearchState()
     func shouldEndSearchState()
     func shouldSearchItems(request: ExploreModels.ItemsSearching.Request)
+    
+    func shouldNavigateToPlaceDetails(request: ExploreModels.ItemNavigation.Request)
 }
 
 class ExploreInteractor: ExploreBusinessLogic, ExploreWorkerDelegate {
@@ -46,6 +48,12 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreWorkerDelegate {
             self.presenter?.presentSearchedItems(response: ExploreModels.ItemsSearching.Response(text: text, items: searchedItems))
         } else {
             self.presenter?.presentItems(response: ExploreModels.ItemsPresentation.Response(items: self.paginationModel.items))
+        }
+    }
+    
+    func shouldNavigateToPlaceDetails(request: ExploreModels.ItemNavigation.Request) {
+        if let place = self.paginationModel.items.first(where: { $0.id == request.id }) {
+            self.presenter?.presentNavigateToPlaceDetails(response: ExploreModels.ItemNavigation.Response(place: place))
         }
     }
 }

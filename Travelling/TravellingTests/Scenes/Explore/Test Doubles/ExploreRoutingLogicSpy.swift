@@ -14,5 +14,9 @@
 import UIKit
 
 class ExploreRoutingLogicSpy: NSObject, ExploreRoutingLogic {
+    var navigateToPlaceDetailsCalled: Bool = false
     
+    func navigateToPlaceDetails(place: Place) {
+        self.navigateToPlaceDetailsCalled = true
+    }
 }

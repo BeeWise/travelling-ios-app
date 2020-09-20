@@ -14,7 +14,7 @@ import UIKit
 
 class ExploreViewController: UIViewController {
     var interactor: ExploreBusinessLogic?
-    var router: (NSObjectProtocol & ExploreRoutingLogic)?
+    var router: ExploreRoutingLogic?
     
     weak var tableView: UITableView!
     

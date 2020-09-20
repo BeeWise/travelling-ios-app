@@ -145,4 +145,9 @@ class ExplorePresenterTests: XCTestCase {
         self.sut.presentDisableSearchBar()
         XCTAssertTrue(self.displayerSpy.displayDisableSearchBarCalled)
     }
+    
+    func testPresentNavigateToPlaceDetailsShouldAskTheDisplayerToDisplayNavigateToPlaceDetails() {
+        self.sut.presentNavigateToPlaceDetails(response: ExploreModels.ItemNavigation.Response(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))))
+        XCTAssertTrue(self.displayerSpy.displayNavigateToPlaceDetailsCalled)
+    }
 }

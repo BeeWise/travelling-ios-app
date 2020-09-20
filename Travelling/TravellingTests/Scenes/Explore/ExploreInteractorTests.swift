@@ -250,6 +250,15 @@ class ExploreInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentItemsCalled)
     }
     
+    // MARK: - Navigation test
+    
+    func testShouldNavigateToPlaceDetailsShouldAskThePresenterToPresentNavigateToPlaceDetails() {
+        let id = "placeId"
+        self.sut.paginationModel.items = [self.place()]
+        self.sut.shouldNavigateToPlaceDetails(request: ExploreModels.ItemNavigation.Request(id: id))
+        XCTAssertTrue(self.presenterSpy.presentNavigateToPlaceDetailsCalled)
+    }
+    
     private func place() -> Place {
         let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))
         place.name = "Name"

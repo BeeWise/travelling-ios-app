@@ -20,6 +20,8 @@ class ExploreBusinessLogicSpy: ExploreBusinessLogic {
     var shouldEndSearchStateCalled: Bool = false
     var shouldSearchItemsCalled: Bool = false
     
+    var shouldNavigateToPlaceDetailsCalled: Bool = false
+    
     func shouldFetchItems() {
         self.shouldFetchItemsCalled = true
     }
@@ -38,5 +40,9 @@ class ExploreBusinessLogicSpy: ExploreBusinessLogic {
     
     func shouldSearchItems(request: ExploreModels.ItemsSearching.Request) {
         self.shouldSearchItemsCalled = true
+    }
+    
+    func shouldNavigateToPlaceDetails(request: ExploreModels.ItemNavigation.Request) {
+        self.shouldNavigateToPlaceDetailsCalled = true
     }
 }

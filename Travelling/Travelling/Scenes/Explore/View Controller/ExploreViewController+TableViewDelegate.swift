@@ -19,6 +19,11 @@ extension ExploreViewController: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.sections[indexPath.section].items[indexPath.row]
+        self.interactor?.shouldNavigateToPlaceDetails(request: ExploreModels.ItemNavigation.Request(id: item.id))
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if self.sections[section].isLoading {
             return self.loadingHeaderFooterView(tableView: tableView, isLoading: self.sections[section].isLoading)

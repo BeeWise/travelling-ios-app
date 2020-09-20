@@ -29,12 +29,7 @@ extension ExploreViewController: UITableViewDataSource {
         cell.setImageDominantColor(color: displayedItem.imageDominantColor)
         cell.setImage(image: displayedItem.image, contentMode: displayedItem.imageContentMode)
         cell.setIsLoadingImage(isLoading: displayedItem.isLoadingImage)
-        cell.delegate = self
         self.interactor?.shouldFetchImage(request: ExploreModels.ImageFetching.Request(item: displayedItem))
         return cell
     }
-}
-
-extension ExploreViewController: ExploreTableViewCellDelegate {
-    
 }

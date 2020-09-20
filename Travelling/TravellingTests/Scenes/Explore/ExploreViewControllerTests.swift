@@ -147,7 +147,6 @@ class ExploreViewControllerTests: XCTestCase {
             XCTAssertEqual(cell.backgroundImageView?.image, item.image)
             XCTAssertEqual(cell.backgroundImageView?.contentMode, item.imageContentMode)
             XCTAssertEqual(cell.backgroundImageView?.backgroundColor, item.imageDominantColor)
-            XCTAssertNotNil(cell.delegate)
             XCTAssertTrue(self.interactorSpy.shouldFetchImageCalled)
         }
     }
@@ -307,6 +306,15 @@ class ExploreViewControllerTests: XCTestCase {
     func testSearchBarTextDidEndEditingShouldAskTheInteractorToEndSearchState() {
         self.sut.searchBarTextDidEndEditing(UISearchBar())
         XCTAssertTrue(self.interactorSpy.shouldEndSearchStateCalled)
+    }
+    
+    func testTableViewDidSelectRowAtShouldAskTheInteractorToNavigateToPlaceDetails() {
+        self.loadView()
+        self.setupSections()
+        let section = ExploreModels.SectionIndex.items.rawValue
+        self.sut.sections[section].items = [ExploreModels.DisplayedItem(id: "id")]
+        self.sut.tableView(self.sut.tableView, didSelectRowAt: IndexPath(row: 0, section: section))
+        XCTAssertTrue(self.interactorSpy.shouldNavigateToPlaceDetailsCalled)
     }
     
     // MARK: - Display logic tests
@@ -581,6 +589,12 @@ class ExploreViewControllerTests: XCTestCase {
         self.waitForMainQueue()
         XCTAssertEqual(self.sut.navigationItem.searchController?.searchBar.isUserInteractionEnabled, false)
         XCTAssertEqual(self.sut.navigationItem.searchController?.searchBar.alpha, 0.25)
+    }
+    
+    func testDisplayNavigateToPlaceDetailsShouldAskTheRouterToNavigateToPlaceDetails() {
+        self.sut.displayNavigateToPlaceDetails(viewModel: ExploreModels.ItemNavigation.ViewModel(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToPlaceDetailsCalled)
     }
     
     private func setupSections() {

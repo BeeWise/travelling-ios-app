@@ -39,5 +39,10 @@ class ExploreRouterTests: XCTestCase {
     
     // MARK: - Tests
     
-    
+    func testNavigateToPlaceDetails() {
+        let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
+        self.sut.navigateToPlaceDetails(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27)))
+        // TODO: - Replace with place details view controller!
+        XCTAssertTrue(navigationControllerSpy.pushedViewController is UIViewController)
+    }
 }

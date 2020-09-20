@@ -36,6 +36,8 @@ protocol ExplorePresentationLogic {
     
     func presentEnableSearchBar()
     func presentDisableSearchBar()
+    
+    func presentNavigateToPlaceDetails(response: ExploreModels.ItemNavigation.Response)
 }
 
 class ExplorePresenter: ExplorePresentationLogic {
@@ -112,6 +114,10 @@ class ExplorePresenter: ExplorePresentationLogic {
     
     func presentDisableSearchBar() {
         self.displayer?.displayDisableSearchBar()
+    }
+    
+    func presentNavigateToPlaceDetails(response: ExploreModels.ItemNavigation.Response) {
+        self.displayer?.displayNavigateToPlaceDetails(viewModel: ExploreModels.ItemNavigation.ViewModel(place: response.place))
     }
 }
 

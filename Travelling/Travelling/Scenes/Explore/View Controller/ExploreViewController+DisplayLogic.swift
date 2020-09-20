@@ -34,6 +34,8 @@ protocol ExploreDisplayLogic: class {
     
     func displayEnableSearchBar()
     func displayDisableSearchBar()
+    
+    func displayNavigateToPlaceDetails(viewModel: ExploreModels.ItemNavigation.ViewModel)
 }
 
 extension ExploreViewController: ExploreDisplayLogic {
@@ -154,6 +156,12 @@ extension ExploreViewController: ExploreDisplayLogic {
         DispatchQueue.main.async {
             self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
             self.navigationItem.searchController?.searchBar.alpha = 0.25
+        }
+    }
+    
+    func displayNavigateToPlaceDetails(viewModel: ExploreModels.ItemNavigation.ViewModel) {
+        DispatchQueue.main.async {
+            self.router?.navigateToPlaceDetails(place: viewModel.place)
         }
     }
 }
