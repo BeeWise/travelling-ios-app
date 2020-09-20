@@ -60,5 +60,26 @@ class ExploreWorkerTests: XCTestCase {
         XCTAssertTrue(self.delegateSpy.failureDidFetchItemsCalled)
     }
     
-    // TODO: - Add image task!
+    func testFetchImage() {
+        let taskSpy = ImageTaskSpy()
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: ExploreModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(taskSpy.fetchImageCalled)
+    }
+    
+    func testFetchImageShouldAskTheDelegateToSendImageForSuccessCase() {
+        let taskSpy = ImageTaskSpy()
+        taskSpy.shouldFailFetchImage = false
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: ExploreModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(self.delegateSpy.successDidFetchImageCalled)
+    }
+    
+    func testFetchImageShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = ImageTaskSpy()
+        taskSpy.shouldFailFetchImage = true
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: ExploreModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(self.delegateSpy.failureDidFetchImageCalled)
+    }
 }

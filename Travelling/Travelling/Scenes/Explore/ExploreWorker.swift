@@ -24,6 +24,7 @@ class ExploreWorker {
     weak var delegate: ExploreWorkerDelegate?
     
     var placesTask: PlacesTaskProtocol = TaskConfigurator.shared.placesTask()
+    var imageTask: ImageTaskProtocol = TaskConfigurator.shared.imageTask()
     
     init(delegate: ExploreWorkerDelegate?) {
         self.delegate = delegate
@@ -39,12 +40,10 @@ class ExploreWorker {
     }
     
     func fetchImage(item: ExploreModels.DisplayedItem) {
-        // TODO: - Add task for fetching image!
-        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(Int.random(in: 500...2500))) {
-            if let imageName = item.imageName, imageName != "" {
-                self.delegate?.successDidFetchImage(item: item, image: UIImage(imageLiteralResourceName: imageName))
-            } else {
-                self.delegate?.failureDidFetchImage(item: item, error: .noDataAvailable)
+        self.imageTask.fetchImage(model: ImageTaskModels.Fetch.Request(imageName: item.imageName)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidFetchImage(item: item, image: value.image); break
+                case .failure(let error): self.delegate?.failureDidFetchImage(item: item, error: error); break
             }
         }
     }
