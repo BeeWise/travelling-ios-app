@@ -118,6 +118,8 @@
 		288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */; };
 		288897C6250E3DF30017B0B1 /* UIFont+WithTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C5250E3DF30017B0B1 /* UIFont+WithTraits.swift */; };
 		288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C8250E40040017B0B1 /* String+Attributes.swift */; };
+		28B0FC8825177C23007E276D /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8725177C23007E276D /* String+Contains.swift */; };
+		28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8925177DD2007E276D /* String+RangeOf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +250,8 @@
 		288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewSpy.swift; sourceTree = "<group>"; };
 		288897C5250E3DF30017B0B1 /* UIFont+WithTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+WithTraits.swift"; sourceTree = "<group>"; };
 		288897C8250E40040017B0B1 /* String+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributes.swift"; sourceTree = "<group>"; };
+		28B0FC8725177C23007E276D /* String+Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
+		28B0FC8925177DD2007E276D /* String+RangeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RangeOf.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +380,8 @@
 				287A356625173BAB00898B51 /* String+HexColor.swift */,
 				287A356825174BC600898B51 /* String+NilOrEmpty.swift */,
 				287A35722517578B00898B51 /* String+LiteralImage.swift */,
+				28B0FC8725177C23007E276D /* String+Contains.swift */,
+				28B0FC8925177DD2007E276D /* String+RangeOf.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1054,9 +1060,11 @@
 				283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */,
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
 				2888978D250E29530017B0B1 /* GetPlacesOperationModels.swift in Sources */,
+				28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */,
 				28889789250E27110017B0B1 /* Location.swift in Sources */,
 				287A356F2517575800898B51 /* GetImageOperationModels.swift in Sources */,
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
+				28B0FC8825177C23007E276D /* String+Contains.swift in Sources */,
 				287A357E251758A600898B51 /* ImageTaskModels.swift in Sources */,
 				28179EA6250DFC700081FD3A /* ExplorePresenter.swift in Sources */,
 				28179EAD250DFC700081FD3A /* ExploreViewController+DisplayLogic.swift in Sources */,

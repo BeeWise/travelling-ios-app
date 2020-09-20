@@ -17,6 +17,7 @@ protocol ExploreDisplayLogic: class {
     func displayDidFetchItems()
     
     func displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel)
+    func displayNewItems(viewModel: ExploreModels.ItemsPresentation.ViewModel)
     
     func displayNoMoreItems(viewModel: ExploreModels.NoMoreItemsPresentation.ViewModel)
     func displayRemoveNoMoreItems()
@@ -30,6 +31,9 @@ protocol ExploreDisplayLogic: class {
     func displayWillFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel)
     func displayDidFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel)
     func displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel)
+    
+    func displayEnableSearchBar()
+    func displayDisableSearchBar()
 }
 
 extension ExploreViewController: ExploreDisplayLogic {
@@ -50,6 +54,14 @@ extension ExploreViewController: ExploreDisplayLogic {
     }
     
     func displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            let section = ExploreModels.SectionIndex.items.rawValue
+            self.sections[section].items = viewModel.displayedItems
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayNewItems(viewModel: ExploreModels.ItemsPresentation.ViewModel) {
         DispatchQueue.main.async {
             self.tableView?.performBatchUpdates({
                 let section = ExploreModels.SectionIndex.items.rawValue
@@ -128,6 +140,20 @@ extension ExploreViewController: ExploreDisplayLogic {
             viewModel.item.image = viewModel.image
             viewModel.item.imageContentMode = viewModel.contentMode
             viewModel.item.cellInterface?.setImage(image: viewModel.image, contentMode: viewModel.contentMode)
+        }
+    }
+    
+    func displayEnableSearchBar() {
+        DispatchQueue.main.async {
+            self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = true
+            self.navigationItem.searchController?.searchBar.alpha = 1.0
+        }
+    }
+    
+    func displayDisableSearchBar() {
+        DispatchQueue.main.async {
+            self.navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
+            self.navigationItem.searchController?.searchBar.alpha = 0.25
         }
     }
 }

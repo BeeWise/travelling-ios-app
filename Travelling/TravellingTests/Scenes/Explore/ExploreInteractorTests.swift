@@ -57,6 +57,13 @@ class ExploreInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentWillFetchItemsCalled)
     }
     
+    func testShouldFetchItemsShouldAskThePresenterToPresentDisableSearchBarWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldFetchItems()
+        XCTAssertTrue(self.presenterSpy.presentDisableSearchBarCalled)
+    }
+    
     func testShouldFetchItemsShouldAskTheWorkerToFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
         self.sut.paginationModel.isFetchingItems = false
         self.sut.paginationModel.noMoreItems = false
@@ -95,14 +102,19 @@ class ExploreInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentDidFetchItemsCalled)
     }
     
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresentEnableSearchBar() {
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentEnableSearchBarCalled)
+    }
+    
     func testSuccessDidFetchItemsShouldAskThePresenterToPresentRemoveErrorState() {
         self.sut.successDidFetchItems(items: [])
         XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
     }
     
-    func testSuccessDidFetchItemsShouldAskThePresenterToPresentItems() {
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresentNewItems() {
         self.sut.successDidFetchItems(items: [])
-        XCTAssertTrue(self.presenterSpy.presentItemsCalled)
+        XCTAssertTrue(self.presenterSpy.presentNewItemsCalled)
     }
     
     func testSuccessDidFetchItemsShouldSetNoMoreItemsToTrueForPaginationModelWhenThereAreNoMoreItemsToFetch() {
@@ -144,6 +156,11 @@ class ExploreInteractorTests: XCTestCase {
     func testFailureDidFetchItemsShouldAskThePresenterToPresentDidFetchItems() {
         self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidFetchItemsCalled)
+    }
+    
+    func testFailureDidFetchItemsShouldAskThePresenterToPresentEnableSearchBar() {
+        self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentEnableSearchBarCalled)
     }
     
     func testFailureDidFetchItemsShouldAskThePresenterToPresentErrorState() {
@@ -205,5 +222,37 @@ class ExploreInteractorTests: XCTestCase {
     func testFailureDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
         self.sut.failureDidFetchImage(item: ExploreModels.DisplayedItem(id: "id"), error: .noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
+    
+    // MARK: - Search items tests
+    
+    func testShouldBeginSearchState() {
+        self.sut.paginationModel.isSearchingItems = false
+        self.sut.shouldBeginSearchState()
+        XCTAssertTrue(self.sut.paginationModel.isSearchingItems)
+    }
+    
+    func testShouldEndSearchState() {
+        self.sut.paginationModel.isSearchingItems = true
+        self.sut.shouldEndSearchState()
+        XCTAssertFalse(self.sut.paginationModel.isSearchingItems)
+    }
+    
+    func testShouldSearchItemsShouldAskThePresenterToPresentSearchedItems() {
+        self.sut.paginationModel.items = [self.place()]
+        self.sut.shouldSearchItems(request: ExploreModels.ItemsSearching.Request(text: "name"))
+        XCTAssertTrue(self.presenterSpy.presentSearchedItemsCalled)
+    }
+    
+    func testShouldSearchItemsShouldAskThePresenterToPresentItemsWhenNotSearching() {
+        self.sut.paginationModel.items = [self.place()]
+        self.sut.shouldSearchItems(request: ExploreModels.ItemsSearching.Request(text: nil))
+        XCTAssertTrue(self.presenterSpy.presentItemsCalled)
+    }
+    
+    private func place() -> Place {
+        let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))
+        place.name = "Name"
+        return place
     }
 }

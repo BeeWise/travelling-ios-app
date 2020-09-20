@@ -15,7 +15,7 @@ import UIKit
 extension ExploreViewController {
     func setupSubviews() {
         self.setupNavigationBar()
-        self.setupTitle()
+        self.setupNavigationItem()
         self.setupContentView()
         self.setupTableView()
     }
@@ -27,12 +27,24 @@ extension ExploreViewController {
         self.navigationController?.navigationBar.titleTextAttributes = ExploreStyle.shared.navigationBarModel.titleAttributes()
     }
     
-    private func setupTitle() {
+    private func setupNavigationItem() {
         self.navigationItem.title = ExploreLocalization.shared.title
+        self.navigationItem.searchController = self.setupSearchController()
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func setupContentView() {
+        self.definesPresentationContext = true
         self.view.backgroundColor = ExploreStyle.shared.contentViewModel.backgroundColor
+    }
+    
+    func setupSearchController() -> UISearchController {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        return searchController
     }
     
     private func setupTableView() {

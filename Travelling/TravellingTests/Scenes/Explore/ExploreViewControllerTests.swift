@@ -283,6 +283,32 @@ class ExploreViewControllerTests: XCTestCase {
         XCTAssertTrue(self.interactorSpy.shouldFetchItemsCalled)
     }
     
+    func testTraitCollectionDidChangeShouldAskTheInteractorToFetchItems() {
+        let traitCollection = UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory.unspecified)
+        self.sut.traitCollectionDidChange(traitCollection)
+        XCTAssertTrue(self.interactorSpy.shouldFetchItemsCalled)
+    }
+    
+    func testUpdateSearchResultsShouldAskTheInteractorToSearchItems() {
+        self.sut.updateSearchResults(for: UISearchController())
+        XCTAssertTrue(self.interactorSpy.shouldSearchItemsCalled)
+    }
+    
+    func testSearchBarSearchButtonClickedShouldAskTheInteractorToSearchItems() {
+        self.sut.searchBarSearchButtonClicked(UISearchBar())
+        XCTAssertTrue(self.interactorSpy.shouldSearchItemsCalled)
+    }
+    
+    func testSearchBarTextDidBeginEditingShouldAskTheInteractorToBeginSearchState() {
+        self.sut.searchBarTextDidBeginEditing(UISearchBar())
+        XCTAssertTrue(self.interactorSpy.shouldBeginSearchStateCalled)
+    }
+    
+    func testSearchBarTextDidEndEditingShouldAskTheInteractorToEndSearchState() {
+        self.sut.searchBarTextDidEndEditing(UISearchBar())
+        XCTAssertTrue(self.interactorSpy.shouldEndSearchStateCalled)
+    }
+    
     // MARK: - Display logic tests
     
     func testDisplayWillFetchItemsShouldUpdateFooterSectionIsLoading() {
@@ -326,15 +352,39 @@ class ExploreViewControllerTests: XCTestCase {
         let section = ExploreModels.SectionIndex.items.rawValue
         let tableViewSpy = self.tableViewSpy()
         self.sut.tableView = tableViewSpy
+        self.sut.sections[section].items = []
+        let displayedItems = [ExploreModels.DisplayedItem(id: "id1"), ExploreModels.DisplayedItem(id: "id2")]
+        self.sut.displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: displayedItems))
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.sections[section].items.count, displayedItems.count)
+    }
+    
+    func testDisplayItemsShouldAskTheTableViewToReloadSections() {
+        self.loadView()
+        self.setupSections()
+        let section = ExploreModels.SectionIndex.items.rawValue
+        let tableViewSpy = self.tableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.sections[section].items = []
+        self.sut.displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: []))
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.reloadSectionsCalled)
+    }
+    
+    func testDisplayNewItemsShouldUpdateDisplayedItems() {
+        self.setupSections()
+        let section = ExploreModels.SectionIndex.items.rawValue
+        let tableViewSpy = self.tableViewSpy()
+        self.sut.tableView = tableViewSpy
         self.sut.sections[section].items = [ExploreModels.DisplayedItem(id: "id1")]
         let count = self.sut.sections[section].items.count
         let displayedItems = [ExploreModels.DisplayedItem(id: "id2")]
-        self.sut.displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: displayedItems))
+        self.sut.displayNewItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: displayedItems))
         self.waitForMainQueue()
         XCTAssertEqual(self.sut.sections[section].items.count, count + displayedItems.count)
     }
     
-    func testDisplayItemsShouldAskTheTableViewToInsertRowsInBatchUpdates() {
+    func testDisplayNewItemsShouldAskTheTableViewToInsertRowsInBatchUpdates() {
         self.loadView()
         self.setupSections()
         let section = ExploreModels.SectionIndex.items.rawValue
@@ -342,7 +392,7 @@ class ExploreViewControllerTests: XCTestCase {
         self.sut.tableView = tableViewSpy
         self.sut.sections[section].items = [ExploreModels.DisplayedItem(id: "id1")]
         let displayedItems = [ExploreModels.DisplayedItem(id: "id2")]
-        self.sut.displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: displayedItems))
+        self.sut.displayNewItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: displayedItems))
         self.waitForMainQueue()
         XCTAssertTrue(tableViewSpy.performBatchUpdatesCalled)
         XCTAssertTrue(tableViewSpy.insertRowsCalled)
@@ -511,6 +561,26 @@ class ExploreViewControllerTests: XCTestCase {
         XCTAssertEqual(item.image, image)
         XCTAssertEqual(item.imageContentMode, contentMode)
         XCTAssertTrue(spy.setImageCalled)
+    }
+    
+    func testDisplayEnableSearchBar() {
+        self.loadView()
+        self.sut.navigationItem.searchController?.searchBar.isUserInteractionEnabled = false
+        self.sut.navigationItem.searchController?.searchBar.alpha = 0.25
+        self.sut.displayEnableSearchBar()
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.navigationItem.searchController?.searchBar.isUserInteractionEnabled, true)
+        XCTAssertEqual(self.sut.navigationItem.searchController?.searchBar.alpha, 1.0)
+    }
+    
+    func testDisplayDisableSearchBar() {
+        self.loadView()
+        self.sut.navigationItem.searchController?.searchBar.isUserInteractionEnabled = true
+        self.sut.navigationItem.searchController?.searchBar.alpha = 1
+        self.sut.displayDisableSearchBar()
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.navigationItem.searchController?.searchBar.isUserInteractionEnabled, false)
+        XCTAssertEqual(self.sut.navigationItem.searchController?.searchBar.alpha, 0.25)
     }
     
     private func setupSections() {

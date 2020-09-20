@@ -16,11 +16,27 @@ class ExploreBusinessLogicSpy: ExploreBusinessLogic {
     var shouldFetchItemsCalled: Bool = false
     var shouldFetchImageCalled: Bool = false
     
+    var shouldBeginSearchStateCalled: Bool = false
+    var shouldEndSearchStateCalled: Bool = false
+    var shouldSearchItemsCalled: Bool = false
+    
     func shouldFetchItems() {
         self.shouldFetchItemsCalled = true
     }
     
     func shouldFetchImage(request: ExploreModels.ImageFetching.Request) {
         self.shouldFetchImageCalled = true
+    }
+    
+    func shouldBeginSearchState() {
+        self.shouldBeginSearchStateCalled = true
+    }
+    
+    func shouldEndSearchState() {
+        self.shouldEndSearchStateCalled = true
+    }
+    
+    func shouldSearchItems(request: ExploreModels.ItemsSearching.Request) {
+        self.shouldSearchItemsCalled = true
     }
 }

@@ -17,6 +17,8 @@ protocol ExplorePresentationLogic {
     func presentDidFetchItems()
     
     func presentItems(response: ExploreModels.ItemsPresentation.Response)
+    func presentNewItems(response: ExploreModels.ItemsPresentation.Response)
+    func presentSearchedItems(response: ExploreModels.ItemsSearching.Response)
     
     func presentNoMoreItems()
     func presentRemoveNoMoreItems()
@@ -31,6 +33,9 @@ protocol ExplorePresentationLogic {
     func presentDidFetchImage(response: ExploreModels.ImageFetching.Response)
     func presentImage(response: ExploreModels.ImagePresentation.Response)
     func presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response)
+    
+    func presentEnableSearchBar()
+    func presentDisableSearchBar()
 }
 
 class ExplorePresenter: ExplorePresentationLogic {
@@ -46,6 +51,14 @@ class ExplorePresenter: ExplorePresentationLogic {
     
     func presentItems(response: ExploreModels.ItemsPresentation.Response) {
         self.displayer?.displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: self.displayedItems(items: response.items)))
+    }
+    
+    func presentNewItems(response: ExploreModels.ItemsPresentation.Response) {
+        self.displayer?.displayNewItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: self.displayedItems(items: response.items)))
+    }
+    
+    func presentSearchedItems(response: ExploreModels.ItemsSearching.Response) {
+        self.displayer?.displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel(displayedItems: self.displayedSearchedItems(items: response.items, text: response.text)))
     }
     
     func presentNoMoreItems() {
@@ -92,6 +105,14 @@ class ExplorePresenter: ExplorePresentationLogic {
         let image = ExploreStyle.shared.cellModel.placeholderImage
         self.displayer?.displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel(item: response.item, image: image, contentMode: .center))
     }
+    
+    func presentEnableSearchBar() {
+        self.displayer?.displayEnableSearchBar()
+    }
+    
+    func presentDisableSearchBar() {
+        self.displayer?.displayDisableSearchBar()
+    }
 }
 
 // MARK: - Auxiliary
@@ -103,15 +124,27 @@ extension ExplorePresenter {
     
     private func displayedItem(item: Place) -> ExploreModels.DisplayedItem {
         let displayedItem = ExploreModels.DisplayedItem(id: item.id)
-        displayedItem.title = self.displayedTitle(location: item.location)
+        displayedItem.title = item.name?.attributed(attributes: ExploreStyle.shared.cellModel.titleAttributes())
         displayedItem.imageName = item.imageName
         displayedItem.imageDominantColor = item.imageDominantColor?.hexColor()
         return displayedItem
     }
     
-    private func displayedTitle(location: Location) -> NSAttributedString? {
-        let values: [String?] = [location.city, location.country]
-        let text = values.compactMap({ $0 }).joined(separator: ", ")
-        return text.attributed(attributes: ExploreStyle.shared.cellModel.titleAttributes())
+    private func displayedSearchedItems(items: [Place], text: String) -> [ExploreModels.DisplayedItem] {
+        return items.map({ self.displayedSearchedItem(item: $0, text: text) })
+    }
+    
+    private func displayedSearchedItem(item: Place, text: String) -> ExploreModels.DisplayedItem {
+        let title = item.name ?? ""
+        let displayedTitle = title.attributed(attributes: ExploreStyle.shared.cellModel.titleAttributes())
+        if let range = title.rangeOf(value: text) {
+            displayedTitle.setAttributes(ExploreStyle.shared.cellModel.boldTitleAttributes(), range: range)
+        }
+        
+        let displayedItem = ExploreModels.DisplayedItem(id: item.id)
+        displayedItem.title = displayedTitle
+        displayedItem.imageName = item.imageName
+        displayedItem.imageDominantColor = item.imageDominantColor?.hexColor()
+        return displayedItem
     }
 }

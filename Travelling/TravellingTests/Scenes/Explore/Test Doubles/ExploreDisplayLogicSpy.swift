@@ -19,6 +19,9 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     var displayItemsCalled: Bool = false
     var displayItemsViewModel: ExploreModels.ItemsPresentation.ViewModel!
     
+    var displayNewItemsCalled: Bool = false
+    var displayNewItemsViewModel: ExploreModels.ItemsPresentation.ViewModel!
+    
     var displayNoMoreItemsCalled: Bool = false
     var displayRemoveNoMoreItemsCalled: Bool = false
     
@@ -32,6 +35,9 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     var displayDidFetchImageCalled: Bool = false
     var displayImageCalled: Bool = false
     
+    var displayEnableSearchBarCalled: Bool = false
+    var displayDisableSearchBarCalled: Bool = false
+    
     func displayWillFetchItems() {
         self.displayWillFetchItemsCalled = true
     }
@@ -43,6 +49,11 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     func displayItems(viewModel: ExploreModels.ItemsPresentation.ViewModel) {
         self.displayItemsCalled = true
         self.displayItemsViewModel = viewModel
+    }
+    
+    func displayNewItems(viewModel: ExploreModels.ItemsPresentation.ViewModel) {
+        self.displayNewItemsCalled = true
+        self.displayNewItemsViewModel = viewModel
     }
     
     func displayNoMoreItems(viewModel: ExploreModels.NoMoreItemsPresentation.ViewModel) {
@@ -79,5 +90,13 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     
     func displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel) {
         self.displayImageCalled = true
+    }
+    
+    func displayEnableSearchBar() {
+        self.displayEnableSearchBarCalled = true
+    }
+    
+    func displayDisableSearchBar() {
+        self.displayDisableSearchBarCalled = true
     }
 }

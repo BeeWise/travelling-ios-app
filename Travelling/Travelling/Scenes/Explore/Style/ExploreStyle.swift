@@ -63,8 +63,15 @@ class ExploreStyle {
     struct CellModel {
         func titleAttributes() -> [NSAttributedString.Key: Any] {
             return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.white,
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryLight,
                 NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+            ]
+        }
+        
+        func boldTitleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryLight,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body).bold()
             ]
         }
         

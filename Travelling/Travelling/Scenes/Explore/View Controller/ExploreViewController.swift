@@ -63,3 +63,30 @@ class ExploreViewController: UIViewController {
         self.sections = [ExploreModels.Section(), ExploreModels.Section()]
     }
 }
+
+extension ExploreViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory {
+            self.interactor?.shouldFetchItems()
+        }
+    }
+}
+
+extension ExploreViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        self.interactor?.shouldSearchItems(request: ExploreModels.ItemsSearching.Request(text: searchController.searchBar.text))
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.interactor?.shouldSearchItems(request: ExploreModels.ItemsSearching.Request(text: searchBar.text))
+    }
+        
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.interactor?.shouldBeginSearchState()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.interactor?.shouldEndSearchState()
+    }
+}

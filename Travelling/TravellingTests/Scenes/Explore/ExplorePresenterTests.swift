@@ -65,6 +65,27 @@ class ExplorePresenterTests: XCTestCase {
         }
     }
     
+    func testPresentNewItemsShouldAskTheDisplayerToDisplayNewItems() {
+        self.sut.presentNewItems(response: ExploreModels.ItemsPresentation.Response(items: []))
+        XCTAssertTrue(self.displayerSpy.displayNewItemsCalled)
+    }
+    
+    func testPresentNewItemsShouldFormatItemsForDisplay() {
+        let item = Place(id: "id1", location: Location(id: "id2", latitude: 10, longitude: 10))
+        let items = [item]
+        self.sut.presentNewItems(response: ExploreModels.ItemsPresentation.Response(items: items))
+        
+        XCTAssertEqual(self.displayerSpy.displayNewItemsViewModel.displayedItems.count, items.count)
+        for displayedItem in self.displayerSpy.displayNewItemsViewModel.displayedItems {
+            XCTAssertEqual(displayedItem.id, item.id)
+        }
+    }
+    
+    func testPresentSearchedItemsShouldAskTheDisplayerToDisplayItems() {
+        self.sut.presentSearchedItems(response: ExploreModels.ItemsSearching.Response(text: "text", items: []))
+        XCTAssertTrue(self.displayerSpy.displayItemsCalled)
+    }
+    
     func testPresentNoMoreItemsShouldAskTheDisplayerToDisplayNoMoreItems() {
         self.sut.presentNoMoreItems()
         XCTAssertTrue(self.displayerSpy.displayNoMoreItemsCalled)
@@ -113,5 +134,15 @@ class ExplorePresenterTests: XCTestCase {
     func testPresentPlaceholderImageShouldAskTheDisplayerToDisplayImage() {
         self.sut.presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response(item: ExploreModels.DisplayedItem(id: "id"), image: nil))
         XCTAssertTrue(self.displayerSpy.displayImageCalled)
+    }
+    
+    func testPresentEnableSearchBarShouldAskTheDisplayerToDisplayEnableSearchBar() {
+        self.sut.presentEnableSearchBar()
+        XCTAssertTrue(self.displayerSpy.displayEnableSearchBarCalled)
+    }
+    
+    func testPresentDisableSearchBarShouldAskTheDisplayerToDisplayDisableSearchBar() {
+        self.sut.presentDisableSearchBar()
+        XCTAssertTrue(self.displayerSpy.displayDisableSearchBarCalled)
     }
 }

@@ -15,6 +15,10 @@ import UIKit
 protocol ExploreBusinessLogic {
     func shouldFetchItems()
     func shouldFetchImage(request: ExploreModels.ImageFetching.Request)
+    
+    func shouldBeginSearchState()
+    func shouldEndSearchState()
+    func shouldSearchItems(request: ExploreModels.ItemsSearching.Request)
 }
 
 class ExploreInteractor: ExploreBusinessLogic, ExploreWorkerDelegate {
@@ -26,6 +30,23 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreWorkerDelegate {
     init() {
         self.paginationModel = ExploreModels.PaginationModel()
         self.worker = ExploreWorker(delegate: self)
+    }
+    
+    func shouldBeginSearchState() {
+        self.paginationModel.isSearchingItems = true
+    }
+    
+    func shouldEndSearchState() {
+        self.paginationModel.isSearchingItems = false
+    }
+    
+    func shouldSearchItems(request: ExploreModels.ItemsSearching.Request) {
+        if let text = request.text, !text.isEmpty {
+            let searchedItems = self.paginationModel.items.filter({ $0.name?.contains(text: text) == true })
+            self.presenter?.presentSearchedItems(response: ExploreModels.ItemsSearching.Response(text: text, items: searchedItems))
+        } else {
+            self.presenter?.presentItems(response: ExploreModels.ItemsPresentation.Response(items: self.paginationModel.items))
+        }
     }
 }
 
@@ -53,9 +74,14 @@ extension ExploreInteractor {
 
 extension ExploreInteractor  {
     func shouldFetchItems() {
+        if self.paginationModel.isSearchingItems {
+            return
+        }
+        
         if !self.paginationModel.isFetchingItems && !self.paginationModel.noMoreItems {
             self.paginationModel.isFetchingItems = true
             self.presenter?.presentWillFetchItems()
+            self.presenter?.presentDisableSearchBar()
             self.worker?.fetchItems(page: self.paginationModel.currentPage, limit: self.paginationModel.limit)
         }
     }
@@ -66,8 +92,9 @@ extension ExploreInteractor  {
         self.paginationModel.isFetchingItems = false
         self.paginationModel.hasError = false
         self.presenter?.presentDidFetchItems()
+        self.presenter?.presentEnableSearchBar()
         self.presenter?.presentRemoveErrorState()
-        self.presenter?.presentItems(response: ExploreModels.ItemsPresentation.Response(items: items))
+        self.presenter?.presentNewItems(response: ExploreModels.ItemsPresentation.Response(items: items))
         self.shouldVerifyNoMorePlaces(count: items.count)
         self.shouldVerifyEmptyState(count: items.count)
     }
@@ -76,6 +103,7 @@ extension ExploreInteractor  {
         self.paginationModel.isFetchingItems = false
         self.paginationModel.hasError = true
         self.presenter?.presentDidFetchItems()
+        self.presenter?.presentEnableSearchBar()
         self.presenter?.presentErrorState()
     }
 }

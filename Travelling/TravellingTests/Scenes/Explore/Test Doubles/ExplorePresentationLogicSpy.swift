@@ -17,6 +17,8 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     var presentDidFetchItemsCalled: Bool = false
     
     var presentItemsCalled: Bool = false
+    var presentNewItemsCalled: Bool = false
+    var presentSearchedItemsCalled: Bool = false
     
     var presentNoMoreItemsCalled: Bool = false
     var presentRemoveNoMoreItemsCalled: Bool = false
@@ -32,6 +34,9 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     var presentImageCalled: Bool = false
     var presentPlaceholderImageCalled: Bool = false
     
+    var presentEnableSearchBarCalled: Bool = false
+    var presentDisableSearchBarCalled: Bool = false
+    
     func presentWillFetchItems() {
         self.presentWillFetchItemsCalled = true
     }
@@ -42,6 +47,14 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     
     func presentItems(response: ExploreModels.ItemsPresentation.Response) {
         self.presentItemsCalled = true
+    }
+    
+    func presentNewItems(response: ExploreModels.ItemsPresentation.Response) {
+        self.presentNewItemsCalled = true
+    }
+    
+    func presentSearchedItems(response: ExploreModels.ItemsSearching.Response) {
+        self.presentSearchedItemsCalled = true
     }
     
     func presentNoMoreItems() {
@@ -82,5 +95,13 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     
     func presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response) {
         self.presentPlaceholderImageCalled = true
+    }
+    
+    func presentEnableSearchBar() {
+        self.presentEnableSearchBarCalled = true
+    }
+    
+    func presentDisableSearchBar() {
+        self.presentDisableSearchBarCalled = true
     }
 }

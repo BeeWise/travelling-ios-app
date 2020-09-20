@@ -14,6 +14,7 @@ import UIKit
 
 enum ExploreModels {
     class PaginationModel {
+        var isSearchingItems: Bool = false
         var isFetchingItems: Bool = false
         var noMoreItems: Bool = false
         var hasError: Bool = false
@@ -106,6 +107,17 @@ enum ExploreModels {
             let item: DisplayedItem
             let image: UIImage?
             let contentMode: UIView.ContentMode
+        }
+    }
+    
+    enum ItemsSearching {
+        struct Request {
+            let text: String?
+        }
+        
+        struct Response {
+            let text: String
+            let items: [Place]
         }
     }
 }
