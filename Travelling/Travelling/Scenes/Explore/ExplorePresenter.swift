@@ -26,6 +26,11 @@ protocol ExplorePresentationLogic {
     
     func presentErrorState()
     func presentRemoveErrorState()
+    
+    func presentWillFetchImage(response: ExploreModels.ImageFetching.Response)
+    func presentDidFetchImage(response: ExploreModels.ImageFetching.Response)
+    func presentImage(response: ExploreModels.ImagePresentation.Response)
+    func presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response)
 }
 
 class ExplorePresenter: ExplorePresentationLogic {
@@ -70,6 +75,23 @@ class ExplorePresenter: ExplorePresentationLogic {
     func presentRemoveErrorState() {
         self.displayer?.displayRemoveErrorState()
     }
+    
+    func presentWillFetchImage(response: ExploreModels.ImageFetching.Response) {
+        self.displayer?.displayWillFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel(item: response.item))
+    }
+    
+    func presentDidFetchImage(response: ExploreModels.ImageFetching.Response) {
+        self.displayer?.displayDidFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel(item: response.item))
+    }
+    
+    func presentImage(response: ExploreModels.ImagePresentation.Response) {
+        self.displayer?.displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel(item: response.item, image: response.image, contentMode: .scaleAspectFill))
+    }
+    
+    func presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response) {
+        let image = ExploreStyle.shared.cellModel.placeholderImage
+        self.displayer?.displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel(item: response.item, image: image, contentMode: .center))
+    }
 }
 
 // MARK: - Auxiliary
@@ -82,6 +104,8 @@ extension ExplorePresenter {
     private func displayedItem(item: Place) -> ExploreModels.DisplayedItem {
         let displayedItem = ExploreModels.DisplayedItem(id: item.id)
         displayedItem.title = self.displayedTitle(location: item.location)
+        displayedItem.imageName = item.imageName
+        displayedItem.imageDominantColor = item.imageDominantColor?.hexColor()
         return displayedItem
     }
     

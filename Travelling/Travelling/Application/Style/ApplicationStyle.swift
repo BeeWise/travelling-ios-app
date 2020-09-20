@@ -23,14 +23,16 @@ class ApplicationStyle {
         secondary = UIColor(named: "secondary", in: Bundle.main, compatibleWith: nil)!,
         accent = UIColor(named: "accent", in: Bundle.main, compatibleWith: nil)!,
         accentAlpha = UIColor(named: "accent_alpha", in: Bundle.main, compatibleWith: nil)!,
-        transparent = UIColor.clear
+        transparent = UIColor.clear,
+        white = UIColor.white
     }
     
     struct images {
         static let
         exploreTabIcon = UIImage(named: "explore_tab_icon", in: Bundle.main, compatibleWith: nil)!,
         myFavoritesTabIcon = UIImage(named: "my_favorites_tab_icon", in: Bundle.main, compatibleWith: nil)!,
-        myProfileTabIcon = UIImage(named: "my_profile_tab_icon", in: Bundle.main, compatibleWith: nil)!
+        myProfileTabIcon = UIImage(named: "my_profile_tab_icon", in: Bundle.main, compatibleWith: nil)!,
+        placeholderImageIcon = UIImage(named: "placeholder_image_icon", in: Bundle.main, compatibleWith: nil)!
     }
     
     struct fonts {

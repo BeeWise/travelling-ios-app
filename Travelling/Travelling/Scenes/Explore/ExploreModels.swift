@@ -40,6 +40,14 @@ enum ExploreModels {
         var id: String
         var title: NSAttributedString?
         
+        var image: UIImage?
+        var imageName: String?
+        var imageContentMode: UIView.ContentMode = .scaleAspectFill
+        var imageDominantColor: UIColor?
+        var isLoadingImage: Bool = false
+        
+        weak var cellInterface: ExploreTableViewCellInterface?
+        
         init(id: String) {
             self.id = id
         }
@@ -71,6 +79,33 @@ enum ExploreModels {
     enum ErrorStatePresentation {
         struct ViewModel {
             let text: NSAttributedString?
+        }
+    }
+    
+    enum ImageFetching {
+        struct Request {
+            let item: DisplayedItem
+        }
+        
+        struct Response {
+            let item: DisplayedItem
+        }
+        
+        struct ViewModel {
+            let item: DisplayedItem
+        }
+    }
+    
+    enum ImagePresentation {
+        struct Response {
+            let item: DisplayedItem
+            let image: UIImage?
+        }
+        
+        struct ViewModel {
+            let item: DisplayedItem
+            let image: UIImage?
+            let contentMode: UIView.ContentMode
         }
     }
 }

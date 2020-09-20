@@ -41,7 +41,7 @@ class ExploreInteractorTests: XCTestCase {
         self.sut.worker = self.workerSpy
     }
     
-    // MARK: - Tests
+    // MARK: - Fetch items tests
   
     func testShouldFetchItemsShouldSetIsFetchingItemsToTrueForPaginationModel() {
         self.sut.paginationModel.isFetchingItems = false
@@ -149,5 +149,61 @@ class ExploreInteractorTests: XCTestCase {
     func testFailureDidFetchItemsShouldAskThePresenterToPresentErrorState() {
         self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentErrorStateCalled)
+    }
+    
+    // MARK: - Fetch image tests
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndImageName() {
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = nil
+        self.sut.shouldFetchImage(request: ExploreModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndEmptyImageName() {
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = ""
+        self.sut.shouldFetchImage(request: ExploreModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentWillFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = "imageName"
+        item.isLoadingImage = false
+        self.sut.shouldFetchImage(request: ExploreModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.presenterSpy.presentWillFetchImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskTheWorkerToFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = "imageName"
+        item.isLoadingImage = false
+        self.sut.shouldFetchImage(request: ExploreModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.workerSpy.fetchImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentImage() {
+        self.sut.successDidFetchImage(item: ExploreModels.DisplayedItem(id: "id"), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.successDidFetchImage(item: ExploreModels.DisplayedItem(id: "id"), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentPlaceholderImage() {
+        self.sut.failureDidFetchImage(item: ExploreModels.DisplayedItem(id: "id"), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.failureDidFetchImage(item: ExploreModels.DisplayedItem(id: "id"), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
     }
 }

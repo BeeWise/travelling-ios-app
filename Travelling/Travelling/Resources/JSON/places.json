@@ -3,7 +3,8 @@
         "id": "0",
         "name": "",
         "image_url": "",
-        "image_name": "",
+        "image_name": "toronto_canada",
+        "image_dominant_color": "#8e7866",
         "location": {
             "id": "0",
             "latitude": 0,
@@ -16,7 +17,8 @@
         "id": "1",
         "name": "",
         "image_url": "",
-        "image_name": "",
+        "image_name": "san_francisco_usa",
+        "image_dominant_color": "#846f52",
         "location": {
             "id": "1",
             "latitude": 0,
@@ -29,7 +31,8 @@
         "id": "2",
         "name": "",
         "image_url": "",
-        "image_name": "",
+        "image_name": "venice_italy",
+        "image_dominant_color": "#7e8e9c",
         "location": {
             "id": "2",
             "latitude": 0,
@@ -42,7 +45,8 @@
         "id": "3",
         "name": "",
         "image_url": "",
-        "image_name": "",
+        "image_name": "paris_france",
+        "image_dominant_color": "#6f5b6d",
         "location": {
             "id": "3",
             "latitude": 0,
@@ -55,7 +59,8 @@
         "id": "4",
         "name": "",
         "image_url": "",
-        "image_name": "",
+        "image_name": "prague_czech_republic",
+        "image_dominant_color": "#6b7d78",
         "location": {
             "id": "4",
             "latitude": 0,

@@ -16,12 +16,16 @@ protocol ExploreTableViewCellDelegate: AnyObject {
     
 }
 
-class ExploreTableViewCell: UITableViewCell {
-    var id: String!
-    
+protocol ExploreTableViewCellInterface: AnyObject {
+    func setImage(image: UIImage?, contentMode: UIView.ContentMode)
+    func setIsLoadingImage(isLoading: Bool)
+}
+
+class ExploreTableViewCell: UITableViewCell, ExploreTableViewCellInterface {
     weak var containerView: UIView!
     weak var backgroundImageView: UIImageView!
     weak var blurredBackgroundView: UIView!
+    weak var activityIndicatorView: UIActivityIndicatorView!
     weak var titleLabel: UILabel!
     
     weak var delegate: ExploreTableViewCellDelegate?
@@ -43,6 +47,25 @@ class ExploreTableViewCell: UITableViewCell {
     func setTitle(title: NSAttributedString?) {
         self.titleLabel?.attributedText = title
     }
+    
+    func setImageDominantColor(color: UIColor?) {
+        self.backgroundImageView?.backgroundColor = color
+    }
+    
+    func setImage(image: UIImage?, contentMode: UIView.ContentMode) {
+        self.backgroundImageView?.image = image
+        self.backgroundImageView?.contentMode = contentMode
+    }
+    
+    func setIsLoadingImage(isLoading: Bool) {
+        if isLoading {
+            self.activityIndicatorView?.startAnimating()
+            self.activityIndicatorView?.isHidden = false
+        } else {
+            self.activityIndicatorView?.isHidden = true
+            self.activityIndicatorView?.stopAnimating()
+        }
+    }
 }
 
 // MARK: - Subviews
@@ -53,11 +76,13 @@ extension ExploreTableViewCell {
         self.setupContainerView()
         self.setupBackgroundImageView()
         self.setupBlurredBackgroundView()
+        self.setupActivityIndicatorView()
         self.setupTitleLabel()
     }
     
     private func setupContentView() {
         self.selectionStyle = .none
+        self.contentView.clipsToBounds = true
         self.contentView.backgroundColor = ExploreStyle.shared.cellModel.backgroundColor
     }
     
@@ -82,9 +107,19 @@ extension ExploreTableViewCell {
     private func setupBlurredBackgroundView() {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
         view.backgroundColor = ExploreStyle.shared.cellModel.blurredBackgroundColor
         self.containerView?.addSubview(view)
         self.blurredBackgroundView = view
+    }
+    
+    private func setupActivityIndicatorView() {
+        let view = UIActivityIndicatorView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.color = ExploreStyle.shared.cellModel.activityIndicatorColor
+        view.hidesWhenStopped = false
+        self.blurredBackgroundView?.addSubview(view)
+        self.activityIndicatorView = view
     }
     
     private func setupTitleLabel() {
@@ -104,6 +139,7 @@ extension ExploreTableViewCell {
         self.setupContainerViewConstraints()
         self.setupBackgroundImageViewConstraints()
         self.setupBlurredBackgroundViewConstraints()
+        self.setupActivityIndicatorViewConstraints()
         self.setupTitleLabelConstraints()
     }
     
@@ -113,7 +149,7 @@ extension ExploreTableViewCell {
             self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -15),
             self.containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),
             self.containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -15),
-            self.containerView.heightAnchor.constraint(greaterThanOrEqualToConstant: ExploreStyle.shared.cellModel.containerViewMinimumHeight)
+            self.containerView.heightAnchor.constraint(equalToConstant: ExploreStyle.shared.cellModel.containerViewMinimumHeight)
         ])
     }
     
@@ -132,6 +168,13 @@ extension ExploreTableViewCell {
             self.blurredBackgroundView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor),
             self.blurredBackgroundView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
             self.blurredBackgroundView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)
+        ])
+    }
+    
+    private func setupActivityIndicatorViewConstraints() {
+        NSLayoutConstraint.activate([
+            self.activityIndicatorView.centerXAnchor.constraint(equalTo: self.blurredBackgroundView.centerXAnchor),
+            self.activityIndicatorView.centerYAnchor.constraint(equalTo: self.blurredBackgroundView.centerYAnchor)
         ])
     }
     

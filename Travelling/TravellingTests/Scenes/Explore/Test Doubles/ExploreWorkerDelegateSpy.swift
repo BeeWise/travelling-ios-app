@@ -11,10 +11,14 @@
 //
 
 @testable import Travelling
+import UIKit
 
 class ExploreWorkerDelegateSpy: ExploreWorkerDelegate {
     var successDidFetchItemsCalled: Bool = false
     var failureDidFetchItemsCalled: Bool = false
+    
+    var successDidFetchImageCalled: Bool = false
+    var failureDidFetchImageCalled: Bool = false
     
     func successDidFetchItems(items: [Place]) {
         self.successDidFetchItemsCalled = true
@@ -22,5 +26,13 @@ class ExploreWorkerDelegateSpy: ExploreWorkerDelegate {
     
     func failureDidFetchItems(error: OperationError) {
         self.failureDidFetchItemsCalled = true
+    }
+    
+    func successDidFetchImage(item: ExploreModels.DisplayedItem, image: UIImage?) {
+        self.successDidFetchImageCalled = true
+    }
+    
+    func failureDidFetchImage(item: ExploreModels.DisplayedItem, error: OperationError) {
+        self.failureDidFetchImageCalled = true
     }
 }

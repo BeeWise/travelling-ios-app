@@ -14,9 +14,10 @@ import UIKit
 
 protocol ExploreBusinessLogic {
     func shouldFetchItems()
+    func shouldFetchImage(request: ExploreModels.ImageFetching.Request)
 }
 
-class ExploreInteractor: ExploreBusinessLogic {
+class ExploreInteractor: ExploreBusinessLogic, ExploreWorkerDelegate {
     var presenter: ExplorePresentationLogic?
     var worker: ExploreWorker?
     
@@ -26,7 +27,31 @@ class ExploreInteractor: ExploreBusinessLogic {
         self.paginationModel = ExploreModels.PaginationModel()
         self.worker = ExploreWorker(delegate: self)
     }
+}
+
+extension ExploreInteractor {
+    func shouldFetchImage(request: ExploreModels.ImageFetching.Request) {
+        let item = request.item
+        if item.image == nil && item.imageName.isNilOrEmpty() {
+            self.presenter?.presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response(item: item, image: nil))
+        } else if item.image == nil && !item.imageName.isNilOrEmpty() && !item.isLoadingImage {
+            self.presenter?.presentWillFetchImage(response: ExploreModels.ImageFetching.Response(item: item))
+            self.worker?.fetchImage(item: item)
+        }
+    }
     
+    func successDidFetchImage(item: ExploreModels.DisplayedItem, image: UIImage?) {
+        self.presenter?.presentImage(response: ExploreModels.ImagePresentation.Response(item: item, image: image))
+        self.presenter?.presentDidFetchImage(response: ExploreModels.ImageFetching.Response(item: item))
+    }
+    
+    func failureDidFetchImage(item: ExploreModels.DisplayedItem, error: OperationError) {
+        self.presenter?.presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response(item: item, image: nil))
+        self.presenter?.presentDidFetchImage(response: ExploreModels.ImageFetching.Response(item: item))
+    }
+}
+
+extension ExploreInteractor  {
     func shouldFetchItems() {
         if !self.paginationModel.isFetchingItems && !self.paginationModel.noMoreItems {
             self.paginationModel.isFetchingItems = true
@@ -34,9 +59,7 @@ class ExploreInteractor: ExploreBusinessLogic {
             self.worker?.fetchItems(page: self.paginationModel.currentPage, limit: self.paginationModel.limit)
         }
     }
-}
-
-extension ExploreInteractor: ExploreWorkerDelegate {
+    
     func successDidFetchItems(items: [Place]) {
         self.paginationModel.items.append(contentsOf: items)
         self.paginationModel.currentPage += 1

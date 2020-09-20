@@ -27,6 +27,11 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     var presentErrorStateCalled: Bool = false
     var presentRemoveErrorStateCalled: Bool = false
     
+    var presentWillFetchImageCalled: Bool = false
+    var presentDidFetchImageCalled: Bool = false
+    var presentImageCalled: Bool = false
+    var presentPlaceholderImageCalled: Bool = false
+    
     func presentWillFetchItems() {
         self.presentWillFetchItemsCalled = true
     }
@@ -61,5 +66,21 @@ class ExplorePresentationLogicSpy: ExplorePresentationLogic {
     
     func presentRemoveErrorState() {
         self.presentRemoveErrorStateCalled = true
+    }
+    
+    func presentWillFetchImage(response: ExploreModels.ImageFetching.Response) {
+        self.presentWillFetchImageCalled = true
+    }
+    
+    func presentDidFetchImage(response: ExploreModels.ImageFetching.Response) {
+        self.presentDidFetchImageCalled = true
+    }
+    
+    func presentImage(response: ExploreModels.ImagePresentation.Response) {
+        self.presentImageCalled = true
+    }
+    
+    func presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response) {
+        self.presentPlaceholderImageCalled = true
     }
 }

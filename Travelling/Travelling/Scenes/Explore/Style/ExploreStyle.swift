@@ -63,7 +63,7 @@ class ExploreStyle {
     struct CellModel {
         func titleAttributes() -> [NSAttributedString.Key: Any] {
             return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.white,
                 NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
             ]
         }
@@ -74,7 +74,10 @@ class ExploreStyle {
         var containerViewCornerRadius: CGFloat = 10
         var containerViewMinimumHeight: CGFloat = 150
         
-        var blurredBackgroundColor: UIColor = ApplicationStyle.colors.primary.withAlphaComponent(0.25)
+        var blurredBackgroundColor: UIColor = ApplicationStyle.colors.primary.withAlphaComponent(0.5)
+        var activityIndicatorColor: UIColor = ApplicationStyle.colors.white
+        
+        var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
     }
     
     struct EmptyStateViewModel {
@@ -97,7 +100,7 @@ class ExploreStyle {
             paragraphStyle.alignment = .center
             return [
                 NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
-                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .footnote),
+                NSAttributedString.Key.font: ApplicationStyle.fonts.regular(size: UIFont.smallSystemFontSize),
                 NSAttributedString.Key.paragraphStyle: paragraphStyle
             ]
         }
@@ -109,7 +112,7 @@ class ExploreStyle {
             paragraphStyle.alignment = .center
             return [
                 NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
-                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .footnote),
+                NSAttributedString.Key.font: ApplicationStyle.fonts.regular(size: UIFont.smallSystemFontSize),
                 NSAttributedString.Key.paragraphStyle: paragraphStyle
             ]
         }

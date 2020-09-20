@@ -59,4 +59,6 @@ class ExploreWorkerTests: XCTestCase {
         self.sut.fetchItems(page: 0, limit: 30)
         XCTAssertTrue(self.delegateSpy.failureDidFetchItemsCalled)
     }
+    
+    // TODO: - Add image task!
 }

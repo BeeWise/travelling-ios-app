@@ -15,6 +15,9 @@ import UIKit
 protocol ExploreWorkerDelegate: class {
     func successDidFetchItems(items: [Place])
     func failureDidFetchItems(error: OperationError)
+    
+    func successDidFetchImage(item: ExploreModels.DisplayedItem, image: UIImage?)
+    func failureDidFetchImage(item: ExploreModels.DisplayedItem, error: OperationError)
 }
 
 class ExploreWorker {
@@ -31,6 +34,17 @@ class ExploreWorker {
             switch result {
                 case .success(let value): self.delegate?.successDidFetchItems(items: value.places); break
                 case .failure(let error): self.delegate?.failureDidFetchItems(error: error); break
+            }
+        }
+    }
+    
+    func fetchImage(item: ExploreModels.DisplayedItem) {
+        // TODO: - Add task for fetching image!
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(Int.random(in: 500...2500))) {
+            if let imageName = item.imageName, imageName != "" {
+                self.delegate?.successDidFetchImage(item: item, image: UIImage(imageLiteralResourceName: imageName))
+            } else {
+                self.delegate?.failureDidFetchImage(item: item, error: .noDataAvailable)
             }
         }
     }

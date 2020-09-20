@@ -16,6 +16,7 @@ public class Place: Codable {
     
     var imageName: String?
     var imageUrl: String?
+    var imageDominantColor: String?
     
     init(id: String, location: Location) {
         self.id = id
@@ -28,5 +29,6 @@ public class Place: Codable {
         case name
         case imageName = "image_name"
         case imageUrl = "image_url"
+        case imageDominantColor = "image_dominant_color"
     }
 }

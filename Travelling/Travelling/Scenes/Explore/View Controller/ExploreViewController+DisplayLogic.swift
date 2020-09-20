@@ -26,6 +26,10 @@ protocol ExploreDisplayLogic: class {
     
     func displayErrorState(viewModel: ExploreModels.ErrorStatePresentation.ViewModel)
     func displayRemoveErrorState()
+    
+    func displayWillFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel)
+    func displayDidFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel)
+    func displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel)
 }
 
 extension ExploreViewController: ExploreDisplayLogic {
@@ -102,6 +106,28 @@ extension ExploreViewController: ExploreDisplayLogic {
             self.sections[section].errorText = nil
             self.sections[section].hasError = false
             self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayWillFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.item.isLoadingImage = true
+            viewModel.item.cellInterface?.setIsLoadingImage(isLoading: true)
+        }
+    }
+    
+    func displayDidFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.item.isLoadingImage = false
+            viewModel.item.cellInterface?.setIsLoadingImage(isLoading: false)
+        }
+    }
+    
+    func displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.item.image = viewModel.image
+            viewModel.item.imageContentMode = viewModel.contentMode
+            viewModel.item.cellInterface?.setImage(image: viewModel.image, contentMode: viewModel.contentMode)
         }
     }
 }

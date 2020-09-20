@@ -78,6 +78,9 @@
 		283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B5718250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift */; };
 		283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B571D250CC15F00EFA651 /* ApplicationStyle.swift */; };
 		283B5724250CC29300EFA651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 283B5726250CC29300EFA651 /* Localizable.strings */; };
+		287A356725173BAB00898B51 /* String+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A356625173BAB00898B51 /* String+HexColor.swift */; };
+		287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A356825174BC600898B51 /* String+NilOrEmpty.swift */; };
+		287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A356A2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift */; };
 		28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889783250E25420017B0B1 /* GetPlacesOperation.swift */; };
 		28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */; };
 		28889789250E27110017B0B1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889788250E27110017B0B1 /* Location.swift */; };
@@ -195,6 +198,9 @@
 		283B5721250CC26A00EFA651 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		283B5725250CC29300EFA651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		283B5727250CC29600EFA651 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		287A356625173BAB00898B51 /* String+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HexColor.swift"; sourceTree = "<group>"; };
+		287A356825174BC600898B51 /* String+NilOrEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NilOrEmpty.swift"; sourceTree = "<group>"; };
+		287A356A2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
 		28889783250E25420017B0B1 /* GetPlacesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesOperation.swift; sourceTree = "<group>"; };
 		28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesLocalOperation.swift; sourceTree = "<group>"; };
 		28889788250E27110017B0B1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -347,6 +353,8 @@
 				2812D48B250CDF170079F879 /* String+Localized.swift */,
 				28889791250E2A1B0017B0B1 /* String+JSONUrl.swift */,
 				288897C8250E40040017B0B1 /* String+Attributes.swift */,
+				287A356625173BAB00898B51 /* String+HexColor.swift */,
+				287A356825174BC600898B51 /* String+NilOrEmpty.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -817,6 +825,7 @@
 				288897AD250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift */,
 				288897AB250E34D00017B0B1 /* ExploreWorkerDelegateSpy.swift */,
 				288897AA250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift */,
+				287A356A2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -950,6 +959,7 @@
 			files = (
 				28179EE8250E00FC0081FD3A /* PlacesTaskModels.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
+				287A356725173BAB00898B51 /* String+HexColor.swift in Sources */,
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
 				2812D462250CDAC90079F879 /* MainStyle.swift in Sources */,
 				2812D467250CDAC90079F879 /* MainViewController.swift in Sources */,
@@ -974,6 +984,7 @@
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
+				287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */,
 				283B5713250CC0DC00EFA651 /* AppInteractor.swift in Sources */,
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
 				28179ED8250E00290081FD3A /* OperationError.swift in Sources */,
@@ -1036,6 +1047,7 @@
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
+				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
 				288897A2250E33BC0017B0B1 /* TaskConfiguratorTests.swift in Sources */,
 				288897C1250E35D40017B0B1 /* UITableViewSpy.swift in Sources */,
 				288897B7250E34D00017B0B1 /* ExploreWorkerTests.swift in Sources */,

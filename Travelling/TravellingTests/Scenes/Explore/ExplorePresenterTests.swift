@@ -94,4 +94,24 @@ class ExplorePresenterTests: XCTestCase {
         self.sut.presentRemoveErrorState()
         XCTAssertTrue(self.displayerSpy.displayRemoveErrorStateCalled)
     }
+    
+    func testPresentWillFetchImageShouldAskTheDisplayerToDisplayWillFetchImage() {
+        self.sut.presentWillFetchImage(response: ExploreModels.ImageFetching.Response(item: ExploreModels.DisplayedItem(id: "id")))
+        XCTAssertTrue(self.displayerSpy.displayWillFetchImageCalled)
+    }
+    
+    func testPresentDidFetchImageShouldAskTheDisplayerToDisplayDidFetchImage() {
+        self.sut.presentDidFetchImage(response: ExploreModels.ImageFetching.Response(item: ExploreModels.DisplayedItem(id: "id")))
+        XCTAssertTrue(self.displayerSpy.displayDidFetchImageCalled)
+    }
+    
+    func testPresentImageShouldAskTheDisplayerToDisplayImage() {
+        self.sut.presentImage(response: ExploreModels.ImagePresentation.Response(item: ExploreModels.DisplayedItem(id: "id"), image: nil))
+        XCTAssertTrue(self.displayerSpy.displayImageCalled)
+    }
+    
+    func testPresentPlaceholderImageShouldAskTheDisplayerToDisplayImage() {
+        self.sut.presentPlaceholderImage(response: ExploreModels.ImagePresentation.Response(item: ExploreModels.DisplayedItem(id: "id"), image: nil))
+        XCTAssertTrue(self.displayerSpy.displayImageCalled)
+    }
 }

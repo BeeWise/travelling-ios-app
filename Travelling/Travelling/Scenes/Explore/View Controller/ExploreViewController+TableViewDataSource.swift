@@ -24,9 +24,13 @@ extension ExploreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let displayedItem = self.sections[indexPath.section].items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: ExploreTableViewCell.defaultReuseIdentifier, for: indexPath) as! ExploreTableViewCell
-        cell.id = displayedItem.id
+        displayedItem.cellInterface = cell
         cell.setTitle(title: displayedItem.title)
+        cell.setImageDominantColor(color: displayedItem.imageDominantColor)
+        cell.setImage(image: displayedItem.image, contentMode: displayedItem.imageContentMode)
+        cell.setIsLoadingImage(isLoading: displayedItem.isLoadingImage)
         cell.delegate = self
+        self.interactor?.shouldFetchImage(request: ExploreModels.ImageFetching.Request(item: displayedItem))
         return cell
     }
 }

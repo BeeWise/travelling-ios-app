@@ -131,15 +131,24 @@ class ExploreViewControllerTests: XCTestCase {
         let section = ExploreModels.SectionIndex.items.rawValue
         let item = ExploreModels.DisplayedItem(id: "id")
         item.title = "Title".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        item.isLoadingImage = true
+        item.image = UIImage()
+        item.imageContentMode = .center
+        item.imageDominantColor = UIColor.white
         let items = [item]
         self.sut.sections[section].items = items
         
         let tableView = self.sut.tableView
         items.enumerated().forEach { (index, item) in
             let cell = self.sut.tableView(tableView!, cellForRowAt: IndexPath(row: index, section: section)) as! ExploreTableViewCell
-            XCTAssertEqual(cell.id, item.id)
+            XCTAssertNotNil(item.cellInterface)
             XCTAssertEqual(cell.titleLabel?.attributedText, item.title)
+            XCTAssertEqual(cell.activityIndicatorView?.isHidden, !item.isLoadingImage)
+            XCTAssertEqual(cell.backgroundImageView?.image, item.image)
+            XCTAssertEqual(cell.backgroundImageView?.contentMode, item.imageContentMode)
+            XCTAssertEqual(cell.backgroundImageView?.backgroundColor, item.imageDominantColor)
             XCTAssertNotNil(cell.delegate)
+            XCTAssertTrue(self.interactorSpy.shouldFetchImageCalled)
         }
     }
     
@@ -465,6 +474,43 @@ class ExploreViewControllerTests: XCTestCase {
         self.sut.displayRemoveErrorState()
         self.waitForMainQueue()
         XCTAssertTrue(tableViewSpy.reloadSectionsCalled)
+    }
+    
+    func testDisplayWillFetchImage() {
+        let spy = ExploreTableViewCellInterfaceSpy()
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.cellInterface = spy
+        item.isLoadingImage = false
+        self.sut.displayWillFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel(item: item))
+        self.waitForMainQueue()
+        XCTAssertTrue(item.isLoadingImage)
+        XCTAssertTrue(spy.setIsLoadingImageCalled)
+    }
+    
+    func testDisplayDidFetchImage() {
+        let spy = ExploreTableViewCellInterfaceSpy()
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.cellInterface = spy
+        item.isLoadingImage = true
+        self.sut.displayDidFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel(item: item))
+        self.waitForMainQueue()
+        XCTAssertFalse(item.isLoadingImage)
+        XCTAssertTrue(spy.setIsLoadingImageCalled)
+    }
+    
+    func testDisplayImage() {
+        let spy = ExploreTableViewCellInterfaceSpy()
+        let item = ExploreModels.DisplayedItem(id: "id")
+        item.cellInterface = spy
+        item.image = nil
+        item.imageContentMode = .center
+        let image = UIImage()
+        let contentMode = UIView.ContentMode.scaleAspectFill
+        self.sut.displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel(item: item, image: image, contentMode: contentMode))
+        self.waitForMainQueue()
+        XCTAssertEqual(item.image, image)
+        XCTAssertEqual(item.imageContentMode, contentMode)
+        XCTAssertTrue(spy.setImageCalled)
     }
     
     private func setupSections() {

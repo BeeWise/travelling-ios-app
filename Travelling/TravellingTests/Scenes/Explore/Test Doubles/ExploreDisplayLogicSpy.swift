@@ -28,6 +28,10 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     var displayErrorStateCalled: Bool = false
     var displayRemoveErrorStateCalled: Bool = false
     
+    var displayWillFetchImageCalled: Bool = false
+    var displayDidFetchImageCalled: Bool = false
+    var displayImageCalled: Bool = false
+    
     func displayWillFetchItems() {
         self.displayWillFetchItemsCalled = true
     }
@@ -63,5 +67,17 @@ class ExploreDisplayLogicSpy: ExploreDisplayLogic {
     
     func displayRemoveErrorState() {
         self.displayRemoveErrorStateCalled = true
+    }
+    
+    func displayWillFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel) {
+        self.displayWillFetchImageCalled = true
+    }
+    
+    func displayDidFetchImage(viewModel: ExploreModels.ImageFetching.ViewModel) {
+        self.displayDidFetchImageCalled = true
+    }
+    
+    func displayImage(viewModel: ExploreModels.ImagePresentation.ViewModel) {
+        self.displayImageCalled = true
     }
 }

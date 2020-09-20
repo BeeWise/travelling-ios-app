@@ -14,8 +14,13 @@
 
 class ExploreBusinessLogicSpy: ExploreBusinessLogic {
     var shouldFetchItemsCalled: Bool = false
+    var shouldFetchImageCalled: Bool = false
     
     func shouldFetchItems() {
         self.shouldFetchItemsCalled = true
+    }
+    
+    func shouldFetchImage(request: ExploreModels.ImageFetching.Request) {
+        self.shouldFetchImageCalled = true
     }
 }

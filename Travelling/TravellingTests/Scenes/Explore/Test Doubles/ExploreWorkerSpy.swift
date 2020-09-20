@@ -14,8 +14,13 @@
 
 class ExploreWorkerSpy: ExploreWorker {
     var fetchItemsCalled: Bool = false
+    var fetchImageCalled: Bool = false
     
     override func fetchItems(page: Int, limit: Int) {
         self.fetchItemsCalled = true
+    }
+    
+    override func fetchImage(item: ExploreModels.DisplayedItem) {
+        self.fetchImageCalled = true
     }
 }
