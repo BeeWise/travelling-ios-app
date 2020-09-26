@@ -303,8 +303,8 @@ class ExploreViewControllerTests: XCTestCase {
         XCTAssertTrue(self.interactorSpy.shouldBeginSearchStateCalled)
     }
     
-    func testSearchBarTextDidEndEditingShouldAskTheInteractorToEndSearchState() {
-        self.sut.searchBarTextDidEndEditing(UISearchBar())
+    func testSearchBarCancelButtonClickedShouldAskTheInteractorToEndSearchState() {
+        self.sut.searchBarCancelButtonClicked(UISearchBar())
         XCTAssertTrue(self.interactorSpy.shouldEndSearchStateCalled)
     }
     

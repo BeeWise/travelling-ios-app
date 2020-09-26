@@ -73,12 +73,12 @@ extension ExploreViewController: UISearchControllerDelegate, UISearchResultsUpda
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.interactor?.shouldSearchItems(request: ExploreModels.ItemsSearching.Request(text: searchBar.text))
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.interactor?.shouldEndSearchState()
+    }
         
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.interactor?.shouldBeginSearchState()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.interactor?.shouldEndSearchState()
     }
 }
