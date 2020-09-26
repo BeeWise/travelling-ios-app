@@ -12,19 +12,19 @@
 
 import UIKit
 
-extension ExploreViewController: UITableViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+extension ExploreViewController {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.shouldLoadMoreBeforeReaching(threshold: 50) {
             self.interactor?.shouldFetchItems()
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.sections[indexPath.section].items[indexPath.row]
         self.interactor?.shouldNavigateToPlaceDetails(request: ExploreModels.ItemNavigation.Request(id: item.id))
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if self.sections[section].isLoading {
             return self.loadingHeaderFooterView(tableView: tableView, isLoading: self.sections[section].isLoading)
         } else if self.sections[section].hasError {
@@ -35,7 +35,7 @@ extension ExploreViewController: UITableViewDelegate {
         return nil
     }
     
-    public func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         if self.sections[section].isLoading {
             return UITableView.automaticDimension
         } else if self.sections[section].hasError {
@@ -46,11 +46,11 @@ extension ExploreViewController: UITableViewDelegate {
         return 0
     }
     
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
     
-    public func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         switch section {
             case ExploreModels.SectionIndex.items.rawValue: return ExploreStyle.shared.tableViewModel.itemsSectionFooterHeight
             case ExploreModels.SectionIndex.footer.rawValue: return ExploreStyle.shared.tableViewModel.footerSectionFooterHeight

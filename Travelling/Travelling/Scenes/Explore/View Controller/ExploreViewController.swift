@@ -12,22 +12,20 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: UITableViewController {
     var interactor: ExploreBusinessLogic?
     var router: ExploreRoutingLogic?
     
-    weak var tableView: UITableView!
-    
-    var sections: [ExploreModels.Section] = []
+    var sections: [ExploreModels.Section] = [ExploreModels.Section(), ExploreModels.Section()]
     
     // MARK: - Object lifecycle
     
     convenience init() {
-        self.init(nibName: nil, bundle: nil)
+        self.init(style: .grouped)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init(style: UITableView.Style) {
+        super.init(style: style)
         self.setup()
     }
     
@@ -54,13 +52,7 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
-        self.setupSubviewsConstraints()
-        self.setupSections()
         self.interactor?.shouldFetchItems()
-    }
-    
-    private func setupSections() {
-        self.sections = [ExploreModels.Section(), ExploreModels.Section()]
     }
 }
 

@@ -393,7 +393,6 @@ class ExploreViewControllerTests: XCTestCase {
     }
     
     func testDisplayNewItemsShouldAskTheTableViewToInsertRowsInBatchUpdates() {
-        self.loadView()
         self.setupSections()
         let section = ExploreModels.SectionIndex.items.rawValue
         let tableViewSpy = self.tableViewSpy()
@@ -604,6 +603,7 @@ class ExploreViewControllerTests: XCTestCase {
     private func tableViewSpy() -> UITableViewSpy {
         let spy = UITableViewSpy()
         spy.dataSource = self.sut
+        spy.delegate = self.sut
         spy.register(ExploreTableViewCell.self, forCellReuseIdentifier: ExploreTableViewCell.defaultReuseIdentifier)
         return spy
     }

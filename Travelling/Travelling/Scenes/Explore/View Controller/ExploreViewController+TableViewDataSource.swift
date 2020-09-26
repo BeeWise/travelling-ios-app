@@ -12,16 +12,16 @@
 
 import UIKit
 
-extension ExploreViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension ExploreViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let displayedItem = self.sections[indexPath.section].items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: ExploreTableViewCell.defaultReuseIdentifier, for: indexPath) as! ExploreTableViewCell
         displayedItem.cellInterface = cell
