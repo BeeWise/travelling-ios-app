@@ -1,0 +1,72 @@
+[
+    {
+        "id": "0",
+        "name": "The Six",
+        "image_url": "",
+        "image_name": "toronto_canada",
+        "image_dominant_color": "#8e7866",
+        "location": {
+            "id": "0",
+            "latitude": 43.651070,
+            "longitude": -79.347015,
+            "city": "Toronto",
+            "country": "Canada"
+        }
+    },
+    {
+        "id": "1",
+        "name": "City by the Bay",
+        "image_url": "",
+        "image_name": "san_francisco_usa",
+        "image_dominant_color": "#846f52",
+        "location": {
+            "id": "1",
+            "latitude": 37.773972,
+            "longitude": -122.431297,
+            "city": "San Francisco",
+            "country": "USA"
+        }
+    },
+    {
+        "id": "2",
+        "name": "La Serenissima",
+        "image_url": "",
+        "image_name": "venice_italy",
+        "image_dominant_color": "#7e8e9c",
+        "location": {
+            "id": "2",
+            "latitude": 45.438759,
+            "longitude": 12.327145,
+            "city": "Venice",
+            "country": "Italy"
+        }
+    },
+    {
+        "id": "3",
+        "name": "The City of Lights",
+        "image_url": "",
+        "image_name": "paris_france",
+        "image_dominant_color": "#6f5b6d",
+        "location": {
+            "id": "3",
+            "latitude": 48.864716,
+            "longitude": 2.349014,
+            "city": "Paris",
+            "country": "France"
+        }
+    },
+    {
+        "id": "4",
+        "name": "The City of a Hundred Spires",
+        "image_url": "",
+        "image_name": "prague_czech_republic",
+        "image_dominant_color": "#6b7d78",
+        "location": {
+            "id": "4",
+            "latitude": 50.073658,
+            "longitude": 14.418540,
+            "city": "Prague",
+            "country": "Czech Republic"
+        }
+    }
+]

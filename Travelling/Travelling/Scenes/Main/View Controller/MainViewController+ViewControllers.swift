@@ -22,7 +22,7 @@ extension MainViewController {
 
 extension MainViewController {
     func setupExploreViewController() {
-        self.exploreViewController = UIViewController()
+        self.exploreViewController = ExploreViewController()
         self.exploreViewController.tabBarItem = self.exploreTabBarItem()
     }
     
