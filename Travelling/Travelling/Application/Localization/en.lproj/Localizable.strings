@@ -9,3 +9,10 @@
 "Explore.tab.title" = "Explore";
 "MyFavorites.tab.title" = "My Favorites";
 "MyProfile.tab.title" = "My Profile";
+
+// Explore scene
+
+"Explore.scene.title" = "Explore";
+"Explore.scene.empty.state.text" = "No places found";
+"Explore.scene.no.more.places.text" = "No more places";
+"Explore.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";
