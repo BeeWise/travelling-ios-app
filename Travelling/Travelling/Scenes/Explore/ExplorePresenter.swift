@@ -131,8 +131,8 @@ extension ExplorePresenter {
     private func displayedItem(item: Place) -> ExploreModels.DisplayedItem {
         let displayedItem = ExploreModels.DisplayedItem(id: item.id)
         displayedItem.title = item.name?.attributed(attributes: ExploreStyle.shared.cellModel.titleAttributes())
-        displayedItem.imageName = item.imageName
-        displayedItem.imageDominantColor = item.imageDominantColor?.hexColor()
+        displayedItem.imageName = item.photo?.imageName
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
         return displayedItem
     }
     
@@ -149,8 +149,8 @@ extension ExplorePresenter {
         
         let displayedItem = ExploreModels.DisplayedItem(id: item.id)
         displayedItem.title = displayedTitle
-        displayedItem.imageName = item.imageName
-        displayedItem.imageDominantColor = item.imageDominantColor?.hexColor()
+        displayedItem.imageName = item.photo?.imageName
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
         return displayedItem
     }
 }

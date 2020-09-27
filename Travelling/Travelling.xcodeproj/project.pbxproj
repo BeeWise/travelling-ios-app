@@ -69,6 +69,8 @@
 		28179EEA250E00FC0081FD3A /* PlacesTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28179EE7250E00FC0081FD3A /* PlacesTaskProtocol.swift */; };
 		28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28179EEB250E01120081FD3A /* PlacesTask.swift */; };
 		28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28179EED250E01C20081FD3A /* DataTaskOperation.swift */; };
+		281F4F7E2520CA9E008475D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F7D2520CA9E008475D7 /* User.swift */; };
+		281F4F812520CAD4008475D7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F802520CAD4008475D7 /* Photo.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
 		283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B56FA250CBCB000EFA651 /* LaunchScreen.storyboard */; };
@@ -198,6 +200,8 @@
 		28179EE7250E00FC0081FD3A /* PlacesTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTaskProtocol.swift; sourceTree = "<group>"; };
 		28179EEB250E01120081FD3A /* PlacesTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTask.swift; sourceTree = "<group>"; };
 		28179EED250E01C20081FD3A /* DataTaskOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskOperation.swift; sourceTree = "<group>"; };
+		281F4F7D2520CA9E008475D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		281F4F802520CAD4008475D7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283B56F8250CBCB000EFA651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 		28179EB3250DFCD90081FD3A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				281F4F7F2520CACD008475D7 /* Photo */,
+				281F4F7C2520CA88008475D7 /* User */,
 				28889787250E270A0017B0B1 /* Location */,
 				28179EB4250DFCE10081FD3A /* Place */,
 			);
@@ -633,6 +639,22 @@
 				28179EEB250E01120081FD3A /* PlacesTask.swift */,
 			);
 			path = Places;
+			sourceTree = "<group>";
+		};
+		281F4F7C2520CA88008475D7 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				281F4F7D2520CA9E008475D7 /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		281F4F7F2520CACD008475D7 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				281F4F802520CAD4008475D7 /* Photo.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 		283B56E3250CBCAF00EFA651 = {
@@ -1096,6 +1118,7 @@
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
+				281F4F812520CAD4008475D7 /* Photo.swift in Sources */,
 				287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */,
 				283B5713250CC0DC00EFA651 /* AppInteractor.swift in Sources */,
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
@@ -1112,6 +1135,7 @@
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
+				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
 				287A35802517592B00898B51 /* ImageTask.swift in Sources */,
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
