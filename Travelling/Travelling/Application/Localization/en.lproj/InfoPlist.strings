@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Travelling
+
+  Created by Dimitri Strauneanu on 27/09/2020.
+  
+*/
+
+"CFBundleDisplayName" = "Travelling";
+"CFBundleName" = "Travelling";
