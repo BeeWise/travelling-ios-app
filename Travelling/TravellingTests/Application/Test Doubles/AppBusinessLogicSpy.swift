@@ -9,7 +9,12 @@
 import Foundation
 
 class AppBusinessLogicSpy: AppBusinessLogic {
+    var shouldSetupEnvironmentCalled: Bool = false
     var shouldSetupWindowCalled: Bool = false
+    
+    func shouldSetupEnvironment() {
+        self.shouldSetupEnvironmentCalled = true
+    }
     
     func shouldSetupWindow() {
         self.shouldSetupWindowCalled = true
