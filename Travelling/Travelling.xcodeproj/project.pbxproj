@@ -91,6 +91,7 @@
 		287A35802517592B00898B51 /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A357F2517592B00898B51 /* ImageTask.swift */; };
 		287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A358225175DC000898B51 /* ImageTaskTests.swift */; };
 		287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A358425175DEC00898B51 /* ImageTaskSpy.swift */; };
+		28841A6925203CC30072A515 /* BundleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28841A6825203CC30072A515 /* BundleConfiguration.swift */; };
 		28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889783250E25420017B0B1 /* GetPlacesOperation.swift */; };
 		28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */; };
 		28889789250E27110017B0B1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889788250E27110017B0B1 /* Location.swift */; };
@@ -224,6 +225,9 @@
 		287A357F2517592B00898B51 /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
 		287A358225175DC000898B51 /* ImageTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskTests.swift; sourceTree = "<group>"; };
 		287A358425175DEC00898B51 /* ImageTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTaskSpy.swift; sourceTree = "<group>"; };
+		28841A6825203CC30072A515 /* BundleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleConfiguration.swift; sourceTree = "<group>"; };
+		28841A6A25203D0A0072A515 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		28841A6B25203D320072A515 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		28889783250E25420017B0B1 /* GetPlacesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesOperation.swift; sourceTree = "<group>"; };
 		28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesLocalOperation.swift; sourceTree = "<group>"; };
 		28889788250E27110017B0B1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -649,6 +653,7 @@
 		283B56EE250CBCAF00EFA651 /* Travelling */ = {
 			isa = PBXGroup;
 			children = (
+				28841A6725203C630072A515 /* Configurations */,
 				28179ED9250E004D0081FD3A /* Tasks */,
 				28179ED3250DFFF00081FD3A /* Operations */,
 				28179EC3250DFEC00081FD3A /* Components */,
@@ -782,6 +787,16 @@
 				287A358225175DC000898B51 /* ImageTaskTests.swift */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		28841A6725203C630072A515 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				28841A6825203CC30072A515 /* BundleConfiguration.swift */,
+				28841A6A25203D0A0072A515 /* Development.xcconfig */,
+				28841A6B25203D320072A515 /* Production.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		28889781250E25300017B0B1 /* Places */ = {
@@ -1107,6 +1122,7 @@
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
 				28179EDC250E006D0081FD3A /* TaskEnvironment.swift in Sources */,
 				287A357C2517588A00898B51 /* ImageTaskProtocol.swift in Sources */,
+				28841A6925203CC30072A515 /* BundleConfiguration.swift in Sources */,
 				28179ECA250DFF2A0081FD3A /* TableViewTitleHeaderFooterView.swift in Sources */,
 				287A35732517578B00898B51 /* String+LiteralImage.swift in Sources */,
 				28179EA8250DFC700081FD3A /* ExploreRouter.swift in Sources */,
@@ -1198,6 +1214,7 @@
 /* Begin XCBuildConfiguration section */
 		283B5709250CBCB000EFA651 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28841A6A25203D0A0072A515 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1259,6 +1276,7 @@
 		};
 		283B570A250CBCB100EFA651 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28841A6B25203D320072A515 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1404,7 +1422,7 @@
 				283B570A250CBCB100EFA651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		283B570B250CBCB100EFA651 /* Build configuration list for PBXNativeTarget "Travelling" */ = {
 			isa = XCConfigurationList;
@@ -1413,7 +1431,7 @@
 				283B570D250CBCB100EFA651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		283B570E250CBCB100EFA651 /* Build configuration list for PBXNativeTarget "TravellingTests" */ = {
 			isa = XCConfigurationList;
@@ -1422,7 +1440,7 @@
 				283B5710250CBCB100EFA651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

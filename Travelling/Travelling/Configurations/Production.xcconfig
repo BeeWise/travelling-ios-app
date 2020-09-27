@@ -1,0 +1,13 @@
+//
+//  Production.xcconfig
+//  Travelling
+//
+//  Created by Dimitri Strauneanu on 27/09/2020.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+TASK_CONFIGURATOR_ENVIRONMENT = environment
+
+#include? "LocalProduction.xcconfig"
