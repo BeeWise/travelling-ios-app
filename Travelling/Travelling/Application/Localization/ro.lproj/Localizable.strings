@@ -14,3 +14,7 @@
 "Explore.scene.empty.state.text" = "Nu sunt locuri";
 "Explore.scene.no.more.places.text" = "Nu mai sunt locuri";
 "Explore.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
+
+// My Profile scene
+
+"MyProfile.scene.title" = "Profil";

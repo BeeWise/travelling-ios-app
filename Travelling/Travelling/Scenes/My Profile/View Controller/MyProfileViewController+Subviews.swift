@@ -14,6 +14,30 @@ import UIKit
 
 extension MyProfileViewController {
     func setupSubviews() {
-        
+        self.setupNavigationBar()
+        self.setupNavigationItem()
+        self.setupContentView()
+        self.setupTableView()
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.isTranslucent = MyProfileStyle.shared.navigationBarModel.isTranslucent
+        self.navigationController?.navigationBar.tintColor = MyProfileStyle.shared.navigationBarModel.tintColor
+        self.navigationController?.navigationBar.barTintColor = MyProfileStyle.shared.navigationBarModel.barTintColor
+        self.navigationController?.navigationBar.titleTextAttributes = MyProfileStyle.shared.navigationBarModel.titleAttributes()
+    }
+    
+    private func setupNavigationItem() {
+        self.navigationItem.title = MyProfileLocalization.shared.title
+    }
+    
+    private func setupContentView() {
+        self.definesPresentationContext = true
+        self.view.backgroundColor = MyProfileStyle.shared.contentViewModel.backgroundColor
+    }
+    
+    private func setupTableView() {
+        self.tableView.backgroundColor = MyProfileStyle.shared.tableViewModel.backgroundColor
+        self.tableView.separatorStyle = .none
     }
 }

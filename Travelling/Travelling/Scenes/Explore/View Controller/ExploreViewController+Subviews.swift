@@ -49,7 +49,6 @@ extension ExploreViewController {
     
     private func setupTableView() {
         self.tableView.backgroundColor = ExploreStyle.shared.tableViewModel.backgroundColor
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.separatorStyle = .none
         self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
         self.tableView.register(ExploreTableViewCell.self, forCellReuseIdentifier: ExploreTableViewCell.defaultReuseIdentifier)

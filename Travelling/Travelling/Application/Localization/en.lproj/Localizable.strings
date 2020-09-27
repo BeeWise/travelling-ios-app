@@ -16,3 +16,7 @@
 "Explore.scene.empty.state.text" = "No places found";
 "Explore.scene.no.more.places.text" = "No more places";
 "Explore.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";
+
+// My Profile scene
+
+"MyProfile.scene.title" = "Profile";

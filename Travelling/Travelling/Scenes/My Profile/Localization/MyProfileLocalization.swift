@@ -20,6 +20,9 @@ class MyProfileLocalization {
     }
     
     struct LocalizedKey {
-        
+        static let
+        title = "MyProfile.scene.title"
     }
+    
+    let title = LocalizedKey.title.localized()
 }

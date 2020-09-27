@@ -18,7 +18,7 @@ class MainViewController: UITabBarController {
     
     var exploreViewController: ExploreViewController!
     var myFavoritesViewController: UIViewController!
-    var myProfileViewController: UIViewController!
+    var myProfileViewController: MyProfileViewController!
     
     // MARK: - Object lifecycle
     

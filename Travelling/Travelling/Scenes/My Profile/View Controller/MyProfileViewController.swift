@@ -19,7 +19,7 @@ class MyProfileViewController: UITableViewController {
     // MARK: - Object lifecycle
     
     convenience init() {
-        self.init(style: .grouped)
+        self.init(style: .plain)
     }
     
     override init(style: UITableView.Style) {

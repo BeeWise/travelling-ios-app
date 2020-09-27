@@ -52,7 +52,7 @@ extension MainViewController {
 
 extension MainViewController {
     func setupMyProfileViewController() {
-        self.myProfileViewController = UIViewController()
+        self.myProfileViewController = MyProfileViewController()
         self.myProfileViewController.tabBarItem = self.myProfileTabBarItem()
     }
     
