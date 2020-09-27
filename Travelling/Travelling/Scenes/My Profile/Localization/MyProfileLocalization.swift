@@ -21,8 +21,17 @@ class MyProfileLocalization {
     
     struct LocalizedKey {
         static let
-        title = "MyProfile.scene.title"
+        title = "MyProfile.scene.title",
+        logoutTitle = "MyProfile.scene.logout.title",
+        reportIssueTitle = "MyProfile.scene.report.issue.title",
+        versionTitle = "MyProfile.scene.version.title"
     }
     
     let title = LocalizedKey.title.localized()
+    let logoutTitle = LocalizedKey.logoutTitle.localized()
+    let reportIssueTitle = LocalizedKey.reportIssueTitle.localized()
+    
+    func versionTitle(version: String) -> String {
+        return String(format: LocalizedKey.versionTitle.localized(), version)
+    }
 }

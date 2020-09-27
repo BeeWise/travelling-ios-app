@@ -13,9 +13,89 @@
 import UIKit
 
 protocol MyProfilePresentationLogic {
+    func presentWillFetchUser()
+    func presentDidFetchUser()
+    func presentUser(response: MyProfileModels.UserPresentation.Response)
     
+    func presentWillFetchImage(response: MyProfileModels.ImageFetching.Response)
+    func presentDidFetchImage(response: MyProfileModels.ImageFetching.Response)
+    func presentImage(response: MyProfileModels.ImagePresentation.Response)
+    func presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response)
 }
 
 class MyProfilePresenter: MyProfilePresentationLogic {
     weak var displayer: MyProfileDisplayLogic?
+    
+    func presentWillFetchUser() {
+        self.displayer?.displayWillFetchUser()
+    }
+    
+    func presentDidFetchUser() {
+        self.displayer?.displayDidFetchUser()
+    }
+    
+    func presentUser(response: MyProfileModels.UserPresentation.Response) {
+        self.displayer?.displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel(items: self.displayedItems(user: response.user)))
+    }
+    
+    func presentWillFetchImage(response: MyProfileModels.ImageFetching.Response) {
+        self.displayer?.displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel(model: response.model))
+    }
+    
+    func presentDidFetchImage(response: MyProfileModels.ImageFetching.Response) {
+        self.displayer?.displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel(model: response.model))
+    }
+    
+    func presentImage(response: MyProfileModels.ImagePresentation.Response) {
+        self.displayer?.displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel(model: response.model, image: response.image, contentMode: .scaleAspectFill))
+    }
+    
+    func presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response) {
+        let image = MyProfileStyle.shared.informationCellModel.avatarPlaceholderImage
+        self.displayer?.displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel(model: response.model, image: image, contentMode: .center))
+    }
+}
+
+// MARK: - Displayed items
+
+extension MyProfilePresenter {
+    private func displayedItems(user: User) -> [MyProfileModels.DisplayedItem] {
+        var items: [MyProfileModels.DisplayedItem] = []
+        items.append(self.displayedUserItem(user: user))
+        items.append(self.displayedLogoutItem())
+        items.append(self.displayedReportIssueItem())
+        items.append(self.displayedVersionItem())
+        return items
+    }
+    
+    private func displayedUserItem(user: User) -> MyProfileModels.DisplayedItem {
+        let model = MyProfileModels.UserModel()
+        model.name = self.displayedName(user: user).attributed(attributes: MyProfileStyle.shared.informationCellModel.nameAttributes())
+        model.title = user.title?.attributed(attributes: MyProfileStyle.shared.informationCellModel.titleAttributes())
+        model.description = user.description?.attributed(attributes: MyProfileStyle.shared.informationCellModel.descriptionAttributes())
+        model.imageDominantColor = user.photo?.imageDominantColor?.hexColor()
+        return MyProfileModels.DisplayedItem(type: .user, model: model)
+    }
+    
+    private func displayedName(user: User) -> String {
+        let firstName = user.firstName ?? ""
+        let lastName = user.lastName ?? ""
+        return String(format: "%@ %@", firstName, lastName)
+    }
+    
+    private func displayedLogoutItem() -> MyProfileModels.DisplayedItem {
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.logoutTitle.attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()))
+        return MyProfileModels.DisplayedItem(type: .logout, model: model)
+    }
+    
+    private func displayedReportIssueItem() -> MyProfileModels.DisplayedItem {
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.reportIssueTitle.attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()))
+        return MyProfileModels.DisplayedItem(type: .reportIssue, model: model)
+    }
+    
+    private func displayedVersionItem() -> MyProfileModels.DisplayedItem {
+        let version = Bundle.main.versionNumber
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.versionTitle(version: version).attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()))
+        return MyProfileModels.DisplayedItem(type: .version, model: model)
+    }
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 enum MyProfileModels {
-    enum ItemType {
+    enum ItemType: CaseIterable {
         case user
         case logout
         case reportIssue

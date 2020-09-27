@@ -20,12 +20,14 @@ class MyProfileStyle {
     var contentViewModel: ContentViewModel
     var tableViewModel: TableViewModel
     var informationCellModel: InformationCellModel
+    var titleCellModel: TitleCellModel
     
     private init() {
         self.navigationBarModel = NavigationBarModel()
         self.contentViewModel = ContentViewModel()
         self.tableViewModel = TableViewModel()
         self.informationCellModel = InformationCellModel()
+        self.titleCellModel = TitleCellModel()
     }
     
     struct NavigationBarModel {
@@ -80,5 +82,14 @@ class MyProfileStyle {
         var avatarBackgroundColor: UIColor = ApplicationStyle.colors.accent
         var avatarActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
         var avatarPlaceholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
+    }
+    
+    struct TitleCellModel {
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryDark,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+            ]
+        }
     }
 }

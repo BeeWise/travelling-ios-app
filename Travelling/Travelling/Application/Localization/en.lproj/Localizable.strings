@@ -20,3 +20,6 @@
 // My Profile scene
 
 "MyProfile.scene.title" = "Profile";
+"MyProfile.scene.logout.title" = "Logout";
+"MyProfile.scene.report.issue.title" = "Report issue";
+"MyProfile.scene.version.title" = "Version %@";

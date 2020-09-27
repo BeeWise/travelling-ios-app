@@ -94,6 +94,7 @@
 		281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */; };
 		281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FB52520D571008475D7 /* MyProfileInformationTableViewCell.swift */; };
 		281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FB72520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift */; };
+		281F4FBB2520DECE008475D7 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FBA2520DECE008475D7 /* Bundle+Version.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
 		283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B56FA250CBCB000EFA651 /* LaunchScreen.storyboard */; };
@@ -248,6 +249,7 @@
 		281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileWorkerSpy.swift; sourceTree = "<group>"; };
 		281F4FB52520D571008475D7 /* MyProfileInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInformationTableViewCell.swift; sourceTree = "<group>"; };
 		281F4FB72520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInformationTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
+		281F4FBA2520DECE008475D7 /* Bundle+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283B56F8250CBCB000EFA651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		2812D489250CDF010079F879 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				281F4FB92520DEC5008475D7 /* Bundle */,
 				288897C4250E3DEA0017B0B1 /* UIFont */,
 				28179EC0250DFE720081FD3A /* UIScrollView */,
 				28179EBD250DFE350081FD3A /* UITableView */,
@@ -780,6 +783,14 @@
 				281F4FB52520D571008475D7 /* MyProfileInformationTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		281F4FB92520DEC5008475D7 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				281F4FBA2520DECE008475D7 /* Bundle+Version.swift */,
+			);
+			path = Bundle;
 			sourceTree = "<group>";
 		};
 		283B56E3250CBCAF00EFA651 = {
@@ -1255,6 +1266,7 @@
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
 				28179ED8250E00290081FD3A /* OperationError.swift in Sources */,
 				2812D468250CDAC90079F879 /* MainInteractor.swift in Sources */,
+				281F4FBB2520DECE008475D7 /* Bundle+Version.swift in Sources */,
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
 				28179EAA250DFC700081FD3A /* ExploreViewController.swift in Sources */,
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,

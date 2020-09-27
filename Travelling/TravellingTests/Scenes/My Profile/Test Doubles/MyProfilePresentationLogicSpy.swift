@@ -13,5 +13,40 @@
 @testable import Travelling
 
 class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
+    var presentWillFetchUserCalled: Bool = false
+    var presentDidFetchUserCalled: Bool = false
+    var presentUserCalled: Bool = false
     
+    var presentWillFetchImageCalled: Bool = false
+    var presentDidFetchImageCalled: Bool = false
+    var presentImageCalled: Bool = false
+    var presentPlaceholderImageCalled: Bool = false
+    
+    func presentWillFetchUser() {
+        self.presentWillFetchUserCalled = true
+    }
+    
+    func presentDidFetchUser() {
+        self.presentDidFetchUserCalled = true
+    }
+    
+    func presentUser(response: MyProfileModels.UserPresentation.Response) {
+        self.presentUserCalled = true
+    }
+    
+    func presentWillFetchImage(response: MyProfileModels.ImageFetching.Response) {
+        self.presentWillFetchImageCalled = true
+    }
+    
+    func presentDidFetchImage(response: MyProfileModels.ImageFetching.Response) {
+        self.presentDidFetchImageCalled = true
+    }
+    
+    func presentImage(response: MyProfileModels.ImagePresentation.Response) {
+        self.presentImageCalled = true
+    }
+    
+    func presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response) {
+        self.presentPlaceholderImageCalled = true
+    }
 }

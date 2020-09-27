@@ -10,6 +10,8 @@
 "MyFavorites.tab.title" = "Favorite";
 "MyProfile.tab.title" = "Profil";
 
+// Explore scene
+
 "Explore.scene.title" = "Explorează";
 "Explore.scene.empty.state.text" = "Nu sunt locuri";
 "Explore.scene.no.more.places.text" = "Nu mai sunt locuri";
@@ -18,3 +20,6 @@
 // My Profile scene
 
 "MyProfile.scene.title" = "Profil";
+"MyProfile.scene.logout.title" = "Deconectare";
+"MyProfile.scene.report.issue.title" = "Raportează o problemă";
+"MyProfile.scene.version.title" = "Versiunea %@";

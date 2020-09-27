@@ -16,6 +16,7 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     var displayWillFetchUserCalled: Bool = false
     var displayDidFetchUserCalled: Bool = false
     var displayUserCalled: Bool = false
+    var displayUserViewModel: MyProfileModels.UserPresentation.ViewModel!
     
     var displayWillFetchImageCalled: Bool = false
     var displayDidFetchImageCalled: Bool = false
@@ -31,6 +32,7 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     func displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel) {
         self.displayUserCalled = true
+        self.displayUserViewModel = viewModel
     }
     
     func displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel) {

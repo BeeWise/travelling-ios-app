@@ -39,5 +39,74 @@ class MyProfilePresenterTests: XCTestCase {
     
     // MARK: - Tests
     
+    func testPresentWillFetchUserShouldAskTheDisplayerToDisplayWillFetchUser() {
+        self.sut.presentWillFetchUser()
+        XCTAssertTrue(self.displayerSpy.displayWillFetchUserCalled)
+    }
     
+    func testPresentDidFetchUserShouldAskTheDisplayerToDisplayDidFetchUser() {
+        self.sut.presentDidFetchUser()
+        XCTAssertTrue(self.displayerSpy.displayDidFetchUserCalled)
+    }
+        
+    func testPresentUserShouldAskTheDisplayerToDisplayUser() {
+        self.sut.presentUser(response: MyProfileModels.UserPresentation.Response(user: User(id: "id")))
+        XCTAssertTrue(self.displayerSpy.displayUserCalled)
+    }
+    
+    func testPresentUserShouldFormatItemsForDisplay() {
+        let user = self.user()
+        self.sut.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
+        XCTAssertEqual(self.displayerSpy.displayUserViewModel.items.count, MyProfileModels.ItemType.allCases.count)
+    }
+    
+    func testPresentUserShouldFormatUserItemForDisplay() {
+        let user = self.user()
+        self.sut.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
+        let userModel = self.displayerSpy.displayUserViewModel.items.first(where: { $0.type == .user })?.model as? MyProfileModels.UserModel
+        XCTAssertEqual(userModel?.name?.string, String(format: "%@ %@", user.firstName ?? "", user.lastName ?? ""))
+        XCTAssertEqual(userModel?.title?.string, user.title)
+        XCTAssertEqual(userModel?.description?.string, user.description)
+        XCTAssertEqual(userModel?.imageDominantColor, user.photo?.imageDominantColor?.hexColor())
+    }
+    
+    func testPresentWillFetchImageShouldAskTheDisplayerToDisplayWillFetchImage() {
+        self.sut.presentWillFetchImage(response: MyProfileModels.ImageFetching.Response(model: MyProfileModels.UserModel()))
+        XCTAssertTrue(self.displayerSpy.displayWillFetchImageCalled)
+    }
+    
+    func testPresentDidFetchImageShouldAskTheDisplayerToDisplayDidFetchImage() {
+        self.sut.presentDidFetchImage(response: MyProfileModels.ImageFetching.Response(model: MyProfileModels.UserModel()))
+        XCTAssertTrue(self.displayerSpy.displayDidFetchImageCalled)
+    }
+    
+    func testPresentImageShouldAskTheDisplayerToDisplayImage() {
+        self.sut.presentImage(response: MyProfileModels.ImagePresentation.Response(model: MyProfileModels.UserModel(), image: nil))
+        XCTAssertTrue(self.displayerSpy.displayImageCalled)
+    }
+    
+    func testPresentPlaceholderImageShouldAskTheDisplayerToDisplayImage() {
+        self.sut.presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response(model: MyProfileModels.UserModel(), image: nil))
+        XCTAssertTrue(self.displayerSpy.displayImageCalled)
+    }
+}
+
+// MARK: - Auxiliary
+
+extension MyProfilePresenterTests {
+    private func user() -> User {
+        let user = User(id: "userId")
+        user.firstName = "First name"
+        user.lastName = "Last name"
+        user.title = "Title"
+        user.description = "Description"
+        user.photo = self.photo()
+        return user
+    }
+    
+    private func photo() -> Photo {
+        let photo = Photo(id: "photoId")
+        photo.imageDominantColor = "#FFFFFF"
+        return photo
+    }
 }
