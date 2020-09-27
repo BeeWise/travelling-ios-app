@@ -71,6 +71,27 @@
 		28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28179EED250E01C20081FD3A /* DataTaskOperation.swift */; };
 		281F4F7E2520CA9E008475D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F7D2520CA9E008475D7 /* User.swift */; };
 		281F4F812520CAD4008475D7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F802520CAD4008475D7 /* Photo.swift */; };
+		281F4F8D2520CDA9008475D7 /* MyProfileViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F832520CDA9008475D7 /* MyProfileViewController+Subviews.swift */; };
+		281F4F8E2520CDA9008475D7 /* MyProfileStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F842520CDA9008475D7 /* MyProfileStyle.swift */; };
+		281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F852520CDA9008475D7 /* MyProfilePresenter.swift */; };
+		281F4F902520CDA9008475D7 /* MyProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F862520CDA9008475D7 /* MyProfileWorker.swift */; };
+		281F4F912520CDA9008475D7 /* MyProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F872520CDA9008475D7 /* MyProfileRouter.swift */; };
+		281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F882520CDA9008475D7 /* MyProfileModels.swift */; };
+		281F4F932520CDA9008475D7 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F892520CDA9008475D7 /* MyProfileViewController.swift */; };
+		281F4F942520CDA9008475D7 /* MyProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F8A2520CDA9008475D7 /* MyProfileInteractor.swift */; };
+		281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F8B2520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift */; };
+		281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F8C2520CDA9008475D7 /* MyProfileLocalization.swift */; };
+		281F4FA62520CDF6008475D7 /* MyProfileViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F9B2520CDF6008475D7 /* MyProfileViewControllerTests.swift */; };
+		281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F9C2520CDF6008475D7 /* MyProfileInteractorTests.swift */; };
+		281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F9D2520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift */; };
+		281F4FA92520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F9E2520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift */; };
+		281F4FAA2520CDF6008475D7 /* MyProfileWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4F9F2520CDF6008475D7 /* MyProfileWorkerTests.swift */; };
+		281F4FAB2520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA02520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift */; };
+		281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA12520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift */; };
+		281F4FAD2520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA22520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift */; };
+		281F4FAE2520CDF6008475D7 /* MyProfileRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA32520CDF6008475D7 /* MyProfileRouterTests.swift */; };
+		281F4FAF2520CDF6008475D7 /* MyProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA42520CDF6008475D7 /* MyProfilePresenterTests.swift */; };
+		281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
 		283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B56FA250CBCB000EFA651 /* LaunchScreen.storyboard */; };
@@ -202,6 +223,27 @@
 		28179EED250E01C20081FD3A /* DataTaskOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskOperation.swift; sourceTree = "<group>"; };
 		281F4F7D2520CA9E008475D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		281F4F802520CAD4008475D7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		281F4F832520CDA9008475D7 /* MyProfileViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+Subviews.swift"; sourceTree = "<group>"; };
+		281F4F842520CDA9008475D7 /* MyProfileStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileStyle.swift; sourceTree = "<group>"; };
+		281F4F852520CDA9008475D7 /* MyProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenter.swift; sourceTree = "<group>"; };
+		281F4F862520CDA9008475D7 /* MyProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileWorker.swift; sourceTree = "<group>"; };
+		281F4F872520CDA9008475D7 /* MyProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRouter.swift; sourceTree = "<group>"; };
+		281F4F882520CDA9008475D7 /* MyProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileModels.swift; sourceTree = "<group>"; };
+		281F4F892520CDA9008475D7 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		281F4F8A2520CDA9008475D7 /* MyProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInteractor.swift; sourceTree = "<group>"; };
+		281F4F8B2520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		281F4F8C2520CDA9008475D7 /* MyProfileLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileLocalization.swift; sourceTree = "<group>"; };
+		281F4F9B2520CDF6008475D7 /* MyProfileViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewControllerTests.swift; sourceTree = "<group>"; };
+		281F4F9C2520CDF6008475D7 /* MyProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInteractorTests.swift; sourceTree = "<group>"; };
+		281F4F9D2520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		281F4F9E2520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		281F4F9F2520CDF6008475D7 /* MyProfileWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileWorkerTests.swift; sourceTree = "<group>"; };
+		281F4FA02520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresentationLogicSpy.swift; sourceTree = "<group>"; };
+		281F4FA12520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		281F4FA22520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		281F4FA32520CDF6008475D7 /* MyProfileRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRouterTests.swift; sourceTree = "<group>"; };
+		281F4FA42520CDF6008475D7 /* MyProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenterTests.swift; sourceTree = "<group>"; };
+		281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileWorkerSpy.swift; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283B56F8250CBCB000EFA651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -288,6 +330,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				281F4F822520CC7E008475D7 /* My Profile */,
 				28179E95250DFC400081FD3A /* Explore */,
 				2812D456250CDABB0079F879 /* Main */,
 			);
@@ -339,6 +382,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				281F4F9A2520CDE8008475D7 /* My Profile */,
 				288897A7250E34BE0017B0B1 /* Explore */,
 				2812D46F250CDB0A0079F879 /* Main */,
 			);
@@ -655,6 +699,73 @@
 				281F4F802520CAD4008475D7 /* Photo.swift */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		281F4F822520CC7E008475D7 /* My Profile */ = {
+			isa = PBXGroup;
+			children = (
+				281F4F992520CDD1008475D7 /* Localization */,
+				281F4F982520CDC4008475D7 /* Style */,
+				281F4F972520CDB3008475D7 /* View Controller */,
+				281F4F852520CDA9008475D7 /* MyProfilePresenter.swift */,
+				281F4F862520CDA9008475D7 /* MyProfileWorker.swift */,
+				281F4F872520CDA9008475D7 /* MyProfileRouter.swift */,
+				281F4F882520CDA9008475D7 /* MyProfileModels.swift */,
+				281F4F8A2520CDA9008475D7 /* MyProfileInteractor.swift */,
+			);
+			path = "My Profile";
+			sourceTree = "<group>";
+		};
+		281F4F972520CDB3008475D7 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				281F4F8B2520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift */,
+				281F4F892520CDA9008475D7 /* MyProfileViewController.swift */,
+				281F4F832520CDA9008475D7 /* MyProfileViewController+Subviews.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		281F4F982520CDC4008475D7 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				281F4F842520CDA9008475D7 /* MyProfileStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		281F4F992520CDD1008475D7 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				281F4F8C2520CDA9008475D7 /* MyProfileLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		281F4F9A2520CDE8008475D7 /* My Profile */ = {
+			isa = PBXGroup;
+			children = (
+				281F4FB12520CE0E008475D7 /* Test Doubles */,
+				281F4F9B2520CDF6008475D7 /* MyProfileViewControllerTests.swift */,
+				281F4F9C2520CDF6008475D7 /* MyProfileInteractorTests.swift */,
+				281F4F9F2520CDF6008475D7 /* MyProfileWorkerTests.swift */,
+				281F4FA32520CDF6008475D7 /* MyProfileRouterTests.swift */,
+				281F4FA42520CDF6008475D7 /* MyProfilePresenterTests.swift */,
+			);
+			path = "My Profile";
+			sourceTree = "<group>";
+		};
+		281F4FB12520CE0E008475D7 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */,
+				281F4FA22520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift */,
+				281F4FA02520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift */,
+				281F4FA12520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift */,
+				281F4F9E2520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift */,
+				281F4F9D2520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift */,
+			);
+			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
 		283B56E3250CBCAF00EFA651 = {
@@ -1086,8 +1197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281F4F932520CDA9008475D7 /* MyProfileViewController.swift in Sources */,
 				28179EE8250E00FC0081FD3A /* PlacesTaskModels.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
+				281F4F8D2520CDA9008475D7 /* MyProfileViewController+Subviews.swift in Sources */,
 				287A356725173BAB00898B51 /* String+HexColor.swift in Sources */,
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
 				2812D462250CDAC90079F879 /* MainStyle.swift in Sources */,
@@ -1105,18 +1218,22 @@
 				283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */,
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
 				2888978D250E29530017B0B1 /* GetPlacesOperationModels.swift in Sources */,
+				281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */,
 				28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */,
 				28889789250E27110017B0B1 /* Location.swift in Sources */,
 				287A356F2517575800898B51 /* GetImageOperationModels.swift in Sources */,
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
+				281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */,
 				28B0FC8825177C23007E276D /* String+Contains.swift in Sources */,
 				287A357E251758A600898B51 /* ImageTaskModels.swift in Sources */,
 				28179EA6250DFC700081FD3A /* ExplorePresenter.swift in Sources */,
 				28179EAD250DFC700081FD3A /* ExploreViewController+DisplayLogic.swift in Sources */,
 				28179EAC250DFC700081FD3A /* ExploreInteractor.swift in Sources */,
+				281F4F902520CDA9008475D7 /* MyProfileWorker.swift in Sources */,
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
+				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
 				281F4F812520CAD4008475D7 /* Photo.swift in Sources */,
 				287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */,
@@ -1140,16 +1257,20 @@
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
+				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
 				28179EAE250DFC700081FD3A /* ExploreTableViewCell.swift in Sources */,
 				28179EA4250DFC700081FD3A /* ExploreViewController+TableViewDataSource.swift in Sources */,
 				287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */,
+				281F4F8E2520CDA9008475D7 /* MyProfileStyle.swift in Sources */,
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
 				2812D465250CDAC90079F879 /* MainRouter.swift in Sources */,
+				281F4F942520CDA9008475D7 /* MyProfileInteractor.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
 				28179EDC250E006D0081FD3A /* TaskEnvironment.swift in Sources */,
+				281F4F912520CDA9008475D7 /* MyProfileRouter.swift in Sources */,
 				287A357C2517588A00898B51 /* ImageTaskProtocol.swift in Sources */,
 				28841A6925203CC30072A515 /* BundleConfiguration.swift in Sources */,
 				28179ECA250DFF2A0081FD3A /* TableViewTitleHeaderFooterView.swift in Sources */,
@@ -1173,6 +1294,8 @@
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
+				281F4FAE2520CDF6008475D7 /* MyProfileRouterTests.swift in Sources */,
+				281F4FAF2520CDF6008475D7 /* MyProfilePresenterTests.swift in Sources */,
 				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
 				28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
@@ -1182,10 +1305,12 @@
 				2812D485250CDB150079F879 /* MainWorkerSpy.swift in Sources */,
 				2812D481250CDB150079F879 /* MainRoutingLogicSpy.swift in Sources */,
 				288897BA250E34D00017B0B1 /* ExploreBusinessLogicSpy.swift in Sources */,
+				281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */,
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
 				288897A4250E34340017B0B1 /* PlacesTaskTests.swift in Sources */,
 				288897BD250E34D00017B0B1 /* ExploreWorkerSpy.swift in Sources */,
+				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
@@ -1194,13 +1319,20 @@
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
 				288897A2250E33BC0017B0B1 /* TaskConfiguratorTests.swift in Sources */,
 				288897C1250E35D40017B0B1 /* UITableViewSpy.swift in Sources */,
+				281F4FAA2520CDF6008475D7 /* MyProfileWorkerTests.swift in Sources */,
 				288897B7250E34D00017B0B1 /* ExploreWorkerTests.swift in Sources */,
 				2812D49D250CE7FC0079F879 /* BaseTestCase.swift in Sources */,
 				2812D483250CDB150079F879 /* MainRouterTests.swift in Sources */,
+				281F4FAB2520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift in Sources */,
+				281F4FA92520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift in Sources */,
+				281F4FA62520CDF6008475D7 /* MyProfileViewControllerTests.swift in Sources */,
 				288897BC250E34D00017B0B1 /* ExplorePresenterTests.swift in Sources */,
 				2812D496250CE78A0079F879 /* AppBusinessLogicSpy.swift in Sources */,
+				281F4FAD2520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift in Sources */,
 				2812D47C250CDB150079F879 /* MainInteractorTests.swift in Sources */,
+				281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */,
 				288897B9250E34D00017B0B1 /* ExploreRoutingLogicSpy.swift in Sources */,
+				281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */,
 				2812D498250CE7930079F879 /* AppPresentationLogicSpy.swift in Sources */,
 				2812D47B250CDB150079F879 /* MainViewControllerTests.swift in Sources */,
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
