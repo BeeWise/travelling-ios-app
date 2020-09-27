@@ -16,6 +16,8 @@ class MyProfileViewController: UITableViewController {
     var interactor: MyProfileBusinessLogic?
     var router: (NSObjectProtocol & MyProfileRoutingLogic)?
     
+    var items: [MyProfileModels.DisplayedItem] = []
+    
     // MARK: - Object lifecycle
     
     convenience init() {

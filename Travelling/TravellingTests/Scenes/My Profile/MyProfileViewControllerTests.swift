@@ -49,7 +49,85 @@ class MyProfileViewControllerTests: XCTestCase {
         RunLoop.current.run(until: Date())
     }
     
-    // MARK: - Tests
+    private func waitForMainQueue() {
+        let waitExpectation = expectation(description: "Waiting for main queue.")
+        DispatchQueue.main.async {
+            waitExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1.0)
+    }
     
+    // MARK: - Display logic tests
+        
+    func testDisplayWillFetchUser() {
+        self.loadView()
+        self.sut.tableView?.tableFooterView = nil
+        self.sut.displayWillFetchUser()
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.tableView?.tableFooterView)
+        XCTAssertTrue(self.sut.tableView?.tableFooterView is UIActivityIndicatorView)
+    }
     
+    func testDisplayDidFetchUser() {
+        self.loadView()
+        self.sut.tableView?.tableFooterView = UIActivityIndicatorView(style: .medium)
+        self.sut.displayDidFetchUser()
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.tableView?.tableFooterView)
+        XCTAssertFalse(self.sut.tableView?.tableFooterView is UIActivityIndicatorView)
+    }
+    
+    func testDisplayUserShouldUpdateDisplayedItems() {
+        self.sut.items = []
+        let items: [MyProfileModels.DisplayedItem] = [MyProfileModels.DisplayedItem(type: .user, model: nil)]
+        self.sut.displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel(items: items))
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.items, items)
+    }
+    
+    func testDisplayUserShouldAskTheTableViewToReloadData() {
+        self.loadView()
+        let tableViewSpy = UITableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel(items: []))
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.reloadDataCalled)
+    }
+    
+    func testDisplayWillFetchImage() {
+        let spy = MyProfileInformationTableViewCellInterfaceSpy()
+        let model = MyProfileModels.UserModel()
+        model.cellInterface = spy
+        model.isLoadingImage = false
+        self.sut.displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel(model: model))
+        self.waitForMainQueue()
+        XCTAssertTrue(model.isLoadingImage)
+        XCTAssertTrue(spy.setIsLoadingImageCalled)
+    }
+    
+    func testDisplayDidFetchImage() {
+        let spy = MyProfileInformationTableViewCellInterfaceSpy()
+        let model = MyProfileModels.UserModel()
+        model.cellInterface = spy
+        model.isLoadingImage = true
+        self.sut.displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel(model: model))
+        self.waitForMainQueue()
+        XCTAssertFalse(model.isLoadingImage)
+        XCTAssertTrue(spy.setIsLoadingImageCalled)
+    }
+    
+    func testDisplayImage() {
+        let spy = MyProfileInformationTableViewCellInterfaceSpy()
+        let model = MyProfileModels.UserModel()
+        model.cellInterface = spy
+        model.image = nil
+        model.imageContentMode = .center
+        let image = UIImage()
+        let contentMode = UIView.ContentMode.scaleAspectFill
+        self.sut.displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel(model: model, image: image, contentMode: contentMode))
+        self.waitForMainQueue()
+        XCTAssertEqual(model.image, image)
+        XCTAssertEqual(model.imageContentMode, contentMode)
+        XCTAssertTrue(spy.setImageCalled)
+    }
 }

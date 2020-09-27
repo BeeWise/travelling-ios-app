@@ -13,5 +13,35 @@
 @testable import Travelling
 
 class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
+    var displayWillFetchUserCalled: Bool = false
+    var displayDidFetchUserCalled: Bool = false
+    var displayUserCalled: Bool = false
     
+    var displayWillFetchImageCalled: Bool = false
+    var displayDidFetchImageCalled: Bool = false
+    var displayImageCalled: Bool = false
+    
+    func displayWillFetchUser() {
+        self.displayWillFetchUserCalled = true
+    }
+    
+    func displayDidFetchUser() {
+        self.displayDidFetchUserCalled = true
+    }
+    
+    func displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel) {
+        self.displayUserCalled = true
+    }
+    
+    func displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel) {
+        self.displayWillFetchImageCalled = true
+    }
+    
+    func displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel) {
+        self.displayDidFetchImageCalled = true
+    }
+    
+    func displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel) {
+        self.displayImageCalled = true
+    }
 }

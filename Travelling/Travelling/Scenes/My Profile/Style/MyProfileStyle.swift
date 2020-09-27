@@ -48,6 +48,7 @@ class MyProfileStyle {
     struct TableViewModel {
         var backgroundColor = ApplicationStyle.colors.accentAlpha
         var separatorColor: UIColor = ApplicationStyle.colors.accent
+        var activityIndicatorSize: CGFloat = 50
         var activityIndicatorColor: UIColor = ApplicationStyle.colors.primary
     }
     

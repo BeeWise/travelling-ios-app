@@ -37,7 +37,17 @@ extension MyProfileViewController {
     }
     
     private func setupTableView() {
-        self.tableView.backgroundColor = MyProfileStyle.shared.tableViewModel.backgroundColor
-        self.tableView.separatorStyle = .none
+        self.tableView?.backgroundColor = MyProfileStyle.shared.tableViewModel.backgroundColor
+        self.tableView?.separatorStyle = .none
+        self.tableView?.tableFooterView = UIView(frame: .zero)
+    }
+    
+    func setupActivityIndicatorView() -> UIActivityIndicatorView {
+        let size = MyProfileStyle.shared.tableViewModel.activityIndicatorSize
+        let view = UIActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
+        view.color = MyProfileStyle.shared.tableViewModel.activityIndicatorColor
+        view.hidesWhenStopped = false
+        view.startAnimating()
+        return view
     }
 }

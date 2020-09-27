@@ -13,9 +13,54 @@
 import UIKit
 
 protocol MyProfileDisplayLogic: class {
+    func displayWillFetchUser()
+    func displayDidFetchUser()
+    func displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel)
     
+    func displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel)
+    func displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel)
+    func displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel)
 }
 
 extension MyProfileViewController: MyProfileDisplayLogic {
+    func displayWillFetchUser() {
+        DispatchQueue.main.async {
+            self.tableView?.tableFooterView = self.setupActivityIndicatorView()
+        }
+    }
     
+    func displayDidFetchUser() {
+        DispatchQueue.main.async {
+            self.tableView?.tableFooterView = UIView(frame: .zero)
+        }
+    }
+    
+    func displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.items = viewModel.items
+            self.tableView?.reloadData()
+        }
+    }
+    
+    func displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.model.isLoadingImage = true
+            viewModel.model.cellInterface?.setIsLoadingImage(isLoading: true)
+        }
+    }
+    
+    func displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.model.isLoadingImage = false
+            viewModel.model.cellInterface?.setIsLoadingImage(isLoading: false)
+        }
+    }
+    
+    func displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.model.image = viewModel.image
+            viewModel.model.imageContentMode = viewModel.contentMode
+            viewModel.model.cellInterface?.setImage(image: viewModel.image, contentMode: viewModel.contentMode)
+        }
+    }
 }

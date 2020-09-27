@@ -92,6 +92,8 @@
 		281F4FAE2520CDF6008475D7 /* MyProfileRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA32520CDF6008475D7 /* MyProfileRouterTests.swift */; };
 		281F4FAF2520CDF6008475D7 /* MyProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA42520CDF6008475D7 /* MyProfilePresenterTests.swift */; };
 		281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */; };
+		281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FB52520D571008475D7 /* MyProfileInformationTableViewCell.swift */; };
+		281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F4FB72520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
 		283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B56FA250CBCB000EFA651 /* LaunchScreen.storyboard */; };
@@ -244,6 +246,8 @@
 		281F4FA32520CDF6008475D7 /* MyProfileRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRouterTests.swift; sourceTree = "<group>"; };
 		281F4FA42520CDF6008475D7 /* MyProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenterTests.swift; sourceTree = "<group>"; };
 		281F4FA52520CDF6008475D7 /* MyProfileWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileWorkerSpy.swift; sourceTree = "<group>"; };
+		281F4FB52520D571008475D7 /* MyProfileInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInformationTableViewCell.swift; sourceTree = "<group>"; };
+		281F4FB72520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInformationTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283B56F8250CBCB000EFA651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 		281F4F822520CC7E008475D7 /* My Profile */ = {
 			isa = PBXGroup;
 			children = (
+				281F4FB22520D4A9008475D7 /* Cells */,
 				281F4F992520CDD1008475D7 /* Localization */,
 				281F4F982520CDC4008475D7 /* Style */,
 				281F4F972520CDB3008475D7 /* View Controller */,
@@ -764,8 +769,17 @@
 				281F4FA12520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift */,
 				281F4F9E2520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift */,
 				281F4F9D2520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift */,
+				281F4FB72520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift */,
 			);
 			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
+		281F4FB22520D4A9008475D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				281F4FB52520D571008475D7 /* MyProfileInformationTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		283B56E3250CBCAF00EFA651 = {
@@ -1259,6 +1273,7 @@
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
 				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
+				281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */,
 				28179EAE250DFC700081FD3A /* ExploreTableViewCell.swift in Sources */,
 				28179EA4250DFC700081FD3A /* ExploreViewController+TableViewDataSource.swift in Sources */,
 				287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */,
@@ -1312,6 +1327,7 @@
 				288897BD250E34D00017B0B1 /* ExploreWorkerSpy.swift in Sources */,
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
+				281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */,
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
