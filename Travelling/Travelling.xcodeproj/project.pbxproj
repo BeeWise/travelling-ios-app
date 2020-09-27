@@ -92,6 +92,7 @@
 		287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A358225175DC000898B51 /* ImageTaskTests.swift */; };
 		287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A358425175DEC00898B51 /* ImageTaskSpy.swift */; };
 		28841A6925203CC30072A515 /* BundleConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28841A6825203CC30072A515 /* BundleConfiguration.swift */; };
+		28841A6E252040EC0072A515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28841A70252040EC0072A515 /* InfoPlist.strings */; };
 		28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889783250E25420017B0B1 /* GetPlacesOperation.swift */; };
 		28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */; };
 		28889789250E27110017B0B1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28889788250E27110017B0B1 /* Location.swift */; };
@@ -228,6 +229,8 @@
 		28841A6825203CC30072A515 /* BundleConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleConfiguration.swift; sourceTree = "<group>"; };
 		28841A6A25203D0A0072A515 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		28841A6B25203D320072A515 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		28841A6F252040EC0072A515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28841A71252040EF0072A515 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28889783250E25420017B0B1 /* GetPlacesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesOperation.swift; sourceTree = "<group>"; };
 		28889785250E254C0017B0B1 /* GetPlacesLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesLocalOperation.swift; sourceTree = "<group>"; };
 		28889788250E27110017B0B1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -708,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				283B5726250CC29300EFA651 /* Localizable.strings */,
+				28841A70252040EC0072A515 /* InfoPlist.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -1042,6 +1046,7 @@
 				283B5724250CC29300EFA651 /* Localizable.strings in Resources */,
 				283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */,
 				28889790250E29990017B0B1 /* places.json in Resources */,
+				28841A6E252040EC0072A515 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,6 +1212,15 @@
 				283B5727250CC29600EFA651 /* ro */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		28841A70252040EC0072A515 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28841A6F252040EC0072A515 /* en */,
+				28841A71252040EF0072A515 /* ro */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
