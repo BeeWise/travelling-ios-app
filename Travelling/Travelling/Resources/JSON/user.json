@@ -1,0 +1,13 @@
+{
+    "id": "0",
+    "first_name": "John",
+    "last_name": "Doe",
+    "title": "UI Designer @ Fantastic Design",
+    "description": "Born in Neverland. Always striving to create design that provides an enjoyable experience for users.",
+    "photo": {
+        "id": "0",
+        "image_url": "",
+        "image_name": "john_doe",
+        "image_dominant_color": "#9c6112"
+    }
+}

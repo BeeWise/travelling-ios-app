@@ -149,6 +149,11 @@
 		28B0FC8825177C23007E276D /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8725177C23007E276D /* String+Contains.swift */; };
 		28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8925177DD2007E276D /* String+RangeOf.swift */; };
 		28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */; };
+		28BD8CFD2522FE7C00C30F64 /* GetUserOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8CFC2522FE7C00C30F64 /* GetUserOperationModels.swift */; };
+		28BD8CFF2522FEA300C30F64 /* GetUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8CFE2522FEA300C30F64 /* GetUserOperation.swift */; };
+		28BD8D012522FEAD00C30F64 /* GetUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */; };
+		28BD8D032522FFA300C30F64 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 28BD8D022522FFA300C30F64 /* user.json */; };
+		28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D062523059600C30F64 /* GetUserLocalOperationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +318,11 @@
 		28B0FC8725177C23007E276D /* String+Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		28B0FC8925177DD2007E276D /* String+RangeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RangeOf.swift"; sourceTree = "<group>"; };
 		28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
+		28BD8CFC2522FE7C00C30F64 /* GetUserOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserOperationModels.swift; sourceTree = "<group>"; };
+		28BD8CFE2522FEA300C30F64 /* GetUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserOperation.swift; sourceTree = "<group>"; };
+		28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocalOperation.swift; sourceTree = "<group>"; };
+		28BD8D022522FFA300C30F64 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		28BD8D062523059600C30F64 /* GetUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocalOperationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,6 +639,7 @@
 		28179ED3250DFFF00081FD3A /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28BD8CFA2522FE6200C30F64 /* User */,
 				287A356C2517574300898B51 /* Image */,
 				28889781250E25300017B0B1 /* Places */,
 				28179ED4250E00000081FD3A /* Base */,
@@ -991,6 +1002,7 @@
 			isa = PBXGroup;
 			children = (
 				2888978F250E29990017B0B1 /* places.json */,
+				28BD8D022522FFA300C30F64 /* user.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -998,6 +1010,7 @@
 		28889793250E32DB0017B0B1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28BD8D042523057E00C30F64 /* User */,
 				287A3576251757C600898B51 /* Image */,
 				28889799250E332F0017B0B1 /* Places */,
 				28889794250E32E20017B0B1 /* Base */,
@@ -1119,6 +1132,40 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		28BD8CFA2522FE6200C30F64 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8CFB2522FE6900C30F64 /* Get */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		28BD8CFB2522FE6900C30F64 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8CFC2522FE7C00C30F64 /* GetUserOperationModels.swift */,
+				28BD8CFE2522FEA300C30F64 /* GetUserOperation.swift */,
+				28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
+		28BD8D042523057E00C30F64 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8D052523058800C30F64 /* Get */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		28BD8D052523058800C30F64 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8D062523059600C30F64 /* GetUserLocalOperationTests.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1200,6 +1247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28BD8D032522FFA300C30F64 /* user.json in Resources */,
 				283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */,
 				283B5724250CC29300EFA651 /* Localizable.strings in Resources */,
 				283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */,
@@ -1225,6 +1273,7 @@
 				281F4F932520CDA9008475D7 /* MyProfileViewController.swift in Sources */,
 				28179EE8250E00FC0081FD3A /* PlacesTaskModels.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
+				28BD8D012522FEAD00C30F64 /* GetUserLocalOperation.swift in Sources */,
 				281F4F8D2520CDA9008475D7 /* MyProfileViewController+Subviews.swift in Sources */,
 				287A356725173BAB00898B51 /* String+HexColor.swift in Sources */,
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
@@ -1272,6 +1321,7 @@
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
 				28179ED0250DFFAE0081FD3A /* TableViewLoadingHeaderFooterView.swift in Sources */,
+				28BD8CFF2522FEA300C30F64 /* GetUserOperation.swift in Sources */,
 				283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */,
 				28179ECE250DFF900081FD3A /* InsetLabel.swift in Sources */,
 				28179EEA250E00FC0081FD3A /* PlacesTaskProtocol.swift in Sources */,
@@ -1305,6 +1355,7 @@
 				28179EA8250DFC700081FD3A /* ExploreRouter.swift in Sources */,
 				28889792250E2A1B0017B0B1 /* String+JSONUrl.swift in Sources */,
 				2812D46A250CDAC90079F879 /* MainLocalization.swift in Sources */,
+				28BD8CFD2522FE7C00C30F64 /* GetUserOperationModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1318,6 +1369,7 @@
 				2812D49A250CE79C0079F879 /* AppDisplayLogicSpy.swift in Sources */,
 				2812D493250CE7760079F879 /* AppPresenterTests.swift in Sources */,
 				288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */,
+				28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */,
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
