@@ -14,8 +14,19 @@
 import UIKit
 
 class MyProfileWorkerDelegateSpy: MyProfileWorkerDelegate {
+    var successDidFetchUserCalled: Bool = false
+    var failureDidFetchUserCalled: Bool = false
+    
     var successDidFetchImageCalled: Bool = false
     var failureDidFetchImageCalled: Bool = false
+    
+    func successDidFetchUser(user: User) {
+        self.successDidFetchUserCalled = true
+    }
+    
+    func failureDidFetchUser(error: OperationError) {
+        self.failureDidFetchUserCalled = true
+    }
     
     func successDidFetchImage(model: MyProfileModels.UserModel, image: UIImage?) {
         self.successDidFetchImageCalled = true

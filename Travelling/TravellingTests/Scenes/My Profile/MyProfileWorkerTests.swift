@@ -37,6 +37,29 @@ class MyProfileWorkerTests: XCTestCase {
     
     // MARK: - Tests
     
+    func testFetchUser() {
+        let taskSpy = UsersTaskSpy()
+        self.sut.usersTask = taskSpy
+        self.sut.fetchUser(userId: "userId")
+        XCTAssertTrue(taskSpy.fetchUserCalled)
+    }
+    
+    func testFetchUserShouldAskTheDelegateToSendUserForSuccessCase() {
+        let taskSpy = UsersTaskSpy()
+        taskSpy.shouldFailFetchUser = false
+        self.sut.usersTask = taskSpy
+        self.sut.fetchUser(userId: "userId")
+        XCTAssertTrue(self.delegateSpy.successDidFetchUserCalled)
+    }
+    
+    func testFetchUserShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = UsersTaskSpy()
+        taskSpy.shouldFailFetchUser = true
+        self.sut.usersTask = taskSpy
+        self.sut.fetchUser(userId: "userId")
+        XCTAssertTrue(self.delegateSpy.failureDidFetchUserCalled)
+    }
+    
     func testFetchImage() {
         let taskSpy = ImageTaskSpy()
         self.sut.imageTask = taskSpy

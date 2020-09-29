@@ -13,7 +13,12 @@
 @testable import Travelling
 
 class MyProfileWorkerSpy: MyProfileWorker {
+    var fetchUserCalled: Bool = false
     var fetchImageCalled: Bool = false
+    
+    override func fetchUser(userId: String?) {
+        self.fetchUserCalled = true
+    }
     
     override func fetchImage(model: MyProfileModels.UserModel) {
         self.fetchImageCalled = true

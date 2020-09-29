@@ -13,6 +13,9 @@
 import UIKit
 
 protocol MyProfileWorkerDelegate: class {
+    func successDidFetchUser(user: User)
+    func failureDidFetchUser(error: OperationError)
+    
     func successDidFetchImage(model: MyProfileModels.UserModel, image: UIImage?)
     func failureDidFetchImage(model: MyProfileModels.UserModel, error: OperationError)
 }
@@ -20,10 +23,20 @@ protocol MyProfileWorkerDelegate: class {
 class MyProfileWorker {
     weak var delegate: MyProfileWorkerDelegate?
     
+    var usersTask: UsersTaskProtocol = TaskConfigurator.shared.usersTask()
     var imageTask: ImageTaskProtocol = TaskConfigurator.shared.imageTask()
     
     init(delegate: MyProfileWorkerDelegate?) {
         self.delegate = delegate
+    }
+    
+    func fetchUser(userId: String?) {
+        self.usersTask.fetchUser(model: UsersTaskModels.FetchUser.Request(userId: userId)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidFetchUser(user: value.user); break
+                case .failure(let error): self.delegate?.failureDidFetchUser(error: error); break
+            }
+        }
     }
     
     func fetchImage(model: MyProfileModels.UserModel) {

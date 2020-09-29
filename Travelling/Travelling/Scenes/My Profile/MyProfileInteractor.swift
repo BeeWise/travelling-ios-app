@@ -23,6 +23,14 @@ class MyProfileInteractor: MyProfileBusinessLogic {
     init() {
         self.worker = MyProfileWorker(delegate: self)
     }
+    
+    func successDidFetchUser(user: User) {
+        
+    }
+    
+    func failureDidFetchUser(error: OperationError) {
+        
+    }
 }
 
 extension MyProfileInteractor: MyProfileWorkerDelegate {
