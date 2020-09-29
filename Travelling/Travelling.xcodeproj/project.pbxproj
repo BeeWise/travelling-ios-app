@@ -154,6 +154,11 @@
 		28BD8D012522FEAD00C30F64 /* GetUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */; };
 		28BD8D032522FFA300C30F64 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 28BD8D022522FFA300C30F64 /* user.json */; };
 		28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D062523059600C30F64 /* GetUserLocalOperationTests.swift */; };
+		28BD8D0A2523063000C30F64 /* UsersTaskModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D092523063000C30F64 /* UsersTaskModels.swift */; };
+		28BD8D0C2523063A00C30F64 /* UsersTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D0B2523063A00C30F64 /* UsersTaskProtocol.swift */; };
+		28BD8D0E2523064200C30F64 /* UsersTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D0D2523064200C30F64 /* UsersTask.swift */; };
+		28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D102523078300C30F64 /* UsersTaskTests.swift */; };
+		28BD8D13252307C400C30F64 /* UsersTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D12252307C300C30F64 /* UsersTaskSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +328,11 @@
 		28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocalOperation.swift; sourceTree = "<group>"; };
 		28BD8D022522FFA300C30F64 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		28BD8D062523059600C30F64 /* GetUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocalOperationTests.swift; sourceTree = "<group>"; };
+		28BD8D092523063000C30F64 /* UsersTaskModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTaskModels.swift; sourceTree = "<group>"; };
+		28BD8D0B2523063A00C30F64 /* UsersTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTaskProtocol.swift; sourceTree = "<group>"; };
+		28BD8D0D2523064200C30F64 /* UsersTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTask.swift; sourceTree = "<group>"; };
+		28BD8D102523078300C30F64 /* UsersTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTaskTests.swift; sourceTree = "<group>"; };
+		28BD8D12252307C300C30F64 /* UsersTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTaskSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,6 +670,7 @@
 		28179ED9250E004D0081FD3A /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				28BD8D082523061D00C30F64 /* Users */,
 				287A357A2517588300898B51 /* Image */,
 				28179EE4250E00DC0081FD3A /* Places */,
 				28179EE1250E00C70081FD3A /* Protocol */,
@@ -1046,6 +1057,7 @@
 		2888979D250E33940017B0B1 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				28BD8D0F2523073D00C30F64 /* Users */,
 				287A358125175DBA00898B51 /* Image */,
 				288897A0250E33AD0017B0B1 /* Places */,
 				2888979F250E33A60017B0B1 /* Configurator */,
@@ -1059,6 +1071,7 @@
 			children = (
 				288897A5250E346F0017B0B1 /* PlacesTaskSpy.swift */,
 				287A358425175DEC00898B51 /* ImageTaskSpy.swift */,
+				28BD8D12252307C300C30F64 /* UsersTaskSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1164,6 +1177,24 @@
 				28BD8D062523059600C30F64 /* GetUserLocalOperationTests.swift */,
 			);
 			path = Get;
+			sourceTree = "<group>";
+		};
+		28BD8D082523061D00C30F64 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8D092523063000C30F64 /* UsersTaskModels.swift */,
+				28BD8D0B2523063A00C30F64 /* UsersTaskProtocol.swift */,
+				28BD8D0D2523064200C30F64 /* UsersTask.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		28BD8D0F2523073D00C30F64 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8D102523078300C30F64 /* UsersTaskTests.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1303,6 +1334,7 @@
 				28179EA6250DFC700081FD3A /* ExplorePresenter.swift in Sources */,
 				28179EAD250DFC700081FD3A /* ExploreViewController+DisplayLogic.swift in Sources */,
 				28179EAC250DFC700081FD3A /* ExploreInteractor.swift in Sources */,
+				28BD8D0C2523063A00C30F64 /* UsersTaskProtocol.swift in Sources */,
 				281F4F902520CDA9008475D7 /* MyProfileWorker.swift in Sources */,
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
@@ -1311,9 +1343,11 @@
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
 				281F4F812520CAD4008475D7 /* Photo.swift in Sources */,
 				287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */,
+				28BD8D0E2523064200C30F64 /* UsersTask.swift in Sources */,
 				283B5713250CC0DC00EFA651 /* AppInteractor.swift in Sources */,
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
 				28179ED8250E00290081FD3A /* OperationError.swift in Sources */,
+				28BD8D0A2523063000C30F64 /* UsersTaskModels.swift in Sources */,
 				2812D468250CDAC90079F879 /* MainInteractor.swift in Sources */,
 				281F4FBB2520DECE008475D7 /* Bundle+Version.swift in Sources */,
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
@@ -1392,8 +1426,10 @@
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
 				281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */,
+				28BD8D13252307C400C30F64 /* UsersTaskSpy.swift in Sources */,
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
+				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
