@@ -45,6 +45,7 @@ enum MyProfileModels {
     
     struct TitleModel {
         var title: NSAttributedString?
+        var isSelectable: Bool = false
     }
     
     enum UserPresentation {
@@ -81,6 +82,12 @@ enum MyProfileModels {
             let model: UserModel
             let image: UIImage?
             let contentMode: UIView.ContentMode
+        }
+    }
+    
+    enum ItemSelection {
+        struct Request {
+            let type: ItemType
         }
     }
 }

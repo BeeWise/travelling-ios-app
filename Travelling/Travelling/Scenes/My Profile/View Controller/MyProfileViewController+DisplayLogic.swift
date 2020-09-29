@@ -20,6 +20,10 @@ protocol MyProfileDisplayLogic: class {
     func displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel)
     func displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel)
     func displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel)
+    
+    func displayWillLogoutUser()
+    func displayDidLogoutUser()
+    func displayLoggedOutUser()
 }
 
 extension MyProfileViewController: MyProfileDisplayLogic {
@@ -61,6 +65,26 @@ extension MyProfileViewController: MyProfileDisplayLogic {
             viewModel.model.image = viewModel.image
             viewModel.model.imageContentMode = viewModel.contentMode
             viewModel.model.cellInterface?.setImage(image: viewModel.image, contentMode: viewModel.contentMode)
+        }
+    }
+    
+    func displayWillLogoutUser() {
+        DispatchQueue.main.async {
+            self.tableView?.isUserInteractionEnabled = false
+            self.navigationItem.setRightBarButton(UIBarButtonItem(customView: self.setupActivityIndicatorView()), animated: true)
+        }
+    }
+    
+    func displayDidLogoutUser() {
+        DispatchQueue.main.async {
+            self.tableView?.isUserInteractionEnabled = true
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        }
+    }
+    
+    func displayLoggedOutUser() {
+        DispatchQueue.main.async {
+            self.delegate?.myProfileViewControllerDidLogoutUser(viewController: self)
         }
     }
 }

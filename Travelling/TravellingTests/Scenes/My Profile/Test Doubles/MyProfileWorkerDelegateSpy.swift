@@ -20,6 +20,9 @@ class MyProfileWorkerDelegateSpy: MyProfileWorkerDelegate {
     var successDidFetchImageCalled: Bool = false
     var failureDidFetchImageCalled: Bool = false
     
+    var successDidLogoutUserCalled: Bool = false
+    var failureDidLogoutUserCalled: Bool = false
+    
     func successDidFetchUser(user: User) {
         self.successDidFetchUserCalled = true
     }
@@ -34,5 +37,13 @@ class MyProfileWorkerDelegateSpy: MyProfileWorkerDelegate {
     
     func failureDidFetchImage(model: MyProfileModels.UserModel, error: OperationError) {
         self.failureDidFetchImageCalled = true
+    }
+    
+    func successDidLogoutUser(userId: String?) {
+        self.successDidLogoutUserCalled = true
+    }
+    
+    func failureDidLogoutUser(error: OperationError) {
+        self.failureDidLogoutUserCalled = true
     }
 }

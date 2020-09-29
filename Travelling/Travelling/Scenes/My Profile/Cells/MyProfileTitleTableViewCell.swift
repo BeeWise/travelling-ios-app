@@ -26,6 +26,10 @@ class MyProfileTitleTableViewCell: UITableViewCell {
         self.textLabel?.attributedText = title
     }
     
+    func setIsSelectable(isSelectable: Bool) {
+        self.selectionStyle = isSelectable ? .default : .none
+    }
+    
     private func setupSubviews() {
         self.setupContentView()
         self.setupTextLabel()

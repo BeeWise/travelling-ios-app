@@ -15,6 +15,7 @@ import UIKit
 protocol MyProfileBusinessLogic {
     func shouldFetchUser()
     func shouldFetchImage(request: MyProfileModels.ImageFetching.Request)
+    func shouldSelectItem(request: MyProfileModels.ItemSelection.Request)
 }
 
 class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
@@ -25,6 +26,18 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     
     init() {
         self.worker = MyProfileWorker(delegate: self)
+    }
+    
+    func shouldSelectItem(request: MyProfileModels.ItemSelection.Request) {
+        switch request.type {
+            case .logout: self.logoutUser(); break
+            case .reportIssue: self.reportIssue(); break
+            default: break
+        }
+    }
+    
+    private func reportIssue() {
+        
     }
 }
 
@@ -46,6 +59,7 @@ extension MyProfileInteractor {
     }
     
     func failureDidFetchUser(error: OperationError) {
+        // TODO: - Present error state view?
         self.presenter?.presentDidFetchUser()
     }
 }
@@ -69,5 +83,22 @@ extension MyProfileInteractor {
     func failureDidFetchImage(model: MyProfileModels.UserModel, error: OperationError) {
         self.presenter?.presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response(model: model, image: nil))
         self.presenter?.presentDidFetchImage(response: MyProfileModels.ImageFetching.Response(model: model))
+    }
+}
+
+extension MyProfileInteractor {
+    private func logoutUser() {
+        self.presenter?.presentWillLogoutUser()
+        self.worker?.logoutUser(userId: self.user?.id)
+    }
+    
+    func successDidLogoutUser(userId: String?) {
+        self.presenter?.presentLoggedOutUser()
+        self.presenter?.presentDidLogoutUser()
+    }
+    
+    func failureDidLogoutUser(error: OperationError) {
+        // TODO: - Present error alert?
+        self.presenter?.presentDidLogoutUser()
     }
 }

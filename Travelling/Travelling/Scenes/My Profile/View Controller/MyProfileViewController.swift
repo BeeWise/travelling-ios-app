@@ -12,9 +12,15 @@
 
 import UIKit
 
+protocol MyProfileViewControllerDelegate: AnyObject {
+    func myProfileViewControllerDidLogoutUser(viewController: MyProfileViewController?)
+}
+
 class MyProfileViewController: UITableViewController {
     var interactor: MyProfileBusinessLogic?
     var router: (NSObjectProtocol & MyProfileRoutingLogic)?
+    
+    weak var delegate: MyProfileViewControllerDelegate?
     
     var items: [MyProfileModels.DisplayedItem] = []
     

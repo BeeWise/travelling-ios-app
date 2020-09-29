@@ -18,6 +18,7 @@ class MyProfileStyle {
     var navigationBarModel: NavigationBarModel
     
     var contentViewModel: ContentViewModel
+    var activityViewModel: ActivityViewModel
     var tableViewModel: TableViewModel
     var informationCellModel: InformationCellModel
     var titleCellModel: TitleCellModel
@@ -25,6 +26,7 @@ class MyProfileStyle {
     private init() {
         self.navigationBarModel = NavigationBarModel()
         self.contentViewModel = ContentViewModel()
+        self.activityViewModel = ActivityViewModel()
         self.tableViewModel = TableViewModel()
         self.informationCellModel = InformationCellModel()
         self.titleCellModel = TitleCellModel()
@@ -47,10 +49,13 @@ class MyProfileStyle {
         var backgroundColor = ApplicationStyle.colors.accentAlpha
     }
     
+    struct ActivityViewModel {
+        var size: CGFloat = 50
+        var color: UIColor = ApplicationStyle.colors.primary
+    }
+    
     struct TableViewModel {
         var backgroundColor = ApplicationStyle.colors.accentAlpha
-        var activityIndicatorSize: CGFloat = 50
-        var activityIndicatorColor: UIColor = ApplicationStyle.colors.primary
         var separatorColor: UIColor = ApplicationStyle.colors.accent
     }
     

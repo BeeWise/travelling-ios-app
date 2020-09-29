@@ -17,6 +17,7 @@ class MyProfileViewControllerTests: XCTestCase {
     var sut: MyProfileViewController!
     var interactorSpy: MyProfileBusinessLogicSpy!
     var routerSpy: MyProfileRoutingLogicSpy!
+    var delegateSpy: MyProfileViewControllerDelegateSpy!
     var window: UIWindow!
     
     // MARK: - Test lifecycle
@@ -42,6 +43,9 @@ class MyProfileViewControllerTests: XCTestCase {
         
         self.routerSpy = MyProfileRoutingLogicSpy()
         self.sut.router = self.routerSpy
+        
+        self.delegateSpy = MyProfileViewControllerDelegateSpy()
+        self.sut.delegate = self.delegateSpy
     }
     
     func loadView() {
@@ -111,7 +115,7 @@ class MyProfileViewControllerTests: XCTestCase {
     func testShouldConfigureTitleTableViewCell() {
         self.loadView()
         
-        let model = MyProfileModels.TitleModel(title: "Title".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let model = MyProfileModels.TitleModel(title: "Title".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]), isSelectable: true)
         let items = [MyProfileModels.DisplayedItem(type: .logout, model: model)]
         self.sut.items = items
         items.enumerated().forEach { (index, item) in
@@ -120,7 +124,24 @@ class MyProfileViewControllerTests: XCTestCase {
                 return XCTAssertTrue(false, "Wrong model for item!")
             }
             XCTAssertEqual(cell.textLabel?.attributedText, model.title)
+            XCTAssertEqual(cell.selectionStyle, model.isSelectable ? .default : .none)
         }
+    }
+    
+    func testTableViewDidSelectRowAtShouldAskTheInteractorToSelectItem() {
+        self.loadView()
+        self.sut.items = [MyProfileModels.DisplayedItem(type: .user, model: nil)]
+        self.sut.tableView(self.sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(self.interactorSpy.shouldSelectItemCalled)
+    }
+    
+    func testTableViewDidSelectRowAtShouldAskTheTableViewToDeselectRow() {
+        self.loadView()
+        let tableViewSpy = UITableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.items = [MyProfileModels.DisplayedItem(type: .user, model: nil)]
+        self.sut.tableView(tableViewSpy, didSelectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertTrue(tableViewSpy.deselectRowCalled)
     }
     
     // MARK: - Business logic tests
@@ -202,5 +223,40 @@ class MyProfileViewControllerTests: XCTestCase {
         XCTAssertEqual(model.image, image)
         XCTAssertEqual(model.imageContentMode, contentMode)
         XCTAssertTrue(spy.setImageCalled)
+    }
+    
+    func testDisplayWillLogoutUserShouldDisableTableViewUserInteraction() {
+        self.sut.tableView.isUserInteractionEnabled = true
+        self.sut.displayWillLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertFalse(self.sut.tableView.isUserInteractionEnabled)
+    }
+    
+    func testDisplayWillLogoutUserShouldAddActivityIndicatorToRightBarButtonItem() {
+        self.sut.navigationItem.rightBarButtonItem = nil
+        self.sut.displayWillLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.navigationItem.rightBarButtonItem)
+        XCTAssertTrue(self.sut.navigationItem.rightBarButtonItem?.customView is UIActivityIndicatorView)
+    }
+    
+    func testDisplayDidLogoutUserShouldEnableTableViewUserInteraction() {
+        self.sut.tableView.isUserInteractionEnabled = false
+        self.sut.displayDidLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.sut.tableView.isUserInteractionEnabled)
+    }
+    
+    func testDisplayDidLogoutUserShouldRemoveActivityIndicatorFromRightBarButtonItem() {
+        self.sut.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIActivityIndicatorView(frame: .zero))
+        self.sut.displayDidLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertNil(self.sut.navigationItem.rightBarButtonItem)
+    }
+    
+    func testDisplayLoggedOutUser() {
+        self.sut.displayLoggedOutUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.delegateSpy.myProfileViewControllerDidLogoutUserCalled)
     }
 }

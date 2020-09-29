@@ -22,6 +22,10 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     var displayDidFetchImageCalled: Bool = false
     var displayImageCalled: Bool = false
     
+    var displayWillLogoutUserCalled: Bool = false
+    var displayDidLogoutUserCalled: Bool = false
+    var displayLoggedOutUserCalled: Bool = false
+    
     func displayWillFetchUser() {
         self.displayWillFetchUserCalled = true
     }
@@ -45,5 +49,17 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     func displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel) {
         self.displayImageCalled = true
+    }
+    
+    func displayWillLogoutUser() {
+        self.displayWillLogoutUserCalled = true
+    }
+    
+    func displayDidLogoutUser() {
+        self.displayDidLogoutUserCalled = true
+    }
+    
+    func displayLoggedOutUser() {
+        self.displayLoggedOutUserCalled = true
     }
 }

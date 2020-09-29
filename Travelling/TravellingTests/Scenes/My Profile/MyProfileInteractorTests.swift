@@ -138,4 +138,31 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.failureDidFetchImage(model: MyProfileModels.UserModel(), error: .noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
     }
+    
+    // MARK: - Logout tests
+    
+    func testShouldSelectItemShouldAskThePresenterToPresentWillLogoutUserForLogoutItemType() {
+        self.sut.shouldSelectItem(request: MyProfileModels.ItemSelection.Request(type: .logout))
+        XCTAssertTrue(self.presenterSpy.presentWillLogoutUserCalled)
+    }
+    
+    func testShouldSelectItemShouldAskTheWorkerToLogoutUserForLogoutItemType() {
+        self.sut.shouldSelectItem(request: MyProfileModels.ItemSelection.Request(type: .logout))
+        XCTAssertTrue(self.workerSpy.logoutUserCalled)
+    }
+    
+    func testSuccessDidLogoutUserShouldAskThePresenterToPresentLoggedOutUser() {
+        self.sut.successDidLogoutUser(userId: "userId")
+        XCTAssertTrue(self.presenterSpy.presentLoggedOutUserCalled)
+    }
+    
+    func testSuccessDidLogoutUserShouldAskThePresenterToPresentDidLogoutUser() {
+        self.sut.successDidLogoutUser(userId: "userId")
+        XCTAssertTrue(self.presenterSpy.presentDidLogoutUserCalled)
+    }
+    
+    func testFailureDidLogoutUserShouldAskThePresenterToPresentDidLogoutUser() {
+        self.sut.failureDidLogoutUser(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidLogoutUserCalled)
+    }
 }

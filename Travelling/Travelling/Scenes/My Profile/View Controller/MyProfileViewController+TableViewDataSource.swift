@@ -51,6 +51,7 @@ extension MyProfileViewController {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: MyProfileTitleTableViewCell.defaultReuseIdentifier, for: indexPath) as? MyProfileTitleTableViewCell ?? MyProfileTitleTableViewCell()
         cell.setTitle(title: model.title)
+        cell.setIsSelectable(isSelectable: model.isSelectable)
         return cell
     }
 }

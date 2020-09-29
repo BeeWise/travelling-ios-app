@@ -22,6 +22,10 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     var presentImageCalled: Bool = false
     var presentPlaceholderImageCalled: Bool = false
     
+    var presentWillLogoutUserCalled: Bool = false
+    var presentDidLogoutUserCalled: Bool = false
+    var presentLoggedOutUserCalled: Bool = false
+    
     func presentWillFetchUser() {
         self.presentWillFetchUserCalled = true
     }
@@ -48,5 +52,17 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     func presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response) {
         self.presentPlaceholderImageCalled = true
+    }
+    
+    func presentWillLogoutUser() {
+        self.presentWillLogoutUserCalled = true
+    }
+    
+    func presentDidLogoutUser() {
+        self.presentDidLogoutUserCalled = true
+    }
+    
+    func presentLoggedOutUser() {
+        self.presentLoggedOutUserCalled = true
     }
 }

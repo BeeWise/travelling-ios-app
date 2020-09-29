@@ -32,7 +32,6 @@ extension MyProfileViewController {
     }
     
     private func setupContentView() {
-        self.definesPresentationContext = true
         self.view.backgroundColor = MyProfileStyle.shared.contentViewModel.backgroundColor
     }
     
@@ -45,9 +44,9 @@ extension MyProfileViewController {
     }
     
     func setupActivityIndicatorView() -> UIActivityIndicatorView {
-        let size = MyProfileStyle.shared.tableViewModel.activityIndicatorSize
+        let size = MyProfileStyle.shared.activityViewModel.size
         let view = UIActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
-        view.color = MyProfileStyle.shared.tableViewModel.activityIndicatorColor
+        view.color = MyProfileStyle.shared.activityViewModel.color
         view.hidesWhenStopped = false
         view.startAnimating()
         return view

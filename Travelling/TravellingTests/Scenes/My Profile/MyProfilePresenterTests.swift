@@ -89,6 +89,21 @@ class MyProfilePresenterTests: XCTestCase {
         self.sut.presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response(model: MyProfileModels.UserModel(), image: nil))
         XCTAssertTrue(self.displayerSpy.displayImageCalled)
     }
+    
+    func testPresentWillLogoutUserShouldAskTheDisplayerToDisplayWillLogoutUser() {
+        self.sut.presentWillLogoutUser()
+        XCTAssertTrue(self.displayerSpy.displayWillLogoutUserCalled)
+    }
+    
+    func testPresentDidLogoutUserShouldAskTheDisplayerToDisplayDidLogoutUser() {
+        self.sut.presentDidLogoutUser()
+        XCTAssertTrue(self.displayerSpy.displayDidLogoutUserCalled)
+    }
+    
+    func testPresentLoggedOutUserShouldAskTheDisplayerToDisplayLoggedOutUser() {
+        self.sut.presentLoggedOutUser()
+        XCTAssertTrue(self.displayerSpy.displayLoggedOutUserCalled)
+    }
 }
 
 // MARK: - Auxiliary

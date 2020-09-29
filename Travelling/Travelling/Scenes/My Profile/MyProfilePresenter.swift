@@ -21,6 +21,10 @@ protocol MyProfilePresentationLogic {
     func presentDidFetchImage(response: MyProfileModels.ImageFetching.Response)
     func presentImage(response: MyProfileModels.ImagePresentation.Response)
     func presentPlaceholderImage(response: MyProfileModels.ImagePresentation.Response)
+    
+    func presentWillLogoutUser()
+    func presentDidLogoutUser()
+    func presentLoggedOutUser()
 }
 
 class MyProfilePresenter: MyProfilePresentationLogic {
@@ -54,6 +58,18 @@ class MyProfilePresenter: MyProfilePresentationLogic {
         let image = MyProfileStyle.shared.informationCellModel.avatarPlaceholderImage
         self.displayer?.displayImage(viewModel: MyProfileModels.ImagePresentation.ViewModel(model: response.model, image: image, contentMode: .center))
     }
+    
+    func presentWillLogoutUser() {
+        self.displayer?.displayWillLogoutUser()
+    }
+    
+    func presentDidLogoutUser() {
+        self.displayer?.displayDidLogoutUser()
+    }
+    
+    func presentLoggedOutUser() {
+        self.displayer?.displayLoggedOutUser()
+    }
 }
 
 // MARK: - Displayed items
@@ -85,18 +101,18 @@ extension MyProfilePresenter {
     }
     
     private func displayedLogoutItem() -> MyProfileModels.DisplayedItem {
-        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.logoutTitle.attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()))
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.logoutTitle.attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()), isSelectable: true)
         return MyProfileModels.DisplayedItem(type: .logout, model: model)
     }
     
     private func displayedReportIssueItem() -> MyProfileModels.DisplayedItem {
-        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.reportIssueTitle.attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()))
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.reportIssueTitle.attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()), isSelectable: true)
         return MyProfileModels.DisplayedItem(type: .reportIssue, model: model)
     }
     
     private func displayedVersionItem() -> MyProfileModels.DisplayedItem {
         let version = Bundle.main.versionNumber
-        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.versionTitle(version: version).attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()))
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.versionTitle(version: version).attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()), isSelectable: false)
         return MyProfileModels.DisplayedItem(type: .version, model: model)
     }
 }

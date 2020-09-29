@@ -18,6 +18,9 @@ protocol MyProfileWorkerDelegate: class {
     
     func successDidFetchImage(model: MyProfileModels.UserModel, image: UIImage?)
     func failureDidFetchImage(model: MyProfileModels.UserModel, error: OperationError)
+    
+    func successDidLogoutUser(userId: String?)
+    func failureDidLogoutUser(error: OperationError)
 }
 
 class MyProfileWorker {
@@ -46,5 +49,9 @@ class MyProfileWorker {
                 case .failure(let error): self.delegate?.failureDidFetchImage(model: model, error: error); break
             }
         }
+    }
+    
+    func logoutUser(userId: String?) {
+        // TODO: - Add authentication task and logout user operation!
     }
 }

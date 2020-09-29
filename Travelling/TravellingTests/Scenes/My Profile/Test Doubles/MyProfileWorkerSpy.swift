@@ -15,6 +15,7 @@
 class MyProfileWorkerSpy: MyProfileWorker {
     var fetchUserCalled: Bool = false
     var fetchImageCalled: Bool = false
+    var logoutUserCalled: Bool = false
     
     override func fetchUser(userId: String?) {
         self.fetchUserCalled = true
@@ -22,5 +23,9 @@ class MyProfileWorkerSpy: MyProfileWorker {
     
     override func fetchImage(model: MyProfileModels.UserModel) {
         self.fetchImageCalled = true
+    }
+    
+    override func logoutUser(userId: String?) {
+        self.logoutUserCalled = true
     }
 }
