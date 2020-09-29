@@ -11,7 +11,17 @@
 //
 
 @testable import Travelling
+import UIKit
 
 class MyProfileWorkerDelegateSpy: MyProfileWorkerDelegate {
+    var successDidFetchImageCalled: Bool = false
+    var failureDidFetchImageCalled: Bool = false
     
+    func successDidFetchImage(model: MyProfileModels.UserModel, image: UIImage?) {
+        self.successDidFetchImageCalled = true
+    }
+    
+    func failureDidFetchImage(model: MyProfileModels.UserModel, error: OperationError) {
+        self.failureDidFetchImageCalled = true
+    }
 }

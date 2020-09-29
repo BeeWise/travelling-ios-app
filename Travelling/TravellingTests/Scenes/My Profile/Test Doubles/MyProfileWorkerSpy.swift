@@ -13,5 +13,9 @@
 @testable import Travelling
 
 class MyProfileWorkerSpy: MyProfileWorker {
+    var fetchImageCalled: Bool = false
     
+    override func fetchImage(model: MyProfileModels.UserModel) {
+        self.fetchImageCalled = true
+    }
 }

@@ -26,5 +26,11 @@ class MyProfileInteractor: MyProfileBusinessLogic {
 }
 
 extension MyProfileInteractor: MyProfileWorkerDelegate {
+    func successDidFetchImage(model: MyProfileModels.UserModel, image: UIImage?) {
+        
+    }
     
+    func failureDidFetchImage(model: MyProfileModels.UserModel, error: OperationError) {
+        
+    }
 }
