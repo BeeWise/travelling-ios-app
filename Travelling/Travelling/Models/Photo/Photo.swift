@@ -7,7 +7,14 @@
 
 import Foundation
 
-public class Photo: Codable {
+public class Photo: Codable, Equatable {
+    public static func == (lhs: Photo, rhs: Photo) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.imageName == rhs.imageName &&
+            lhs.imageUrl == rhs.imageUrl &&
+            lhs.imageDominantColor == rhs.imageDominantColor
+    }
+    
     var id: String
     
     var imageName: String?

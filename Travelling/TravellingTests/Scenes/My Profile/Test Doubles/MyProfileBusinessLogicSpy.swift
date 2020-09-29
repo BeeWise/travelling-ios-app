@@ -13,5 +13,14 @@
 @testable import Travelling
 
 class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
+    var shouldFetchUserCalled: Bool = false
+    var shouldFetchImageCalled: Bool = false
     
+    func shouldFetchUser() {
+        self.shouldFetchUserCalled = true
+    }
+    
+    func shouldFetchImage(request: MyProfileModels.ImageFetching.Request) {
+        self.shouldFetchImageCalled = true
+    }
 }

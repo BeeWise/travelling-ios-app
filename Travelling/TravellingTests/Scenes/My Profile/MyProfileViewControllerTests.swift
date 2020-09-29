@@ -57,6 +57,13 @@ class MyProfileViewControllerTests: XCTestCase {
         waitForExpectations(timeout: 1.0)
     }
     
+    // MARK: - Business logic tests
+    
+    func testViewDidLoadShouldAskTheInteractorToFetchUser() {
+        self.loadView()
+        XCTAssertTrue(self.interactorSpy.shouldFetchUserCalled)
+    }
+    
     // MARK: - Display logic tests
         
     func testDisplayWillFetchUser() {

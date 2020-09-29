@@ -7,7 +7,16 @@
 
 import Foundation
 
-public class User: Codable {
+public class User: Codable, Equatable {
+    public static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.firstName == rhs.firstName &&
+            lhs.lastName == rhs.lastName &&
+            lhs.title == rhs.title &&
+            lhs.description == rhs.description &&
+            lhs.photo == rhs.photo
+    }
+    
     var id: String
     
     var firstName: String?

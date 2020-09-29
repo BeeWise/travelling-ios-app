@@ -52,5 +52,6 @@ class MyProfileViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
+        self.interactor?.shouldFetchUser()
     }
 }

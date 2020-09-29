@@ -41,7 +41,101 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.worker = self.workerSpy
     }
     
-    // MARK: - Tests
-  
+    // MARK: - Fetch user tests
     
+    func testShouldFetchUserShouldAskThePresenterToPresentUserWhenThereIsUser() {
+        self.sut.user = User(id: "userId")
+        self.sut.shouldFetchUser()
+        XCTAssertTrue(self.presenterSpy.presentUserCalled)
+    }
+    
+    func testShouldFetchUserShouldAskThePresenterToPresentWillFetchUserWhenThereIsNoUser() {
+        self.sut.user = nil
+        self.sut.shouldFetchUser()
+        XCTAssertTrue(self.presenterSpy.presentWillFetchUserCalled)
+    }
+    
+    func testShouldFetchUserShouldAskTheWorkerToFetchUserWhenThereIsNoUser() {
+        self.sut.user = nil
+        self.sut.shouldFetchUser()
+        XCTAssertTrue(self.workerSpy.fetchUserCalled)
+    }
+    
+    func testSuccessDidFetchUserShouldUpdateUser() {
+        self.sut.user = nil
+        let user = User(id: "userId")
+        self.sut.successDidFetchUser(user: user)
+        XCTAssertEqual(self.sut.user, user)
+    }
+    
+    func testSuccessDidFetchUserShouldAskThePresenterToPresentUser() {
+        self.sut.successDidFetchUser(user: User(id: "userId"))
+        XCTAssertTrue(self.presenterSpy.presentUserCalled)
+    }
+    
+    func testSuccessDidFetchUserShouldAskThePresenterToPresentDidFetchUser() {
+        self.sut.successDidFetchUser(user: User(id: "userId"))
+        XCTAssertTrue(self.presenterSpy.presentDidFetchUserCalled)
+    }
+    
+    func testFailureDidFetchUserShouldAskThePresenterToPresentDidFetchUser() {
+        self.sut.failureDidFetchUser(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchUserCalled)
+    }
+  
+    // MARK: - Fetch image tests
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndImageName() {
+        let model = MyProfileModels.UserModel()
+        model.image = nil
+        model.imageName = nil
+        self.sut.shouldFetchImage(request: MyProfileModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndEmptyImageName() {
+        let model = MyProfileModels.UserModel()
+        model.image = nil
+        model.imageName = ""
+        self.sut.shouldFetchImage(request: MyProfileModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentWillFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let model = MyProfileModels.UserModel()
+        model.image = nil
+        model.imageName = "imageName"
+        model.isLoadingImage = false
+        self.sut.shouldFetchImage(request: MyProfileModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.presenterSpy.presentWillFetchImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskTheWorkerToFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let model = MyProfileModels.UserModel()
+        model.image = nil
+        model.imageName = "imageName"
+        model.isLoadingImage = false
+        self.sut.shouldFetchImage(request: MyProfileModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.workerSpy.fetchImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentImage() {
+        self.sut.successDidFetchImage(model: MyProfileModels.UserModel(), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.successDidFetchImage(model: MyProfileModels.UserModel(), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentPlaceholderImage() {
+        self.sut.failureDidFetchImage(model: MyProfileModels.UserModel(), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.failureDidFetchImage(model: MyProfileModels.UserModel(), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
 }
