@@ -33,6 +33,7 @@ extension MyProfileInteractor {
         if let user = self.user {
             self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
         } else {
+            // TODO: - Retrieve userId from UserDefaults?
             self.presenter?.presentWillFetchUser()
             self.worker?.fetchUser(userId: "userId")
         }

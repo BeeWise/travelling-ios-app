@@ -38,8 +38,10 @@ extension MyProfileViewController {
     
     private func setupTableView() {
         self.tableView?.backgroundColor = MyProfileStyle.shared.tableViewModel.backgroundColor
-        self.tableView?.separatorStyle = .none
         self.tableView?.tableFooterView = UIView(frame: .zero)
+        self.tableView?.register(MyProfileInformationTableViewCell.self, forCellReuseIdentifier: MyProfileInformationTableViewCell.defaultReuseIdentifier)
+        self.tableView?.register(MyProfileTitleTableViewCell.self, forCellReuseIdentifier: MyProfileTitleTableViewCell.defaultReuseIdentifier)
+        self.tableView?.separatorColor = MyProfileStyle.shared.tableViewModel.separatorColor
     }
     
     func setupActivityIndicatorView() -> UIActivityIndicatorView {

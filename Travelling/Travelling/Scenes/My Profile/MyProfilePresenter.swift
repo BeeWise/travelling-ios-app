@@ -74,6 +74,7 @@ extension MyProfilePresenter {
         model.title = user.title?.attributed(attributes: MyProfileStyle.shared.informationCellModel.titleAttributes())
         model.description = user.description?.attributed(attributes: MyProfileStyle.shared.informationCellModel.descriptionAttributes())
         model.imageDominantColor = user.photo?.imageDominantColor?.hexColor()
+        model.imageName = user.photo?.imageName
         return MyProfileModels.DisplayedItem(type: .user, model: model)
     }
     

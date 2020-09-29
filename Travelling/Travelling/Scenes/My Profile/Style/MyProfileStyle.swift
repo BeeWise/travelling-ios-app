@@ -49,47 +49,60 @@ class MyProfileStyle {
     
     struct TableViewModel {
         var backgroundColor = ApplicationStyle.colors.accentAlpha
-        var separatorColor: UIColor = ApplicationStyle.colors.accent
         var activityIndicatorSize: CGFloat = 50
         var activityIndicatorColor: UIColor = ApplicationStyle.colors.primary
+        var separatorColor: UIColor = ApplicationStyle.colors.accent
     }
     
     struct InformationCellModel {
         func nameAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .title2).bold(),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
+        
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryDark,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
+        
+        func descriptionAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .callout),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
+        
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+        
+        var avatarSize: CGFloat = 150
+        var avatarBackgroundColor: UIColor = ApplicationStyle.colors.accent
+        var avatarActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
+        var avatarPlaceholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
+        
+        var labelSpacing: CGFloat = 15
+    }
+    
+    struct TitleCellModel {
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
             return [
                 NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
                 NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
             ]
         }
         
-        func titleAttributes() -> [NSAttributedString.Key: Any] {
-            return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryDark,
-                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
-            ]
-        }
-        
-        func descriptionAttributes() -> [NSAttributedString.Key: Any] {
-            return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryDark,
-                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
-            ]
-        }
-        
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
-        
-        var avatarSize: CGFloat = 120
-        var avatarBackgroundColor: UIColor = ApplicationStyle.colors.accent
-        var avatarActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
-        var avatarPlaceholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
-    }
-    
-    struct TitleCellModel {
-        func titleAttributes() -> [NSAttributedString.Key: Any] {
-            return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryDark,
-                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
-            ]
-        }
     }
 }

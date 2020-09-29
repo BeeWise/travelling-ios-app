@@ -57,6 +57,72 @@ class MyProfileViewControllerTests: XCTestCase {
         waitForExpectations(timeout: 1.0)
     }
     
+    // MARK: - Table view tests
+    
+    func testNumberOfRowsInItemsSectionShouldEqualItemsCount() {
+        self.loadView()
+        self.sut.items = [MyProfileModels.DisplayedItem(type: .user, model: nil)]
+        let numberOfRows = self.sut.tableView(self.sut.tableView, numberOfRowsInSection: 0)
+        XCTAssertEqual(numberOfRows, self.sut.items.count)
+    }
+    
+    func testCellForRowShouldReturnCorrectCellForItems() {
+        self.loadView()
+        self.sut.items = [MyProfileModels.DisplayedItem(type: .user, model: MyProfileModels.UserModel()), MyProfileModels.DisplayedItem(type: .logout, model: MyProfileModels.TitleModel())]
+        
+        let informationCell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        let titleCell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: 1, section: 0))
+        
+        XCTAssertTrue(informationCell is MyProfileInformationTableViewCell)
+        XCTAssertTrue(titleCell is MyProfileTitleTableViewCell)
+    }
+    
+    func testShouldConfigureInformationTableViewCell() {
+        self.loadView()
+        
+        let model = MyProfileModels.UserModel()
+        model.name = "Name".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        model.title = "Title".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        model.description = "Description".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        model.isLoadingImage = true
+        model.image = UIImage()
+        model.imageContentMode = .center
+        model.imageDominantColor = UIColor.white
+        
+        let items = [MyProfileModels.DisplayedItem(type: .user, model: model)]
+        self.sut.items = items
+        items.enumerated().forEach { (index, item) in
+            let cell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: index, section: 0)) as! MyProfileInformationTableViewCell
+            guard let model = item.model as? MyProfileModels.UserModel else {
+                return XCTAssertTrue(false, "Wrong model for item!")
+            }
+            XCTAssertNotNil(model.cellInterface)
+            XCTAssertEqual(cell.nameLabel?.attributedText, model.name)
+            XCTAssertEqual(cell.titleLabel?.attributedText, model.title)
+            XCTAssertEqual(cell.descriptionLabel?.attributedText, model.description)
+            XCTAssertEqual(cell.avatarImageView?.activityIndicatorView?.isHidden, !model.isLoadingImage)
+            XCTAssertEqual(cell.avatarImageView?.image, model.image)
+            XCTAssertEqual(cell.avatarImageView?.contentMode, model.imageContentMode)
+            XCTAssertEqual(cell.avatarImageView?.backgroundColor, model.imageDominantColor)
+            XCTAssertTrue(self.interactorSpy.shouldFetchImageCalled)
+        }
+    }
+    
+    func testShouldConfigureTitleTableViewCell() {
+        self.loadView()
+        
+        let model = MyProfileModels.TitleModel(title: "Title".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]))
+        let items = [MyProfileModels.DisplayedItem(type: .logout, model: model)]
+        self.sut.items = items
+        items.enumerated().forEach { (index, item) in
+            let cell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: index, section: 0)) as! MyProfileTitleTableViewCell
+            guard let model = item.model as? MyProfileModels.TitleModel else {
+                return XCTAssertTrue(false, "Wrong model for item!")
+            }
+            XCTAssertEqual(cell.textLabel?.attributedText, model.title)
+        }
+    }
+    
     // MARK: - Business logic tests
     
     func testViewDidLoadShouldAskTheInteractorToFetchUser() {
