@@ -254,9 +254,15 @@ class MyProfileViewControllerTests: XCTestCase {
         XCTAssertNil(self.sut.navigationItem.rightBarButtonItem)
     }
     
-    func testDisplayLoggedOutUser() {
+    func testDisplayLoggedOutUserShouldAskTheDelegateToLogoutUser() {
         self.sut.displayLoggedOutUser()
         self.waitForMainQueue()
         XCTAssertTrue(self.delegateSpy.myProfileViewControllerDidLogoutUserCalled)
+    }
+    
+    func testDisplayNavigateToEmailShouldAskTheRouterToNavigateToEmail() {
+        self.sut.displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel(recipient: "recipient", subject: "subject"))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToEmailCalled)
     }
 }

@@ -23,6 +23,7 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     var worker: MyProfileWorker?
     
     var user: User?
+    var emailHandler: EmailHandler = EmailHandler()
     
     init() {
         self.worker = MyProfileWorker(delegate: self)
@@ -37,7 +38,9 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     }
     
     private func reportIssue() {
-        
+        if self.emailHandler.canSendEmail {
+            self.presenter?.presentNavigateToReportIssue()
+        }
     }
 }
 

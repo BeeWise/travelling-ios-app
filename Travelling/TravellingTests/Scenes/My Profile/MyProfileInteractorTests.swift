@@ -17,6 +17,7 @@ class MyProfileInteractorTests: XCTestCase {
     var sut: MyProfileInteractor!
     var presenterSpy: MyProfilePresentationLogicSpy!
     var workerSpy: MyProfileWorkerSpy!
+    var emailHandlerSpy: EmailHandlerSpy!
   
     // MARK: - Test lifecycle
   
@@ -39,6 +40,9 @@ class MyProfileInteractorTests: XCTestCase {
         
         self.workerSpy = MyProfileWorkerSpy(delegate: self.sut)
         self.sut.worker = self.workerSpy
+        
+        self.emailHandlerSpy = EmailHandlerSpy()
+        self.sut.emailHandler = self.emailHandlerSpy
     }
     
     // MARK: - Fetch user tests
@@ -164,5 +168,13 @@ class MyProfileInteractorTests: XCTestCase {
     func testFailureDidLogoutUserShouldAskThePresenterToPresentDidLogoutUser() {
         self.sut.failureDidLogoutUser(error: OperationError.noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidLogoutUserCalled)
+    }
+    
+    // MARK: - Report issue tests
+    
+    func testShouldNavigateToEmailShouldAskThePresenterToPresentNavigateToReportIssue() {
+        self.emailHandlerSpy.canSendEmailValue = true
+        self.sut.shouldSelectItem(request: MyProfileModels.ItemSelection.Request(type: .reportIssue))
+        XCTAssertTrue(self.presenterSpy.presentNavigateToReportIssueCalled)
     }
 }

@@ -24,6 +24,8 @@ protocol MyProfileDisplayLogic: class {
     func displayWillLogoutUser()
     func displayDidLogoutUser()
     func displayLoggedOutUser()
+    
+    func displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel)
 }
 
 extension MyProfileViewController: MyProfileDisplayLogic {
@@ -85,6 +87,12 @@ extension MyProfileViewController: MyProfileDisplayLogic {
     func displayLoggedOutUser() {
         DispatchQueue.main.async {
             self.delegate?.myProfileViewControllerDidLogoutUser(viewController: self)
+        }
+    }
+    
+    func displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel) {
+        DispatchQueue.main.async {
+            self.router?.navigateToEmail(recipient: viewModel.recipient, subject: viewModel.subject)
         }
     }
 }

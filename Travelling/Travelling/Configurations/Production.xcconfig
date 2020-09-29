@@ -9,5 +9,6 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 TASK_CONFIGURATOR_ENVIRONMENT = environment
+REPORT_ISSUE_RECIPIENT_EMAIL = recipient
 
 #include? "LocalProduction.xcconfig"

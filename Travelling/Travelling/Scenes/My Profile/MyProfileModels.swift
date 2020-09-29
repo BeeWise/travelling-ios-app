@@ -90,4 +90,11 @@ enum MyProfileModels {
             let type: ItemType
         }
     }
+    
+    enum EmailNavigation {
+        struct ViewModel {
+            let recipient: String
+            let subject: String
+        }
+    }
 }

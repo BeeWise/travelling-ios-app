@@ -23,3 +23,4 @@
 "MyProfile.scene.logout.title" = "Deconectare";
 "MyProfile.scene.report.issue.title" = "Raportează o problemă";
 "MyProfile.scene.version.title" = "Versiunea %@";
+"MyProfile.scene.report.issue.email.subject" = "[%@] Problemă Aplicație iOS - Versiunea %@";

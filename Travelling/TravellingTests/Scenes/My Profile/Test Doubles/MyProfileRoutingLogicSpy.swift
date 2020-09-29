@@ -13,6 +13,10 @@
 @testable import Travelling
 import UIKit
 
-class MyProfileRoutingLogicSpy: NSObject, MyProfileRoutingLogic {
+class MyProfileRoutingLogicSpy: MyProfileRoutingLogic {
+    var navigateToEmailCalled: Bool = false
     
+    func navigateToEmail(recipient: String, subject: String) {
+        self.navigateToEmailCalled = true
+    }
 }

@@ -164,6 +164,9 @@
 		28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D192523191600C30F64 /* MyProfileTitleTableViewCell.swift */; };
 		28BD8D1E25231E2200C30F64 /* MyProfileViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D1D25231E2200C30F64 /* MyProfileViewController+TableViewDelegate.swift */; };
 		28BD8D20252330B700C30F64 /* MyProfileViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D1F252330B700C30F64 /* MyProfileViewControllerDelegateSpy.swift */; };
+		28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D222523336C00C30F64 /* EmailHandler.swift */; };
+		28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */; };
+		28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +346,9 @@
 		28BD8D192523191600C30F64 /* MyProfileTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTitleTableViewCell.swift; sourceTree = "<group>"; };
 		28BD8D1D25231E2200C30F64 /* MyProfileViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyProfileViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		28BD8D1F252330B700C30F64 /* MyProfileViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
+		28BD8D222523336C00C30F64 /* EmailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandler.swift; sourceTree = "<group>"; };
+		28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandlerSpy.swift; sourceTree = "<group>"; };
+		28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewControllerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -744,6 +750,7 @@
 		281F4F822520CC7E008475D7 /* My Profile */ = {
 			isa = PBXGroup;
 			children = (
+				28BD8D212523336400C30F64 /* Email Handler */,
 				281F4FB22520D4A9008475D7 /* Cells */,
 				281F4F992520CDD1008475D7 /* Localization */,
 				281F4F982520CDC4008475D7 /* Style */,
@@ -809,6 +816,8 @@
 				281F4F9D2520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift */,
 				281F4FB72520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift */,
 				28BD8D1F252330B700C30F64 /* MyProfileViewControllerDelegateSpy.swift */,
+				28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */,
+				28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -1220,6 +1229,14 @@
 			path = "Image Views";
 			sourceTree = "<group>";
 		};
+		28BD8D212523336400C30F64 /* Email Handler */ = {
+			isa = PBXGroup;
+			children = (
+				28BD8D222523336C00C30F64 /* EmailHandler.swift */,
+			);
+			path = "Email Handler";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1393,6 +1410,7 @@
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28BD8D1625230E4B00C30F64 /* LoadingImageView.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
+				28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */,
 				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				28BD8D18252310AE00C30F64 /* MyProfileViewController+TableViewDataSource.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
@@ -1458,6 +1476,7 @@
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
+				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
@@ -1479,6 +1498,7 @@
 				281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */,
 				2812D498250CE7930079F879 /* AppPresentationLogicSpy.swift in Sources */,
 				2812D47B250CDB150079F879 /* MainViewControllerTests.swift in Sources */,
+				28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */,
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
 				287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */,
 				2812D48F250CE7630079F879 /* AppDelegateTests.swift in Sources */,

@@ -11,11 +11,21 @@
 //
 
 import UIKit
+import MessageUI
 
-@objc protocol MyProfileRoutingLogic {
-    
+protocol MyProfileRoutingLogic {
+    func navigateToEmail(recipient: String, subject: String)
 }
 
-class MyProfileRouter: NSObject, MyProfileRoutingLogic {
+class MyProfileRouter: MyProfileRoutingLogic {
     weak var viewController: MyProfileViewController?
+    
+    func navigateToEmail(recipient: String, subject: String) {
+        let mailViewController = MFMailComposeViewController()
+        mailViewController.mailComposeDelegate = self.viewController
+        mailViewController.setToRecipients([recipient])
+        mailViewController.setSubject(subject)
+        mailViewController.modalPresentationStyle = .fullScreen
+        self.viewController?.present(mailViewController, animated: true, completion: nil)
+    }
 }

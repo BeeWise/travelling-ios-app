@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol MyProfileViewControllerDelegate: AnyObject {
     func myProfileViewControllerDidLogoutUser(viewController: MyProfileViewController?)
@@ -18,7 +19,7 @@ protocol MyProfileViewControllerDelegate: AnyObject {
 
 class MyProfileViewController: UITableViewController {
     var interactor: MyProfileBusinessLogic?
-    var router: (NSObjectProtocol & MyProfileRoutingLogic)?
+    var router: MyProfileRoutingLogic?
     
     weak var delegate: MyProfileViewControllerDelegate?
     
@@ -59,5 +60,13 @@ class MyProfileViewController: UITableViewController {
         super.viewDidLoad()
         self.setupSubviews()
         self.interactor?.shouldFetchUser()
+    }
+}
+
+// MARK: - Mail compose view controller delegate
+
+extension MyProfileViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

@@ -104,6 +104,11 @@ class MyProfilePresenterTests: XCTestCase {
         self.sut.presentLoggedOutUser()
         XCTAssertTrue(self.displayerSpy.displayLoggedOutUserCalled)
     }
+    
+    func testPresentNavigateToReportIssueShouldAskTheDisplayerToDisplayNavigateToEmail() {
+        self.sut.presentNavigateToReportIssue()
+        XCTAssertTrue(self.displayerSpy.displayNavigateToEmailCalled)
+    }
 }
 
 // MARK: - Auxiliary

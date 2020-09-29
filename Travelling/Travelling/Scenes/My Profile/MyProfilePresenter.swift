@@ -25,6 +25,8 @@ protocol MyProfilePresentationLogic {
     func presentWillLogoutUser()
     func presentDidLogoutUser()
     func presentLoggedOutUser()
+    
+    func presentNavigateToReportIssue()
 }
 
 class MyProfilePresenter: MyProfilePresentationLogic {
@@ -69,6 +71,12 @@ class MyProfilePresenter: MyProfilePresentationLogic {
     
     func presentLoggedOutUser() {
         self.displayer?.displayLoggedOutUser()
+    }
+    
+    func presentNavigateToReportIssue() {
+        let recipient = BundleConfiguration.string(for: BundleConfiguration.Keys.reportIssueRecipientEmail)
+        let subject = MyProfileLocalization.shared.reportIssueEmailSubject(applicationName: Bundle.main.applicationName, applicationVersion: Bundle.main.versionNumber)
+        self.displayer?.displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel(recipient: recipient, subject: subject))
     }
 }
 

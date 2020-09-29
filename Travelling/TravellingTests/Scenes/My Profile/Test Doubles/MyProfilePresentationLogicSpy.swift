@@ -26,6 +26,8 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     var presentDidLogoutUserCalled: Bool = false
     var presentLoggedOutUserCalled: Bool = false
     
+    var presentNavigateToReportIssueCalled: Bool = false
+    
     func presentWillFetchUser() {
         self.presentWillFetchUserCalled = true
     }
@@ -64,5 +66,9 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     func presentLoggedOutUser() {
         self.presentLoggedOutUserCalled = true
+    }
+    
+    func presentNavigateToReportIssue() {
+        self.presentNavigateToReportIssueCalled = true
     }
 }

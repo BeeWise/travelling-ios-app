@@ -15,7 +15,7 @@ import XCTest
 
 class MyProfileRouterTests: XCTestCase {
     var sut: MyProfileRouter!
-    var viewController: MyProfileViewController!
+    var viewControllerSpy: MyProfileViewControllerSpy!
     
     // MARK: - Test lifecycle
     
@@ -33,11 +33,14 @@ class MyProfileRouterTests: XCTestCase {
     func setupMyProfileRouter() {
         self.sut = MyProfileRouter()
         
-        self.viewController = MyProfileViewController()
-        self.sut.viewController = self.viewController
+        self.viewControllerSpy = MyProfileViewControllerSpy()
+        self.sut.viewController = self.viewControllerSpy
     }
     
     // MARK: - Tests
     
-    
+    func testNavigateToEmail() {
+        self.sut.navigateToEmail(recipient: "recipient", subject: "subject")
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
 }

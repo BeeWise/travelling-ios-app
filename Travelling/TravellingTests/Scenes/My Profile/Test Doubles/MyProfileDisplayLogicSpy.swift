@@ -26,6 +26,8 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     var displayDidLogoutUserCalled: Bool = false
     var displayLoggedOutUserCalled: Bool = false
     
+    var displayNavigateToEmailCalled: Bool = false
+    
     func displayWillFetchUser() {
         self.displayWillFetchUserCalled = true
     }
@@ -61,5 +63,9 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     func displayLoggedOutUser() {
         self.displayLoggedOutUserCalled = true
+    }
+    
+    func displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel) {
+        self.displayNavigateToEmailCalled = true
     }
 }
