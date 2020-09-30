@@ -167,6 +167,10 @@
 		28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D222523336C00C30F64 /* EmailHandler.swift */; };
 		28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */; };
 		28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */; };
+		28D3A82025242F38008FFF92 /* LogoutUserOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A81F25242F38008FFF92 /* LogoutUserOperationModels.swift */; };
+		28D3A82225242F53008FFF92 /* LogoutUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82125242F53008FFF92 /* LogoutUserOperation.swift */; };
+		28D3A82425242F5D008FFF92 /* LogoutUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82325242F5D008FFF92 /* LogoutUserLocalOperation.swift */; };
+		28D3A8282524304A008FFF92 /* LogoutUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A8272524304A008FFF92 /* LogoutUserLocalOperationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,6 +353,10 @@
 		28BD8D222523336C00C30F64 /* EmailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandler.swift; sourceTree = "<group>"; };
 		28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandlerSpy.swift; sourceTree = "<group>"; };
 		28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewControllerSpy.swift; sourceTree = "<group>"; };
+		28D3A81F25242F38008FFF92 /* LogoutUserOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserOperationModels.swift; sourceTree = "<group>"; };
+		28D3A82125242F53008FFF92 /* LogoutUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserOperation.swift; sourceTree = "<group>"; };
+		28D3A82325242F5D008FFF92 /* LogoutUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserLocalOperation.swift; sourceTree = "<group>"; };
+		28D3A8272524304A008FFF92 /* LogoutUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserLocalOperationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,6 +674,7 @@
 		28179ED3250DFFF00081FD3A /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28D3A81D25242F21008FFF92 /* Authentication */,
 				28BD8CFA2522FE6200C30F64 /* User */,
 				287A356C2517574300898B51 /* Image */,
 				28889781250E25300017B0B1 /* Places */,
@@ -1045,6 +1054,7 @@
 		28889793250E32DB0017B0B1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28D3A8252524302D008FFF92 /* Authentication */,
 				28BD8D042523057E00C30F64 /* User */,
 				287A3576251757C600898B51 /* Image */,
 				28889799250E332F0017B0B1 /* Places */,
@@ -1237,6 +1247,40 @@
 			path = "Email Handler";
 			sourceTree = "<group>";
 		};
+		28D3A81D25242F21008FFF92 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A81E25242F2A008FFF92 /* Logout */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		28D3A81E25242F2A008FFF92 /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A81F25242F38008FFF92 /* LogoutUserOperationModels.swift */,
+				28D3A82125242F53008FFF92 /* LogoutUserOperation.swift */,
+				28D3A82325242F5D008FFF92 /* LogoutUserLocalOperation.swift */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
+		28D3A8252524302D008FFF92 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A82625243035008FFF92 /* Logout */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		28D3A82625243035008FFF92 /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A8272524304A008FFF92 /* LogoutUserLocalOperationTests.swift */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1357,6 +1401,7 @@
 				28179ED6250E000E0081FD3A /* AsynchronousOperation.swift in Sources */,
 				28179EC7250DFEE30081FD3A /* EmptyStateView.swift in Sources */,
 				2812D469250CDAC90079F879 /* MainViewController+DisplayLogic.swift in Sources */,
+				28D3A82025242F38008FFF92 /* LogoutUserOperationModels.swift in Sources */,
 				28179EAB250DFC700081FD3A /* ExploreViewController+TableViewDelegate.swift in Sources */,
 				288897C6250E3DF30017B0B1 /* UIFont+WithTraits.swift in Sources */,
 				28179EA5250DFC700081FD3A /* ExploreStyle.swift in Sources */,
@@ -1370,6 +1415,7 @@
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
 				281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */,
 				28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */,
+				28D3A82225242F53008FFF92 /* LogoutUserOperation.swift in Sources */,
 				28B0FC8825177C23007E276D /* String+Contains.swift in Sources */,
 				287A357E251758A600898B51 /* ImageTaskModels.swift in Sources */,
 				28179EA6250DFC700081FD3A /* ExplorePresenter.swift in Sources */,
@@ -1411,6 +1457,7 @@
 				28BD8D1625230E4B00C30F64 /* LoadingImageView.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
 				28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */,
+				28D3A82425242F5D008FFF92 /* LogoutUserLocalOperation.swift in Sources */,
 				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				28BD8D18252310AE00C30F64 /* MyProfileViewController+TableViewDataSource.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
@@ -1472,6 +1519,7 @@
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
 				281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */,
+				28D3A8282524304A008FFF92 /* LogoutUserLocalOperationTests.swift in Sources */,
 				28BD8D13252307C400C30F64 /* UsersTaskSpy.swift in Sources */,
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
