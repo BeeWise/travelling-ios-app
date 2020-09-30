@@ -47,6 +47,11 @@ class MyProfileInteractorTests: XCTestCase {
     
     // MARK: - Fetch user tests
     
+    func testShouldFetchUserShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.shouldFetchUser()
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
     func testShouldFetchUserShouldAskThePresenterToPresentUserWhenThereIsUser() {
         self.sut.user = User(id: "userId")
         self.sut.shouldFetchUser()
@@ -77,9 +82,19 @@ class MyProfileInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentUserCalled)
     }
     
+    func testSuccessDidFetchUserShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.successDidFetchUser(user: User(id: "userId"))
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
     func testSuccessDidFetchUserShouldAskThePresenterToPresentDidFetchUser() {
         self.sut.successDidFetchUser(user: User(id: "userId"))
         XCTAssertTrue(self.presenterSpy.presentDidFetchUserCalled)
+    }
+    
+    func testFailureDidFetchUserShouldAskThePresenterToPresentErrorState() {
+        self.sut.failureDidFetchUser(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentErrorStateCalled)
     }
     
     func testFailureDidFetchUserShouldAskThePresenterToPresentDidFetchUser() {

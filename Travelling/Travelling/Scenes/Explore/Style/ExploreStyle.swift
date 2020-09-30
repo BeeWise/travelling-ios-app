@@ -88,7 +88,8 @@ class ExploreStyle {
     }
     
     struct EmptyStateViewModel {
-        var image: UIImage = UIImage()
+        var image: UIImage = ApplicationStyle.images.emptyStateIcon.withRenderingMode(.alwaysTemplate)
+        var imageTintColor = ApplicationStyle.colors.primary
         
         func textAttributes() -> [NSAttributedString.Key: Any] {
             let paragraphStyle = NSMutableParagraphStyle()

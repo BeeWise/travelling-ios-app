@@ -109,6 +109,16 @@ class MyProfilePresenterTests: XCTestCase {
         self.sut.presentNavigateToReportIssue()
         XCTAssertTrue(self.displayerSpy.displayNavigateToEmailCalled)
     }
+    
+    func testPresentErrorStateShouldAskTheDisplayerToDisplayErrorState() {
+        self.sut.presentErrorState()
+        XCTAssertTrue(self.displayerSpy.displayErrorStateCalled)
+    }
+    
+    func testPresentRemoveErrorStateShouldAskTheDisplayerToDisplayRemoveErrorState() {
+        self.sut.presentRemoveErrorState()
+        XCTAssertTrue(self.displayerSpy.displayRemoveErrorStateCalled)
+    }
 }
 
 // MARK: - Auxiliary

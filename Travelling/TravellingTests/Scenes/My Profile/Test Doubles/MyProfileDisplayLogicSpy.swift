@@ -28,6 +28,9 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     var displayNavigateToEmailCalled: Bool = false
     
+    var displayErrorStateCalled: Bool = false
+    var displayRemoveErrorStateCalled: Bool = false
+    
     func displayWillFetchUser() {
         self.displayWillFetchUserCalled = true
     }
@@ -67,5 +70,13 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     func displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel) {
         self.displayNavigateToEmailCalled = true
+    }
+    
+    func displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel) {
+        self.displayErrorStateCalled = true
+    }
+    
+    func displayRemoveErrorState() {
+        self.displayRemoveErrorStateCalled = true
     }
 }

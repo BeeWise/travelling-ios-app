@@ -28,6 +28,9 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     var presentNavigateToReportIssueCalled: Bool = false
     
+    var presentErrorStateCalled: Bool = false
+    var presentRemoveErrorStateCalled: Bool = false
+    
     func presentWillFetchUser() {
         self.presentWillFetchUserCalled = true
     }
@@ -70,5 +73,13 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     func presentNavigateToReportIssue() {
         self.presentNavigateToReportIssueCalled = true
+    }
+    
+    func presentErrorState() {
+        self.presentErrorStateCalled = true
+    }
+    
+    func presentRemoveErrorState() {
+        self.presentRemoveErrorStateCalled = true
     }
 }

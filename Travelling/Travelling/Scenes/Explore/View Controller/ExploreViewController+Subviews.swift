@@ -57,6 +57,7 @@ extension ExploreViewController {
     func emptyStateView(image: UIImage?, attributedText: NSAttributedString?) -> EmptyStateView {
         let view = EmptyStateView(frame: self.tableView.frame)
         view.image = image
+        view.imageTintColor = ExploreStyle.shared.emptyStateViewModel.imageTintColor
         view.attributedText = attributedText
         return view
     }

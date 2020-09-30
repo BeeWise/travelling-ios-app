@@ -176,6 +176,7 @@
 		28D3A82F25243174008FFF92 /* AuthenticationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82E25243174008FFF92 /* AuthenticationTask.swift */; };
 		28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */; };
 		28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */; };
+		28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A836252434F4008FFF92 /* ErrorStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,6 +368,7 @@
 		28D3A82E25243174008FFF92 /* AuthenticationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTask.swift; sourceTree = "<group>"; };
 		28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskTests.swift; sourceTree = "<group>"; };
 		28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskSpy.swift; sourceTree = "<group>"; };
+		28D3A836252434F4008FFF92 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,6 +643,7 @@
 		28179EC4250DFEC80081FD3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28D3A835252434EB008FFF92 /* Error State View */,
 				28179EC8250DFF1D0081FD3A /* Table Section Views */,
 				28179EC5250DFEDA0081FD3A /* Empty State View */,
 			);
@@ -1312,6 +1315,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		28D3A835252434EB008FFF92 /* Error State View */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A836252434F4008FFF92 /* ErrorStateView.swift */,
+			);
+			path = "Error State View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1447,6 +1458,7 @@
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
 				281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */,
 				28D3A82D2524316D008FFF92 /* AuthenticationTaskModels.swift in Sources */,
+				28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */,
 				28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */,
 				28D3A82225242F53008FFF92 /* LogoutUserOperation.swift in Sources */,
 				28B0FC8825177C23007E276D /* String+Contains.swift in Sources */,

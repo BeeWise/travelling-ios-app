@@ -151,6 +151,11 @@ class MyProfileViewControllerTests: XCTestCase {
         XCTAssertTrue(self.interactorSpy.shouldFetchUserCalled)
     }
     
+    func testErrorStateViewTouchUpInsideButtonShouldAskTheInteractorToFetchUser() {
+        self.sut.errorStateView(view: nil, touchUpInsideButton: nil)
+        XCTAssertTrue(self.interactorSpy.shouldFetchUserCalled)
+    }
+    
     // MARK: - Display logic tests
         
     func testDisplayWillFetchUser() {
@@ -264,5 +269,22 @@ class MyProfileViewControllerTests: XCTestCase {
         self.sut.displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel(recipient: "recipient", subject: "subject"))
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.navigateToEmailCalled)
+    }
+    
+    func testDisplayErrorState() {
+        self.loadView()
+        self.sut.tableView?.backgroundView = nil
+        self.sut.displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel(image: nil, text: "Text".attributed()))
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.tableView?.backgroundView)
+        XCTAssertTrue(self.sut.tableView?.backgroundView is ErrorStateView)
+    }
+    
+    func testDisplayRemoveErrorState() {
+        self.loadView()
+        self.sut.tableView?.backgroundView = ErrorStateView(frame: .zero)
+        self.sut.displayRemoveErrorState()
+        self.waitForMainQueue()
+        XCTAssertNil(self.sut.tableView?.backgroundView)
     }
 }

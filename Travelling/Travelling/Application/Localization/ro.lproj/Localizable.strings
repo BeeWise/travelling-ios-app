@@ -24,3 +24,4 @@
 "MyProfile.scene.report.issue.title" = "Raportează o problemă";
 "MyProfile.scene.version.title" = "Versiunea %@";
 "MyProfile.scene.report.issue.email.subject" = "[%@] Problemă Aplicație iOS - Versiunea %@";
+"MyProfile.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";

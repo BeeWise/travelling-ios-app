@@ -46,6 +46,8 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
 
 extension MyProfileInteractor {
     func shouldFetchUser() {
+        self.presenter?.presentRemoveErrorState()
+        
         if let user = self.user {
             self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
         } else {
@@ -58,11 +60,12 @@ extension MyProfileInteractor {
     func successDidFetchUser(user: User) {
         self.user = user
         self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
+        self.presenter?.presentRemoveErrorState()
         self.presenter?.presentDidFetchUser()
     }
     
     func failureDidFetchUser(error: OperationError) {
-        // TODO: - Present error state view?
+        self.presenter?.presentErrorState()
         self.presenter?.presentDidFetchUser()
     }
 }

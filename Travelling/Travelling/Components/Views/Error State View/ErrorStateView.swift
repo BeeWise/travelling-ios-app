@@ -1,20 +1,25 @@
 //
-//  EmptyStateView.swift
+//  ErrorStateView.swift
 //  Travelling
 //
-//  Created by Dimitri Strauneanu on 13/09/2020.
+//  Created by Dimitri Strauneanu on 30/09/2020.
 //
 
-import Foundation
 import UIKit
 
-public class EmptyStateView: UIView {
+public protocol ErrorStateViewDelegate: AnyObject {
+    func errorStateView(view: ErrorStateView?, touchUpInsideButton button: UIButton?)
+}
+
+public class ErrorStateView: UIView {
     private let imageSize: CGFloat = 120
     private let spacing: CGFloat = 40
     
     public weak var imageView: UIImageView!
     public weak var spacerView: UIView!
-    public weak var textLabel: UILabel!
+    public weak var button: UIButton!
+    
+    public weak var delegate: ErrorStateViewDelegate?
     
     public var image: UIImage? {
         didSet {
@@ -30,7 +35,7 @@ public class EmptyStateView: UIView {
     
     public var attributedText: NSAttributedString? {
         didSet {
-            self.textLabel?.attributedText = self.attributedText
+            self.button?.setAttributedTitle(self.attributedText, for: .normal)
         }
     }
     
@@ -51,11 +56,11 @@ public class EmptyStateView: UIView {
 
 // MARK: - Subviews
 
-extension EmptyStateView {
+extension ErrorStateView {
     private func setupSubviews() {
         self.setupImageView()
         self.setupSpacerView()
-        self.setupTextLabel()
+        self.setupButton()
     }
     
     private func setupImageView() {
@@ -76,23 +81,32 @@ extension EmptyStateView {
         self.spacerView = view
     }
     
-    private func setupTextLabel() {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.attributedText = self.attributedText
-        self.addSubview(label)
-        self.textLabel = label
+    private func setupButton() {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.numberOfLines = 0
+        button.setAttributedTitle(self.attributedText, for: .normal)
+        button.addTarget(self, action: #selector(ErrorStateView.touchUpInsideButton), for: .touchUpInside)
+        self.addSubview(button)
+        self.button = button
+    }
+}
+
+// MARK: - Actions
+
+extension ErrorStateView {
+    @objc func touchUpInsideButton() {
+        self.delegate?.errorStateView(view: self, touchUpInsideButton: self.button)
     }
 }
 
 // MARK: - Constraints
 
-extension EmptyStateView {
+extension ErrorStateView {
     private func setupSubviewsConstraints() {
         self.setupImageViewConstraints()
         self.setupSpacerViewConstraints()
-        self.setupTextLabelConstraints()
+        self.setupButtonConstraints()
     }
     
     private func setupImageViewConstraints() {
@@ -113,12 +127,12 @@ extension EmptyStateView {
         ])
     }
     
-    private func setupTextLabelConstraints() {
+    private func setupButtonConstraints() {
         NSLayoutConstraint.activate([
-            self.textLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.textLabel.topAnchor.constraint(equalTo: self.spacerView.bottomAnchor),
-            self.textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            self.textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
+            self.button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.button.topAnchor.constraint(equalTo: self.spacerView.bottomAnchor),
+            self.button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15)
         ])
     }
 }

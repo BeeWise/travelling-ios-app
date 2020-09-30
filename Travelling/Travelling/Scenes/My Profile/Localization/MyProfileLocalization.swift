@@ -25,12 +25,14 @@ class MyProfileLocalization {
         logoutTitle = "MyProfile.scene.logout.title",
         reportIssueTitle = "MyProfile.scene.report.issue.title",
         versionTitle = "MyProfile.scene.version.title",
-        reportIssueEmailSubject = "MyProfile.scene.report.issue.email.subject"
+        reportIssueEmailSubject = "MyProfile.scene.report.issue.email.subject",
+        errorStateText = "MyProfile.scene.error.state.text"
     }
     
     let title = LocalizedKey.title.localized()
     let logoutTitle = LocalizedKey.logoutTitle.localized()
     let reportIssueTitle = LocalizedKey.reportIssueTitle.localized()
+    let errorStateText = LocalizedKey.errorStateText.localized()
     
     func reportIssueEmailSubject(applicationName: String, applicationVersion: String) -> String {
         return String(format: LocalizedKey.reportIssueEmailSubject.localized(), applicationName, applicationVersion)

@@ -26,6 +26,9 @@ protocol MyProfileDisplayLogic: class {
     func displayLoggedOutUser()
     
     func displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel)
+    
+    func displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel)
+    func displayRemoveErrorState()
 }
 
 extension MyProfileViewController: MyProfileDisplayLogic {
@@ -93,6 +96,18 @@ extension MyProfileViewController: MyProfileDisplayLogic {
     func displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel) {
         DispatchQueue.main.async {
             self.router?.navigateToEmail(recipient: viewModel.recipient, subject: viewModel.subject)
+        }
+    }
+    
+    func displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.tableView?.backgroundView = self.errorStateView(image: viewModel.image, attributedText: viewModel.text)
+        }
+    }
+    
+    func displayRemoveErrorState() {
+        DispatchQueue.main.async {
+            self.tableView?.backgroundView = nil
         }
     }
 }

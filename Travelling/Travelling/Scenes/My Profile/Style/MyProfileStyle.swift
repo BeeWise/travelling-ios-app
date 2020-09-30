@@ -22,6 +22,7 @@ class MyProfileStyle {
     var tableViewModel: TableViewModel
     var informationCellModel: InformationCellModel
     var titleCellModel: TitleCellModel
+    var errorStateViewModel: ErrorStateViewModel
     
     private init() {
         self.navigationBarModel = NavigationBarModel()
@@ -30,6 +31,7 @@ class MyProfileStyle {
         self.tableViewModel = TableViewModel()
         self.informationCellModel = InformationCellModel()
         self.titleCellModel = TitleCellModel()
+        self.errorStateViewModel = ErrorStateViewModel()
     }
     
     struct NavigationBarModel {
@@ -109,5 +111,20 @@ class MyProfileStyle {
         }
         
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+    }
+    
+    struct ErrorStateViewModel {
+        var image: UIImage = ApplicationStyle.images.errorStateIcon.withRenderingMode(.alwaysTemplate)
+        var imageTintColor = ApplicationStyle.colors.primary
+        
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .title2).bold(),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
     }
 }

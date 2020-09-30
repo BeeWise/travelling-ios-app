@@ -97,4 +97,11 @@ enum MyProfileModels {
             let subject: String
         }
     }
+    
+    enum ErrorStatePresentation {
+        struct ViewModel {
+            let image: UIImage?
+            let text: NSAttributedString?
+        }
+    }
 }

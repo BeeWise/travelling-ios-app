@@ -27,6 +27,9 @@ protocol MyProfilePresentationLogic {
     func presentLoggedOutUser()
     
     func presentNavigateToReportIssue()
+    
+    func presentErrorState()
+    func presentRemoveErrorState()
 }
 
 class MyProfilePresenter: MyProfilePresentationLogic {
@@ -77,6 +80,16 @@ class MyProfilePresenter: MyProfilePresentationLogic {
         let recipient = BundleConfiguration.string(for: BundleConfiguration.Keys.reportIssueRecipientEmail)
         let subject = MyProfileLocalization.shared.reportIssueEmailSubject(applicationName: Bundle.main.applicationName, applicationVersion: Bundle.main.versionNumber)
         self.displayer?.displayNavigateToEmail(viewModel: MyProfileModels.EmailNavigation.ViewModel(recipient: recipient, subject: subject))
+    }
+    
+    func presentErrorState() {
+        let image = MyProfileStyle.shared.errorStateViewModel.image
+        let text = MyProfileLocalization.shared.errorStateText.attributed(attributes: MyProfileStyle.shared.errorStateViewModel.textAttributes())
+        self.displayer?.displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel(image: image, text: text))
+    }
+    
+    func presentRemoveErrorState() {
+        self.displayer?.displayRemoveErrorState()
     }
 }
 

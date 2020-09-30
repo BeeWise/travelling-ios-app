@@ -51,4 +51,21 @@ extension MyProfileViewController {
         view.startAnimating()
         return view
     }
+    
+    func errorStateView(image: UIImage?, attributedText: NSAttributedString?) -> ErrorStateView {
+        let view = ErrorStateView(frame: self.tableView.frame)
+        view.delegate = self
+        view.image = image
+        view.imageTintColor = MyProfileStyle.shared.errorStateViewModel.imageTintColor
+        view.attributedText = attributedText
+        return view
+    }
+}
+
+// MARK: - Error state view delegate
+
+extension MyProfileViewController: ErrorStateViewDelegate {
+    func errorStateView(view: ErrorStateView?, touchUpInsideButton button: UIButton?) {
+        self.interactor?.shouldFetchUser()
+    }
 }
