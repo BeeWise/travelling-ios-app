@@ -24,8 +24,10 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     var worker: MyProfileWorker?
     
     var user: User?
+    
     var isFetchingUser: Bool = false
     var emailHandler: EmailHandler = EmailHandler()
+    var userDefaultsManager = UserDefaultsManager.shared
     
     init() {
         self.worker = MyProfileWorker(delegate: self)
@@ -54,8 +56,7 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
         self.presenter?.presentResetUser()
         self.presenter?.presentRemoveErrorState()
         self.presenter?.presentWillFetchUser()
-        // TODO: - Retrieve userId from UserDefaults?
-        self.worker?.fetchUser(userId: "userId")
+        self.worker?.fetchUser(userId: self.userDefaultsManager.userId())
     }
 }
 
@@ -68,10 +69,9 @@ extension MyProfileInteractor {
         if let user = self.user {
             self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
         } else {
-            // TODO: - Retrieve userId from UserDefaults?
             self.isFetchingUser = true
             self.presenter?.presentWillFetchUser()
-            self.worker?.fetchUser(userId: "userId")
+            self.worker?.fetchUser(userId: self.userDefaultsManager.userId())
         }
     }
     

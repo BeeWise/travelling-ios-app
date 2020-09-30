@@ -178,6 +178,8 @@
 		28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */; };
 		28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A836252434F4008FFF92 /* ErrorStateView.swift */; };
 		28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */; };
+		28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */; };
+		28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -371,6 +373,8 @@
 		28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskSpy.swift; sourceTree = "<group>"; };
 		28D3A836252434F4008FFF92 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControlSpy.swift; sourceTree = "<group>"; };
+		28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -885,6 +889,7 @@
 		283B56EE250CBCAF00EFA651 /* Travelling */ = {
 			isa = PBXGroup;
 			children = (
+				28DC5A6A2524813800FFE2E1 /* Managers */,
 				28841A6725203C630072A515 /* Configurations */,
 				28179ED9250E004D0081FD3A /* Tasks */,
 				28179ED3250DFFF00081FD3A /* Operations */,
@@ -1178,6 +1183,7 @@
 				288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */,
 				28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */,
 				28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */,
+				28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1326,6 +1332,22 @@
 			path = "Error State View";
 			sourceTree = "<group>";
 		};
+		28DC5A6A2524813800FFE2E1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				28DC5A6B2524816B00FFE2E1 /* User Defaults */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		28DC5A6B2524816B00FFE2E1 /* User Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */,
+			);
+			path = "User Defaults";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1432,6 +1454,7 @@
 			files = (
 				281F4F932520CDA9008475D7 /* MyProfileViewController.swift in Sources */,
 				28179EE8250E00FC0081FD3A /* PlacesTaskModels.swift in Sources */,
+				28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
 				28BD8D012522FEAD00C30F64 /* GetUserLocalOperation.swift in Sources */,
 				281F4F8D2520CDA9008475D7 /* MyProfileViewController+Subviews.swift in Sources */,
@@ -1576,6 +1599,7 @@
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
+				28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,

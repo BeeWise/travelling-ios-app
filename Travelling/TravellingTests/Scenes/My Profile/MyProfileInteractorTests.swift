@@ -18,6 +18,7 @@ class MyProfileInteractorTests: XCTestCase {
     var presenterSpy: MyProfilePresentationLogicSpy!
     var workerSpy: MyProfileWorkerSpy!
     var emailHandlerSpy: EmailHandlerSpy!
+    var userDefaultsManagerSpy: UserDefaultsManagerSpy!
   
     // MARK: - Test lifecycle
   
@@ -43,6 +44,9 @@ class MyProfileInteractorTests: XCTestCase {
         
         self.emailHandlerSpy = EmailHandlerSpy()
         self.sut.emailHandler = self.emailHandlerSpy
+        
+        self.userDefaultsManagerSpy = UserDefaultsManagerSpy()
+        self.sut.userDefaultsManager = self.userDefaultsManagerSpy
     }
     
     // MARK: - Fetch user tests
