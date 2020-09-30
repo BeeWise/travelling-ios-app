@@ -171,6 +171,11 @@
 		28D3A82225242F53008FFF92 /* LogoutUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82125242F53008FFF92 /* LogoutUserOperation.swift */; };
 		28D3A82425242F5D008FFF92 /* LogoutUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82325242F5D008FFF92 /* LogoutUserLocalOperation.swift */; };
 		28D3A8282524304A008FFF92 /* LogoutUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A8272524304A008FFF92 /* LogoutUserLocalOperationTests.swift */; };
+		28D3A82B25243165008FFF92 /* AuthenticationTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82A25243165008FFF92 /* AuthenticationTaskProtocol.swift */; };
+		28D3A82D2524316D008FFF92 /* AuthenticationTaskModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82C2524316D008FFF92 /* AuthenticationTaskModels.swift */; };
+		28D3A82F25243174008FFF92 /* AuthenticationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A82E25243174008FFF92 /* AuthenticationTask.swift */; };
+		28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */; };
+		28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -357,6 +362,11 @@
 		28D3A82125242F53008FFF92 /* LogoutUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserOperation.swift; sourceTree = "<group>"; };
 		28D3A82325242F5D008FFF92 /* LogoutUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserLocalOperation.swift; sourceTree = "<group>"; };
 		28D3A8272524304A008FFF92 /* LogoutUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserLocalOperationTests.swift; sourceTree = "<group>"; };
+		28D3A82A25243165008FFF92 /* AuthenticationTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskProtocol.swift; sourceTree = "<group>"; };
+		28D3A82C2524316D008FFF92 /* AuthenticationTaskModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskModels.swift; sourceTree = "<group>"; };
+		28D3A82E25243174008FFF92 /* AuthenticationTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTask.swift; sourceTree = "<group>"; };
+		28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskTests.swift; sourceTree = "<group>"; };
+		28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -696,6 +706,7 @@
 		28179ED9250E004D0081FD3A /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				28D3A82925243150008FFF92 /* Authentication */,
 				28BD8D082523061D00C30F64 /* Users */,
 				287A357A2517588300898B51 /* Image */,
 				28179EE4250E00DC0081FD3A /* Places */,
@@ -1091,6 +1102,7 @@
 		2888979D250E33940017B0B1 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				28D3A83025243236008FFF92 /* Authentication */,
 				28BD8D0F2523073D00C30F64 /* Users */,
 				287A358125175DBA00898B51 /* Image */,
 				288897A0250E33AD0017B0B1 /* Places */,
@@ -1106,6 +1118,7 @@
 				288897A5250E346F0017B0B1 /* PlacesTaskSpy.swift */,
 				287A358425175DEC00898B51 /* ImageTaskSpy.swift */,
 				28BD8D12252307C300C30F64 /* UsersTaskSpy.swift */,
+				28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1281,6 +1294,24 @@
 			path = Logout;
 			sourceTree = "<group>";
 		};
+		28D3A82925243150008FFF92 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A82A25243165008FFF92 /* AuthenticationTaskProtocol.swift */,
+				28D3A82C2524316D008FFF92 /* AuthenticationTaskModels.swift */,
+				28D3A82E25243174008FFF92 /* AuthenticationTask.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		28D3A83025243236008FFF92 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1411,9 +1442,11 @@
 				281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */,
 				28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */,
 				28889789250E27110017B0B1 /* Location.swift in Sources */,
+				28D3A82B25243165008FFF92 /* AuthenticationTaskProtocol.swift in Sources */,
 				287A356F2517575800898B51 /* GetImageOperationModels.swift in Sources */,
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
 				281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */,
+				28D3A82D2524316D008FFF92 /* AuthenticationTaskModels.swift in Sources */,
 				28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */,
 				28D3A82225242F53008FFF92 /* LogoutUserOperation.swift in Sources */,
 				28B0FC8825177C23007E276D /* String+Contains.swift in Sources */,
@@ -1453,6 +1486,7 @@
 				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
 				287A35802517592B00898B51 /* ImageTask.swift in Sources */,
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
+				28D3A82F25243174008FFF92 /* AuthenticationTask.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28BD8D1625230E4B00C30F64 /* LoadingImageView.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
@@ -1511,6 +1545,7 @@
 				2812D485250CDB150079F879 /* MainWorkerSpy.swift in Sources */,
 				2812D481250CDB150079F879 /* MainRoutingLogicSpy.swift in Sources */,
 				288897BA250E34D00017B0B1 /* ExploreBusinessLogicSpy.swift in Sources */,
+				28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */,
 				281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */,
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
@@ -1525,6 +1560,7 @@
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
+				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
