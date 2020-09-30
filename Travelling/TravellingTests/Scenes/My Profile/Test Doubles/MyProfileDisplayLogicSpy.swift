@@ -31,6 +31,8 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     var displayErrorStateCalled: Bool = false
     var displayRemoveErrorStateCalled: Bool = false
     
+    var displayErrorAlertCalled: Bool = false
+    
     func displayWillFetchUser() {
         self.displayWillFetchUserCalled = true
     }
@@ -78,5 +80,9 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     func displayRemoveErrorState() {
         self.displayRemoveErrorStateCalled = true
+    }
+    
+    func displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel) {
+        self.displayErrorAlertCalled = true
     }
 }

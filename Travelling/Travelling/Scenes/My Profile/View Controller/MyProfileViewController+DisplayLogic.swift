@@ -29,6 +29,8 @@ protocol MyProfileDisplayLogic: class {
     
     func displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel)
     func displayRemoveErrorState()
+    
+    func displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel)
 }
 
 extension MyProfileViewController: MyProfileDisplayLogic {
@@ -108,6 +110,13 @@ extension MyProfileViewController: MyProfileDisplayLogic {
     func displayRemoveErrorState() {
         DispatchQueue.main.async {
             self.tableView?.backgroundView = nil
+        }
+    }
+    
+    func displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            let cancelAction = UIAlertAction(title: viewModel.cancelTitle, style: .cancel, handler: nil)
+            self.router?.navigateToAlert(title: viewModel.title, message: viewModel.message, actions: [cancelAction])
         }
     }
 }

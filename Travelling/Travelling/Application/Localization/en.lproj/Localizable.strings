@@ -25,3 +25,5 @@
 "MyProfile.scene.version.title" = "Version %@";
 "MyProfile.scene.report.issue.email.subject" = "[%@] iOS App Issue - Version %@";
 "MyProfile.scene.error.state.text" = "An error occurred while fetching your details. Tap here to try again ↺";
+"MyProfile.scene.error.alert.message" = "An error occurred while logging out. Please try again.";
+"MyProfile.scene.error.alert.cancel.title" = "OK";

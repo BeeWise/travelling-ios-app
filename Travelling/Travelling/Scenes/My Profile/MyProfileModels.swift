@@ -104,4 +104,16 @@ enum MyProfileModels {
             let text: NSAttributedString?
         }
     }
+    
+    enum ErrorAlertPresentation {
+        struct Response {
+            let error: OperationError
+        }
+        
+        struct ViewModel {
+            let title: String?
+            let message: String?
+            let cancelTitle: String?
+        }
+    }
 }

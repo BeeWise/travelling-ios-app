@@ -119,6 +119,11 @@ class MyProfilePresenterTests: XCTestCase {
         self.sut.presentRemoveErrorState()
         XCTAssertTrue(self.displayerSpy.displayRemoveErrorStateCalled)
     }
+    
+    func testPresentErrorAlertShouldAskTheDisplayerToDisplayErrorAlert() {
+        self.sut.presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response(error: OperationError.noDataAvailable))
+        XCTAssertTrue(self.displayerSpy.displayErrorAlertCalled)
+    }
 }
 
 // MARK: - Auxiliary

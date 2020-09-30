@@ -30,6 +30,8 @@ protocol MyProfilePresentationLogic {
     
     func presentErrorState()
     func presentRemoveErrorState()
+    
+    func presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response)
 }
 
 class MyProfilePresenter: MyProfilePresentationLogic {
@@ -90,6 +92,12 @@ class MyProfilePresenter: MyProfilePresentationLogic {
     
     func presentRemoveErrorState() {
         self.displayer?.displayRemoveErrorState()
+    }
+    
+    func presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response) {
+        let message = MyProfileLocalization.shared.errorAlertMessage
+        let cancelTitle = MyProfileLocalization.shared.errorAlertCancelTitle
+        self.displayer?.displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel(title: nil, message: message, cancelTitle: cancelTitle))
     }
 }
 

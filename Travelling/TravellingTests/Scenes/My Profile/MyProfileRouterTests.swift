@@ -43,4 +43,9 @@ class MyProfileRouterTests: XCTestCase {
         self.sut.navigateToEmail(recipient: "recipient", subject: "subject")
         XCTAssertTrue(self.viewControllerSpy.presentCalled)
     }
+    
+    func testNavigateToAlert() {
+        self.sut.navigateToAlert(title: "Title", message: "Message", actions: [UIAlertAction(title: "Cancel", style: .cancel, handler: nil)])
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
 }

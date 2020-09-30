@@ -44,6 +44,8 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     }
 }
 
+// MARK: - Fetch user
+
 extension MyProfileInteractor {
     func shouldFetchUser() {
         self.presenter?.presentRemoveErrorState()
@@ -70,6 +72,8 @@ extension MyProfileInteractor {
     }
 }
 
+// MARK: - Fetch image
+
 extension MyProfileInteractor {
     func shouldFetchImage(request: MyProfileModels.ImageFetching.Request) {
         let model = request.model
@@ -92,6 +96,8 @@ extension MyProfileInteractor {
     }
 }
 
+// MARK: - Logout user
+
 extension MyProfileInteractor {
     private func logoutUser() {
         self.presenter?.presentWillLogoutUser()
@@ -104,7 +110,7 @@ extension MyProfileInteractor {
     }
     
     func failureDidLogoutUser(error: OperationError) {
-        // TODO: - Present error alert?
+        self.presenter?.presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response(error: error))
         self.presenter?.presentDidLogoutUser()
     }
 }

@@ -15,8 +15,13 @@ import UIKit
 
 class MyProfileRoutingLogicSpy: MyProfileRoutingLogic {
     var navigateToEmailCalled: Bool = false
+    var navigateToAlertCalled: Bool = false
     
     func navigateToEmail(recipient: String, subject: String) {
         self.navigateToEmailCalled = true
+    }
+    
+    func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
+        self.navigateToAlertCalled = true
     }
 }

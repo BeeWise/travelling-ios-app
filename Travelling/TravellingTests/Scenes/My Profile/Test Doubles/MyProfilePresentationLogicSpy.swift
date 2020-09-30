@@ -31,6 +31,8 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     var presentErrorStateCalled: Bool = false
     var presentRemoveErrorStateCalled: Bool = false
     
+    var presentErrorAlertCalled: Bool = false
+    
     func presentWillFetchUser() {
         self.presentWillFetchUserCalled = true
     }
@@ -81,5 +83,9 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     func presentRemoveErrorState() {
         self.presentRemoveErrorStateCalled = true
+    }
+    
+    func presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response) {
+        self.presentErrorAlertCalled = true
     }
 }

@@ -180,6 +180,11 @@ class MyProfileInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentDidLogoutUserCalled)
     }
     
+    func testFailureDidLogoutUserShouldAskThePresenterToPresentErrorAlert() {
+        self.sut.failureDidLogoutUser(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentErrorAlertCalled)
+    }
+    
     func testFailureDidLogoutUserShouldAskThePresenterToPresentDidLogoutUser() {
         self.sut.failureDidLogoutUser(error: OperationError.noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidLogoutUserCalled)

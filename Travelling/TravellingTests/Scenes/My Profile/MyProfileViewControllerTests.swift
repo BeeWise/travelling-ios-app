@@ -271,7 +271,7 @@ class MyProfileViewControllerTests: XCTestCase {
         XCTAssertTrue(self.routerSpy.navigateToEmailCalled)
     }
     
-    func testDisplayErrorState() {
+    func testDisplayErrorStateShouldSetTableViewBackgroundView() {
         self.loadView()
         self.sut.tableView?.backgroundView = nil
         self.sut.displayErrorState(viewModel: MyProfileModels.ErrorStatePresentation.ViewModel(image: nil, text: "Text".attributed()))
@@ -280,11 +280,17 @@ class MyProfileViewControllerTests: XCTestCase {
         XCTAssertTrue(self.sut.tableView?.backgroundView is ErrorStateView)
     }
     
-    func testDisplayRemoveErrorState() {
+    func testDisplayRemoveErrorStateShouldRemoveTableViewBackgroundView() {
         self.loadView()
         self.sut.tableView?.backgroundView = ErrorStateView(frame: .zero)
         self.sut.displayRemoveErrorState()
         self.waitForMainQueue()
         XCTAssertNil(self.sut.tableView?.backgroundView)
+    }
+    
+    func testDisplayErrorAlertShouldAskTheRouterToNavigateToAlert() {
+        self.sut.displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel(title: "Title", message: "Message", cancelTitle: "Cancel"))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToAlertCalled)
     }
 }

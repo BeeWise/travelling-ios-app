@@ -15,6 +15,7 @@ import MessageUI
 
 protocol MyProfileRoutingLogic {
     func navigateToEmail(recipient: String, subject: String)
+    func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction])
 }
 
 class MyProfileRouter: MyProfileRoutingLogic {
@@ -27,5 +28,11 @@ class MyProfileRouter: MyProfileRoutingLogic {
         mailViewController.setSubject(subject)
         mailViewController.modalPresentationStyle = .fullScreen
         self.viewController?.present(mailViewController, animated: true, completion: nil)
+    }
+    
+    func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        actions.forEach({ alertController.addAction($0) })
+        self.viewController?.present(alertController, animated: true, completion: nil)
     }
 }
