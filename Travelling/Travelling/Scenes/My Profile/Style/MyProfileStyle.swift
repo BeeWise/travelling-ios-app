@@ -59,6 +59,7 @@ class MyProfileStyle {
     struct TableViewModel {
         var backgroundColor = ApplicationStyle.colors.accentAlpha
         var separatorColor: UIColor = ApplicationStyle.colors.accent
+        var refreshControlColor = ApplicationStyle.colors.primary
     }
     
     struct InformationCellModel {

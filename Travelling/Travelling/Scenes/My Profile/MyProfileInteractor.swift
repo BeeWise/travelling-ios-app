@@ -14,6 +14,7 @@ import UIKit
 
 protocol MyProfileBusinessLogic {
     func shouldFetchUser()
+    func shouldRefreshUser()
     func shouldFetchImage(request: MyProfileModels.ImageFetching.Request)
     func shouldSelectItem(request: MyProfileModels.ItemSelection.Request)
 }
@@ -23,6 +24,7 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     var worker: MyProfileWorker?
     
     var user: User?
+    var isFetchingUser: Bool = false
     var emailHandler: EmailHandler = EmailHandler()
     
     init() {
@@ -42,6 +44,19 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
             self.presenter?.presentNavigateToReportIssue()
         }
     }
+    
+    func shouldRefreshUser() {
+        if self.isFetchingUser {
+            return
+        }
+        
+        self.isFetchingUser = true
+        self.presenter?.presentResetUser()
+        self.presenter?.presentRemoveErrorState()
+        self.presenter?.presentWillFetchUser()
+        // TODO: - Retrieve userId from UserDefaults?
+        self.worker?.fetchUser(userId: "userId")
+    }
 }
 
 // MARK: - Fetch user
@@ -54,12 +69,14 @@ extension MyProfileInteractor {
             self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
         } else {
             // TODO: - Retrieve userId from UserDefaults?
+            self.isFetchingUser = true
             self.presenter?.presentWillFetchUser()
             self.worker?.fetchUser(userId: "userId")
         }
     }
     
     func successDidFetchUser(user: User) {
+        self.isFetchingUser = false
         self.user = user
         self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
         self.presenter?.presentRemoveErrorState()
@@ -67,6 +84,7 @@ extension MyProfileInteractor {
     }
     
     func failureDidFetchUser(error: OperationError) {
+        self.isFetchingUser = false
         self.presenter?.presentErrorState()
         self.presenter?.presentDidFetchUser()
     }

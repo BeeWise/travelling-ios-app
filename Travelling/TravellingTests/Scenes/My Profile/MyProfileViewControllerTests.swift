@@ -156,6 +156,17 @@ class MyProfileViewControllerTests: XCTestCase {
         XCTAssertTrue(self.interactorSpy.shouldFetchUserCalled)
     }
     
+    func testValueChangedRefreshControlShouldAskTheInteractorToRefreshUser() {
+        self.sut.valueChangedRefreshControl(refreshControl: UIRefreshControl())
+        XCTAssertTrue(self.interactorSpy.shouldRefreshUserCalled)
+    }
+    
+    func testValueChangedRefreshControlShouldAskTheRefreshControlToEndRefreshing() {
+        let refreshControlSpy = UIRefreshControlSpy()
+        self.sut.valueChangedRefreshControl(refreshControl: refreshControlSpy)
+        XCTAssertTrue(refreshControlSpy.endRefreshingCalled)
+    }
+    
     // MARK: - Display logic tests
         
     func testDisplayWillFetchUser() {
@@ -189,6 +200,22 @@ class MyProfileViewControllerTests: XCTestCase {
         let tableViewSpy = UITableViewSpy()
         self.sut.tableView = tableViewSpy
         self.sut.displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel(items: []))
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.reloadDataCalled)
+    }
+    
+    func testDisplayResetUserShouldResetDisplayedItems() {
+        self.sut.items = [MyProfileModels.DisplayedItem(type: .user, model: nil)]
+        self.sut.displayResetUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.sut.items.isEmpty)
+    }
+    
+    func testDisplayResetUserShouldAskTheTableViewToReloadData() {
+        self.loadView()
+        let tableViewSpy = UITableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.displayResetUser()
         self.waitForMainQueue()
         XCTAssertTrue(tableViewSpy.reloadDataCalled)
     }

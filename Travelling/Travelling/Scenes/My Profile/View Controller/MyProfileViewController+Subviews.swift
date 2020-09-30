@@ -18,6 +18,7 @@ extension MyProfileViewController {
         self.setupNavigationItem()
         self.setupContentView()
         self.setupTableView()
+        self.setupRefreshControl()
     }
     
     private func setupNavigationBar() {
@@ -43,6 +44,13 @@ extension MyProfileViewController {
         self.tableView?.separatorColor = MyProfileStyle.shared.tableViewModel.separatorColor
     }
     
+    private func setupRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = MyProfileStyle.shared.tableViewModel.refreshControlColor
+        refreshControl.addTarget(self, action: #selector(MyProfileViewController.valueChangedRefreshControl(refreshControl:)), for: .valueChanged)
+        self.tableView?.refreshControl = refreshControl
+    }
+    
     func setupActivityIndicatorView() -> UIActivityIndicatorView {
         let size = MyProfileStyle.shared.activityViewModel.size
         let view = UIActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
@@ -59,6 +67,15 @@ extension MyProfileViewController {
         view.imageTintColor = MyProfileStyle.shared.errorStateViewModel.imageTintColor
         view.attributedText = attributedText
         return view
+    }
+}
+
+// MARK: - Actions
+
+extension MyProfileViewController {
+    @objc func valueChangedRefreshControl(refreshControl: UIRefreshControl) {
+        refreshControl.endRefreshing()
+        self.interactor?.shouldRefreshUser()
     }
 }
 

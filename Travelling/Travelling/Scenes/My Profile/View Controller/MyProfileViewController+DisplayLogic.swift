@@ -16,6 +16,7 @@ protocol MyProfileDisplayLogic: class {
     func displayWillFetchUser()
     func displayDidFetchUser()
     func displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel)
+    func displayResetUser()
     
     func displayWillFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel)
     func displayDidFetchImage(viewModel: MyProfileModels.ImageFetching.ViewModel)
@@ -49,6 +50,13 @@ extension MyProfileViewController: MyProfileDisplayLogic {
     func displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel) {
         DispatchQueue.main.async {
             self.items = viewModel.items
+            self.tableView?.reloadData()
+        }
+    }
+    
+    func displayResetUser() {
+        DispatchQueue.main.async {
+            self.items = []
             self.tableView?.reloadData()
         }
     }

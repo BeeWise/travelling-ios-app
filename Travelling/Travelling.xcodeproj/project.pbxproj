@@ -177,6 +177,7 @@
 		28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */; };
 		28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */; };
 		28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A836252434F4008FFF92 /* ErrorStateView.swift */; };
+		28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -369,6 +370,7 @@
 		28D3A83125243243008FFF92 /* AuthenticationTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskTests.swift; sourceTree = "<group>"; };
 		28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskSpy.swift; sourceTree = "<group>"; };
 		28D3A836252434F4008FFF92 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControlSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1175,6 +1177,7 @@
 				288897C0250E35D40017B0B1 /* UITableViewSpy.swift */,
 				288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */,
 				28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */,
+				28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1597,6 +1600,7 @@
 				28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */,
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
 				287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */,
+				28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */,
 				2812D48F250CE7630079F879 /* AppDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

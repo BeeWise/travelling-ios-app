@@ -14,11 +14,16 @@
 
 class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
     var shouldFetchUserCalled: Bool = false
+    var shouldRefreshUserCalled: Bool = false
     var shouldFetchImageCalled: Bool = false
     var shouldSelectItemCalled: Bool = false
     
     func shouldFetchUser() {
         self.shouldFetchUserCalled = true
+    }
+    
+    func shouldRefreshUser() {
+        self.shouldRefreshUserCalled = true
     }
     
     func shouldFetchImage(request: MyProfileModels.ImageFetching.Request) {

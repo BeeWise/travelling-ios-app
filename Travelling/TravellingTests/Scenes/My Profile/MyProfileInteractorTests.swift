@@ -58,6 +58,13 @@ class MyProfileInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentUserCalled)
     }
     
+    func testShouldFetchUserShouldUpdateIsFetchingUserFlagWhenThereIsNoUser() {
+        self.sut.isFetchingUser = false
+        self.sut.user = nil
+        self.sut.shouldFetchUser()
+        XCTAssertTrue(self.sut.isFetchingUser)
+    }
+    
     func testShouldFetchUserShouldAskThePresenterToPresentWillFetchUserWhenThereIsNoUser() {
         self.sut.user = nil
         self.sut.shouldFetchUser()
@@ -68,6 +75,12 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.user = nil
         self.sut.shouldFetchUser()
         XCTAssertTrue(self.workerSpy.fetchUserCalled)
+    }
+    
+    func testSuccessDidFetchUserShouldUpdateIsFetchingUserFlag() {
+        self.sut.isFetchingUser = true
+        self.sut.successDidFetchUser(user: User(id: "userId"))
+        XCTAssertFalse(self.sut.isFetchingUser)
     }
     
     func testSuccessDidFetchUserShouldUpdateUser() {
@@ -92,6 +105,12 @@ class MyProfileInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentDidFetchUserCalled)
     }
     
+    func testFailureDidFetchUserShouldUpdateIsFetchingUserFlag() {
+        self.sut.isFetchingUser = true
+        self.sut.failureDidFetchUser(error: OperationError.noDataAvailable)
+        XCTAssertFalse(self.sut.isFetchingUser)
+    }
+    
     func testFailureDidFetchUserShouldAskThePresenterToPresentErrorState() {
         self.sut.failureDidFetchUser(error: OperationError.noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentErrorStateCalled)
@@ -101,7 +120,39 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.failureDidFetchUser(error: OperationError.noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidFetchUserCalled)
     }
+    
+    // MARK: - Refresh user tests
+        
+    func testShouldRefreshUserShouldUpdateIsFetchingUserFlag() {
+        self.sut.isFetchingUser = false
+        self.sut.shouldRefreshUser()
+        XCTAssertTrue(self.sut.isFetchingUser)
+    }
+    
+    func testShouldRefreshUserShouldAskThePresenterToPresentResetUser() {
+        self.sut.isFetchingUser = false
+        self.sut.shouldRefreshUser()
+        XCTAssertTrue(self.presenterSpy.presentResetUserCalled)
+    }
+    
+    func testShouldRefreshUserShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.isFetchingUser = false
+        self.sut.shouldRefreshUser()
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
   
+    func testShouldRefreshUserShouldAskThePresenterToPresentWillFetchUser() {
+        self.sut.isFetchingUser = false
+        self.sut.shouldRefreshUser()
+        XCTAssertTrue(self.presenterSpy.presentWillFetchUserCalled)
+    }
+    
+    func testShouldRefreshUserShouldAskTheWorkerToFetchUser() {
+        self.sut.isFetchingUser = false
+        self.sut.shouldRefreshUser()
+        XCTAssertTrue(self.workerSpy.fetchUserCalled)
+    }
+    
     // MARK: - Fetch image tests
     
     func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndImageName() {

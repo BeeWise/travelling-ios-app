@@ -70,6 +70,11 @@ class MyProfilePresenterTests: XCTestCase {
         XCTAssertEqual(userModel?.imageDominantColor, user.photo?.imageDominantColor?.hexColor())
     }
     
+    func testPresentResetUserShouldAskTheDisplayerToDisplayResetUser() {
+        self.sut.presentResetUser()
+        XCTAssertTrue(self.displayerSpy.displayResetUserCalled)
+    }
+    
     func testPresentWillFetchImageShouldAskTheDisplayerToDisplayWillFetchImage() {
         self.sut.presentWillFetchImage(response: MyProfileModels.ImageFetching.Response(model: MyProfileModels.UserModel()))
         XCTAssertTrue(self.displayerSpy.displayWillFetchImageCalled)

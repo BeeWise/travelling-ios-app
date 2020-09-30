@@ -16,6 +16,7 @@ protocol MyProfilePresentationLogic {
     func presentWillFetchUser()
     func presentDidFetchUser()
     func presentUser(response: MyProfileModels.UserPresentation.Response)
+    func presentResetUser()
     
     func presentWillFetchImage(response: MyProfileModels.ImageFetching.Response)
     func presentDidFetchImage(response: MyProfileModels.ImageFetching.Response)
@@ -47,6 +48,10 @@ class MyProfilePresenter: MyProfilePresentationLogic {
     
     func presentUser(response: MyProfileModels.UserPresentation.Response) {
         self.displayer?.displayUser(viewModel: MyProfileModels.UserPresentation.ViewModel(items: self.displayedItems(user: response.user)))
+    }
+    
+    func presentResetUser() {
+        self.displayer?.displayResetUser()
     }
     
     func presentWillFetchImage(response: MyProfileModels.ImageFetching.Response) {

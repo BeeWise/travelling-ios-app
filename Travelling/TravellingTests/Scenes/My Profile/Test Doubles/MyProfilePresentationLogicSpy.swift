@@ -16,6 +16,7 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     var presentWillFetchUserCalled: Bool = false
     var presentDidFetchUserCalled: Bool = false
     var presentUserCalled: Bool = false
+    var presentResetUserCalled: Bool = false
     
     var presentWillFetchImageCalled: Bool = false
     var presentDidFetchImageCalled: Bool = false
@@ -43,6 +44,10 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     func presentUser(response: MyProfileModels.UserPresentation.Response) {
         self.presentUserCalled = true
+    }
+    
+    func presentResetUser() {
+        self.presentResetUserCalled = true
     }
     
     func presentWillFetchImage(response: MyProfileModels.ImageFetching.Response) {
