@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>REPORT_ISSUE_RECIPIENT_EMAIL</key>
+	<string>$(REPORT_ISSUE_RECIPIENT_EMAIL)</string>
 	<key>TASK_CONFIGURATOR_ENVIRONMENT</key>
 	<string>$(TASK_CONFIGURATOR_ENVIRONMENT)</string>
 	<key>UILaunchStoryboardName</key>

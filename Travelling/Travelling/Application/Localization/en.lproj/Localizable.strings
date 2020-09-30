@@ -16,3 +16,14 @@
 "Explore.scene.empty.state.text" = "No places found";
 "Explore.scene.no.more.places.text" = "No more places";
 "Explore.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";
+
+// My Profile scene
+
+"MyProfile.scene.title" = "Profile";
+"MyProfile.scene.logout.title" = "Logout";
+"MyProfile.scene.report.issue.title" = "Report issue";
+"MyProfile.scene.version.title" = "Version %@";
+"MyProfile.scene.report.issue.email.subject" = "[%@] iOS App Issue - Version %@";
+"MyProfile.scene.error.state.text" = "An error occurred while fetching your details. Tap here to try again ↺";
+"MyProfile.scene.error.alert.message" = "An error occurred while logging out. Please try again.";
+"MyProfile.scene.error.alert.cancel.title" = "OK";

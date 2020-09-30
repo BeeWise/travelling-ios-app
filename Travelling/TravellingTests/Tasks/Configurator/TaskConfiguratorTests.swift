@@ -68,4 +68,44 @@ class TaskConfiguratorTests: XCTestCase {
         let task = self.sut.imageTask()
         XCTAssertEqual(task.environment, environment)
     }
+    
+    // MARK: - Users task
+    
+    func testUsersTaskForProduction() {
+        self.shouldTestUsersTaskForEnvironment(environment: .production)
+    }
+    
+    func testUsersTaskForDevelopment() {
+        self.shouldTestUsersTaskForEnvironment(environment: .development)
+    }
+    
+    func testUsersTaskForMemory() {
+        self.shouldTestUsersTaskForEnvironment(environment: .memory)
+    }
+    
+    private func shouldTestUsersTaskForEnvironment(environment: TaskEnvironment) {
+        self.sut.environment = environment
+        let task = self.sut.usersTask()
+        XCTAssertEqual(task.environment, environment)
+    }
+    
+    // MARK: - Authentication task
+    
+    func testAuthenticationTaskForProduction() {
+        self.shouldTestAuthenticationTaskForEnvironment(environment: .production)
+    }
+    
+    func testAuthenticationTaskForDevelopment() {
+        self.shouldTestAuthenticationTaskForEnvironment(environment: .development)
+    }
+    
+    func testAuthenticationTaskForMemory() {
+        self.shouldTestAuthenticationTaskForEnvironment(environment: .memory)
+    }
+    
+    private func shouldTestAuthenticationTaskForEnvironment(environment: TaskEnvironment) {
+        self.sut.environment = environment
+        let task = self.sut.authenticationTask()
+        XCTAssertEqual(task.environment, environment)
+    }
 }

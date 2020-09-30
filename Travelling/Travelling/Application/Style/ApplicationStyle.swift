@@ -32,7 +32,9 @@ class ApplicationStyle {
         exploreTabIcon = UIImage(named: "explore_tab_icon", in: Bundle.main, compatibleWith: nil)!,
         myFavoritesTabIcon = UIImage(named: "my_favorites_tab_icon", in: Bundle.main, compatibleWith: nil)!,
         myProfileTabIcon = UIImage(named: "my_profile_tab_icon", in: Bundle.main, compatibleWith: nil)!,
-        placeholderImageIcon = UIImage(named: "placeholder_image_icon", in: Bundle.main, compatibleWith: nil)!
+        placeholderImageIcon = UIImage(named: "placeholder_image_icon", in: Bundle.main, compatibleWith: nil)!,
+        errorStateIcon = UIImage(named: "error_state_icon", in: Bundle.main, compatibleWith: nil)!,
+        emptyStateIcon = UIImage(named: "empty_state_icon", in: Bundle.main, compatibleWith: nil)!
     }
     
     struct fonts {

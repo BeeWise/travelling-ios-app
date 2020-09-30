@@ -50,9 +50,10 @@ extension MainViewController {
 
 // MARK: - MyProfile scene
 
-extension MainViewController {
+extension MainViewController: MyProfileViewControllerDelegate {
     func setupMyProfileViewController() {
-        self.myProfileViewController = UIViewController()
+        self.myProfileViewController = MyProfileViewController()
+        self.myProfileViewController?.delegate = self
         self.myProfileViewController.tabBarItem = self.myProfileTabBarItem()
     }
     
@@ -60,5 +61,9 @@ extension MainViewController {
         let item = UITabBarItem(title: MainLocalization.shared.myProfileTabTitle, image: ApplicationStyle.images.myProfileTabIcon, selectedImage: ApplicationStyle.images.myProfileTabIcon)
         self.setupTabBarItem(item: item)
         return item
+    }
+    
+    func myProfileViewControllerDidLogoutUser(viewController: MyProfileViewController?) {
+        self.interactor?.shouldSelectInitialScene()
     }
 }

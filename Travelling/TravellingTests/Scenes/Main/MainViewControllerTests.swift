@@ -49,10 +49,15 @@ class MainViewControllerTests: BaseTestCase {
         RunLoop.current.run(until: Date())
     }
     
-    // MARK: - Business logic tests
-    
     func testEmptyInitializer() {
         XCTAssertNotNil(MainViewController())
+    }
+    
+    // MARK: - Business logic tests
+    
+    func testMyProfileViewControllerDidLogoutUserShouldAskTheInteractorToSelectInitialScene() {
+        self.sut.myProfileViewControllerDidLogoutUser(viewController: nil)
+        XCTAssertTrue(self.interactorSpy.shouldSelectInitialSceneCalled)
     }
     
     // MARK: - Display logic tests
