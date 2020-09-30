@@ -28,6 +28,7 @@ class MyProfileWorker {
     
     var usersTask: UsersTaskProtocol = TaskConfigurator.shared.usersTask()
     var imageTask: ImageTaskProtocol = TaskConfigurator.shared.imageTask()
+    var authenticationTask: AuthenticationTaskProtocol = TaskConfigurator.shared.authenticationTask()
     
     init(delegate: MyProfileWorkerDelegate?) {
         self.delegate = delegate
@@ -52,6 +53,11 @@ class MyProfileWorker {
     }
     
     func logoutUser(userId: String?) {
-        // TODO: - Add authentication task and logout user operation!
+        self.authenticationTask.logoutUser(model: AuthenticationTaskModels.LogoutUser.Request(userId: userId)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidLogoutUser(userId: value.userId); break
+                case .failure(let error): self.delegate?.failureDidLogoutUser(error: error); break
+            }
+        }
     }
 }

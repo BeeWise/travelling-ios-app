@@ -82,4 +82,27 @@ class MyProfileWorkerTests: XCTestCase {
         self.sut.fetchImage(model: MyProfileModels.UserModel())
         XCTAssertTrue(self.delegateSpy.failureDidFetchImageCalled)
     }
+    
+    func testLogoutUser() {
+        let taskSpy = AuthenticationTaskSpy()
+        self.sut.authenticationTask = taskSpy
+        self.sut.logoutUser(userId: "userId")
+        XCTAssertTrue(taskSpy.logoutUserCalled)
+    }
+    
+    func testLogoutUserShouldAskTheDelegateToSendUserIdForSuccessCase() {
+        let taskSpy = AuthenticationTaskSpy()
+        taskSpy.shouldFailLogoutUser = false
+        self.sut.authenticationTask = taskSpy
+        self.sut.logoutUser(userId: "userId")
+        XCTAssertTrue(self.delegateSpy.successDidLogoutUserCalled)
+    }
+    
+    func testLogoutUserShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = AuthenticationTaskSpy()
+        taskSpy.shouldFailLogoutUser = true
+        self.sut.authenticationTask = taskSpy
+        self.sut.logoutUser(userId: "userId")
+        XCTAssertTrue(self.delegateSpy.failureDidLogoutUserCalled)
+    }
 }
