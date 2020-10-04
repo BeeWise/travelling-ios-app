@@ -32,3 +32,18 @@
 
 "Onboarding.scene.login.title" = "Login";
 "Onboarding.scene.sign.up.title" = "Sign Up";
+
+// Login scene
+
+"Login.scene.title" = "Login";
+"Login.scene.email.or.username.title" = "Email or username";
+"Login.scene.email.or.username.placeholder" = "";
+"Login.scene.email.or.username.error.text" = "Email or username must have at least 6 characters.";
+"Login.scene.password.title" = "Password";
+"Login.scene.password.placeholder" = "";
+"Login.scene.password.error.text" = "Your password must have at least 6 characters.";
+"Login.scene.forgot.password.button.title" = "Forgot your password?";
+"Login.scene.button.title" = "Login";
+"Login.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
+"Login.scene.ok.title" = "OK";
+"Login.scene.cancel.title" = "Cancel";
