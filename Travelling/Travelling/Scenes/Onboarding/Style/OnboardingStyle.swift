@@ -56,7 +56,7 @@ class OnboardingStyle {
         }
         
         var backgroundColor = ApplicationStyle.colors.primary
-        var borderWidth: CGFloat = 1 / UIScreen.main.scale
+        var borderWidth: CGFloat = 1
         var borderColor = ApplicationStyle.colors.primaryLight.cgColor
         var cornerRadius: CGFloat = 5
         var contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
@@ -74,7 +74,7 @@ class OnboardingStyle {
         }
         
         var backgroundColor = ApplicationStyle.colors.primary
-        var borderWidth: CGFloat = 1 / UIScreen.main.scale
+        var borderWidth: CGFloat = 1
         var borderColor = ApplicationStyle.colors.primaryLight.cgColor
         var cornerRadius: CGFloat = 5
         var contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)

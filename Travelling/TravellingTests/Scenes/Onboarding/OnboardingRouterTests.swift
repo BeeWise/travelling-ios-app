@@ -45,12 +45,15 @@ class OnboardingRouterTests: XCTestCase {
     }
     
     func testNavigateToLogin() {
+        let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
         self.sut.navigateToLogin()
-        // TODO: - Add test!
+        XCTAssertTrue(navigationControllerSpy.pushedViewController is LoginViewController)
     }
     
     func testNavigateToSignUp() {
-        self.sut.navigateToSignUp()
         // TODO: - Add test!
+        let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
+        self.sut.navigateToSignUp()
+        // XCTAssertTrue(navigationControllerSpy.pushedViewController is SignUpViewController)
     }
 }

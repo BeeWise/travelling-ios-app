@@ -32,3 +32,18 @@
 
 "Onboarding.scene.login.title" = "Autentificare";
 "Onboarding.scene.sign.up.title" = "Înregistrare";
+
+// Login scene
+
+"Login.scene.title" = "Autentificare";
+"Login.scene.email.or.username.title" = "Email sau username";
+"Login.scene.email.or.username.placeholder" = "";
+"Login.scene.email.or.username.error.text" = "Email-ul sau username-ul tău trebuie să aibă cel puțin 6 caractere.";
+"Login.scene.password.title" = "Parolă";
+"Login.scene.password.placeholder" = "";
+"Login.scene.password.error.text" = "Parola ta trebuie să aibă cel puțin 6 caractere.";
+"Login.scene.forgot.password.button.title" = "Ai uitat parola?";
+"Login.scene.button.title" = "Conectează-te";
+"Login.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"Login.scene.ok.title" = "OK";
+"Login.scene.cancel.title" = "Anulează";

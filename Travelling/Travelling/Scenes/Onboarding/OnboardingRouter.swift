@@ -26,7 +26,8 @@ class OnboardingRouter: OnboardingRoutingLogic {
     }
     
     func navigateToLogin() {
-        
+        let loginViewController = LoginViewController()
+        self.viewController?.navigationController?.pushViewController(loginViewController, animated: true)
     }
     
     func navigateToSignUp() {

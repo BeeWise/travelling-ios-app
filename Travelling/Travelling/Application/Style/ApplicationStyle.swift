@@ -21,6 +21,7 @@ class ApplicationStyle {
         primaryLight = UIColor(named: "primary_light", in: Bundle.main, compatibleWith: nil)!,
         primaryDark = UIColor(named: "primary_dark", in: Bundle.main, compatibleWith: nil)!,
         secondary = UIColor(named: "secondary", in: Bundle.main, compatibleWith: nil)!,
+        tertiary = UIColor(named: "tertiary", in: Bundle.main, compatibleWith: nil)!,
         accent = UIColor(named: "accent", in: Bundle.main, compatibleWith: nil)!,
         accentAlpha = UIColor(named: "accent_alpha", in: Bundle.main, compatibleWith: nil)!,
         transparent = UIColor.clear,
