@@ -47,6 +47,7 @@ class LoginStyle {
     }
     
     struct TextFieldCellModel {
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
         var borderWidth: CGFloat = 1
         var borderColor: CGColor = ApplicationStyle.colors.accent.cgColor
         var errorBorderColor: CGColor = ApplicationStyle.colors.tertiary.cgColor
@@ -85,7 +86,7 @@ class LoginStyle {
     }
     
     struct ForgotPasswordCellModel {
-        var backgroundColor: UIColor = UIColor.white
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
         var contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.right
         
         func textAttributes() -> [NSAttributedString.Key: Any] {
@@ -97,6 +98,7 @@ class LoginStyle {
     }
     
     struct ButtonCellModel {
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
         var enabledBackgroundColor: UIColor = ApplicationStyle.colors.primary
         var disabledBackgroundColor: UIColor = ApplicationStyle.colors.primary.withAlphaComponent(0.5)
         var cornerRadius: CGFloat = 5

@@ -73,6 +73,7 @@ extension LoginButtonCell {
     
     private func setupContentView() {
         self.selectionStyle = .none
+        self.contentView.backgroundColor = LoginStyle.shared.buttonCellModel.backgroundColor
     }
     
     private func setupContainerView() {

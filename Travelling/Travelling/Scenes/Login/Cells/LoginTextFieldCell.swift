@@ -109,6 +109,7 @@ extension LoginTextFieldCell {
     
     private func setupContentView() {
         self.selectionStyle = .none
+        self.contentView.backgroundColor = LoginStyle.shared.textFieldCellModel.backgroundColor
     }
     
     private func setupTitleTextFieldView() {

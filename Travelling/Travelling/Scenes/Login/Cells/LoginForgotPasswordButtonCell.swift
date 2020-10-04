@@ -67,6 +67,7 @@ extension LoginForgotPasswordButtonCell {
     
     private func setupContentView() {
         self.selectionStyle = .none
+        self.contentView.backgroundColor = LoginStyle.shared.forgotPasswordCellModel.backgroundColor
     }
     
     private func setupContainerView() {
