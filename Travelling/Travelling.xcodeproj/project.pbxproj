@@ -149,6 +149,29 @@
 		28B0FC8825177C23007E276D /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8725177C23007E276D /* String+Contains.swift */; };
 		28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8925177DD2007E276D /* String+RangeOf.swift */; };
 		28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */; };
+		28B3862B2529B6AB00CA7840 /* OnboardingViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386212529B6AB00CA7840 /* OnboardingViewController+Subviews.swift */; };
+		28B3862C2529B6AB00CA7840 /* OnboardingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386222529B6AB00CA7840 /* OnboardingStyle.swift */; };
+		28B3862D2529B6AB00CA7840 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386232529B6AB00CA7840 /* OnboardingPresenter.swift */; };
+		28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386242529B6AB00CA7840 /* OnboardingWorker.swift */; };
+		28B3862F2529B6AB00CA7840 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386252529B6AB00CA7840 /* OnboardingRouter.swift */; };
+		28B386302529B6AB00CA7840 /* OnboardingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386262529B6AB00CA7840 /* OnboardingModels.swift */; };
+		28B386312529B6AB00CA7840 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386272529B6AB00CA7840 /* OnboardingViewController.swift */; };
+		28B386322529B6AB00CA7840 /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386282529B6AB00CA7840 /* OnboardingInteractor.swift */; };
+		28B386332529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386292529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift */; };
+		28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3862A2529B6AB00CA7840 /* OnboardingLocalization.swift */; };
+		28B386392529C62E00CA7840 /* MainViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386382529C62E00CA7840 /* MainViewControllerSpy.swift */; };
+		28B386462529C6A000CA7840 /* OnboardingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3863B2529C6A000CA7840 /* OnboardingViewControllerTests.swift */; };
+		28B386472529C6A000CA7840 /* OnboardingInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3863C2529C6A000CA7840 /* OnboardingInteractorTests.swift */; };
+		28B386482529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3863D2529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift */; };
+		28B386492529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3863E2529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift */; };
+		28B3864A2529C6A000CA7840 /* OnboardingWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3863F2529C6A000CA7840 /* OnboardingWorkerTests.swift */; };
+		28B3864B2529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386402529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift */; };
+		28B3864C2529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386412529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift */; };
+		28B3864D2529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386422529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift */; };
+		28B3864E2529C6A000CA7840 /* OnboardingRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386432529C6A000CA7840 /* OnboardingRouterTests.swift */; };
+		28B3864F2529C6A000CA7840 /* OnboardingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386442529C6A000CA7840 /* OnboardingPresenterTests.swift */; };
+		28B386502529C6A000CA7840 /* OnboardingWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386452529C6A000CA7840 /* OnboardingWorkerSpy.swift */; };
+		28B386532529C76700CA7840 /* OnboardingViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B386522529C76700CA7840 /* OnboardingViewControllerSpy.swift */; };
 		28BD8CFD2522FE7C00C30F64 /* GetUserOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8CFC2522FE7C00C30F64 /* GetUserOperationModels.swift */; };
 		28BD8CFF2522FEA300C30F64 /* GetUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8CFE2522FEA300C30F64 /* GetUserOperation.swift */; };
 		28BD8D012522FEAD00C30F64 /* GetUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */; };
@@ -366,6 +389,29 @@
 		28B0FC8725177C23007E276D /* String+Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		28B0FC8925177DD2007E276D /* String+RangeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RangeOf.swift"; sourceTree = "<group>"; };
 		28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
+		28B386212529B6AB00CA7840 /* OnboardingViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+Subviews.swift"; sourceTree = "<group>"; };
+		28B386222529B6AB00CA7840 /* OnboardingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStyle.swift; sourceTree = "<group>"; };
+		28B386232529B6AB00CA7840 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		28B386242529B6AB00CA7840 /* OnboardingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWorker.swift; sourceTree = "<group>"; };
+		28B386252529B6AB00CA7840 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		28B386262529B6AB00CA7840 /* OnboardingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModels.swift; sourceTree = "<group>"; };
+		28B386272529B6AB00CA7840 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		28B386282529B6AB00CA7840 /* OnboardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
+		28B386292529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		28B3862A2529B6AB00CA7840 /* OnboardingLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLocalization.swift; sourceTree = "<group>"; };
+		28B386382529C62E00CA7840 /* MainViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpy.swift; sourceTree = "<group>"; };
+		28B3863B2529C6A000CA7840 /* OnboardingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerTests.swift; sourceTree = "<group>"; };
+		28B3863C2529C6A000CA7840 /* OnboardingInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInteractorTests.swift; sourceTree = "<group>"; };
+		28B3863D2529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		28B3863E2529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		28B3863F2529C6A000CA7840 /* OnboardingWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWorkerTests.swift; sourceTree = "<group>"; };
+		28B386402529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		28B386412529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		28B386422529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		28B386432529C6A000CA7840 /* OnboardingRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterTests.swift; sourceTree = "<group>"; };
+		28B386442529C6A000CA7840 /* OnboardingPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterTests.swift; sourceTree = "<group>"; };
+		28B386452529C6A000CA7840 /* OnboardingWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWorkerSpy.swift; sourceTree = "<group>"; };
+		28B386522529C76700CA7840 /* OnboardingViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerSpy.swift; sourceTree = "<group>"; };
 		28BD8CFC2522FE7C00C30F64 /* GetUserOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserOperationModels.swift; sourceTree = "<group>"; };
 		28BD8CFE2522FEA300C30F64 /* GetUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserOperation.swift; sourceTree = "<group>"; };
 		28BD8D002522FEAD00C30F64 /* GetUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserLocalOperation.swift; sourceTree = "<group>"; };
@@ -442,6 +488,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28B386202529B56300CA7840 /* Onboarding */,
 				28D4E5F025297EFE00A1ED86 /* Fullscreen Image */,
 				281F4F822520CC7E008475D7 /* My Profile */,
 				28179E95250DFC400081FD3A /* Explore */,
@@ -495,6 +542,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28B3863A2529C69300CA7840 /* Onboarding */,
 				28D4E6082529845400A1ED86 /* Fullscreen Image */,
 				281F4F9A2520CDE8008475D7 /* My Profile */,
 				288897A7250E34BE0017B0B1 /* Explore */,
@@ -525,6 +573,7 @@
 				2812D475250CDB150079F879 /* MainPresentationLogicSpy.swift */,
 				2812D473250CDB150079F879 /* MainWorkerDelegateSpy.swift */,
 				2812D472250CDB150079F879 /* MainDisplayLogicSpy.swift */,
+				28B386382529C62E00CA7840 /* MainViewControllerSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -1250,6 +1299,74 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		28B386202529B56300CA7840 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				28B386372529B6E000CA7840 /* Localization */,
+				28B386362529B6D700CA7840 /* Style */,
+				28B386352529B6C800CA7840 /* View Controller */,
+				28B386232529B6AB00CA7840 /* OnboardingPresenter.swift */,
+				28B386242529B6AB00CA7840 /* OnboardingWorker.swift */,
+				28B386252529B6AB00CA7840 /* OnboardingRouter.swift */,
+				28B386262529B6AB00CA7840 /* OnboardingModels.swift */,
+				28B386282529B6AB00CA7840 /* OnboardingInteractor.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		28B386352529B6C800CA7840 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28B386292529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift */,
+				28B386272529B6AB00CA7840 /* OnboardingViewController.swift */,
+				28B386212529B6AB00CA7840 /* OnboardingViewController+Subviews.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		28B386362529B6D700CA7840 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				28B386222529B6AB00CA7840 /* OnboardingStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		28B386372529B6E000CA7840 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				28B3862A2529B6AB00CA7840 /* OnboardingLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		28B3863A2529C69300CA7840 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				28B386512529C6B300CA7840 /* Test Doubles */,
+				28B3863B2529C6A000CA7840 /* OnboardingViewControllerTests.swift */,
+				28B3863C2529C6A000CA7840 /* OnboardingInteractorTests.swift */,
+				28B3863F2529C6A000CA7840 /* OnboardingWorkerTests.swift */,
+				28B386432529C6A000CA7840 /* OnboardingRouterTests.swift */,
+				28B386442529C6A000CA7840 /* OnboardingPresenterTests.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		28B386512529C6B300CA7840 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				28B3863D2529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift */,
+				28B3863E2529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift */,
+				28B386402529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift */,
+				28B386412529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift */,
+				28B386422529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift */,
+				28B386452529C6A000CA7840 /* OnboardingWorkerSpy.swift */,
+				28B386522529C76700CA7840 /* OnboardingViewControllerSpy.swift */,
+			);
+			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
 		28BD8CFA2522FE6200C30F64 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1576,12 +1693,14 @@
 				287A356725173BAB00898B51 /* String+HexColor.swift in Sources */,
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
 				2812D462250CDAC90079F879 /* MainStyle.swift in Sources */,
+				28B3862F2529B6AB00CA7840 /* OnboardingRouter.swift in Sources */,
 				2812D467250CDAC90079F879 /* MainViewController.swift in Sources */,
 				28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */,
 				28179EBC250DFDD80081FD3A /* UITableViewCell+DefaultReuseIdentifier.swift in Sources */,
 				28D4E5FE25297F1A00A1ED86 /* FullscreenImageWorker.swift in Sources */,
 				28179EE3250E00CE0081FD3A /* TaskProtocol.swift in Sources */,
 				28179ED2250DFFC60081FD3A /* TableViewErrorHeaderFooterView.swift in Sources */,
+				28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */,
 				28179ED6250E000E0081FD3A /* AsynchronousOperation.swift in Sources */,
 				28D4E60425297F1A00A1ED86 /* FullscreenImageLocalization.swift in Sources */,
 				28179EC7250DFEE30081FD3A /* EmptyStateView.swift in Sources */,
@@ -1603,6 +1722,7 @@
 				28D3A82D2524316D008FFF92 /* AuthenticationTaskModels.swift in Sources */,
 				28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */,
 				28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */,
+				28B386302529B6AB00CA7840 /* OnboardingModels.swift in Sources */,
 				28D3A82225242F53008FFF92 /* LogoutUserOperation.swift in Sources */,
 				28B0FC8825177C23007E276D /* String+Contains.swift in Sources */,
 				287A357E251758A600898B51 /* ImageTaskModels.swift in Sources */,
@@ -1623,6 +1743,7 @@
 				28BD8D1E25231E2200C30F64 /* MyProfileViewController+TableViewDelegate.swift in Sources */,
 				28BD8D0E2523064200C30F64 /* UsersTask.swift in Sources */,
 				283B5713250CC0DC00EFA651 /* AppInteractor.swift in Sources */,
+				28B386322529B6AB00CA7840 /* OnboardingInteractor.swift in Sources */,
 				28D4E60125297F1A00A1ED86 /* FullscreenImageViewController.swift in Sources */,
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
 				28179ED8250E00290081FD3A /* OperationError.swift in Sources */,
@@ -1640,6 +1761,7 @@
 				283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */,
 				28179ECE250DFF900081FD3A /* InsetLabel.swift in Sources */,
 				28179EEA250E00FC0081FD3A /* PlacesTaskProtocol.swift in Sources */,
+				28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */,
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
@@ -1651,11 +1773,13 @@
 				28BD8D1625230E4B00C30F64 /* LoadingImageView.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
 				28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */,
+				28B386312529B6AB00CA7840 /* OnboardingViewController.swift in Sources */,
 				28D3A82425242F5D008FFF92 /* LogoutUserLocalOperation.swift in Sources */,
 				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				28BD8D18252310AE00C30F64 /* MyProfileViewController+TableViewDataSource.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
 				281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */,
+				28B3862C2529B6AB00CA7840 /* OnboardingStyle.swift in Sources */,
 				28179EAE250DFC700081FD3A /* ExploreTableViewCell.swift in Sources */,
 				28D4E5FC25297F1A00A1ED86 /* FullscreenImageStyle.swift in Sources */,
 				28179EA4250DFC700081FD3A /* ExploreViewController+TableViewDataSource.swift in Sources */,
@@ -1664,7 +1788,9 @@
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
+				28B3862B2529B6AB00CA7840 /* OnboardingViewController+Subviews.swift in Sources */,
 				2812D465250CDAC90079F879 /* MainRouter.swift in Sources */,
+				28B386332529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift in Sources */,
 				281F4F942520CDA9008475D7 /* MyProfileInteractor.swift in Sources */,
 				28D4E60025297F1A00A1ED86 /* FullscreenImageModels.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
@@ -1676,6 +1802,7 @@
 				287A35732517578B00898B51 /* String+LiteralImage.swift in Sources */,
 				28179EA8250DFC700081FD3A /* ExploreRouter.swift in Sources */,
 				28889792250E2A1B0017B0B1 /* String+JSONUrl.swift in Sources */,
+				28B3862D2529B6AB00CA7840 /* OnboardingPresenter.swift in Sources */,
 				2812D46A250CDAC90079F879 /* MainLocalization.swift in Sources */,
 				28BD8CFD2522FE7C00C30F64 /* GetUserOperationModels.swift in Sources */,
 			);
@@ -1685,6 +1812,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28B386392529C62E00CA7840 /* MainViewControllerSpy.swift in Sources */,
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
 				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28889798250E33050017B0B1 /* DataTaskOperationTests.swift in Sources */,
@@ -1701,6 +1829,7 @@
 				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
 				28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
+				28B3864A2529C6A000CA7840 /* OnboardingWorkerTests.swift in Sources */,
 				2812D480250CDB150079F879 /* MainPresentationLogicSpy.swift in Sources */,
 				288897B6250E34D00017B0B1 /* ExploreWorkerDelegateSpy.swift in Sources */,
 				2812D47D250CDB150079F879 /* MainDisplayLogicSpy.swift in Sources */,
@@ -1719,7 +1848,9 @@
 				28D4E621252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift in Sources */,
 				288897BD250E34D00017B0B1 /* ExploreWorkerSpy.swift in Sources */,
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
+				28B3864C2529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
+				28B3864E2529C6A000CA7840 /* OnboardingRouterTests.swift in Sources */,
 				281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */,
 				28D3A8282524304A008FFF92 /* LogoutUserLocalOperationTests.swift in Sources */,
 				28BD8D13252307C400C30F64 /* UsersTaskSpy.swift in Sources */,
@@ -1727,17 +1858,23 @@
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
+				28B386472529C6A000CA7840 /* OnboardingInteractorTests.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
+				28B386482529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift in Sources */,
 				28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */,
 				28D4E6172529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift in Sources */,
+				28B3864D2529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				28D4E6182529846500A1ED86 /* FullscreenImageWorkerTests.swift in Sources */,
+				28B3864B2529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift in Sources */,
 				28D4E61C2529846500A1ED86 /* FullscreenImageRouterTests.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
 				28D4E61E2529846500A1ED86 /* FullscreenImageWorkerSpy.swift in Sources */,
 				288897A2250E33BC0017B0B1 /* TaskConfiguratorTests.swift in Sources */,
 				288897C1250E35D40017B0B1 /* UITableViewSpy.swift in Sources */,
+				28B386462529C6A000CA7840 /* OnboardingViewControllerTests.swift in Sources */,
+				28B386532529C76700CA7840 /* OnboardingViewControllerSpy.swift in Sources */,
 				281F4FAA2520CDF6008475D7 /* MyProfileWorkerTests.swift in Sources */,
 				288897B7250E34D00017B0B1 /* ExploreWorkerTests.swift in Sources */,
 				2812D49D250CE7FC0079F879 /* BaseTestCase.swift in Sources */,
@@ -1750,10 +1887,13 @@
 				288897BC250E34D00017B0B1 /* ExplorePresenterTests.swift in Sources */,
 				2812D496250CE78A0079F879 /* AppBusinessLogicSpy.swift in Sources */,
 				28D4E6192529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift in Sources */,
+				28B386502529C6A000CA7840 /* OnboardingWorkerSpy.swift in Sources */,
 				281F4FAD2520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift in Sources */,
+				28B386492529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift in Sources */,
 				2812D47C250CDB150079F879 /* MainInteractorTests.swift in Sources */,
 				281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */,
 				288897B9250E34D00017B0B1 /* ExploreRoutingLogicSpy.swift in Sources */,
+				28B3864F2529C6A000CA7840 /* OnboardingPresenterTests.swift in Sources */,
 				281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */,
 				2812D498250CE7930079F879 /* AppPresentationLogicSpy.swift in Sources */,
 				2812D47B250CDB150079F879 /* MainViewControllerTests.swift in Sources */,

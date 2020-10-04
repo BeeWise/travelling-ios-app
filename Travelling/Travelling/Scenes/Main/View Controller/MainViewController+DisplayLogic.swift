@@ -15,6 +15,7 @@ import UIKit
 protocol MainDisplayLogic: class {
     func displaySetupScenes(viewModel: MainModels.ScenesSetup.ViewModel)
     func displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel)
+    func displayNavigateToOnboarding()
 }
 
 extension MainViewController: MainDisplayLogic {
@@ -27,6 +28,12 @@ extension MainViewController: MainDisplayLogic {
     func displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel) {
         DispatchQueue.main.async {
             self.selectedIndex = viewModel.index
+        }
+    }
+    
+    func displayNavigateToOnboarding() {
+        DispatchQueue.main.async {
+            self.router?.navigateToOnboarding()
         }
     }
 }

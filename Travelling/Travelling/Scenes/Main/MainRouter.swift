@@ -12,10 +12,17 @@
 
 import UIKit
 
-@objc protocol MainRoutingLogic {
-    
+protocol MainRoutingLogic {
+    func navigateToOnboarding()
 }
 
-class MainRouter: NSObject, MainRoutingLogic {
+class MainRouter: MainRoutingLogic {
     weak var viewController: MainViewController?
+    
+    func navigateToOnboarding() {
+        let onboardingViewController = OnboardingViewController()
+        let navigationController = UINavigationController(rootViewController: onboardingViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.viewController?.present(navigationController, animated: true, completion: nil)
+    }
 }

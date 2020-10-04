@@ -34,4 +34,10 @@ enum MainModels {
             let index: Int
         }
     }
+    
+    struct OnboardingNavigation {
+        struct Request {
+            let index: Int?
+        }
+    }
 }

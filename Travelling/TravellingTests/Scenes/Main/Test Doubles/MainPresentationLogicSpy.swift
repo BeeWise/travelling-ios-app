@@ -16,11 +16,17 @@ class MainPresentationLogicSpy: MainPresentationLogic {
     var presentSetupScenesCalled: Bool = false
     var presentSelectSceneCalled: Bool = false
     
+    var presentNavigateToOnboardingCalled: Bool = false
+    
     func presentSetupScenes() {
         self.presentSetupScenesCalled = true
     }
     
     func presentSelectScene(response: MainModels.SceneSelection.Response) {
         self.presentSelectSceneCalled = true
+    }
+    
+    func presentNavigateToOnboarding() {
+        self.presentNavigateToOnboardingCalled = true
     }
 }

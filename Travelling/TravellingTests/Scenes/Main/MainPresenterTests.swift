@@ -48,4 +48,9 @@ class MainPresenterTests: XCTestCase {
         self.sut.presentSelectScene(response: MainModels.SceneSelection.Response(index: 0))
         XCTAssertTrue(self.displayerSpy.displaySelectSceneCalled)
     }
+    
+    func testPresentNavigateToOnboardingShouldAskTheDisplayerToDisplayNavigateToOnboarding() {
+        self.sut.presentNavigateToOnboarding()
+        XCTAssertTrue(self.displayerSpy.displayNavigateToOnboardingCalled)
+    }
 }

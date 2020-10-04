@@ -16,11 +16,17 @@ class MainDisplayLogicSpy: MainDisplayLogic {
     var displaySetupScenesCalled: Bool = false
     var displaySelectSceneCalled: Bool = false
     
+    var displayNavigateToOnboardingCalled: Bool = false
+    
     func displaySetupScenes(viewModel: MainModels.ScenesSetup.ViewModel) {
         self.displaySetupScenesCalled = true
     }
     
     func displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel) {
         self.displaySelectSceneCalled = true
+    }
+    
+    func displayNavigateToOnboarding() {
+        self.displayNavigateToOnboardingCalled = true
     }
 }
