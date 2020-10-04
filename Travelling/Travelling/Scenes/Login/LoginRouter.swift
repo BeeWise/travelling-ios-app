@@ -13,17 +13,12 @@
 import UIKit
 
 protocol LoginRoutingLogic {
-    func popViewController()
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction])
     func navigateToForgotPassword()
 }
 
 class LoginRouter: LoginRoutingLogic {
     weak var viewController: LoginViewController?
-    
-    func popViewController() {
-        self.viewController?.navigationController?.popViewController(animated: true)
-    }
     
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
