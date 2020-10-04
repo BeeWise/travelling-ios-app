@@ -1,13 +1,13 @@
 //
-//  GetUserLocalOperation.swift
+//  SignUpUserLocalOperation.swift
 //  Travelling
 //
-//  Created by Dimitri Strauneanu on 29/09/2020.
+//  Created by Dimitri Strauneanu on 04/10/2020.
 //
 
 import Foundation
 
-class GetUserLocalOperation: DataTaskOperation<GetUserOperationModels.Response> {
+class SignUpUserLocalOperation: DataTaskOperation<SignUpUserOperationModels.Response> {
     var shouldFail: Bool = false
     var delay: Int = Int.random(in: 1000 ... 3000)
     
@@ -23,8 +23,8 @@ class GetUserLocalOperation: DataTaskOperation<GetUserOperationModels.Response> 
             if self.shouldFail {
                 self.noDataAvailableErrorBlock()
             } else {
-                if let model = self.model as? GetUserOperationModels.Request, let userId = model.userId {
-                    self.successfulResultBlock(value: GetUserOperationModels.Response(user: self.user(id: userId)))
+                if let model = self.model as? SignUpUserOperationModels.Request {
+                    self.successfulResultBlock(value: SignUpUserOperationModels.Response(user: self.user(email: model.email, username: model.username)))
                 } else {
                     self.noDataAvailableErrorBlock()
                 }
@@ -32,12 +32,12 @@ class GetUserLocalOperation: DataTaskOperation<GetUserOperationModels.Response> 
         }
     }
     
-    private func user(id: String) -> User {
-        let user = User(id: id)
+    private func user(email: String?, username: String?) -> User {
+        let user = User(id: "userId")
         user.firstName = "First name"
         user.lastName = "Last name"
-        user.email = "email"
-        user.username = "username"
+        user.email = email
+        user.username = username
         user.description = "Description"
         return user
     }

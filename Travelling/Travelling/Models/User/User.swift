@@ -12,6 +12,7 @@ public class User: Codable, Equatable {
         return lhs.id == rhs.id &&
             lhs.firstName == rhs.firstName &&
             lhs.lastName == rhs.lastName &&
+            lhs.email == rhs.email &&
             lhs.username == rhs.username &&
             lhs.description == rhs.description &&
             lhs.photo == rhs.photo
@@ -22,6 +23,7 @@ public class User: Codable, Equatable {
     var firstName: String?
     var lastName: String?
     
+    var email: String?
     var username: String?
     var description: String?
     
@@ -35,6 +37,7 @@ public class User: Codable, Equatable {
         case id
         case firstName = "first_name"
         case lastName = "last_name"
+        case email
         case username
         case description
         case photo

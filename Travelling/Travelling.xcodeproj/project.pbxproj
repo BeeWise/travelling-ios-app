@@ -194,6 +194,10 @@
 		28C1CB68252A274F0083FBC7 /* LoginUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB67252A274F0083FBC7 /* LoginUserOperation.swift */; };
 		28C1CB6A252A27570083FBC7 /* LoginUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB69252A27570083FBC7 /* LoginUserLocalOperation.swift */; };
 		28C1CB6D252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB6C252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift */; };
+		28C1CB70252A294B0083FBC7 /* SignUpUserOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB6F252A294B0083FBC7 /* SignUpUserOperationModels.swift */; };
+		28C1CB72252A29570083FBC7 /* SignUpUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB71252A29570083FBC7 /* SignUpUserOperation.swift */; };
+		28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB73252A29620083FBC7 /* SignUpUserLocalOperation.swift */; };
+		28C1CB77252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB76252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift */; };
 		28CEC7B52529D2510063DCFE /* LoginViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */; };
 		28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AC2529D2510063DCFE /* LoginStyle.swift */; };
 		28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */; };
@@ -469,6 +473,10 @@
 		28C1CB67252A274F0083FBC7 /* LoginUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserOperation.swift; sourceTree = "<group>"; };
 		28C1CB69252A27570083FBC7 /* LoginUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserLocalOperation.swift; sourceTree = "<group>"; };
 		28C1CB6C252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserLocalOperationTests.swift; sourceTree = "<group>"; };
+		28C1CB6F252A294B0083FBC7 /* SignUpUserOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserOperationModels.swift; sourceTree = "<group>"; };
+		28C1CB71252A29570083FBC7 /* SignUpUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserOperation.swift; sourceTree = "<group>"; };
+		28C1CB73252A29620083FBC7 /* SignUpUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserLocalOperation.swift; sourceTree = "<group>"; };
+		28C1CB76252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserLocalOperationTests.swift; sourceTree = "<group>"; };
 		28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Subviews.swift"; sourceTree = "<group>"; };
 		28CEC7AC2529D2510063DCFE /* LoginStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStyle.swift; sourceTree = "<group>"; };
 		28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -1528,6 +1536,24 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		28C1CB6E252A293A0083FBC7 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB6F252A294B0083FBC7 /* SignUpUserOperationModels.swift */,
+				28C1CB71252A29570083FBC7 /* SignUpUserOperation.swift */,
+				28C1CB73252A29620083FBC7 /* SignUpUserLocalOperation.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		28C1CB75252A2AEE0083FBC7 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB76252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
 		28CEC7AA2529D2360063DCFE /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1645,6 +1671,7 @@
 		28D3A81D25242F21008FFF92 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				28C1CB6E252A293A0083FBC7 /* Sign Up */,
 				28C1CB64252A27380083FBC7 /* Login */,
 				28D3A81E25242F2A008FFF92 /* Logout */,
 			);
@@ -1664,6 +1691,7 @@
 		28D3A8252524302D008FFF92 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				28C1CB75252A2AEE0083FBC7 /* Sign Up */,
 				28C1CB6B252A28990083FBC7 /* Login */,
 				28D3A82625243035008FFF92 /* Logout */,
 			);
@@ -1911,6 +1939,7 @@
 				28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */,
 				28179EBC250DFDD80081FD3A /* UITableViewCell+DefaultReuseIdentifier.swift in Sources */,
 				28D4E5FE25297F1A00A1ED86 /* FullscreenImageWorker.swift in Sources */,
+				28C1CB72252A29570083FBC7 /* SignUpUserOperation.swift in Sources */,
 				28179EE3250E00CE0081FD3A /* TaskProtocol.swift in Sources */,
 				28179ED2250DFFC60081FD3A /* TableViewErrorHeaderFooterView.swift in Sources */,
 				28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */,
@@ -1928,6 +1957,7 @@
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
 				2888978D250E29530017B0B1 /* GetPlacesOperationModels.swift in Sources */,
 				281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */,
+				28C1CB70252A294B0083FBC7 /* SignUpUserOperationModels.swift in Sources */,
 				28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */,
 				28889789250E27110017B0B1 /* Location.swift in Sources */,
 				28D3A82B25243165008FFF92 /* AuthenticationTaskProtocol.swift in Sources */,
@@ -2014,6 +2044,7 @@
 				287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */,
 				281F4F8E2520CDA9008475D7 /* MyProfileStyle.swift in Sources */,
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
+				28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
 				28B3862B2529B6AB00CA7840 /* OnboardingViewController+Subviews.swift in Sources */,
@@ -2144,6 +2175,7 @@
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
 				287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */,
 				28CEC7E62529E8160063DCFE /* LoginWorkerDelegateSpy.swift in Sources */,
+				28C1CB77252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift in Sources */,
 				28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */,
 				2812D48F250CE7630079F879 /* AppDelegateTests.swift in Sources */,
 			);

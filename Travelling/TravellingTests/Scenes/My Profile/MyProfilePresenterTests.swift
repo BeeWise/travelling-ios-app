@@ -143,6 +143,7 @@ extension MyProfilePresenterTests {
         let user = User(id: "userId")
         user.firstName = "First name"
         user.lastName = "Last name"
+        user.email = "email"
         user.username = "username"
         user.description = "Description"
         user.photo = self.photo()

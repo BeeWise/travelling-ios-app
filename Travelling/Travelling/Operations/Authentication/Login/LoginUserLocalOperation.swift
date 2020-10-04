@@ -36,6 +36,7 @@ class LoginUserLocalOperation: DataTaskOperation<LoginUserOperationModels.Respon
         let user = User(id: "userId")
         user.firstName = "First name"
         user.lastName = "Last name"
+        user.email = "email"
         user.username = account
         user.description = "Description"
         return user
