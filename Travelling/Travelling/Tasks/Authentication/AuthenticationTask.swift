@@ -100,4 +100,33 @@ open class AuthenticationTask: AuthenticationTaskProtocol {
     open func cancelSignUpUserOperation() {
         self.signUpUserOperationQueue.cancelAllOperations()
     }
+    
+    // MARK: - Forgot password
+    
+    var forgotPasswordOperationQueue = OperationQueue()
+    
+    open func forgotPassword(model: AuthenticationTaskModels.ForgotPassword.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.ForgotPassword.Response, OperationError>) -> Void) {
+        let operation = self.forgotPasswordOperation(model: model, completionHandler: completionHandler)
+        self.forgotPasswordOperationQueue.addOperation(operation)
+    }
+    
+    private func forgotPasswordOperation(model: AuthenticationTaskModels.ForgotPassword.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.ForgotPassword.Response, OperationError>) -> Void) -> DataTaskOperation<ForgotPasswordOperationModels.Response> {
+        let operationModel = ForgotPasswordOperationModels.Request(email: model.email)
+        let operationCompletionHandler: ((Result<ForgotPasswordOperationModels.Response, OperationError>) -> Void) = { result in
+            switch result {
+                case .success(let response): completionHandler(.success(AuthenticationTaskModels.ForgotPassword.Response(message: response.message))); break
+                case .failure(let error): completionHandler(.failure(error)); break
+            }
+        }
+        
+        switch self.environment {
+            case .production: return ForgotPasswordOperation(model: operationModel, completionHandler: operationCompletionHandler)
+            case .development: return ForgotPasswordOperation(model: operationModel, completionHandler: operationCompletionHandler)
+            case .memory: return ForgotPasswordLocalOperation(model: operationModel, completionHandler: operationCompletionHandler)
+        }
+    }
+    
+    open func cancelForgotPasswordOperation() {
+        self.forgotPasswordOperationQueue.cancelAllOperations()
+    }
 }

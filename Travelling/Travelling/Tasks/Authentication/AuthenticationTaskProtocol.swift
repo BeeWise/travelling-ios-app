@@ -16,4 +16,7 @@ protocol AuthenticationTaskProtocol: TaskProtocol {
     
     func signUpUser(model: AuthenticationTaskModels.SignUpUser.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.SignUpUser.Response, OperationError>) -> Void)
     func cancelSignUpUserOperation()
+    
+    func forgotPassword(model: AuthenticationTaskModels.ForgotPassword.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.ForgotPassword.Response, OperationError>) -> Void)
+    func cancelForgotPasswordOperation()
 }

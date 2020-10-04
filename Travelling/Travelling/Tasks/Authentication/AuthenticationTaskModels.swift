@@ -44,4 +44,14 @@ public enum AuthenticationTaskModels {
             let user: User
         }
     }
+    
+    public enum ForgotPassword {
+        public struct Request {
+            let email: String
+        }
+        
+        public struct Response {
+            let message: String?
+        }
+    }
 }

@@ -78,4 +78,26 @@ class AuthenticationTaskSpy: AuthenticationTask {
     override func cancelSignUpUserOperation() {
         self.cancelSignUpUserOperationCalled = true
     }
+    
+    // MARK: - Forgot password
+    
+    var forgotPasswordMessage = "Success"
+    var forgotPasswordCalled: Bool = false
+    var shouldFailForgotPassword: Bool = false
+    
+    var cancelForgotPasswordOperationCalled: Bool = false
+    
+    override func forgotPassword(model: AuthenticationTaskModels.ForgotPassword.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.ForgotPassword.Response, OperationError>) -> Void) {
+        self.forgotPasswordCalled = true
+        
+        if self.shouldFailForgotPassword {
+            completionHandler(Result.failure(OperationError.noDataAvailable))
+        } else {
+            completionHandler(Result.success(AuthenticationTaskModels.ForgotPassword.Response(message: self.forgotPasswordMessage)))
+        }
+    }
+    
+    override func cancelForgotPasswordOperation() {
+        self.cancelForgotPasswordOperationCalled = true
+    }
 }

@@ -97,4 +97,27 @@ class AuthenticationTaskTests: XCTestCase {
         XCTAssertTrue(operationQueueSpy.addOperationCalled)
         XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
     }
+    
+    // MARK: - Forgot password tests
+    
+    func testForgotPasswordForProduction() {
+        self.shouldTestForgotPasswordForEnvironment(environment: .production, operationClass: ForgotPasswordOperation.self)
+    }
+    
+    func testForgotPasswordForDevelopment() {
+        self.shouldTestForgotPasswordForEnvironment(environment: .development, operationClass: ForgotPasswordOperation.self)
+    }
+    
+    func testForgotPasswordForMemory() {
+        self.shouldTestForgotPasswordForEnvironment(environment: .memory, operationClass: ForgotPasswordLocalOperation.self)
+    }
+    
+    private func shouldTestForgotPasswordForEnvironment(environment: TaskEnvironment, operationClass: AnyClass) {
+        self.sut.environment = environment
+        let operationQueueSpy = OperationQueueSpy()
+        self.sut.forgotPasswordOperationQueue = operationQueueSpy
+        self.sut.forgotPassword(model: AuthenticationTaskModels.ForgotPassword.Request(email: "email"), completionHandler: { _ in })
+        XCTAssertTrue(operationQueueSpy.addOperationCalled)
+        XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
+    }
 }
