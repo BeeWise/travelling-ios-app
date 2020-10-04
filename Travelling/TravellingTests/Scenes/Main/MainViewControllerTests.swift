@@ -60,6 +60,21 @@ class MainViewControllerTests: BaseTestCase {
         XCTAssertTrue(self.interactorSpy.shouldSelectInitialSceneCalled)
     }
     
+    func testTabBarControllerShouldSelectViewControllerShouldAskTheInteractorToSelectScene() {
+        self.waitForMainQueue()
+        let viewController = UIViewController()
+        self.sut.setViewControllers([viewController], animated: false)
+        let _ = self.sut.tabBarController(self.sut, shouldSelect: viewController)
+        XCTAssertTrue(self.interactorSpy.shouldSelectSceneCalled)
+    }
+    
+    func testTabBarControllerShouldSelectViewControllerShouldAskTheInteractorToNavigateToOnboarding() {
+        let viewController = UIViewController()
+        self.sut.setViewControllers([viewController], animated: false)
+        let _ = self.sut.tabBarController(self.sut, shouldSelect: viewController)
+        XCTAssertTrue(self.interactorSpy.shouldNavigateToOnboardingCalled)
+    }
+    
     // MARK: - Display logic tests
     
     func testDisplaySetupScenesShouldSetViewControllers() {
@@ -79,5 +94,11 @@ class MainViewControllerTests: BaseTestCase {
         self.sut.displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel(index: index))
         self.waitForMainQueue()
         XCTAssertEqual(self.sut.selectedIndex, index)
+    }
+    
+    func testDisplayNavigateToOnboardingShouldAskTheRouterToNavigateToOnboarding() {
+        self.sut.displayNavigateToOnboarding()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToOnboardingCalled)
     }
 }

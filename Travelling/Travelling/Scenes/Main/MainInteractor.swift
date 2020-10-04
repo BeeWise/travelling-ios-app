@@ -13,16 +13,26 @@
 import UIKit
 
 protocol MainBusinessLogic {
+    func shouldSelectScene(index: Int) -> Bool
+    
     func shouldSetupScenes()
     func shouldSelectInitialScene()
+    
+    func shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request)
 }
 
-class MainInteractor: MainBusinessLogic {
+class MainInteractor: MainBusinessLogic, MainWorkerDelegate {
     var presenter: MainPresentationLogic?
     var worker: MainWorker?
     
+    var user: User?
+    
     init() {
         self.worker = MainWorker(delegate: self)
+    }
+    
+    func shouldSelectScene(index: Int) -> Bool {
+        return self.isUserLoggedIn() || index == self.exploreSceneIndex()
     }
     
     func shouldSetupScenes() {
@@ -30,10 +40,27 @@ class MainInteractor: MainBusinessLogic {
     }
     
     func shouldSelectInitialScene() {
-        self.presenter?.presentSelectScene(response: MainModels.SceneSelection.Response(index: MainModels.Scenes.explore.rawValue))
+        self.presenter?.presentSelectScene(response: MainModels.SceneSelection.Response(index: self.exploreSceneIndex()))
+    }
+    
+    func shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request) {
+        if let index = request.index, index == self.exploreSceneIndex() {
+            return
+        }
+        if !self.isUserLoggedIn() {
+            self.presenter?.presentNavigateToOnboarding()
+        }
     }
 }
 
-extension MainInteractor: MainWorkerDelegate {
+// MARK: - Auxiliary
+
+extension MainInteractor {
+    private func isUserLoggedIn() -> Bool {
+        return self.user != nil
+    }
     
+    private func exploreSceneIndex() -> Int {
+        return MainModels.Scenes.explore.rawValue
+    }
 }

@@ -14,7 +14,7 @@ import UIKit
 
 class MainViewController: UITabBarController {
     var interactor: MainBusinessLogic?
-    var router: (NSObjectProtocol & MainRoutingLogic)?
+    var router: MainRoutingLogic?
     
     var exploreViewController: ExploreViewController!
     var myFavoritesViewController: UIViewController!
@@ -56,8 +56,21 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         self.setup()
         self.setupSubviews()
+        self.delegate = self
         self.setupViewControllers()
         self.interactor?.shouldSetupScenes()
         self.interactor?.shouldSelectInitialScene()
+    }
+}
+
+// MARK: - Tab bar controller delegate
+
+extension MainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if let interactor = self.interactor, let index = self.viewControllers?.firstIndex(of: viewController) {
+            self.interactor?.shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request(index: index))
+            return interactor.shouldSelectScene(index: index)
+        }
+        return false
     }
 }
