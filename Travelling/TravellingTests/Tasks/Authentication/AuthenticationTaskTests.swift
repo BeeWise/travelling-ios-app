@@ -29,7 +29,7 @@ class AuthenticationTaskTests: XCTestCase {
         self.sut = AuthenticationTask(environment: .memory)
     }
     
-    // MARK: - Tests
+    // MARK: - Logout tests
     
     func testLogoutUserForProduction() {
         self.shouldTestLogoutUserForEnvironment(environment: .production, operationClass: LogoutUserOperation.self)
@@ -48,6 +48,29 @@ class AuthenticationTaskTests: XCTestCase {
         let operationQueueSpy = OperationQueueSpy()
         self.sut.logoutUserOperationQueue = operationQueueSpy
         self.sut.logoutUser(model: AuthenticationTaskModels.LogoutUser.Request(userId: "userId"), completionHandler: { _ in })
+        XCTAssertTrue(operationQueueSpy.addOperationCalled)
+        XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
+    }
+    
+    // MARK: - Login tests
+    
+    func testLoginUserForProduction() {
+        self.shouldTestLoginUserForEnvironment(environment: .production, operationClass: LoginUserOperation.self)
+    }
+    
+    func testLoginUserForDevelopment() {
+        self.shouldTestLoginUserForEnvironment(environment: .development, operationClass: LoginUserOperation.self)
+    }
+    
+    func testLoginUserForMemory() {
+        self.shouldTestLoginUserForEnvironment(environment: .memory, operationClass: LoginUserLocalOperation.self)
+    }
+    
+    private func shouldTestLoginUserForEnvironment(environment: TaskEnvironment, operationClass: AnyClass) {
+        self.sut.environment = environment
+        let operationQueueSpy = OperationQueueSpy()
+        self.sut.loginUserOperationQueue = operationQueueSpy
+        self.sut.loginUser(model: AuthenticationTaskModels.LoginUser.Request(account: "account", password: "password"), completionHandler: { _ in })
         XCTAssertTrue(operationQueueSpy.addOperationCalled)
         XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
     }
