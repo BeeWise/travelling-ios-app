@@ -55,9 +55,9 @@ class MainViewControllerTests: BaseTestCase {
     
     // MARK: - Business logic tests
     
-    func testMyProfileViewControllerDidLogoutUserShouldAskTheInteractorToSelectInitialScene() {
+    func testMyProfileViewControllerDidLogoutUserShouldAskTheInteractorToLogoutUser() {
         self.sut.myProfileViewControllerDidLogoutUser(viewController: nil)
-        XCTAssertTrue(self.interactorSpy.shouldSelectInitialSceneCalled)
+        XCTAssertTrue(self.interactorSpy.shouldLogoutUserCalled)
     }
     
     func testTabBarControllerShouldSelectViewControllerShouldAskTheInteractorToSelectScene() {
@@ -73,6 +73,16 @@ class MainViewControllerTests: BaseTestCase {
         self.sut.setViewControllers([viewController], animated: false)
         let _ = self.sut.tabBarController(self.sut, shouldSelect: viewController)
         XCTAssertTrue(self.interactorSpy.shouldNavigateToOnboardingCalled)
+    }
+    
+    func testOnboardingViewControllerDidLoginUser() {
+        self.sut.onboardingViewController(nil, didLoginUser: User(id: "userId"))
+        XCTAssertTrue(self.interactorSpy.shouldLoginUserCalled)
+    }
+    
+    func testOnboardingViewControllerDidSignUpUser() {
+        self.sut.onboardingViewController(nil, didSignUpUser: User(id: "userId"))
+        XCTAssertTrue(self.interactorSpy.shouldLoginUserCalled)
     }
     
     // MARK: - Display logic tests
@@ -100,5 +110,11 @@ class MainViewControllerTests: BaseTestCase {
         self.sut.displayNavigateToOnboarding()
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.navigateToOnboardingCalled)
+    }
+    
+    func testDisplayDismissOnboardingShouldAskTheRouterToDismissViewController() {
+        self.sut.displayDismissOnboarding()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.dismissViewControllerCalled)
     }
 }

@@ -21,6 +21,9 @@ class MainBusinessLogicSpy: MainBusinessLogic {
     
     var shouldNavigateToOnboardingCalled: Bool = false
     
+    var shouldLoginUserCalled: Bool = false
+    var shouldLogoutUserCalled: Bool = false
+    
     func shouldSetupScenes() {
         self.shouldSetupScenesCalled = true
     }
@@ -36,5 +39,13 @@ class MainBusinessLogicSpy: MainBusinessLogic {
     
     func shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request) {
         self.shouldNavigateToOnboardingCalled = true
+    }
+    
+    func shouldLoginUser(request: MainModels.UserLogin.Request) {
+        self.shouldLoginUserCalled = true
+    }
+    
+    func shouldLogoutUser() {
+        self.shouldLogoutUserCalled = true
     }
 }

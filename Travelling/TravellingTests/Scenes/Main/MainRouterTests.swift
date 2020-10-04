@@ -43,4 +43,9 @@ class MainRouterTests: XCTestCase {
         self.sut.navigateToOnboarding()
         XCTAssertTrue(self.viewControllerSpy.presentCalled)
     }
+    
+    func testDismissViewController() {
+        self.sut.dismissViewController()
+        XCTAssertTrue(self.viewControllerSpy.dismissCalled)
+    }
 }

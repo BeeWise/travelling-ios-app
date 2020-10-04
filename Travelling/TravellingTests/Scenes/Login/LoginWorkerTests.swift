@@ -37,5 +37,26 @@ class LoginWorkerTests: XCTestCase {
     
     // MARK: - Tests
     
+    func testLoginUser() {
+        let taskSpy = AuthenticationTaskSpy()
+        self.sut.authenticationTask = taskSpy
+        self.sut.loginUser(details: LoginModels.LoginDetails())
+        XCTAssertTrue(taskSpy.loginUserCalled)
+    }
     
+    func testLoginUserShouldAskTheDelegateToSendUserTokenForSuccessCase() {
+        let taskSpy = AuthenticationTaskSpy()
+        taskSpy.shouldFailLoginUser = false
+        self.sut.authenticationTask = taskSpy
+        self.sut.loginUser(details: LoginModels.LoginDetails())
+        XCTAssertTrue(self.delegateSpy.successDidLoginUserCalled)
+    }
+    
+    func testLoginUserShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = AuthenticationTaskSpy()
+        taskSpy.shouldFailLoginUser = true
+        self.sut.authenticationTask = taskSpy
+        self.sut.loginUser(details: LoginModels.LoginDetails())
+        XCTAssertTrue(self.delegateSpy.failureDidLoginUserCalled)
+    }
 }

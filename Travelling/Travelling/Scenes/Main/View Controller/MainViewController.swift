@@ -74,3 +74,15 @@ extension MainViewController: UITabBarControllerDelegate {
         return false
     }
 }
+
+// MARK: - Onboarding view controller delegate
+
+extension MainViewController: OnboardingViewControllerDelegate {
+    func onboardingViewController(_ viewController: OnboardingViewController?, didLoginUser user: User) {
+        self.interactor?.shouldLoginUser(request: MainModels.UserLogin.Request(user: user))
+    }
+    
+    func onboardingViewController(_ viewController: OnboardingViewController?, didSignUpUser user: User) {
+        self.interactor?.shouldLoginUser(request: MainModels.UserLogin.Request(user: user))
+    }
+}

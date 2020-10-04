@@ -190,6 +190,19 @@
 		28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D222523336C00C30F64 /* EmailHandler.swift */; };
 		28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */; };
 		28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */; };
+		28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB65252A27480083FBC7 /* LoginUserOperationModels.swift */; };
+		28C1CB68252A274F0083FBC7 /* LoginUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB67252A274F0083FBC7 /* LoginUserOperation.swift */; };
+		28C1CB6A252A27570083FBC7 /* LoginUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB69252A27570083FBC7 /* LoginUserLocalOperation.swift */; };
+		28C1CB6D252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB6C252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift */; };
+		28C1CB70252A294B0083FBC7 /* SignUpUserOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB6F252A294B0083FBC7 /* SignUpUserOperationModels.swift */; };
+		28C1CB72252A29570083FBC7 /* SignUpUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB71252A29570083FBC7 /* SignUpUserOperation.swift */; };
+		28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB73252A29620083FBC7 /* SignUpUserLocalOperation.swift */; };
+		28C1CB77252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB76252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift */; };
+		28C1CB7A252A2CF30083FBC7 /* ForgotPasswordOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB79252A2CF30083FBC7 /* ForgotPasswordOperationModels.swift */; };
+		28C1CB7C252A2CFA0083FBC7 /* ForgotPasswordOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB7B252A2CFA0083FBC7 /* ForgotPasswordOperation.swift */; };
+		28C1CB7E252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */; };
+		28C1CB81252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */; };
+		28C1CB83252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */; };
 		28CEC7B52529D2510063DCFE /* LoginViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */; };
 		28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AC2529D2510063DCFE /* LoginStyle.swift */; };
 		28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */; };
@@ -461,6 +474,19 @@
 		28BD8D222523336C00C30F64 /* EmailHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandler.swift; sourceTree = "<group>"; };
 		28BD8D24252333B200C30F64 /* EmailHandlerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHandlerSpy.swift; sourceTree = "<group>"; };
 		28BD8D262523360C00C30F64 /* MyProfileViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewControllerSpy.swift; sourceTree = "<group>"; };
+		28C1CB65252A27480083FBC7 /* LoginUserOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserOperationModels.swift; sourceTree = "<group>"; };
+		28C1CB67252A274F0083FBC7 /* LoginUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserOperation.swift; sourceTree = "<group>"; };
+		28C1CB69252A27570083FBC7 /* LoginUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserLocalOperation.swift; sourceTree = "<group>"; };
+		28C1CB6C252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserLocalOperationTests.swift; sourceTree = "<group>"; };
+		28C1CB6F252A294B0083FBC7 /* SignUpUserOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserOperationModels.swift; sourceTree = "<group>"; };
+		28C1CB71252A29570083FBC7 /* SignUpUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserOperation.swift; sourceTree = "<group>"; };
+		28C1CB73252A29620083FBC7 /* SignUpUserLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserLocalOperation.swift; sourceTree = "<group>"; };
+		28C1CB76252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserLocalOperationTests.swift; sourceTree = "<group>"; };
+		28C1CB79252A2CF30083FBC7 /* ForgotPasswordOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordOperationModels.swift; sourceTree = "<group>"; };
+		28C1CB7B252A2CFA0083FBC7 /* ForgotPasswordOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordOperation.swift; sourceTree = "<group>"; };
+		28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalOperation.swift; sourceTree = "<group>"; };
+		28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalOperationTests.swift; sourceTree = "<group>"; };
+		28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Subviews.swift"; sourceTree = "<group>"; };
 		28CEC7AC2529D2510063DCFE /* LoginStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStyle.swift; sourceTree = "<group>"; };
 		28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -1430,6 +1456,7 @@
 				28B386422529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift */,
 				28B386452529C6A000CA7840 /* OnboardingWorkerSpy.swift */,
 				28B386522529C76700CA7840 /* OnboardingViewControllerSpy.swift */,
+				28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -1500,6 +1527,60 @@
 				28BD8D222523336C00C30F64 /* EmailHandler.swift */,
 			);
 			path = "Email Handler";
+			sourceTree = "<group>";
+		};
+		28C1CB64252A27380083FBC7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB65252A27480083FBC7 /* LoginUserOperationModels.swift */,
+				28C1CB67252A274F0083FBC7 /* LoginUserOperation.swift */,
+				28C1CB69252A27570083FBC7 /* LoginUserLocalOperation.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		28C1CB6B252A28990083FBC7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB6C252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		28C1CB6E252A293A0083FBC7 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB6F252A294B0083FBC7 /* SignUpUserOperationModels.swift */,
+				28C1CB71252A29570083FBC7 /* SignUpUserOperation.swift */,
+				28C1CB73252A29620083FBC7 /* SignUpUserLocalOperation.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		28C1CB75252A2AEE0083FBC7 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB76252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		28C1CB78252A2CE40083FBC7 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB79252A2CF30083FBC7 /* ForgotPasswordOperationModels.swift */,
+				28C1CB7B252A2CFA0083FBC7 /* ForgotPasswordOperation.swift */,
+				28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		28C1CB7F252A2DB90083FBC7 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */,
+			);
+			path = "Forgot Password";
 			sourceTree = "<group>";
 		};
 		28CEC7AA2529D2360063DCFE /* Login */ = {
@@ -1619,6 +1700,9 @@
 		28D3A81D25242F21008FFF92 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				28C1CB78252A2CE40083FBC7 /* Forgot Password */,
+				28C1CB6E252A293A0083FBC7 /* Sign Up */,
+				28C1CB64252A27380083FBC7 /* Login */,
 				28D3A81E25242F2A008FFF92 /* Logout */,
 			);
 			path = Authentication;
@@ -1637,6 +1721,9 @@
 		28D3A8252524302D008FFF92 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				28C1CB7F252A2DB90083FBC7 /* Forgot Password */,
+				28C1CB75252A2AEE0083FBC7 /* Sign Up */,
+				28C1CB6B252A28990083FBC7 /* Login */,
 				28D3A82625243035008FFF92 /* Logout */,
 			);
 			path = Authentication;
@@ -1883,6 +1970,7 @@
 				28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */,
 				28179EBC250DFDD80081FD3A /* UITableViewCell+DefaultReuseIdentifier.swift in Sources */,
 				28D4E5FE25297F1A00A1ED86 /* FullscreenImageWorker.swift in Sources */,
+				28C1CB72252A29570083FBC7 /* SignUpUserOperation.swift in Sources */,
 				28179EE3250E00CE0081FD3A /* TaskProtocol.swift in Sources */,
 				28179ED2250DFFC60081FD3A /* TableViewErrorHeaderFooterView.swift in Sources */,
 				28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */,
@@ -1900,6 +1988,7 @@
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
 				2888978D250E29530017B0B1 /* GetPlacesOperationModels.swift in Sources */,
 				281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */,
+				28C1CB70252A294B0083FBC7 /* SignUpUserOperationModels.swift in Sources */,
 				28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */,
 				28889789250E27110017B0B1 /* Location.swift in Sources */,
 				28D3A82B25243165008FFF92 /* AuthenticationTaskProtocol.swift in Sources */,
@@ -1922,6 +2011,7 @@
 				28D4E5FB25297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift in Sources */,
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				28CEC7C92529D85B0063DCFE /* LoginButtonCell.swift in Sources */,
+				28C1CB7A252A2CF30083FBC7 /* ForgotPasswordOperationModels.swift in Sources */,
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
@@ -1950,6 +2040,7 @@
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
 				28179ED0250DFFAE0081FD3A /* TableViewLoadingHeaderFooterView.swift in Sources */,
+				28C1CB68252A274F0083FBC7 /* LoginUserOperation.swift in Sources */,
 				28BD8CFF2522FEA300C30F64 /* GetUserOperation.swift in Sources */,
 				283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */,
 				28179ECE250DFF900081FD3A /* InsetLabel.swift in Sources */,
@@ -1957,6 +2048,7 @@
 				28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */,
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
+				28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
 				28CEC7BC2529D2510063DCFE /* LoginInteractor.swift in Sources */,
 				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
@@ -1976,19 +2068,23 @@
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
 				281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */,
 				28B3862C2529B6AB00CA7840 /* OnboardingStyle.swift in Sources */,
+				28C1CB7C252A2CFA0083FBC7 /* ForgotPasswordOperation.swift in Sources */,
 				28179EAE250DFC700081FD3A /* ExploreTableViewCell.swift in Sources */,
 				28D4E5FC25297F1A00A1ED86 /* FullscreenImageStyle.swift in Sources */,
+				28C1CB6A252A27570083FBC7 /* LoginUserLocalOperation.swift in Sources */,
 				28179EA4250DFC700081FD3A /* ExploreViewController+TableViewDataSource.swift in Sources */,
 				28CEC7CC2529D8930063DCFE /* LoadingButton.swift in Sources */,
 				287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */,
 				281F4F8E2520CDA9008475D7 /* MyProfileStyle.swift in Sources */,
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
+				28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
 				28B3862B2529B6AB00CA7840 /* OnboardingViewController+Subviews.swift in Sources */,
 				2812D465250CDAC90079F879 /* MainRouter.swift in Sources */,
 				28B386332529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift in Sources */,
 				281F4F942520CDA9008475D7 /* MyProfileInteractor.swift in Sources */,
+				28C1CB7E252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift in Sources */,
 				28CEC7D32529DC130063DCFE /* LoginViewController+TableViewDataSource.swift in Sources */,
 				28D4E60025297F1A00A1ED86 /* FullscreenImageModels.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
@@ -2040,6 +2136,7 @@
 				28CEC7E52529E8160063DCFE /* LoginDisplayLogicSpy.swift in Sources */,
 				28CEC7EA2529E8160063DCFE /* LoginBusinessLogicSpy.swift in Sources */,
 				28CEC7F22529E9520063DCFE /* LoginViewControllerDelegateSpy.swift in Sources */,
+				28C1CB81252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift in Sources */,
 				2812D481250CDB150079F879 /* MainRoutingLogicSpy.swift in Sources */,
 				28D4E6162529846500A1ED86 /* FullscreenImageDisplayLogicSpy.swift in Sources */,
 				28D4E6142529846500A1ED86 /* FullscreenImageViewControllerTests.swift in Sources */,
@@ -2065,6 +2162,7 @@
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
+				28C1CB83252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift in Sources */,
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
 				28B386472529C6A000CA7840 /* OnboardingInteractorTests.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
@@ -2095,6 +2193,7 @@
 				281F4FA92520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift in Sources */,
 				28D4E6152529846500A1ED86 /* FullscreenImageInteractorTests.swift in Sources */,
 				281F4FA62520CDF6008475D7 /* MyProfileViewControllerTests.swift in Sources */,
+				28C1CB6D252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift in Sources */,
 				288897BC250E34D00017B0B1 /* ExplorePresenterTests.swift in Sources */,
 				2812D496250CE78A0079F879 /* AppBusinessLogicSpy.swift in Sources */,
 				28D4E6192529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift in Sources */,
@@ -2112,6 +2211,7 @@
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
 				287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */,
 				28CEC7E62529E8160063DCFE /* LoginWorkerDelegateSpy.swift in Sources */,
+				28C1CB77252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift in Sources */,
 				28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */,
 				2812D48F250CE7630079F879 /* AppDelegateTests.swift in Sources */,
 			);

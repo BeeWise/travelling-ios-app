@@ -29,7 +29,7 @@ class FullscreenImageWorker {
     func fetchImage(name: String?) {
         self.imageTask.fetchImage(model: ImageTaskModels.Fetch.Request(imageName: name)) { result in
             switch result {
-                case .success(let value): self.delegate?.successDidFetchImage(image: value.image); break
+                case .success(let response): self.delegate?.successDidFetchImage(image: response.image); break
                 case .failure(let error): self.delegate?.failureDidFetchImage(error: error); break
             }
         }

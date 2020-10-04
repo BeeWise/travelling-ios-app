@@ -64,6 +64,6 @@ extension MainViewController: MyProfileViewControllerDelegate {
     }
     
     func myProfileViewControllerDidLogoutUser(viewController: MyProfileViewController?) {
-        self.interactor?.shouldSelectInitialScene()
+        self.interactor?.shouldLogoutUser()
     }
 }

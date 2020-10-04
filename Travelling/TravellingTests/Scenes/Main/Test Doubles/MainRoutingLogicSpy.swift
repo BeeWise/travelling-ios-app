@@ -15,8 +15,13 @@ import UIKit
 
 class MainRoutingLogicSpy: MainRoutingLogic {
     var navigateToOnboardingCalled: Bool = false
+    var dismissViewControllerCalled: Bool = false
     
     func navigateToOnboarding() {
         self.navigateToOnboardingCalled = true
+    }
+    
+    func dismissViewController() {
+        self.dismissViewControllerCalled = true
     }
 }

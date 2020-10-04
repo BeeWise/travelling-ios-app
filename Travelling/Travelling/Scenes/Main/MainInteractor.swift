@@ -19,6 +19,9 @@ protocol MainBusinessLogic {
     func shouldSelectInitialScene()
     
     func shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request)
+    
+    func shouldLoginUser(request: MainModels.UserLogin.Request)
+    func shouldLogoutUser()
 }
 
 class MainInteractor: MainBusinessLogic, MainWorkerDelegate {
@@ -26,6 +29,7 @@ class MainInteractor: MainBusinessLogic, MainWorkerDelegate {
     var worker: MainWorker?
     
     var user: User?
+    var userDefaultsManager: UserDefaultsManager = .shared
     
     init() {
         self.worker = MainWorker(delegate: self)
@@ -50,6 +54,20 @@ class MainInteractor: MainBusinessLogic, MainWorkerDelegate {
         if !self.isUserLoggedIn() {
             self.presenter?.presentNavigateToOnboarding()
         }
+    }
+    
+    func shouldLoginUser(request: MainModels.UserLogin.Request) {
+        self.userDefaultsManager.setUserLoggedIn(value: true)
+        self.user = request.user
+        
+        self.presenter?.presentDismissOnboarding()
+    }
+    
+    func shouldLogoutUser() {
+        self.presenter?.presentSelectScene(response: MainModels.SceneSelection.Response(index: self.exploreSceneIndex()))
+        
+        self.userDefaultsManager.setUserLoggedIn(value: false)
+        self.user = nil
     }
 }
 

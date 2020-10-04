@@ -17,6 +17,7 @@ class OnboardingViewControllerTests: XCTestCase {
     var sut: OnboardingViewController!
     var interactorSpy: OnboardingBusinessLogicSpy!
     var routerSpy: OnboardingRoutingLogicSpy!
+    var delegateSpy: OnboardingViewControllerDelegateSpy!
     var window: UIWindow!
     
     // MARK: - Test lifecycle
@@ -42,6 +43,9 @@ class OnboardingViewControllerTests: XCTestCase {
         
         self.routerSpy = OnboardingRoutingLogicSpy()
         self.sut.router = self.routerSpy
+        
+        self.delegateSpy = OnboardingViewControllerDelegateSpy()
+        self.sut.delegate = self.delegateSpy
     }
     
     func loadView() {
@@ -64,5 +68,10 @@ class OnboardingViewControllerTests: XCTestCase {
     func testTouchUpInsideSignUpButton() {
         self.sut.touchUpInsideSignUpButton()
         XCTAssertTrue(self.routerSpy.navigateToSignUpCalled)
+    }
+    
+    func testLoginViewControllerDidLoginUser() {
+        self.sut.loginViewController(nil, didLoginUser: User(id: "userId"))
+        XCTAssertTrue(self.delegateSpy.onboardingViewControllerDidLoginUserCalled)
     }
 }

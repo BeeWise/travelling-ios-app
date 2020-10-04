@@ -53,4 +53,9 @@ class MainPresenterTests: XCTestCase {
         self.sut.presentNavigateToOnboarding()
         XCTAssertTrue(self.displayerSpy.displayNavigateToOnboardingCalled)
     }
+    
+    func testPresentDismissOnboardingShouldAskTheDisplayerToDisplayDismissOnboarding() {
+        self.sut.presentDismissOnboarding()
+        XCTAssertTrue(self.displayerSpy.displayDismissOnboardingCalled)
+    }
 }

@@ -2,7 +2,8 @@
     "id": "0",
     "first_name": "John",
     "last_name": "Doe",
-    "title": "Explorer @ Fantastic Explorations",
+    "email": "john.doe@explorer.com",
+    "username": "john.doe.the.explorer",
     "description": "Born in Neverland. Always striving to explore the unknown and mysterious places around the world.",
     "photo": {
         "id": "0",
