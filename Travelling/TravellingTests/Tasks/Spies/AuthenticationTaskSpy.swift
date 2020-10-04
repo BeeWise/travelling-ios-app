@@ -37,7 +37,7 @@ class AuthenticationTaskSpy: AuthenticationTask {
     
     // MARK: - Login user
     
-    var user = User(id: "userId")
+    var loginUser = User(id: "userId")
     var loginUserCalled: Bool = false
     var shouldFailLoginUser: Bool = false
     
@@ -49,11 +49,33 @@ class AuthenticationTaskSpy: AuthenticationTask {
         if self.shouldFailLoginUser {
             completionHandler(Result.failure(OperationError.noDataAvailable))
         } else {
-            completionHandler(Result.success(AuthenticationTaskModels.LoginUser.Response(user: self.user)))
+            completionHandler(Result.success(AuthenticationTaskModels.LoginUser.Response(user: self.loginUser)))
         }
     }
     
     override func cancelLoginUserOperation() {
         self.cancelLoginUserOperationCalled = true
+    }
+    
+    // MARK: - Sign up user
+    
+    var signUpUser = User(id: "userId")
+    var signUpUserCalled: Bool = false
+    var shouldFailSignUpUser: Bool = false
+    
+    var cancelSignUpUserOperationCalled: Bool = false
+    
+    override func signUpUser(model: AuthenticationTaskModels.SignUpUser.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.SignUpUser.Response, OperationError>) -> Void) {
+        self.signUpUserCalled = true
+        
+        if self.shouldFailSignUpUser {
+            completionHandler(Result.failure(OperationError.noDataAvailable))
+        } else {
+            completionHandler(Result.success(AuthenticationTaskModels.SignUpUser.Response(user: self.signUpUser)))
+        }
+    }
+    
+    override func cancelSignUpUserOperation() {
+        self.cancelSignUpUserOperationCalled = true
     }
 }

@@ -28,4 +28,20 @@ public enum AuthenticationTaskModels {
             let user: User
         }
     }
+    
+    public enum SignUpUser {
+        public struct Request {
+            let email: String?
+            let username: String?
+            let password: String?
+            let firstName: String?
+            let lastName: String?
+            let description: String?
+            let photoBase64: String?
+        }
+        
+        public struct Response {
+            let user: User
+        }
+    }
 }

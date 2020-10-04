@@ -74,4 +74,27 @@ class AuthenticationTaskTests: XCTestCase {
         XCTAssertTrue(operationQueueSpy.addOperationCalled)
         XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
     }
+    
+    // MARK: - Sign up tests
+    
+    func testSignUpUserForProduction() {
+        self.shouldTestSignUpUserForEnvironment(environment: .production, operationClass: SignUpUserOperation.self)
+    }
+    
+    func testSignUpUserForDevelopment() {
+        self.shouldTestSignUpUserForEnvironment(environment: .development, operationClass: SignUpUserOperation.self)
+    }
+    
+    func testSignUpUserForMemory() {
+        self.shouldTestSignUpUserForEnvironment(environment: .memory, operationClass: SignUpUserLocalOperation.self)
+    }
+    
+    private func shouldTestSignUpUserForEnvironment(environment: TaskEnvironment, operationClass: AnyClass) {
+        self.sut.environment = environment
+        let operationQueueSpy = OperationQueueSpy()
+        self.sut.signUpUserOperationQueue = operationQueueSpy
+        self.sut.signUpUser(model: AuthenticationTaskModels.SignUpUser.Request(email: "email", username: "username", password: "password", firstName: "first", lastName: "last", description: "description", photoBase64: nil), completionHandler: { _ in })
+        XCTAssertTrue(operationQueueSpy.addOperationCalled)
+        XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
+    }
 }

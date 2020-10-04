@@ -71,4 +71,33 @@ open class AuthenticationTask: AuthenticationTaskProtocol {
     open func cancelLoginUserOperation() {
         self.loginUserOperationQueue.cancelAllOperations()
     }
+    
+    // MARK: - Sign up user
+    
+    var signUpUserOperationQueue = OperationQueue()
+    
+    open func signUpUser(model: AuthenticationTaskModels.SignUpUser.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.SignUpUser.Response, OperationError>) -> Void) {
+        let operation = self.signUpUserOperation(model: model, completionHandler: completionHandler)
+        self.signUpUserOperationQueue.addOperation(operation)
+    }
+    
+    private func signUpUserOperation(model: AuthenticationTaskModels.SignUpUser.Request, completionHandler: @escaping (Result<AuthenticationTaskModels.SignUpUser.Response, OperationError>) -> Void) -> DataTaskOperation<SignUpUserOperationModels.Response> {
+        let operationModel = SignUpUserOperationModels.Request(email: model.email, username: model.username, password: model.password, firstName: model.firstName, lastName: model.lastName, description: model.description, photoBase64: model.photoBase64)
+        let operationCompletionHandler: ((Result<SignUpUserOperationModels.Response, OperationError>) -> Void) = { result in
+            switch result {
+                case .success(let response): completionHandler(.success(AuthenticationTaskModels.SignUpUser.Response(user: response.user))); break
+                case .failure(let error): completionHandler(.failure(error)); break
+            }
+        }
+        
+        switch self.environment {
+            case .production: return SignUpUserOperation(model: operationModel, completionHandler: operationCompletionHandler)
+            case .development: return SignUpUserOperation(model: operationModel, completionHandler: operationCompletionHandler)
+            case .memory: return SignUpUserLocalOperation(model: operationModel, completionHandler: operationCompletionHandler)
+        }
+    }
+    
+    open func cancelSignUpUserOperation() {
+        self.signUpUserOperationQueue.cancelAllOperations()
+    }
 }

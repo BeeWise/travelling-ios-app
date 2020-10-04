@@ -28,7 +28,7 @@ class SignUpUserLocalOperationTests: XCTestCase {
     // MARK: - Test setup
     
     func setupSubjectUnderTest() {
-        self.sut = SignUpUserLocalOperation(model: SignUpUserOperationModels.Request(email: "email", username: "username", password: "password", firstName: "first", lastName: "last", description: "description", profilePhotoBase64: nil), completionHandler: { result in
+        self.sut = SignUpUserLocalOperation(model: SignUpUserOperationModels.Request(email: "email", username: "username", password: "password", firstName: "first", lastName: "last", description: "description", photoBase64: nil), completionHandler: { result in
             switch result {
                 case .success(let value): self.value = value.user; break
                 case .failure(let error): self.error = error; break

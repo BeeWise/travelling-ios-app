@@ -15,7 +15,7 @@ enum SignUpUserOperationModels {
         let firstName: String?
         let lastName: String?
         let description: String?
-        let profilePhotoBase64: String?
+        let photoBase64: String?
     }
     
     struct Response {
