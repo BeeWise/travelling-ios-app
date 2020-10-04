@@ -17,6 +17,7 @@ class MainPresentationLogicSpy: MainPresentationLogic {
     var presentSelectSceneCalled: Bool = false
     
     var presentNavigateToOnboardingCalled: Bool = false
+    var presentDismissOnboardingCalled: Bool = false
     
     func presentSetupScenes() {
         self.presentSetupScenesCalled = true
@@ -28,5 +29,9 @@ class MainPresentationLogicSpy: MainPresentationLogic {
     
     func presentNavigateToOnboarding() {
         self.presentNavigateToOnboardingCalled = true
+    }
+    
+    func presentDismissOnboarding() {
+        self.presentDismissOnboardingCalled = true
     }
 }

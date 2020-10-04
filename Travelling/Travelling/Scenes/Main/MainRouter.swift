@@ -14,6 +14,7 @@ import UIKit
 
 protocol MainRoutingLogic {
     func navigateToOnboarding()
+    func dismissViewController()
 }
 
 class MainRouter: MainRoutingLogic {
@@ -21,8 +22,13 @@ class MainRouter: MainRoutingLogic {
     
     func navigateToOnboarding() {
         let onboardingViewController = OnboardingViewController()
+        onboardingViewController.delegate = self.viewController
         let navigationController = UINavigationController(rootViewController: onboardingViewController)
         navigationController.modalPresentationStyle = .fullScreen
         self.viewController?.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func dismissViewController() {
+        self.viewController?.dismiss(animated: true, completion: nil)
     }
 }

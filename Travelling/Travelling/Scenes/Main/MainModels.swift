@@ -40,4 +40,18 @@ enum MainModels {
             let index: Int?
         }
     }
+    
+    struct UserLogin {
+        struct Request {
+            let user: User
+        }
+        
+        struct Response {
+            let user: User
+        }
+        
+        struct ViewModel {
+            let user: User
+        }
+    }
 }

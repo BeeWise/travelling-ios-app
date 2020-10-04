@@ -12,6 +12,11 @@
 
 import UIKit
 
+protocol OnboardingViewControllerDelegate: AnyObject {
+    func onboardingViewController(_ viewController: OnboardingViewController?, didLoginUser user: User)
+    func onboardingViewController(_ viewController: OnboardingViewController?, didSignUpUser user: User)
+}
+
 class OnboardingViewController: UIViewController {
     var interactor: OnboardingBusinessLogic?
     var router: OnboardingRoutingLogic?
@@ -20,6 +25,8 @@ class OnboardingViewController: UIViewController {
     weak var logoImageView: UIImageView!
     weak var loginButton: UIButton!
     weak var signUpButton: UIButton!
+    
+    weak var delegate: OnboardingViewControllerDelegate?
     
     // MARK: - Object lifecycle
     
@@ -69,6 +76,6 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: LoginViewControllerDelegate {
     func loginViewController(_ viewController: LoginViewController?, didLoginUser user: User) {
-        
+        self.delegate?.onboardingViewController(self, didLoginUser: user)
     }
 }

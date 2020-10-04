@@ -17,6 +17,7 @@ protocol MainPresentationLogic {
     func presentSelectScene(response: MainModels.SceneSelection.Response)
     
     func presentNavigateToOnboarding()
+    func presentDismissOnboarding()
 }
 
 class MainPresenter: MainPresentationLogic {
@@ -32,5 +33,9 @@ class MainPresenter: MainPresentationLogic {
     
     func presentNavigateToOnboarding() {
         self.displayer?.displayNavigateToOnboarding()
+    }
+    
+    func presentDismissOnboarding() {
+        self.displayer?.displayDismissOnboarding()
     }
 }

@@ -202,6 +202,7 @@
 		28C1CB7C252A2CFA0083FBC7 /* ForgotPasswordOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB7B252A2CFA0083FBC7 /* ForgotPasswordOperation.swift */; };
 		28C1CB7E252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */; };
 		28C1CB81252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */; };
+		28C1CB83252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */; };
 		28CEC7B52529D2510063DCFE /* LoginViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */; };
 		28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AC2529D2510063DCFE /* LoginStyle.swift */; };
 		28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */; };
@@ -485,6 +486,7 @@
 		28C1CB7B252A2CFA0083FBC7 /* ForgotPasswordOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordOperation.swift; sourceTree = "<group>"; };
 		28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalOperation.swift; sourceTree = "<group>"; };
 		28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalOperationTests.swift; sourceTree = "<group>"; };
+		28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Subviews.swift"; sourceTree = "<group>"; };
 		28CEC7AC2529D2510063DCFE /* LoginStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStyle.swift; sourceTree = "<group>"; };
 		28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -1454,6 +1456,7 @@
 				28B386422529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift */,
 				28B386452529C6A000CA7840 /* OnboardingWorkerSpy.swift */,
 				28B386522529C76700CA7840 /* OnboardingViewControllerSpy.swift */,
+				28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -2159,6 +2162,7 @@
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
+				28C1CB83252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift in Sources */,
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
 				28B386472529C6A000CA7840 /* OnboardingInteractorTests.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,

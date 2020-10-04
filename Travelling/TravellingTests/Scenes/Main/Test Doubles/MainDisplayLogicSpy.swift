@@ -17,6 +17,7 @@ class MainDisplayLogicSpy: MainDisplayLogic {
     var displaySelectSceneCalled: Bool = false
     
     var displayNavigateToOnboardingCalled: Bool = false
+    var displayDismissOnboardingCalled: Bool = false
     
     func displaySetupScenes(viewModel: MainModels.ScenesSetup.ViewModel) {
         self.displaySetupScenesCalled = true
@@ -28,5 +29,9 @@ class MainDisplayLogicSpy: MainDisplayLogic {
     
     func displayNavigateToOnboarding() {
         self.displayNavigateToOnboardingCalled = true
+    }
+    
+    func displayDismissOnboarding() {
+        self.displayDismissOnboardingCalled = true
     }
 }
