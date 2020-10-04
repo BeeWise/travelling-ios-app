@@ -15,8 +15,11 @@
 class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
     var shouldFetchUserCalled: Bool = false
     var shouldRefreshUserCalled: Bool = false
+    
     var shouldFetchImageCalled: Bool = false
+    
     var shouldSelectItemCalled: Bool = false
+    var shouldSelectAvatarCalled: Bool = false
     
     func shouldFetchUser() {
         self.shouldFetchUserCalled = true
@@ -32,5 +35,9 @@ class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
     
     func shouldSelectItem(request: MyProfileModels.ItemSelection.Request) {
         self.shouldSelectItemCalled = true
+    }
+    
+    func shouldSelectAvatar() {
+        self.shouldSelectAvatarCalled = true
     }
 }

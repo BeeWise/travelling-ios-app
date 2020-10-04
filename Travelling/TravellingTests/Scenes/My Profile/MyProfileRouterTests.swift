@@ -48,4 +48,9 @@ class MyProfileRouterTests: XCTestCase {
         self.sut.navigateToAlert(title: "Title", message: "Message", actions: [UIAlertAction(title: "Cancel", style: .cancel, handler: nil)])
         XCTAssertTrue(self.viewControllerSpy.presentCalled)
     }
+    
+    func testNavigateToFullscreenImage() {
+        self.sut.navigateToFullscreenImage(imageName: "imageName")
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
 }

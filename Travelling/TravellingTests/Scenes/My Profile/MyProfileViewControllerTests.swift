@@ -101,6 +101,7 @@ class MyProfileViewControllerTests: XCTestCase {
                 return XCTAssertTrue(false, "Wrong model for item!")
             }
             XCTAssertNotNil(model.cellInterface)
+            XCTAssertNotNil(cell.delegate)
             XCTAssertEqual(cell.nameLabel?.attributedText, model.name)
             XCTAssertEqual(cell.titleLabel?.attributedText, model.title)
             XCTAssertEqual(cell.descriptionLabel?.attributedText, model.description)
@@ -165,6 +166,11 @@ class MyProfileViewControllerTests: XCTestCase {
         let refreshControlSpy = UIRefreshControlSpy()
         self.sut.valueChangedRefreshControl(refreshControl: refreshControlSpy)
         XCTAssertTrue(refreshControlSpy.endRefreshingCalled)
+    }
+    
+    func testMyProfileInformationTableViewCellTouchUpInsideAvatarShouldAskTheInteractorToSelectAvatar() {
+        self.sut.myProfileInformationTableViewCell(cell: nil, touchUpInsideAvatar: nil)
+        XCTAssertTrue(self.interactorSpy.shouldSelectAvatarCalled)
     }
     
     // MARK: - Display logic tests
@@ -319,5 +325,11 @@ class MyProfileViewControllerTests: XCTestCase {
         self.sut.displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel(title: "Title", message: "Message", cancelTitle: "Cancel"))
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.navigateToAlertCalled)
+    }
+    
+    func testDisplayNavigateToFullscreenImageShouldAskTheRouterToNavigateToFullscreenImage() {
+        self.sut.displayNavigateToFullscreenImage(viewModel: MyProfileModels.FullscreenImageNavigation.ViewModel(imageName: "imageName"))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToFullscreenImageCalled)
     }
 }

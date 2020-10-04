@@ -15,8 +15,11 @@ import UIKit
 protocol MyProfileBusinessLogic {
     func shouldFetchUser()
     func shouldRefreshUser()
+    
     func shouldFetchImage(request: MyProfileModels.ImageFetching.Request)
+    
     func shouldSelectItem(request: MyProfileModels.ItemSelection.Request)
+    func shouldSelectAvatar()
 }
 
 class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
@@ -57,6 +60,10 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
         self.presenter?.presentRemoveErrorState()
         self.presenter?.presentWillFetchUser()
         self.worker?.fetchUser(userId: self.userDefaultsManager.userId())
+    }
+    
+    func shouldSelectAvatar() {
+        self.presenter?.presentNavigateToFullscreenImage(response: MyProfileModels.FullscreenImageNavigation.Response(imageName: self.user?.photo?.imageName))
     }
 }
 

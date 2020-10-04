@@ -24,13 +24,14 @@ extension MyProfileViewController {
 
 // MARK: - Information cell
 
-extension MyProfileViewController {
+extension MyProfileViewController: MyProfileInformationTableViewCellDelegate {
     private func informationCell(_ tableView: UITableView, indexPath: IndexPath, item: MyProfileModels.DisplayedItem) -> MyProfileInformationTableViewCell {
         guard let model = item.model as? MyProfileModels.UserModel else {
             return MyProfileInformationTableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: MyProfileInformationTableViewCell.defaultReuseIdentifier, for: indexPath) as? MyProfileInformationTableViewCell ?? MyProfileInformationTableViewCell()
         model.cellInterface = cell
+        cell.delegate = self
         cell.setName(name: model.name)
         cell.setTitle(title: model.title)
         cell.setDescription(description: model.description)
@@ -39,6 +40,10 @@ extension MyProfileViewController {
         cell.setIsLoadingImage(isLoading: model.isLoadingImage)
         self.interactor?.shouldFetchImage(request: MyProfileModels.ImageFetching.Request(model: model))
         return cell
+    }
+    
+    func myProfileInformationTableViewCell(cell: MyProfileInformationTableViewCell?, touchUpInsideAvatar imageView: LoadingImageView?) {
+        self.interactor?.shouldSelectAvatar()
     }
 }
 

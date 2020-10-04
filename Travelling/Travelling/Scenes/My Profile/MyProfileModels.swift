@@ -116,4 +116,14 @@ enum MyProfileModels {
             let cancelTitle: String?
         }
     }
+    
+    enum FullscreenImageNavigation {
+        struct Response {
+            let imageName: String?
+        }
+        
+        struct ViewModel {
+            let imageName: String?
+        }
+    }
 }
