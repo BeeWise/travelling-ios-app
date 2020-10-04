@@ -127,7 +127,7 @@ extension MyProfilePresenter {
     private func displayedUserItem(user: User) -> MyProfileModels.DisplayedItem {
         let model = MyProfileModels.UserModel()
         model.name = self.displayedName(user: user).attributed(attributes: MyProfileStyle.shared.informationCellModel.nameAttributes())
-        model.title = user.title?.attributed(attributes: MyProfileStyle.shared.informationCellModel.titleAttributes())
+        model.title = user.username?.attributed(attributes: MyProfileStyle.shared.informationCellModel.titleAttributes())
         model.description = user.description?.attributed(attributes: MyProfileStyle.shared.informationCellModel.descriptionAttributes())
         model.imageDominantColor = user.photo?.imageDominantColor?.hexColor()
         model.imageName = user.photo?.imageName

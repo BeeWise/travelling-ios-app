@@ -65,7 +65,7 @@ class MyProfilePresenterTests: XCTestCase {
         self.sut.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
         let userModel = self.displayerSpy.displayUserViewModel.items.first(where: { $0.type == .user })?.model as? MyProfileModels.UserModel
         XCTAssertEqual(userModel?.name?.string, String(format: "%@ %@", user.firstName ?? "", user.lastName ?? ""))
-        XCTAssertEqual(userModel?.title?.string, user.title)
+        XCTAssertEqual(userModel?.title?.string, user.username)
         XCTAssertEqual(userModel?.description?.string, user.description)
         XCTAssertEqual(userModel?.imageDominantColor, user.photo?.imageDominantColor?.hexColor())
     }
@@ -143,7 +143,7 @@ extension MyProfilePresenterTests {
         let user = User(id: "userId")
         user.firstName = "First name"
         user.lastName = "Last name"
-        user.title = "Title"
+        user.username = "username"
         user.description = "Description"
         user.photo = self.photo()
         return user
