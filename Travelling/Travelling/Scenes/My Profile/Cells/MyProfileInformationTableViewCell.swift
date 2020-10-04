@@ -13,6 +13,10 @@ protocol MyProfileInformationTableViewCellInterface: AnyObject {
     func setIsLoadingImage(isLoading: Bool)
 }
 
+protocol MyProfileInformationTableViewCellDelegate: AnyObject {
+    func myProfileInformationTableViewCell(cell: MyProfileInformationTableViewCell?, touchUpInsideAvatar imageView: LoadingImageView?)
+}
+
 class MyProfileInformationTableViewCell: UITableViewCell, MyProfileInformationTableViewCellInterface {
     weak var avatarImageView: LoadingImageView!
     
@@ -20,6 +24,8 @@ class MyProfileInformationTableViewCell: UITableViewCell, MyProfileInformationTa
     weak var nameLabel: UILabel!
     weak var titleLabel: UILabel!
     weak var descriptionLabel: UILabel!
+    
+    weak var delegate: MyProfileInformationTableViewCellDelegate?
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: MyProfileInformationTableViewCell.defaultReuseIdentifier)
@@ -86,6 +92,8 @@ extension MyProfileInformationTableViewCell {
         imageView.isRounded = true
         imageView.backgroundColor = MyProfileStyle.shared.informationCellModel.avatarBackgroundColor
         imageView.activityIndicatorColor = MyProfileStyle.shared.informationCellModel.avatarActivityIndicatorColor
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MyProfileInformationTableViewCell.touchUpInsideImageView)))
         self.contentView.addSubview(imageView)
         self.avatarImageView = imageView
     }
@@ -124,6 +132,14 @@ extension MyProfileInformationTableViewCell {
         label.numberOfLines = 0
         self.containerView?.addArrangedSubview(label)
         self.descriptionLabel = label
+    }
+}
+
+// MARK: - Actions
+
+extension MyProfileInformationTableViewCell {
+    @objc func touchUpInsideImageView() {
+        self.delegate?.myProfileInformationTableViewCell(cell: self, touchUpInsideAvatar: self.avatarImageView)
     }
 }
 

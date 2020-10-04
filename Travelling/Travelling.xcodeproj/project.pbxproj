@@ -178,6 +178,28 @@
 		28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */; };
 		28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A836252434F4008FFF92 /* ErrorStateView.swift */; };
 		28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */; };
+		28D4E5FB25297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F125297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift */; };
+		28D4E5FC25297F1A00A1ED86 /* FullscreenImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F225297F1A00A1ED86 /* FullscreenImageStyle.swift */; };
+		28D4E5FD25297F1A00A1ED86 /* FullscreenImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F325297F1A00A1ED86 /* FullscreenImagePresenter.swift */; };
+		28D4E5FE25297F1A00A1ED86 /* FullscreenImageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F425297F1A00A1ED86 /* FullscreenImageWorker.swift */; };
+		28D4E5FF25297F1A00A1ED86 /* FullscreenImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F525297F1A00A1ED86 /* FullscreenImageRouter.swift */; };
+		28D4E60025297F1A00A1ED86 /* FullscreenImageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F625297F1A00A1ED86 /* FullscreenImageModels.swift */; };
+		28D4E60125297F1A00A1ED86 /* FullscreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F725297F1A00A1ED86 /* FullscreenImageViewController.swift */; };
+		28D4E60225297F1A00A1ED86 /* FullscreenImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F825297F1A00A1ED86 /* FullscreenImageInteractor.swift */; };
+		28D4E60325297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5F925297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift */; };
+		28D4E60425297F1A00A1ED86 /* FullscreenImageLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E5FA25297F1A00A1ED86 /* FullscreenImageLocalization.swift */; };
+		28D4E6142529846500A1ED86 /* FullscreenImageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E6092529846500A1ED86 /* FullscreenImageViewControllerTests.swift */; };
+		28D4E6152529846500A1ED86 /* FullscreenImageInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E60A2529846500A1ED86 /* FullscreenImageInteractorTests.swift */; };
+		28D4E6162529846500A1ED86 /* FullscreenImageDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E60B2529846500A1ED86 /* FullscreenImageDisplayLogicSpy.swift */; };
+		28D4E6172529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E60C2529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift */; };
+		28D4E6182529846500A1ED86 /* FullscreenImageWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E60D2529846500A1ED86 /* FullscreenImageWorkerTests.swift */; };
+		28D4E6192529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E60E2529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift */; };
+		28D4E61A2529846500A1ED86 /* FullscreenImageRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E60F2529846500A1ED86 /* FullscreenImageRoutingLogicSpy.swift */; };
+		28D4E61B2529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E6102529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift */; };
+		28D4E61C2529846500A1ED86 /* FullscreenImageRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E6112529846500A1ED86 /* FullscreenImageRouterTests.swift */; };
+		28D4E61D2529846500A1ED86 /* FullscreenImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E6122529846500A1ED86 /* FullscreenImagePresenterTests.swift */; };
+		28D4E61E2529846500A1ED86 /* FullscreenImageWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E6132529846500A1ED86 /* FullscreenImageWorkerSpy.swift */; };
+		28D4E621252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */; };
 		28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */; };
 		28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */; };
 /* End PBXBuildFile section */
@@ -373,6 +395,28 @@
 		28D3A833252432AE008FFF92 /* AuthenticationTaskSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTaskSpy.swift; sourceTree = "<group>"; };
 		28D3A836252434F4008FFF92 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControlSpy.swift; sourceTree = "<group>"; };
+		28D4E5F125297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FullscreenImageViewController+Subviews.swift"; sourceTree = "<group>"; };
+		28D4E5F225297F1A00A1ED86 /* FullscreenImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageStyle.swift; sourceTree = "<group>"; };
+		28D4E5F325297F1A00A1ED86 /* FullscreenImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImagePresenter.swift; sourceTree = "<group>"; };
+		28D4E5F425297F1A00A1ED86 /* FullscreenImageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageWorker.swift; sourceTree = "<group>"; };
+		28D4E5F525297F1A00A1ED86 /* FullscreenImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageRouter.swift; sourceTree = "<group>"; };
+		28D4E5F625297F1A00A1ED86 /* FullscreenImageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageModels.swift; sourceTree = "<group>"; };
+		28D4E5F725297F1A00A1ED86 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
+		28D4E5F825297F1A00A1ED86 /* FullscreenImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageInteractor.swift; sourceTree = "<group>"; };
+		28D4E5F925297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FullscreenImageViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		28D4E5FA25297F1A00A1ED86 /* FullscreenImageLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageLocalization.swift; sourceTree = "<group>"; };
+		28D4E6092529846500A1ED86 /* FullscreenImageViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewControllerTests.swift; sourceTree = "<group>"; };
+		28D4E60A2529846500A1ED86 /* FullscreenImageInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageInteractorTests.swift; sourceTree = "<group>"; };
+		28D4E60B2529846500A1ED86 /* FullscreenImageDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		28D4E60C2529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		28D4E60D2529846500A1ED86 /* FullscreenImageWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageWorkerTests.swift; sourceTree = "<group>"; };
+		28D4E60E2529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImagePresentationLogicSpy.swift; sourceTree = "<group>"; };
+		28D4E60F2529846500A1ED86 /* FullscreenImageRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		28D4E6102529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		28D4E6112529846500A1ED86 /* FullscreenImageRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageRouterTests.swift; sourceTree = "<group>"; };
+		28D4E6122529846500A1ED86 /* FullscreenImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImagePresenterTests.swift; sourceTree = "<group>"; };
+		28D4E6132529846500A1ED86 /* FullscreenImageWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageWorkerSpy.swift; sourceTree = "<group>"; };
+		28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewControllerSpy.swift; sourceTree = "<group>"; };
 		28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -398,6 +442,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28D4E5F025297EFE00A1ED86 /* Fullscreen Image */,
 				281F4F822520CC7E008475D7 /* My Profile */,
 				28179E95250DFC400081FD3A /* Explore */,
 				2812D456250CDABB0079F879 /* Main */,
@@ -450,6 +495,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28D4E6082529845400A1ED86 /* Fullscreen Image */,
 				281F4F9A2520CDE8008475D7 /* My Profile */,
 				288897A7250E34BE0017B0B1 /* Explore */,
 				2812D46F250CDB0A0079F879 /* Main */,
@@ -1332,6 +1378,74 @@
 			path = "Error State View";
 			sourceTree = "<group>";
 		};
+		28D4E5F025297EFE00A1ED86 /* Fullscreen Image */ = {
+			isa = PBXGroup;
+			children = (
+				28D4E60725297F4600A1ED86 /* Localization */,
+				28D4E60625297F3800A1ED86 /* Style */,
+				28D4E60525297F2700A1ED86 /* View Controller */,
+				28D4E5F325297F1A00A1ED86 /* FullscreenImagePresenter.swift */,
+				28D4E5F425297F1A00A1ED86 /* FullscreenImageWorker.swift */,
+				28D4E5F525297F1A00A1ED86 /* FullscreenImageRouter.swift */,
+				28D4E5F625297F1A00A1ED86 /* FullscreenImageModels.swift */,
+				28D4E5F825297F1A00A1ED86 /* FullscreenImageInteractor.swift */,
+			);
+			path = "Fullscreen Image";
+			sourceTree = "<group>";
+		};
+		28D4E60525297F2700A1ED86 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28D4E5F925297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift */,
+				28D4E5F725297F1A00A1ED86 /* FullscreenImageViewController.swift */,
+				28D4E5F125297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		28D4E60625297F3800A1ED86 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				28D4E5F225297F1A00A1ED86 /* FullscreenImageStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		28D4E60725297F4600A1ED86 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				28D4E5FA25297F1A00A1ED86 /* FullscreenImageLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		28D4E6082529845400A1ED86 /* Fullscreen Image */ = {
+			isa = PBXGroup;
+			children = (
+				28D4E61F2529847000A1ED86 /* Test Doubles */,
+				28D4E6092529846500A1ED86 /* FullscreenImageViewControllerTests.swift */,
+				28D4E60A2529846500A1ED86 /* FullscreenImageInteractorTests.swift */,
+				28D4E60D2529846500A1ED86 /* FullscreenImageWorkerTests.swift */,
+				28D4E6112529846500A1ED86 /* FullscreenImageRouterTests.swift */,
+				28D4E6122529846500A1ED86 /* FullscreenImagePresenterTests.swift */,
+			);
+			path = "Fullscreen Image";
+			sourceTree = "<group>";
+		};
+		28D4E61F2529847000A1ED86 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				28D4E60B2529846500A1ED86 /* FullscreenImageDisplayLogicSpy.swift */,
+				28D4E60C2529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift */,
+				28D4E60E2529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift */,
+				28D4E60F2529846500A1ED86 /* FullscreenImageRoutingLogicSpy.swift */,
+				28D4E6102529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift */,
+				28D4E6132529846500A1ED86 /* FullscreenImageWorkerSpy.swift */,
+				28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */,
+			);
+			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
 		28DC5A6A2524813800FFE2E1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1454,6 +1568,7 @@
 			files = (
 				281F4F932520CDA9008475D7 /* MyProfileViewController.swift in Sources */,
 				28179EE8250E00FC0081FD3A /* PlacesTaskModels.swift in Sources */,
+				28D4E5FF25297F1A00A1ED86 /* FullscreenImageRouter.swift in Sources */,
 				28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
 				28BD8D012522FEAD00C30F64 /* GetUserLocalOperation.swift in Sources */,
@@ -1464,9 +1579,11 @@
 				2812D467250CDAC90079F879 /* MainViewController.swift in Sources */,
 				28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */,
 				28179EBC250DFDD80081FD3A /* UITableViewCell+DefaultReuseIdentifier.swift in Sources */,
+				28D4E5FE25297F1A00A1ED86 /* FullscreenImageWorker.swift in Sources */,
 				28179EE3250E00CE0081FD3A /* TaskProtocol.swift in Sources */,
 				28179ED2250DFFC60081FD3A /* TableViewErrorHeaderFooterView.swift in Sources */,
 				28179ED6250E000E0081FD3A /* AsynchronousOperation.swift in Sources */,
+				28D4E60425297F1A00A1ED86 /* FullscreenImageLocalization.swift in Sources */,
 				28179EC7250DFEE30081FD3A /* EmptyStateView.swift in Sources */,
 				2812D469250CDAC90079F879 /* MainViewController+DisplayLogic.swift in Sources */,
 				28D3A82025242F38008FFF92 /* LogoutUserOperationModels.swift in Sources */,
@@ -1494,20 +1611,25 @@
 				28179EAC250DFC700081FD3A /* ExploreInteractor.swift in Sources */,
 				28BD8D0C2523063A00C30F64 /* UsersTaskProtocol.swift in Sources */,
 				281F4F902520CDA9008475D7 /* MyProfileWorker.swift in Sources */,
+				28D4E5FB25297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift in Sources */,
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
+				28D4E60225297F1A00A1ED86 /* FullscreenImageInteractor.swift in Sources */,
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
 				281F4F812520CAD4008475D7 /* Photo.swift in Sources */,
 				287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */,
 				28BD8D1E25231E2200C30F64 /* MyProfileViewController+TableViewDelegate.swift in Sources */,
 				28BD8D0E2523064200C30F64 /* UsersTask.swift in Sources */,
 				283B5713250CC0DC00EFA651 /* AppInteractor.swift in Sources */,
+				28D4E60125297F1A00A1ED86 /* FullscreenImageViewController.swift in Sources */,
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
 				28179ED8250E00290081FD3A /* OperationError.swift in Sources */,
 				28BD8D0A2523063000C30F64 /* UsersTaskModels.swift in Sources */,
 				2812D468250CDAC90079F879 /* MainInteractor.swift in Sources */,
+				28D4E5FD25297F1A00A1ED86 /* FullscreenImagePresenter.swift in Sources */,
+				28D4E60325297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift in Sources */,
 				281F4FBB2520DECE008475D7 /* Bundle+Version.swift in Sources */,
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
 				28179EAA250DFC700081FD3A /* ExploreViewController.swift in Sources */,
@@ -1535,6 +1657,7 @@
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
 				281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */,
 				28179EAE250DFC700081FD3A /* ExploreTableViewCell.swift in Sources */,
+				28D4E5FC25297F1A00A1ED86 /* FullscreenImageStyle.swift in Sources */,
 				28179EA4250DFC700081FD3A /* ExploreViewController+TableViewDataSource.swift in Sources */,
 				287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */,
 				281F4F8E2520CDA9008475D7 /* MyProfileStyle.swift in Sources */,
@@ -1543,6 +1666,7 @@
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
 				2812D465250CDAC90079F879 /* MainRouter.swift in Sources */,
 				281F4F942520CDA9008475D7 /* MyProfileInteractor.swift in Sources */,
+				28D4E60025297F1A00A1ED86 /* FullscreenImageModels.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
 				28179EDC250E006D0081FD3A /* TaskEnvironment.swift in Sources */,
 				281F4F912520CDA9008475D7 /* MyProfileRouter.swift in Sources */,
@@ -1564,6 +1688,7 @@
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
 				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28889798250E33050017B0B1 /* DataTaskOperationTests.swift in Sources */,
+				28D4E61D2529846500A1ED86 /* FullscreenImagePresenterTests.swift in Sources */,
 				2812D49A250CE79C0079F879 /* AppDisplayLogicSpy.swift in Sources */,
 				2812D493250CE7760079F879 /* AppPresenterTests.swift in Sources */,
 				288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */,
@@ -1582,12 +1707,16 @@
 				28BD8D20252330B700C30F64 /* MyProfileViewControllerDelegateSpy.swift in Sources */,
 				2812D485250CDB150079F879 /* MainWorkerSpy.swift in Sources */,
 				2812D481250CDB150079F879 /* MainRoutingLogicSpy.swift in Sources */,
+				28D4E6162529846500A1ED86 /* FullscreenImageDisplayLogicSpy.swift in Sources */,
+				28D4E6142529846500A1ED86 /* FullscreenImageViewControllerTests.swift in Sources */,
+				28D4E61A2529846500A1ED86 /* FullscreenImageRoutingLogicSpy.swift in Sources */,
 				288897BA250E34D00017B0B1 /* ExploreBusinessLogicSpy.swift in Sources */,
 				28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */,
 				281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */,
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
 				288897A4250E34340017B0B1 /* PlacesTaskTests.swift in Sources */,
+				28D4E621252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift in Sources */,
 				288897BD250E34D00017B0B1 /* ExploreWorkerSpy.swift in Sources */,
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
@@ -1600,20 +1729,27 @@
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
 				28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */,
+				28D4E6172529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
+				28D4E6182529846500A1ED86 /* FullscreenImageWorkerTests.swift in Sources */,
+				28D4E61C2529846500A1ED86 /* FullscreenImageRouterTests.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
+				28D4E61E2529846500A1ED86 /* FullscreenImageWorkerSpy.swift in Sources */,
 				288897A2250E33BC0017B0B1 /* TaskConfiguratorTests.swift in Sources */,
 				288897C1250E35D40017B0B1 /* UITableViewSpy.swift in Sources */,
 				281F4FAA2520CDF6008475D7 /* MyProfileWorkerTests.swift in Sources */,
 				288897B7250E34D00017B0B1 /* ExploreWorkerTests.swift in Sources */,
 				2812D49D250CE7FC0079F879 /* BaseTestCase.swift in Sources */,
+				28D4E61B2529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift in Sources */,
 				2812D483250CDB150079F879 /* MainRouterTests.swift in Sources */,
 				281F4FAB2520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift in Sources */,
 				281F4FA92520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift in Sources */,
+				28D4E6152529846500A1ED86 /* FullscreenImageInteractorTests.swift in Sources */,
 				281F4FA62520CDF6008475D7 /* MyProfileViewControllerTests.swift in Sources */,
 				288897BC250E34D00017B0B1 /* ExplorePresenterTests.swift in Sources */,
 				2812D496250CE78A0079F879 /* AppBusinessLogicSpy.swift in Sources */,
+				28D4E6192529846500A1ED86 /* FullscreenImagePresentationLogicSpy.swift in Sources */,
 				281F4FAD2520CDF6008475D7 /* MyProfileBusinessLogicSpy.swift in Sources */,
 				2812D47C250CDB150079F879 /* MainInteractorTests.swift in Sources */,
 				281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */,

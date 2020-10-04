@@ -16,6 +16,7 @@ import MessageUI
 protocol MyProfileRoutingLogic {
     func navigateToEmail(recipient: String, subject: String)
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction])
+    func navigateToFullscreenImage(imageName: String?)
 }
 
 class MyProfileRouter: MyProfileRoutingLogic {
@@ -34,5 +35,11 @@ class MyProfileRouter: MyProfileRoutingLogic {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         actions.forEach({ alertController.addAction($0) })
         self.viewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func navigateToFullscreenImage(imageName: String?) {
+        let fullscreenImageViewController = FullscreenImageViewController(imageName: imageName)
+        fullscreenImageViewController.modalPresentationStyle = .fullScreen
+        self.viewController?.present(fullscreenImageViewController, animated: true, completion: nil)
     }
 }

@@ -34,6 +34,8 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     var displayErrorAlertCalled: Bool = false
     
+    var displayNavigateToFullscreenImageCalled: Bool = false
+    
     func displayWillFetchUser() {
         self.displayWillFetchUserCalled = true
     }
@@ -89,5 +91,9 @@ class MyProfileDisplayLogicSpy: MyProfileDisplayLogic {
     
     func displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel) {
         self.displayErrorAlertCalled = true
+    }
+    
+    func displayNavigateToFullscreenImage(viewModel: MyProfileModels.FullscreenImageNavigation.ViewModel) {
+        self.displayNavigateToFullscreenImageCalled = true
     }
 }

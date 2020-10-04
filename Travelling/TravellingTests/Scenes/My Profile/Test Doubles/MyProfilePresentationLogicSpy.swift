@@ -34,6 +34,8 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     var presentErrorAlertCalled: Bool = false
     
+    var presentNavigateToFullscreenImageCalled: Bool = false
+    
     func presentWillFetchUser() {
         self.presentWillFetchUserCalled = true
     }
@@ -92,5 +94,9 @@ class MyProfilePresentationLogicSpy: MyProfilePresentationLogic {
     
     func presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response) {
         self.presentErrorAlertCalled = true
+    }
+    
+    func presentNavigateToFullscreenImage(response: MyProfileModels.FullscreenImageNavigation.Response) {
+        self.presentNavigateToFullscreenImageCalled = true
     }
 }

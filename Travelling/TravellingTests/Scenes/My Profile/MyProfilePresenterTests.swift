@@ -129,6 +129,11 @@ class MyProfilePresenterTests: XCTestCase {
         self.sut.presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response(error: OperationError.noDataAvailable))
         XCTAssertTrue(self.displayerSpy.displayErrorAlertCalled)
     }
+    
+    func testPresentNavigateToFullscreenImageShouldAskTheDisplayerToDisplayNavigateToFullscreenImage() {
+        self.sut.presentNavigateToFullscreenImage(response: MyProfileModels.FullscreenImageNavigation.Response(imageName: "imageName"))
+        XCTAssertTrue(self.displayerSpy.displayNavigateToFullscreenImageCalled)
+    }
 }
 
 // MARK: - Auxiliary

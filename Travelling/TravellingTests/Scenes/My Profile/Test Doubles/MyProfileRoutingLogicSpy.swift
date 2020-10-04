@@ -16,6 +16,7 @@ import UIKit
 class MyProfileRoutingLogicSpy: MyProfileRoutingLogic {
     var navigateToEmailCalled: Bool = false
     var navigateToAlertCalled: Bool = false
+    var navigateToFullscreenImageCalled: Bool = false
     
     func navigateToEmail(recipient: String, subject: String) {
         self.navigateToEmailCalled = true
@@ -23,5 +24,9 @@ class MyProfileRoutingLogicSpy: MyProfileRoutingLogic {
     
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
         self.navigateToAlertCalled = true
+    }
+    
+    func navigateToFullscreenImage(imageName: String?) {
+        self.navigateToFullscreenImageCalled = true
     }
 }

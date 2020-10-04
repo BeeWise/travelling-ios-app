@@ -252,4 +252,11 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.shouldSelectItem(request: MyProfileModels.ItemSelection.Request(type: .reportIssue))
         XCTAssertTrue(self.presenterSpy.presentNavigateToReportIssueCalled)
     }
+    
+    // MARK: - Select avatar tests
+    
+    func testShouldSelectAvatarShouldAskThePresenterToPresentNavigateToFullscreenImage() {
+        self.sut.shouldSelectAvatar()
+        XCTAssertTrue(self.presenterSpy.presentNavigateToFullscreenImageCalled)
+    }
 }

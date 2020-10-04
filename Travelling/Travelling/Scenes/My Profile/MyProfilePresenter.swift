@@ -33,6 +33,8 @@ protocol MyProfilePresentationLogic {
     func presentRemoveErrorState()
     
     func presentErrorAlert(response: MyProfileModels.ErrorAlertPresentation.Response)
+    
+    func presentNavigateToFullscreenImage(response: MyProfileModels.FullscreenImageNavigation.Response)
 }
 
 class MyProfilePresenter: MyProfilePresentationLogic {
@@ -103,6 +105,10 @@ class MyProfilePresenter: MyProfilePresentationLogic {
         let message = MyProfileLocalization.shared.errorAlertMessage
         let cancelTitle = MyProfileLocalization.shared.errorAlertCancelTitle
         self.displayer?.displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel(title: nil, message: message, cancelTitle: cancelTitle))
+    }
+    
+    func presentNavigateToFullscreenImage(response: MyProfileModels.FullscreenImageNavigation.Response) {
+        self.displayer?.displayNavigateToFullscreenImage(viewModel: MyProfileModels.FullscreenImageNavigation.ViewModel(imageName: response.imageName))
     }
 }
 

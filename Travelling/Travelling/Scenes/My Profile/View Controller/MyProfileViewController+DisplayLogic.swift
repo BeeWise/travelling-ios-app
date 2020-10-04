@@ -32,6 +32,8 @@ protocol MyProfileDisplayLogic: class {
     func displayRemoveErrorState()
     
     func displayErrorAlert(viewModel: MyProfileModels.ErrorAlertPresentation.ViewModel)
+    
+    func displayNavigateToFullscreenImage(viewModel: MyProfileModels.FullscreenImageNavigation.ViewModel)
 }
 
 extension MyProfileViewController: MyProfileDisplayLogic {
@@ -125,6 +127,12 @@ extension MyProfileViewController: MyProfileDisplayLogic {
         DispatchQueue.main.async {
             let cancelAction = UIAlertAction(title: viewModel.cancelTitle, style: .cancel, handler: nil)
             self.router?.navigateToAlert(title: viewModel.title, message: viewModel.message, actions: [cancelAction])
+        }
+    }
+    
+    func displayNavigateToFullscreenImage(viewModel: MyProfileModels.FullscreenImageNavigation.ViewModel) {
+        DispatchQueue.main.async {
+            self.router?.navigateToFullscreenImage(imageName: viewModel.imageName)
         }
     }
 }
