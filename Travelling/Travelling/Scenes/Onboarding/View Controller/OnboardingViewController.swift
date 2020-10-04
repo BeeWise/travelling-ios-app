@@ -64,3 +64,11 @@ class OnboardingViewController: UIViewController {
         self.hideNavigationBar()
     }
 }
+
+// MARK: - Login view controller delegate
+
+extension OnboardingViewController: LoginViewControllerDelegate {
+    func loginViewController(_ viewController: LoginViewController?, didLoginUser user: User) {
+        
+    }
+}

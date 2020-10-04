@@ -27,6 +27,11 @@ class LoginWorker {
     }
     
     func loginUser(details: LoginModels.LoginDetails) {
-        // TODO - Add authentication task for logging user in!
+        self.authenticationTask.loginUser(model: AuthenticationTaskModels.LoginUser.Request(account: details.account, password: details.password)) { result in
+            switch result {
+                case .success(let response): self.delegate?.successDidLoginUser(user: response.user); break
+                case .failure(let error): self.delegate?.failureDidLoginUser(details: details, error: error); break
+            }
+        }
     }
 }

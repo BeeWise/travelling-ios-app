@@ -27,6 +27,7 @@ class OnboardingRouter: OnboardingRoutingLogic {
     
     func navigateToLogin() {
         let loginViewController = LoginViewController()
+        loginViewController.delegate = self.viewController
         self.viewController?.navigationController?.pushViewController(loginViewController, animated: true)
     }
     

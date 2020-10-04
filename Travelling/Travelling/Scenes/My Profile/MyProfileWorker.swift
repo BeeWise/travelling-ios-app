@@ -37,7 +37,7 @@ class MyProfileWorker {
     func fetchUser(userId: String?) {
         self.usersTask.fetchUser(model: UsersTaskModels.FetchUser.Request(userId: userId)) { result in
             switch result {
-                case .success(let value): self.delegate?.successDidFetchUser(user: value.user); break
+                case .success(let response): self.delegate?.successDidFetchUser(user: response.user); break
                 case .failure(let error): self.delegate?.failureDidFetchUser(error: error); break
             }
         }
@@ -46,7 +46,7 @@ class MyProfileWorker {
     func fetchImage(model: MyProfileModels.UserModel) {
         self.imageTask.fetchImage(model: ImageTaskModels.Fetch.Request(imageName: model.imageName)) { result in
             switch result {
-                case .success(let value): self.delegate?.successDidFetchImage(model: model, image: value.image); break
+                case .success(let response): self.delegate?.successDidFetchImage(model: model, image: response.image); break
                 case .failure(let error): self.delegate?.failureDidFetchImage(model: model, error: error); break
             }
         }
@@ -55,7 +55,7 @@ class MyProfileWorker {
     func logoutUser(userId: String?) {
         self.authenticationTask.logoutUser(model: AuthenticationTaskModels.LogoutUser.Request(userId: userId)) { result in
             switch result {
-                case .success(let value): self.delegate?.successDidLogoutUser(userId: value.userId); break
+                case .success(let response): self.delegate?.successDidLogoutUser(userId: response.userId); break
                 case .failure(let error): self.delegate?.failureDidLogoutUser(error: error); break
             }
         }
