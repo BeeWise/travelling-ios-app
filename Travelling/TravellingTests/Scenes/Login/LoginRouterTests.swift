@@ -40,10 +40,9 @@ class LoginRouterTests: XCTestCase {
     // MARK: - Tests
     
     func testNavigateToForgotPassword() {
-        // TODO: - Add test!
         let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
         self.sut.navigateToForgotPassword()
-        // XCTAssertTrue(navigationControllerSpy.pushedViewController is ForgotPasswordViewController)
+        XCTAssertTrue(navigationControllerSpy.pushedViewController is ForgotPasswordViewController)
     }
     
     func testNavigateToAlert() {

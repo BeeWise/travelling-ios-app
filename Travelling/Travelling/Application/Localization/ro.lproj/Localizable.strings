@@ -47,3 +47,14 @@
 "Login.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
 "Login.scene.ok.title" = "OK";
 "Login.scene.cancel.title" = "Anulează";
+
+// Forgot password scene
+
+"ForgotPassword.scene.title" = "Parolă uitată";
+"ForgotPassword.scene.email.title" = "Email";
+"ForgotPassword.scene.send.reset.link.button.title" = "Trimite link de resetare";
+"ForgotPassword.scene.email.error.text" = "Email-ul tău este incorect.";
+"ForgotPassword.scene.confirmation.message" = "Un email cu instrucțiuni a fost trimis pe adresa de email: %@.";
+"ForgotPassword.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"ForgotPassword.scene.go.to.mail.title" = "Deschide Mail";
+"ForgotPassword.scene.ok.title" = "OK";

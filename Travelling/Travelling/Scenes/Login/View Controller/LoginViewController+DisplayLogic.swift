@@ -80,9 +80,7 @@ extension LoginViewController: LoginDisplayLogic {
     
     private func reloadItem(itemType: LoginModels.ItemType) {
         if let index = self.displayedItems.firstIndex(where: { $0.type == itemType }) {
-            UIView.performWithoutAnimation {
-                self.tableView?.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-            }
+            self.tableView?.reloadRowsWithoutAnimation(at: [IndexPath(row: index, section: 0)])
         }
     }
     
