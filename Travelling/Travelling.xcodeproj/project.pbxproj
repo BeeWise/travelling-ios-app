@@ -104,6 +104,35 @@
 		283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B5718250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift */; };
 		283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B571D250CC15F00EFA651 /* ApplicationStyle.swift */; };
 		283B5724250CC29300EFA651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 283B5726250CC29300EFA651 /* Localizable.strings */; };
+		286D9015252AC97D0012DB1D /* ForgotPasswordViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D900B252AC97D0012DB1D /* ForgotPasswordViewController+Subviews.swift */; };
+		286D9016252AC97D0012DB1D /* ForgotPasswordStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D900C252AC97D0012DB1D /* ForgotPasswordStyle.swift */; };
+		286D9017252AC97D0012DB1D /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D900D252AC97D0012DB1D /* ForgotPasswordPresenter.swift */; };
+		286D9018252AC97D0012DB1D /* ForgotPasswordWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D900E252AC97D0012DB1D /* ForgotPasswordWorker.swift */; };
+		286D9019252AC97D0012DB1D /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D900F252AC97D0012DB1D /* ForgotPasswordRouter.swift */; };
+		286D901A252AC97D0012DB1D /* ForgotPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9010252AC97D0012DB1D /* ForgotPasswordModels.swift */; };
+		286D901B252AC97D0012DB1D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9011252AC97D0012DB1D /* ForgotPasswordViewController.swift */; };
+		286D901C252AC97D0012DB1D /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9012252AC97D0012DB1D /* ForgotPasswordInteractor.swift */; };
+		286D901D252AC97D0012DB1D /* ForgotPasswordViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9013252AC97D0012DB1D /* ForgotPasswordViewController+DisplayLogic.swift */; };
+		286D901E252AC97D0012DB1D /* ForgotPasswordLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9014252AC97D0012DB1D /* ForgotPasswordLocalization.swift */; };
+		286D9024252ACC4F0012DB1D /* UIApplication+URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9023252ACC4F0012DB1D /* UIApplication+URLOpener.swift */; };
+		286D9027252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9026252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift */; };
+		286D9029252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9028252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift */; };
+		286D902C252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D902B252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift */; };
+		286D902E252AD3E80012DB1D /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D902D252AD3E70012DB1D /* String+EmailValidation.swift */; };
+		286D9030252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D902F252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift */; };
+		286D903D252AE63E0012DB1D /* ForgotPasswordViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9032252AE63E0012DB1D /* ForgotPasswordViewControllerTests.swift */; };
+		286D903E252AE63E0012DB1D /* ForgotPasswordInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9033252AE63E0012DB1D /* ForgotPasswordInteractorTests.swift */; };
+		286D903F252AE63E0012DB1D /* ForgotPasswordDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9034252AE63E0012DB1D /* ForgotPasswordDisplayLogicSpy.swift */; };
+		286D9040252AE63E0012DB1D /* ForgotPasswordWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9035252AE63E0012DB1D /* ForgotPasswordWorkerDelegateSpy.swift */; };
+		286D9041252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9036252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift */; };
+		286D9042252AE63E0012DB1D /* ForgotPasswordPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9037252AE63E0012DB1D /* ForgotPasswordPresentationLogicSpy.swift */; };
+		286D9043252AE63E0012DB1D /* ForgotPasswordRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9038252AE63E0012DB1D /* ForgotPasswordRoutingLogicSpy.swift */; };
+		286D9044252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9039252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift */; };
+		286D9045252AE63E0012DB1D /* ForgotPasswordRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D903A252AE63E0012DB1D /* ForgotPasswordRouterTests.swift */; };
+		286D9046252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D903B252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift */; };
+		286D9047252AE63E0012DB1D /* ForgotPasswordWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D903C252AE63E0012DB1D /* ForgotPasswordWorkerSpy.swift */; };
+		286D904A252AE7970012DB1D /* URLOpenableSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D9049252AE7970012DB1D /* URLOpenableSpy.swift */; };
+		286D904C252AE8100012DB1D /* ForgotPasswordViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D904B252AE8100012DB1D /* ForgotPasswordViewControllerSpy.swift */; };
 		287A356725173BAB00898B51 /* String+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A356625173BAB00898B51 /* String+HexColor.swift */; };
 		287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A356825174BC600898B51 /* String+NilOrEmpty.swift */; };
 		287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A356A2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift */; };
@@ -385,6 +414,35 @@
 		283B5721250CC26A00EFA651 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		283B5725250CC29300EFA651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		283B5727250CC29600EFA651 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		286D900B252AC97D0012DB1D /* ForgotPasswordViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotPasswordViewController+Subviews.swift"; sourceTree = "<group>"; };
+		286D900C252AC97D0012DB1D /* ForgotPasswordStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordStyle.swift; sourceTree = "<group>"; };
+		286D900D252AC97D0012DB1D /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		286D900E252AC97D0012DB1D /* ForgotPasswordWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorker.swift; sourceTree = "<group>"; };
+		286D900F252AC97D0012DB1D /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
+		286D9010252AC97D0012DB1D /* ForgotPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModels.swift; sourceTree = "<group>"; };
+		286D9011252AC97D0012DB1D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		286D9012252AC97D0012DB1D /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
+		286D9013252AC97D0012DB1D /* ForgotPasswordViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotPasswordViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		286D9014252AC97D0012DB1D /* ForgotPasswordLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalization.swift; sourceTree = "<group>"; };
+		286D9023252ACC4F0012DB1D /* UIApplication+URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+URLOpener.swift"; sourceTree = "<group>"; };
+		286D9026252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTextFieldCell.swift; sourceTree = "<group>"; };
+		286D9028252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordButtonCell.swift; sourceTree = "<group>"; };
+		286D902B252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotPasswordInteractor+Validations.swift"; sourceTree = "<group>"; };
+		286D902D252AD3E70012DB1D /* String+EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
+		286D902F252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotPasswordViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		286D9032252AE63E0012DB1D /* ForgotPasswordViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControllerTests.swift; sourceTree = "<group>"; };
+		286D9033252AE63E0012DB1D /* ForgotPasswordInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractorTests.swift; sourceTree = "<group>"; };
+		286D9034252AE63E0012DB1D /* ForgotPasswordDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		286D9035252AE63E0012DB1D /* ForgotPasswordWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		286D9036252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorkerTests.swift; sourceTree = "<group>"; };
+		286D9037252AE63E0012DB1D /* ForgotPasswordPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		286D9038252AE63E0012DB1D /* ForgotPasswordRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		286D9039252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		286D903A252AE63E0012DB1D /* ForgotPasswordRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouterTests.swift; sourceTree = "<group>"; };
+		286D903B252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenterTests.swift; sourceTree = "<group>"; };
+		286D903C252AE63E0012DB1D /* ForgotPasswordWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordWorkerSpy.swift; sourceTree = "<group>"; };
+		286D9049252AE7970012DB1D /* URLOpenableSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenableSpy.swift; sourceTree = "<group>"; };
+		286D904B252AE8100012DB1D /* ForgotPasswordViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControllerSpy.swift; sourceTree = "<group>"; };
 		287A356625173BAB00898B51 /* String+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HexColor.swift"; sourceTree = "<group>"; };
 		287A356825174BC600898B51 /* String+NilOrEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NilOrEmpty.swift"; sourceTree = "<group>"; };
 		287A356A2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
@@ -576,6 +634,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				286D900A252AC96D0012DB1D /* Forgot Password */,
 				28CEC7AA2529D2360063DCFE /* Login */,
 				28B386202529B56300CA7840 /* Onboarding */,
 				28D4E5F025297EFE00A1ED86 /* Fullscreen Image */,
@@ -631,6 +690,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				286D9031252AE6250012DB1D /* Forgot Password */,
 				28CEC7D72529E8090063DCFE /* Login */,
 				28B3863A2529C69300CA7840 /* Onboarding */,
 				28D4E6082529845400A1ED86 /* Fullscreen Image */,
@@ -671,6 +731,7 @@
 		2812D489250CDF010079F879 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				286D9022252ACC420012DB1D /* UIApplication */,
 				28CEC7D42529DD290063DCFE /* Case Iterable */,
 				281F4FB92520DEC5008475D7 /* Bundle */,
 				288897C4250E3DEA0017B0B1 /* UIFont */,
@@ -694,6 +755,7 @@
 				287A35722517578B00898B51 /* String+LiteralImage.swift */,
 				28B0FC8725177C23007E276D /* String+Contains.swift */,
 				28B0FC8925177DD2007E276D /* String+RangeOf.swift */,
+				286D902D252AD3E70012DB1D /* String+EmailValidation.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1163,6 +1225,102 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		286D900A252AC96D0012DB1D /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				286D902A252AD0400012DB1D /* Interactor */,
+				286D9025252ACD8A0012DB1D /* Cells */,
+				286D9021252AC9B00012DB1D /* Localization */,
+				286D9020252AC9A70012DB1D /* Style */,
+				286D901F252AC9A00012DB1D /* View Controller */,
+				286D900D252AC97D0012DB1D /* ForgotPasswordPresenter.swift */,
+				286D900E252AC97D0012DB1D /* ForgotPasswordWorker.swift */,
+				286D900F252AC97D0012DB1D /* ForgotPasswordRouter.swift */,
+				286D9010252AC97D0012DB1D /* ForgotPasswordModels.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		286D901F252AC9A00012DB1D /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				286D9013252AC97D0012DB1D /* ForgotPasswordViewController+DisplayLogic.swift */,
+				286D9011252AC97D0012DB1D /* ForgotPasswordViewController.swift */,
+				286D900B252AC97D0012DB1D /* ForgotPasswordViewController+Subviews.swift */,
+				286D902F252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		286D9020252AC9A70012DB1D /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				286D900C252AC97D0012DB1D /* ForgotPasswordStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		286D9021252AC9B00012DB1D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				286D9014252AC97D0012DB1D /* ForgotPasswordLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		286D9022252ACC420012DB1D /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				286D9023252ACC4F0012DB1D /* UIApplication+URLOpener.swift */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		286D9025252ACD8A0012DB1D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				286D9026252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift */,
+				286D9028252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		286D902A252AD0400012DB1D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				286D9012252AC97D0012DB1D /* ForgotPasswordInteractor.swift */,
+				286D902B252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		286D9031252AE6250012DB1D /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				286D9048252AE65C0012DB1D /* Test Doubles */,
+				286D9032252AE63E0012DB1D /* ForgotPasswordViewControllerTests.swift */,
+				286D9033252AE63E0012DB1D /* ForgotPasswordInteractorTests.swift */,
+				286D9036252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift */,
+				286D903A252AE63E0012DB1D /* ForgotPasswordRouterTests.swift */,
+				286D903B252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		286D9048252AE65C0012DB1D /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				286D9034252AE63E0012DB1D /* ForgotPasswordDisplayLogicSpy.swift */,
+				286D9035252AE63E0012DB1D /* ForgotPasswordWorkerDelegateSpy.swift */,
+				286D9037252AE63E0012DB1D /* ForgotPasswordPresentationLogicSpy.swift */,
+				286D9038252AE63E0012DB1D /* ForgotPasswordRoutingLogicSpy.swift */,
+				286D9039252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift */,
+				286D903C252AE63E0012DB1D /* ForgotPasswordWorkerSpy.swift */,
+				286D904B252AE8100012DB1D /* ForgotPasswordViewControllerSpy.swift */,
+			);
+			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
 		287A356C2517574300898B51 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -1372,6 +1530,7 @@
 				28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */,
 				28D3A838252462A2008FFF92 /* UIRefreshControlSpy.swift */,
 				28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */,
+				286D9049252AE7970012DB1D /* URLOpenableSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1966,6 +2125,8 @@
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
 				2812D462250CDAC90079F879 /* MainStyle.swift in Sources */,
 				28B3862F2529B6AB00CA7840 /* OnboardingRouter.swift in Sources */,
+				286D9029252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift in Sources */,
+				286D902E252AD3E80012DB1D /* String+EmailValidation.swift in Sources */,
 				2812D467250CDAC90079F879 /* MainViewController.swift in Sources */,
 				28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */,
 				28179EBC250DFDD80081FD3A /* UITableViewCell+DefaultReuseIdentifier.swift in Sources */,
@@ -1973,7 +2134,9 @@
 				28C1CB72252A29570083FBC7 /* SignUpUserOperation.swift in Sources */,
 				28179EE3250E00CE0081FD3A /* TaskProtocol.swift in Sources */,
 				28179ED2250DFFC60081FD3A /* TableViewErrorHeaderFooterView.swift in Sources */,
+				286D9027252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift in Sources */,
 				28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */,
+				286D9030252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift in Sources */,
 				28179ED6250E000E0081FD3A /* AsynchronousOperation.swift in Sources */,
 				28D4E60425297F1A00A1ED86 /* FullscreenImageLocalization.swift in Sources */,
 				28179EC7250DFEE30081FD3A /* EmptyStateView.swift in Sources */,
@@ -2015,6 +2178,7 @@
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
+				286D901E252AC97D0012DB1D /* ForgotPasswordLocalization.swift in Sources */,
 				28D4E60225297F1A00A1ED86 /* FullscreenImageInteractor.swift in Sources */,
 				28CEC7B92529D2510063DCFE /* LoginRouter.swift in Sources */,
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
@@ -2029,6 +2193,9 @@
 				28D4E60125297F1A00A1ED86 /* FullscreenImageViewController.swift in Sources */,
 				28179EC2250DFE7A0081FD3A /* UIScrollView+LoadMore.swift in Sources */,
 				28179ED8250E00290081FD3A /* OperationError.swift in Sources */,
+				286D9016252AC97D0012DB1D /* ForgotPasswordStyle.swift in Sources */,
+				286D9018252AC97D0012DB1D /* ForgotPasswordWorker.swift in Sources */,
+				286D9024252ACC4F0012DB1D /* UIApplication+URLOpener.swift in Sources */,
 				28BD8D0A2523063000C30F64 /* UsersTaskModels.swift in Sources */,
 				2812D468250CDAC90079F879 /* MainInteractor.swift in Sources */,
 				28D4E5FD25297F1A00A1ED86 /* FullscreenImagePresenter.swift in Sources */,
@@ -2045,10 +2212,12 @@
 				283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */,
 				28179ECE250DFF900081FD3A /* InsetLabel.swift in Sources */,
 				28179EEA250E00FC0081FD3A /* PlacesTaskProtocol.swift in Sources */,
+				286D901D252AC97D0012DB1D /* ForgotPasswordViewController+DisplayLogic.swift in Sources */,
 				28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */,
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */,
+				286D902C252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
 				28CEC7BC2529D2510063DCFE /* LoginInteractor.swift in Sources */,
 				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
@@ -2065,6 +2234,7 @@
 				28D3A82425242F5D008FFF92 /* LogoutUserLocalOperation.swift in Sources */,
 				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				28BD8D18252310AE00C30F64 /* MyProfileViewController+TableViewDataSource.swift in Sources */,
+				286D901A252AC97D0012DB1D /* ForgotPasswordModels.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
 				281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */,
 				28B3862C2529B6AB00CA7840 /* OnboardingStyle.swift in Sources */,
@@ -2074,9 +2244,11 @@
 				28C1CB6A252A27570083FBC7 /* LoginUserLocalOperation.swift in Sources */,
 				28179EA4250DFC700081FD3A /* ExploreViewController+TableViewDataSource.swift in Sources */,
 				28CEC7CC2529D8930063DCFE /* LoadingButton.swift in Sources */,
+				286D9017252AC97D0012DB1D /* ForgotPasswordPresenter.swift in Sources */,
 				287A3575251757A200898B51 /* GetImageLocalOperation.swift in Sources */,
 				281F4F8E2520CDA9008475D7 /* MyProfileStyle.swift in Sources */,
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
+				286D901C252AC97D0012DB1D /* ForgotPasswordInteractor.swift in Sources */,
 				28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
@@ -2087,16 +2259,19 @@
 				28C1CB7E252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift in Sources */,
 				28CEC7D32529DC130063DCFE /* LoginViewController+TableViewDataSource.swift in Sources */,
 				28D4E60025297F1A00A1ED86 /* FullscreenImageModels.swift in Sources */,
+				286D901B252AC97D0012DB1D /* ForgotPasswordViewController.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
 				28179EDC250E006D0081FD3A /* TaskEnvironment.swift in Sources */,
 				281F4F912520CDA9008475D7 /* MyProfileRouter.swift in Sources */,
 				287A357C2517588A00898B51 /* ImageTaskProtocol.swift in Sources */,
 				28CEC7BB2529D2510063DCFE /* LoginViewController.swift in Sources */,
 				28841A6925203CC30072A515 /* BundleConfiguration.swift in Sources */,
+				286D9015252AC97D0012DB1D /* ForgotPasswordViewController+Subviews.swift in Sources */,
 				28179ECA250DFF2A0081FD3A /* TableViewTitleHeaderFooterView.swift in Sources */,
 				287A35732517578B00898B51 /* String+LiteralImage.swift in Sources */,
 				28179EA8250DFC700081FD3A /* ExploreRouter.swift in Sources */,
 				28889792250E2A1B0017B0B1 /* String+JSONUrl.swift in Sources */,
+				286D9019252AC97D0012DB1D /* ForgotPasswordRouter.swift in Sources */,
 				28B3862D2529B6AB00CA7840 /* OnboardingPresenter.swift in Sources */,
 				2812D46A250CDAC90079F879 /* MainLocalization.swift in Sources */,
 				28BD8CFD2522FE7C00C30F64 /* GetUserOperationModels.swift in Sources */,
@@ -2111,6 +2286,7 @@
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
 				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28CEC7EB2529E8160063DCFE /* LoginRouterTests.swift in Sources */,
+				286D904A252AE7970012DB1D /* URLOpenableSpy.swift in Sources */,
 				28889798250E33050017B0B1 /* DataTaskOperationTests.swift in Sources */,
 				28D4E61D2529846500A1ED86 /* FullscreenImagePresenterTests.swift in Sources */,
 				2812D49A250CE79C0079F879 /* AppDisplayLogicSpy.swift in Sources */,
@@ -2118,6 +2294,7 @@
 				28CEC7E92529E8160063DCFE /* LoginRoutingLogicSpy.swift in Sources */,
 				288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */,
 				28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */,
+				286D9041252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift in Sources */,
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
@@ -2131,6 +2308,7 @@
 				2812D480250CDB150079F879 /* MainPresentationLogicSpy.swift in Sources */,
 				288897B6250E34D00017B0B1 /* ExploreWorkerDelegateSpy.swift in Sources */,
 				2812D47D250CDB150079F879 /* MainDisplayLogicSpy.swift in Sources */,
+				286D903F252AE63E0012DB1D /* ForgotPasswordDisplayLogicSpy.swift in Sources */,
 				28BD8D20252330B700C30F64 /* MyProfileViewControllerDelegateSpy.swift in Sources */,
 				2812D485250CDB150079F879 /* MainWorkerSpy.swift in Sources */,
 				28CEC7E52529E8160063DCFE /* LoginDisplayLogicSpy.swift in Sources */,
@@ -2147,6 +2325,8 @@
 				281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */,
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
+				286D9046252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift in Sources */,
+				286D9045252AE63E0012DB1D /* ForgotPasswordRouterTests.swift in Sources */,
 				288897A4250E34340017B0B1 /* PlacesTaskTests.swift in Sources */,
 				28D4E621252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift in Sources */,
 				288897BD250E34D00017B0B1 /* ExploreWorkerSpy.swift in Sources */,
@@ -2159,6 +2339,7 @@
 				281F4FB82520D723008475D7 /* MyProfileInformationTableViewCellInterfaceSpy.swift in Sources */,
 				28D3A8282524304A008FFF92 /* LogoutUserLocalOperationTests.swift in Sources */,
 				28BD8D13252307C400C30F64 /* UsersTaskSpy.swift in Sources */,
+				286D9047252AE63E0012DB1D /* ForgotPasswordWorkerSpy.swift in Sources */,
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
 				28BD8D112523078300C30F64 /* UsersTaskTests.swift in Sources */,
@@ -2167,12 +2348,14 @@
 				28B386472529C6A000CA7840 /* OnboardingInteractorTests.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
 				28B386482529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift in Sources */,
+				286D9043252AE63E0012DB1D /* ForgotPasswordRoutingLogicSpy.swift in Sources */,
 				28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */,
 				28D4E6172529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift in Sources */,
 				28B3864D2529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				28D4E6182529846500A1ED86 /* FullscreenImageWorkerTests.swift in Sources */,
+				286D903E252AE63E0012DB1D /* ForgotPasswordInteractorTests.swift in Sources */,
 				28CEC7E82529E8160063DCFE /* LoginPresentationLogicSpy.swift in Sources */,
 				28B3864B2529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift in Sources */,
 				28CEC7E42529E8160063DCFE /* LoginInteractorTests.swift in Sources */,
@@ -2181,16 +2364,19 @@
 				28D4E61E2529846500A1ED86 /* FullscreenImageWorkerSpy.swift in Sources */,
 				28CEC7E32529E8160063DCFE /* LoginViewControllerTests.swift in Sources */,
 				288897A2250E33BC0017B0B1 /* TaskConfiguratorTests.swift in Sources */,
+				286D9042252AE63E0012DB1D /* ForgotPasswordPresentationLogicSpy.swift in Sources */,
 				288897C1250E35D40017B0B1 /* UITableViewSpy.swift in Sources */,
 				28B386462529C6A000CA7840 /* OnboardingViewControllerTests.swift in Sources */,
 				28B386532529C76700CA7840 /* OnboardingViewControllerSpy.swift in Sources */,
 				281F4FAA2520CDF6008475D7 /* MyProfileWorkerTests.swift in Sources */,
+				286D904C252AE8100012DB1D /* ForgotPasswordViewControllerSpy.swift in Sources */,
 				288897B7250E34D00017B0B1 /* ExploreWorkerTests.swift in Sources */,
 				2812D49D250CE7FC0079F879 /* BaseTestCase.swift in Sources */,
 				28D4E61B2529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift in Sources */,
 				2812D483250CDB150079F879 /* MainRouterTests.swift in Sources */,
 				281F4FAB2520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift in Sources */,
 				281F4FA92520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift in Sources */,
+				286D903D252AE63E0012DB1D /* ForgotPasswordViewControllerTests.swift in Sources */,
 				28D4E6152529846500A1ED86 /* FullscreenImageInteractorTests.swift in Sources */,
 				281F4FA62520CDF6008475D7 /* MyProfileViewControllerTests.swift in Sources */,
 				28C1CB6D252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift in Sources */,
@@ -2205,6 +2391,8 @@
 				288897B9250E34D00017B0B1 /* ExploreRoutingLogicSpy.swift in Sources */,
 				28B3864F2529C6A000CA7840 /* OnboardingPresenterTests.swift in Sources */,
 				281F4FB02520CDF6008475D7 /* MyProfileWorkerSpy.swift in Sources */,
+				286D9040252AE63E0012DB1D /* ForgotPasswordWorkerDelegateSpy.swift in Sources */,
+				286D9044252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift in Sources */,
 				2812D498250CE7930079F879 /* AppPresentationLogicSpy.swift in Sources */,
 				2812D47B250CDB150079F879 /* MainViewControllerTests.swift in Sources */,
 				28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */,

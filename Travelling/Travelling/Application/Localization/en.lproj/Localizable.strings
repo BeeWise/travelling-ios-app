@@ -47,3 +47,14 @@
 "Login.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
 "Login.scene.ok.title" = "OK";
 "Login.scene.cancel.title" = "Cancel";
+
+// Forgot password scene
+
+"ForgotPassword.scene.title" = "Forgot Password";
+"ForgotPassword.scene.email.title" = "Email";
+"ForgotPassword.scene.send.reset.link.button.title" = "Send Reset Link";
+"ForgotPassword.scene.email.error.text" = "Your email is incorrect.";
+"ForgotPassword.scene.confirmation.message" = "An email has been sent to %@ with further instructions.";
+"ForgotPassword.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
+"ForgotPassword.scene.go.to.mail.title" = "Go to Mail";
+"ForgotPassword.scene.ok.title" = "OK";
