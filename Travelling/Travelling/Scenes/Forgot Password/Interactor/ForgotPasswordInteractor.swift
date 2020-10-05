@@ -27,6 +27,7 @@ class ForgotPasswordInteractor: ForgotPasswordBusinessLogic {
     var worker: ForgotPasswordWorker?
     
     var email: String = ""
+    var emailUrl: URL? = URL(string: "message://")
     var urlOpener: URLOpenable = UIApplication.shared
     
     init() {
@@ -64,7 +65,7 @@ class ForgotPasswordInteractor: ForgotPasswordBusinessLogic {
     
     private func shouldPresentConfirmationAlert(email: String) {
         DispatchQueue.main.async {
-            if let url = URL(string: "message://"), self.urlOpener.canOpenURL(url) {
+            if let url = self.emailUrl, self.urlOpener.canOpenURL(url) {
                 self.presenter?.presentConfirmationEmailAlert(response: ForgotPasswordModels.ConfirmationEmail.Response(email: email))
             } else {
                 self.presenter?.presentConfirmationAlert(response: ForgotPasswordModels.Confirmation.Response(email: email))
@@ -73,7 +74,7 @@ class ForgotPasswordInteractor: ForgotPasswordBusinessLogic {
     }
     
     func shouldOpenMailApplication() {
-        if let url = URL(string: "message://") {
+        if let url = self.emailUrl {
             self.presenter?.presentOpenMailApplication(response: ForgotPasswordModels.OpenApplication.Response(url: url))
         }
     }
