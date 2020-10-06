@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SignUpButtonCellDelegate: NSObjectProtocol {
+protocol SignUpButtonCellDelegate: AnyObject {
     func signUpButtonCell(cell: SignUpButtonCell?, didSelect button: UIButton, itemType: SignUpModels.ItemType)
 }
 

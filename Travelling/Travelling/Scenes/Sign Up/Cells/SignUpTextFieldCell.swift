@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol SignUpTextFieldCellDelegate: NSObjectProtocol {
+protocol SignUpTextFieldCellDelegate: AnyObject {
     func signUpTextFieldCell(cell: SignUpTextFieldCell?, textFieldDidEndEditing textField: UITextField?, itemType: SignUpModels.ItemType)
     func signUpTextFieldCell(cell: SignUpTextFieldCell?, textFieldEditingChanged textField: UITextField?, text: String, itemType: SignUpModels.ItemType)
     func signUpTextFieldCell(cell: SignUpTextFieldCell?, textFieldShouldReturn textField: UITextField?, itemType: SignUpModels.ItemType) -> Bool

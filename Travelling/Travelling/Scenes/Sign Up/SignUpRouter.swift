@@ -49,29 +49,16 @@ class SignUpRouter: SignUpRoutingLogic {
     }
     
     func navigateToPhotoLibrary(sourceView: UIView) {
-        let imagePickerController = self.imagePickerController(sourceView: sourceView)
-        imagePickerController.sourceType = .photoLibrary
+        let imagePickerController = self.viewController?.photoLibraryController(sourceView: sourceView) ?? UIViewController()
         self.viewController?.present(imagePickerController, animated: true, completion: nil)
     }
     
     func navigateToCamera(sourceView: UIView) {
-        let imagePickerController = self.imagePickerController(sourceView: sourceView)
-        imagePickerController.sourceType = .camera
-        imagePickerController.cameraDevice = .front
+        let imagePickerController = self.viewController?.cameraController(sourceView: sourceView) ?? UIViewController()
         self.viewController?.present(imagePickerController, animated: true, completion: nil)
     }
     
     private func imagePickerController(sourceView: UIView) -> UIImagePickerController {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.navigationBar.isTranslucent = SignUpStyle.shared.navigationBarModel.isTranslucent
-        imagePickerController.navigationBar.tintColor = SignUpStyle.shared.navigationBarModel.tintColor
-        imagePickerController.navigationBar.barTintColor = SignUpStyle.shared.navigationBarModel.barTintColor
-        imagePickerController.navigationBar.titleTextAttributes = SignUpStyle.shared.navigationBarModel.titleAttributes()
-        imagePickerController.modalPresentationStyle = .popover
-        imagePickerController.popoverPresentationController?.sourceView = sourceView
-        imagePickerController.popoverPresentationController?.sourceRect = sourceView.bounds
-        imagePickerController.popoverPresentationController?.permittedArrowDirections = .up
-        imagePickerController.delegate = self.viewController
-        return imagePickerController
+        return self.viewController?.imagePickerController(sourceView: sourceView) ?? UIImagePickerController()
     }
 }

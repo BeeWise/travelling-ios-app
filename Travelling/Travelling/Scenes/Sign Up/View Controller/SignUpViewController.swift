@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol SignUpViewControllerDelegate: NSObjectProtocol {
+protocol SignUpViewControllerDelegate: AnyObject {
     func signUpViewController(_ viewController: SignUpViewController?, didSignUpUser user: User)
 }
 
@@ -62,6 +62,19 @@ class SignUpViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showNavigationBar()
+    }
+    
+    open func photoLibraryController(sourceView: UIView) -> UIViewController {
+        let imagePickerController = self.imagePickerController(sourceView: sourceView)
+        imagePickerController.sourceType = .photoLibrary
+        return imagePickerController
+    }
+    
+    open func cameraController(sourceView: UIView) -> UIViewController {
+        let imagePickerController = self.imagePickerController(sourceView: sourceView)
+        imagePickerController.sourceType = .camera
+        imagePickerController.cameraDevice = .front
+        return imagePickerController
     }
 }
 

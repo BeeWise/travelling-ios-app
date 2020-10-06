@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol SignUpTextViewCellDelegate: NSObjectProtocol {
+protocol SignUpTextViewCellDelegate: AnyObject {
     func signUpTextViewCell(cell: SignUpTextViewCell?, textViewDidEndEditing textView: UITextView?, itemType: SignUpModels.ItemType)
     func signUpTextViewCell(cell: SignUpTextViewCell?, textViewEditingChanged textView: UITextView?, text: String, itemType: SignUpModels.ItemType)
 }

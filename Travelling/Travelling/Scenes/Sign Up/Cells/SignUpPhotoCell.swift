@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol SignUpPhotoCellDelegate: NSObjectProtocol {
+protocol SignUpPhotoCellDelegate: AnyObject {
     func signUpPhotoCell(cell: SignUpPhotoCell?, didSelect button: UIButton, itemType: SignUpModels.ItemType)
 }
 
