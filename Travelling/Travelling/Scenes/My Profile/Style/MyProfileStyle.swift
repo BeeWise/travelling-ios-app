@@ -95,7 +95,7 @@ class MyProfileStyle {
         
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
         
-        var avatarSize: CGFloat = 150
+        var avatarSize: CGFloat = 120
         var avatarBackgroundColor: UIColor = ApplicationStyle.colors.accent
         var avatarActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
         var avatarPlaceholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon

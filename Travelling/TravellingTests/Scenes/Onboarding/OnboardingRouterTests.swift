@@ -51,9 +51,8 @@ class OnboardingRouterTests: XCTestCase {
     }
     
     func testNavigateToSignUp() {
-        // TODO: - Add test!
         let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
         self.sut.navigateToSignUp()
-        // XCTAssertTrue(navigationControllerSpy.pushedViewController is SignUpViewController)
+         XCTAssertTrue(navigationControllerSpy.pushedViewController is SignUpViewController)
     }
 }

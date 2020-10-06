@@ -58,3 +58,38 @@
 "ForgotPassword.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
 "ForgotPassword.scene.go.to.mail.title" = "Go to Mail";
 "ForgotPassword.scene.ok.title" = "OK";
+
+// Sign up scene
+
+"SignUp.scene.title" = "Sign Up";
+
+"SignUp.scene.upload.photo.title" = "Upload Photo";
+"SignUp.scene.email.title" = "Email (required)";
+"SignUp.scene.username.title" = "Username (required)";
+"SignUp.scene.password.title" = "Password (required)";
+"SignUp.scene.first.name.title" = "First name (required)";
+"SignUp.scene.last.name.title" = "Last name (required)";
+"SignUp.scene.description.title" = "Description";
+
+"SignUp.scene.email.placeholder" = "";
+"SignUp.scene.username.placeholder" = "";
+"SignUp.scene.password.placeholder" = "";
+"SignUp.scene.first.name.placeholder" = "";
+"SignUp.scene.last.name.placeholder" = "";
+"SignUp.scene.description.placeholder" = "";
+
+"SignUp.scene.button.title" = "Sign Up";
+
+"SignUp.scene.email.error.text" = "Your email is incorrect.";
+"SignUp.scene.username.error.text" = "Your username must have at least 6 characters and must contain only letters, numbers, periods, hyphens or underscores.";
+"SignUp.scene.password.error.text" = "Your password must have at least 6 characters.";
+"SignUp.scene.first.name.error.text" = "Your first name must have at least one character.";
+"SignUp.scene.last.name.error.text" = "Your last name must have at least one character.";
+
+"SignUp.scene.photo.library.title" = "Photo Library";
+"SignUp.scene.camera.title" = "Camera";
+"SignUp.scene.remove.photo.title" = "Remove Photo";
+"SignUp.scene.cancel.title" = "Cancel";
+
+"SignUp.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
+"SignUp.scene.ok.title" = "OK";

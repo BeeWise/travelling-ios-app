@@ -74,4 +74,9 @@ class OnboardingViewControllerTests: XCTestCase {
         self.sut.loginViewController(nil, didLoginUser: User(id: "userId"))
         XCTAssertTrue(self.delegateSpy.onboardingViewControllerDidLoginUserCalled)
     }
+    
+    func testSignUpViewControllerDidSignUpUser() {
+        self.sut.signUpViewController(nil, didSignUpUser: User(id: "userId"))
+        XCTAssertTrue(self.delegateSpy.onboardingViewControllerDidSignUpUserCalled)
+    }
 }

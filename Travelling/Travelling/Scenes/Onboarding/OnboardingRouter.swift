@@ -32,6 +32,8 @@ class OnboardingRouter: OnboardingRoutingLogic {
     }
     
     func navigateToSignUp() {
-        
+        let signUpViewController = SignUpViewController()
+        signUpViewController.delegate = self.viewController
+        self.viewController?.navigationController?.pushViewController(signUpViewController, animated: true)
     }
 }
