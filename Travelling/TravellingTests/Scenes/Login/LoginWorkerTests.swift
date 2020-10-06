@@ -44,7 +44,7 @@ class LoginWorkerTests: XCTestCase {
         XCTAssertTrue(taskSpy.loginUserCalled)
     }
     
-    func testLoginUserShouldAskTheDelegateToSendUserTokenForSuccessCase() {
+    func testLoginUserShouldAskTheDelegateToSendUserForSuccessCase() {
         let taskSpy = AuthenticationTaskSpy()
         taskSpy.shouldFailLoginUser = false
         self.sut.authenticationTask = taskSpy

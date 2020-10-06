@@ -79,3 +79,11 @@ extension OnboardingViewController: LoginViewControllerDelegate {
         self.delegate?.onboardingViewController(self, didLoginUser: user)
     }
 }
+
+// MARK: - Sign up view controller delegate
+
+extension OnboardingViewController: SignUpViewControllerDelegate {
+    func signUpViewController(_ viewController: SignUpViewController?, didSignUpUser user: User) {
+        self.delegate?.onboardingViewController(self, didSignUpUser: user)
+    }
+}

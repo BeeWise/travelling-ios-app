@@ -165,7 +165,7 @@ extension MyProfileInformationTableViewCell {
             self.containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),
             self.containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -15),
             self.containerView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            self.containerView.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 45),
+            self.containerView.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: 30),
             self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -45),
         ])
     }

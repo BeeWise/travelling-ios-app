@@ -8,7 +8,7 @@
 @testable import Travelling
 import UIKit
 
-class LoginViewControllerDelegateSpy: NSObject, LoginViewControllerDelegate {
+class LoginViewControllerDelegateSpy: LoginViewControllerDelegate {
     var loginViewControllerDidLoginUserCalled: Bool = false
     
     func loginViewController(_ viewController: LoginViewController?, didLoginUser user: User) {

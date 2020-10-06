@@ -13,7 +13,7 @@
 @testable import Travelling
 import UIKit
 
-class ExploreRoutingLogicSpy: NSObject, ExploreRoutingLogic {
+class ExploreRoutingLogicSpy: ExploreRoutingLogic {
     var navigateToPlaceDetailsCalled: Bool = false
     
     func navigateToPlaceDetails(place: Place) {

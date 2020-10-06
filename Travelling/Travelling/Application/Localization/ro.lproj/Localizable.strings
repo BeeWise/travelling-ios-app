@@ -58,3 +58,38 @@
 "ForgotPassword.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
 "ForgotPassword.scene.go.to.mail.title" = "Deschide Mail";
 "ForgotPassword.scene.ok.title" = "OK";
+
+// Sign up scene
+
+"SignUp.scene.title" = "Înregistrare";
+
+"SignUp.scene.upload.photo.title" = "Încarcă poză";
+"SignUp.scene.email.title" = "Email (obligatoriu)";
+"SignUp.scene.username.title" = "Username (obligatoriu)";
+"SignUp.scene.password.title" = "Parolă (obligatorie)";
+"SignUp.scene.first.name.title" = "Prenume (obligatoriu)";
+"SignUp.scene.last.name.title" = "Nume (obligatoriu)";
+"SignUp.scene.description.title" = "Descriere";
+
+"SignUp.scene.email.placeholder" = "";
+"SignUp.scene.username.placeholder" = "";
+"SignUp.scene.password.placeholder" = "";
+"SignUp.scene.first.name.placeholder" = "";
+"SignUp.scene.last.name.placeholder" = "";
+"SignUp.scene.description.placeholder" = "";
+
+"SignUp.scene.button.title" = "Înscrie-te";
+
+"SignUp.scene.email.error.text" = "Email-ul tău este incorect.";
+"SignUp.scene.username.error.text" = "Username-ul tău trebuie să aibă cel puțin 6 caractere și să conțină doar litere, numere, puncte, cratime sau bară jos.";
+"SignUp.scene.password.error.text" = "Parola ta trebuie să aibă cel puțin 6 caractere.";
+"SignUp.scene.first.name.error.text" = "Prenumele tău trebuie să aibă cel puțin 1 caracter.";
+"SignUp.scene.last.name.error.text" = "Numele tău trebuie să aibă cel puțin 1 caracter.";
+
+"SignUp.scene.photo.library.title" = "Album de poze";
+"SignUp.scene.camera.title" = "Cameră";
+"SignUp.scene.remove.photo.title" = "Șterge poza";
+"SignUp.scene.cancel.title" = "Anulează";
+
+"SignUp.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"SignUp.scene.ok.title" = "OK";
