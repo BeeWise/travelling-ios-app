@@ -9,48 +9,52 @@
 import Foundation
 
 class UserDefaultsManagerSpy: UserDefaultsManager {
-    var userIdCalled: Bool = false
-    var userIdValue: String?
+    private let suiteName = "user.defaults.manager.spy.suite.name"
     
-    var setUserIdCalled: Bool = false
+    var userValue: User?
+    var userCalled: Bool = false
     
-    var hasUserIdKeyCalled: Bool = false
-    var hasUserIdKeyValue: Bool = false
+    var photoValue: Photo?
+    var photoCalled: Bool = false
     
-    var hasUserLoggedInKeyValue: Bool = false
-    var isUserLoggedInValue: Bool = false
-    var setUserLoggedInValue: Bool = false
+    var saveUserCalled: Bool = false
+    var savePhotoCalled: Bool = false
     
-    var hasUserLoggedInKeyCalled: Bool = false
-    var isUserLoggedInCalled: Bool = false
-    var setUserLoggedInCalled: Bool = false
+    var removeUserCalled: Bool = false
+    var removePhotoCalled: Bool = false
     
-    override func userId() -> String? {
-        self.userIdCalled = true
-        return self.userIdValue
+    override init() {
+        super.init()
+        self.userDefaults = UserDefaults(suiteName: self.suiteName)
     }
     
-    override func setUserId(id: String?) {
-        self.setUserIdCalled = true
+    deinit {
+        self.userDefaults?.removeSuite(named: self.suiteName)
     }
     
-    override func hasUserIdKey() -> Bool {
-        self.hasUserIdKeyCalled = true
-        return self.hasUserIdKeyValue
+    override func user() -> User? {
+        self.userCalled = true
+        return self.userValue
     }
     
-    override func hasUserLoggedInKey() -> Bool {
-        self.hasUserLoggedInKeyCalled = true
-        return self.hasUserLoggedInKeyValue
+    override func photo() -> Photo? {
+        self.photoCalled = true
+        return self.photoValue
     }
     
-    override func isUserLoggedIn() -> Bool {
-        self.isUserLoggedInCalled = true
-        return self.isUserLoggedInValue
+    override func saveUser(_ user: User) {
+        self.saveUserCalled = true
     }
     
-    override func setUserLoggedIn(value: Bool) {
-        self.setUserLoggedInCalled = true
-        self.setUserLoggedInValue = value
+    override func savePhoto(_ photo: Photo?) {
+        self.savePhotoCalled = true
+    }
+    
+    override func removeUser() {
+        self.removeUserCalled = true
+    }
+    
+    override func removePhoto() {
+        self.removePhotoCalled = true
     }
 }
