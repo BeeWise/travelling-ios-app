@@ -32,6 +32,7 @@ class MainInteractor: MainBusinessLogic, MainWorkerDelegate {
     var userDefaultsManager: UserDefaultsManager = .shared
     
     init() {
+        self.user = self.userDefaultsManager.user()
         self.worker = MainWorker(delegate: self)
     }
     
@@ -57,16 +58,18 @@ class MainInteractor: MainBusinessLogic, MainWorkerDelegate {
     }
     
     func shouldLoginUser(request: MainModels.UserLogin.Request) {
-        self.userDefaultsManager.setUserLoggedIn(value: true)
+        self.userDefaultsManager.saveUser(request.user)
         self.user = request.user
         
+        self.presenter?.presentLoginUser(response: MainModels.UserLogin.Response(user: request.user))
         self.presenter?.presentDismissOnboarding()
     }
     
     func shouldLogoutUser() {
         self.presenter?.presentSelectScene(response: MainModels.SceneSelection.Response(index: self.exploreSceneIndex()))
+        self.presenter?.presentLogoutUser()
         
-        self.userDefaultsManager.setUserLoggedIn(value: false)
+        self.userDefaultsManager.removeUser()
         self.user = nil
     }
 }

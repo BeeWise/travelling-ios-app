@@ -97,10 +97,9 @@ class MainInteractorTests: XCTestCase {
     
     // MARK: - Login tests
     
-    func testShouldLoginUserShouldSetUserLoggedInInUserDefaults() {
+    func testShouldLoginUserShouldAskTheUserDefaultsManagerToSaveUser() {
         self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: User(id: "id")))
-        XCTAssertTrue(self.userDefaultsManagerSpy.setUserLoggedInCalled)
-        XCTAssertTrue(self.userDefaultsManagerSpy.setUserLoggedInValue)
+        XCTAssertTrue(self.userDefaultsManagerSpy.saveUserCalled)
     }
     
     func testShouldLoginUserShouldUpdateUserModel() {
@@ -110,11 +109,16 @@ class MainInteractorTests: XCTestCase {
         XCTAssertEqual(self.sut.user, user)
     }
     
+    func testShouldLoginUserShouldAskThePresenterToPresentLoginUser() {
+        self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: User(id: "id")))
+        XCTAssertTrue(self.presenterSpy.presentLoginUserCalled)
+    }
+    
     func testShouldLoginUserShouldAskThePresenterToPresentDismissOnboarding() {
         self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: User(id: "id")))
         XCTAssertTrue(self.presenterSpy.presentDismissOnboardingCalled)
     }
-    
+        
     // MARK: - Logout tests
         
     func testShouldLogoutUserShouldAskThePresenterToPresentSelectScene() {
@@ -122,10 +126,14 @@ class MainInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentSelectSceneCalled)
     }
     
-    func testShouldLogoutUserShouldSetUserLoggedInInUserDefaults() {
+    func testShouldLogoutUserShouldAskThePresenterToPresentLogoutUser() {
         self.sut.shouldLogoutUser()
-        XCTAssertTrue(self.userDefaultsManagerSpy.setUserLoggedInCalled)
-        XCTAssertFalse(self.userDefaultsManagerSpy.setUserLoggedInValue)
+        XCTAssertTrue(self.presenterSpy.presentLogoutUserCalled)
+    }
+    
+    func testShouldLogoutUserShouldAskTheUserDefaultsManagerToRemoveUser() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.userDefaultsManagerSpy.removeUserCalled)
     }
     
     func testShouldLogoutUserShouldUpdateUserModel() {

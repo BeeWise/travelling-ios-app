@@ -49,37 +49,20 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.userDefaultsManager = self.userDefaultsManagerSpy
     }
     
-    // MARK: - Fetch user tests
+    // MARK: - Setup user tests
     
-    func testShouldFetchUserShouldAskThePresenterToPresentRemoveErrorState() {
-        self.sut.shouldFetchUser()
+    func testShouldSetupUserShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.shouldSetupUser()
         XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
     }
     
-    func testShouldFetchUserShouldAskThePresenterToPresentUserWhenThereIsUser() {
+    func testShouldSetupUserShouldAskThePresenterToPresentUserWhenThereIsUser() {
         self.sut.user = User(id: "userId")
-        self.sut.shouldFetchUser()
+        self.sut.shouldSetupUser()
         XCTAssertTrue(self.presenterSpy.presentUserCalled)
     }
     
-    func testShouldFetchUserShouldUpdateIsFetchingUserFlagWhenThereIsNoUser() {
-        self.sut.isFetchingUser = false
-        self.sut.user = nil
-        self.sut.shouldFetchUser()
-        XCTAssertTrue(self.sut.isFetchingUser)
-    }
-    
-    func testShouldFetchUserShouldAskThePresenterToPresentWillFetchUserWhenThereIsNoUser() {
-        self.sut.user = nil
-        self.sut.shouldFetchUser()
-        XCTAssertTrue(self.presenterSpy.presentWillFetchUserCalled)
-    }
-    
-    func testShouldFetchUserShouldAskTheWorkerToFetchUserWhenThereIsNoUser() {
-        self.sut.user = nil
-        self.sut.shouldFetchUser()
-        XCTAssertTrue(self.workerSpy.fetchUserCalled)
-    }
+    // MARK: - Fetch user tests
     
     func testSuccessDidFetchUserShouldUpdateIsFetchingUserFlag() {
         self.sut.isFetchingUser = true
@@ -213,7 +196,7 @@ class MyProfileInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
     }
     
-    // MARK: - Logout tests
+    // MARK: - Select item tests
     
     func testShouldSelectItemShouldAskThePresenterToPresentWillLogoutUserForLogoutItemType() {
         self.sut.shouldSelectItem(request: MyProfileModels.ItemSelection.Request(type: .logout))
@@ -223,6 +206,38 @@ class MyProfileInteractorTests: XCTestCase {
     func testShouldSelectItemShouldAskTheWorkerToLogoutUserForLogoutItemType() {
         self.sut.shouldSelectItem(request: MyProfileModels.ItemSelection.Request(type: .logout))
         XCTAssertTrue(self.workerSpy.logoutUserCalled)
+    }
+    
+    // MARK: - Login tests
+    
+    func testShouldLoginUserShouldSetUser() {
+        self.sut.user = nil
+        let user = User(id: "userId")
+        self.sut.shouldLoginUser(request: MyProfileModels.UserLogin.Request(user: user))
+        XCTAssertEqual(self.sut.user, user)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.shouldLoginUser(request: MyProfileModels.UserLogin.Request(user: User(id: "id")))
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentUser() {
+        self.sut.shouldLoginUser(request: MyProfileModels.UserLogin.Request(user: User(id: "id")))
+        XCTAssertTrue(self.presenterSpy.presentUserCalled)
+    }
+    
+    // MARK: - Logout tests
+    
+    func testShouldLogoutUserShouldRemoveUser() {
+        self.sut.user = User(id: "userId")
+        self.sut.shouldLogoutUser()
+        XCTAssertNil(self.sut.user)
+    }
+    
+    func testShouldLogoutUserShouldAskThePresenterToPresentResetUser() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.presenterSpy.presentResetUserCalled)
     }
     
     func testSuccessDidLogoutUserShouldAskThePresenterToPresentLoggedOutUser() {
@@ -259,4 +274,6 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.shouldSelectAvatar()
         XCTAssertTrue(self.presenterSpy.presentNavigateToFullscreenImageCalled)
     }
+    
+    
 }

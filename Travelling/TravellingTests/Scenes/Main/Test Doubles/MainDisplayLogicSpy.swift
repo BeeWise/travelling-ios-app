@@ -19,6 +19,9 @@ class MainDisplayLogicSpy: MainDisplayLogic {
     var displayNavigateToOnboardingCalled: Bool = false
     var displayDismissOnboardingCalled: Bool = false
     
+    var displayLoginUserCalled: Bool = false
+    var displayLogoutUserCalled: Bool = false
+    
     func displaySetupScenes(viewModel: MainModels.ScenesSetup.ViewModel) {
         self.displaySetupScenesCalled = true
     }
@@ -33,5 +36,13 @@ class MainDisplayLogicSpy: MainDisplayLogic {
     
     func displayDismissOnboarding() {
         self.displayDismissOnboardingCalled = true
+    }
+    
+    func displayLoginUser(viewModel: MainModels.UserLogin.ViewModel) {
+        self.displayLoginUserCalled = true
+    }
+    
+    func displayLogoutUser() {
+        self.displayLogoutUserCalled = true
     }
 }

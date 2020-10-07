@@ -147,14 +147,14 @@ class MyProfileViewControllerTests: XCTestCase {
     
     // MARK: - Business logic tests
     
-    func testViewDidLoadShouldAskTheInteractorToFetchUser() {
+    func testViewDidLoadShouldAskTheInteractorToSetupUser() {
         self.loadView()
-        XCTAssertTrue(self.interactorSpy.shouldFetchUserCalled)
+        XCTAssertTrue(self.interactorSpy.shouldSetupUserCalled)
     }
     
-    func testErrorStateViewTouchUpInsideButtonShouldAskTheInteractorToFetchUser() {
+    func testErrorStateViewTouchUpInsideButtonShouldAskTheInteractorToRefreshUser() {
         self.sut.errorStateView(view: nil, touchUpInsideButton: nil)
-        XCTAssertTrue(self.interactorSpy.shouldFetchUserCalled)
+        XCTAssertTrue(self.interactorSpy.shouldRefreshUserCalled)
     }
     
     func testValueChangedRefreshControlShouldAskTheInteractorToRefreshUser() {
@@ -171,6 +171,16 @@ class MyProfileViewControllerTests: XCTestCase {
     func testMyProfileInformationTableViewCellTouchUpInsideAvatarShouldAskTheInteractorToSelectAvatar() {
         self.sut.myProfileInformationTableViewCell(cell: nil, touchUpInsideAvatar: nil)
         XCTAssertTrue(self.interactorSpy.shouldSelectAvatarCalled)
+    }
+    
+    func testShouldLoginUser() {
+        self.sut.shouldLoginUser(user: User(id: "id"))
+        XCTAssertTrue(self.interactorSpy.shouldLoginUserCalled)
+    }
+    
+    func testShouldLogoutUser() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.interactorSpy.shouldLogoutUserCalled)
     }
     
     // MARK: - Display logic tests

@@ -111,6 +111,13 @@ class MyProfileStyle {
             ]
         }
         
+        func versionAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+            ]
+        }
+        
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
     }
     

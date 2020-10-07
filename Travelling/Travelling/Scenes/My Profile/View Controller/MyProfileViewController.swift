@@ -59,7 +59,15 @@ class MyProfileViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
-        self.interactor?.shouldFetchUser()
+        self.interactor?.shouldSetupUser()
+    }
+    
+    open func shouldLoginUser(user: User) {
+        self.interactor?.shouldLoginUser(request: MyProfileModels.UserLogin.Request(user: user))
+    }
+    
+    open func shouldLogoutUser() {
+        self.interactor?.shouldLogoutUser()
     }
 }
 

@@ -18,6 +18,9 @@ protocol MainDisplayLogic: class {
     
     func displayNavigateToOnboarding()
     func displayDismissOnboarding()
+    
+    func displayLoginUser(viewModel: MainModels.UserLogin.ViewModel)
+    func displayLogoutUser()
 }
 
 extension MainViewController: MainDisplayLogic {
@@ -42,6 +45,18 @@ extension MainViewController: MainDisplayLogic {
     func displayDismissOnboarding() {
         DispatchQueue.main.async {
             self.router?.dismissViewController()
+        }
+    }
+    
+    func displayLoginUser(viewModel: MainModels.UserLogin.ViewModel) {
+        DispatchQueue.main.async {
+            self.myProfileViewController?.shouldLoginUser(user: viewModel.user)
+        }
+    }
+    
+    func displayLogoutUser() {
+        DispatchQueue.main.async {
+            self.myProfileViewController?.shouldLogoutUser()
         }
     }
 }
