@@ -58,4 +58,14 @@ class MainPresenterTests: XCTestCase {
         self.sut.presentDismissOnboarding()
         XCTAssertTrue(self.displayerSpy.displayDismissOnboardingCalled)
     }
+    
+    func testPresentLoginUserShouldAskTheDisplayerToDisplayLoginUser() {
+        self.sut.presentLoginUser(response: MainModels.UserLogin.Response(user: User(id: "id")))
+        XCTAssertTrue(self.displayerSpy.displayLoginUserCalled)
+    }
+    
+    func testPresentLogoutUserShouldAskTheDisplayerToDisplayLogoutUser() {
+        self.sut.presentLogoutUser()
+        XCTAssertTrue(self.displayerSpy.displayLogoutUserCalled)
+    }
 }

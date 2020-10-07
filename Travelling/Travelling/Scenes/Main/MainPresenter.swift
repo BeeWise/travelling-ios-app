@@ -18,6 +18,9 @@ protocol MainPresentationLogic {
     
     func presentNavigateToOnboarding()
     func presentDismissOnboarding()
+    
+    func presentLoginUser(response: MainModels.UserLogin.Response)
+    func presentLogoutUser()
 }
 
 class MainPresenter: MainPresentationLogic {
@@ -37,5 +40,13 @@ class MainPresenter: MainPresentationLogic {
     
     func presentDismissOnboarding() {
         self.displayer?.displayDismissOnboarding()
+    }
+    
+    func presentLoginUser(response: MainModels.UserLogin.Response) {
+        self.displayer?.displayLoginUser(viewModel: MainModels.UserLogin.ViewModel(user: response.user))
+    }
+    
+    func presentLogoutUser() {
+        self.displayer?.displayLogoutUser()
     }
 }

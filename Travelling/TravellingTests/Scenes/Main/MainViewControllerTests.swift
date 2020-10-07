@@ -17,6 +17,7 @@ class MainViewControllerTests: BaseTestCase {
     var sut: MainViewController!
     var interactorSpy: MainBusinessLogicSpy!
     var routerSpy: MainRoutingLogicSpy!
+    var myProfileViewControllerSpy: MyProfileViewControllerSpy!
     var window: UIWindow!
     
     // MARK: - Test lifecycle
@@ -42,6 +43,9 @@ class MainViewControllerTests: BaseTestCase {
         
         self.routerSpy = MainRoutingLogicSpy()
         self.sut.router = self.routerSpy
+        
+        self.myProfileViewControllerSpy = MyProfileViewControllerSpy()
+        self.sut.myProfileViewController = self.myProfileViewControllerSpy
     }
     
     func loadView() {
@@ -116,5 +120,17 @@ class MainViewControllerTests: BaseTestCase {
         self.sut.displayDismissOnboarding()
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.dismissViewControllerCalled)
+    }
+    
+    func testDisplayLoginUserShouldAskMyProfileViewControllerToLoginUser() {
+        self.sut.displayLoginUser(viewModel: MainModels.UserLogin.ViewModel(user: User(id: "id")))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myProfileViewControllerSpy.shouldLoginUserCalled)
+    }
+    
+    func testDisplayLogoutUserShouldAskMyProfileViewControllerToLogoutUser() {
+        self.sut.displayLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myProfileViewControllerSpy.shouldLogoutUserCalled)
     }
 }
