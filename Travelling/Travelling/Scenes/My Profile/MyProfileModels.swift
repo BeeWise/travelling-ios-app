@@ -126,4 +126,10 @@ enum MyProfileModels {
             let imageName: String?
         }
     }
+    
+    enum UserLogin {
+        struct Request {
+            let user: User
+        }
+    }
 }

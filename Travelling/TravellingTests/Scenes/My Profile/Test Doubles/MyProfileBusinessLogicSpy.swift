@@ -13,7 +13,7 @@
 @testable import Travelling
 
 class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
-    var shouldFetchUserCalled: Bool = false
+    var shouldSetupUserCalled: Bool = false
     var shouldRefreshUserCalled: Bool = false
     
     var shouldFetchImageCalled: Bool = false
@@ -21,8 +21,11 @@ class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
     var shouldSelectItemCalled: Bool = false
     var shouldSelectAvatarCalled: Bool = false
     
-    func shouldFetchUser() {
-        self.shouldFetchUserCalled = true
+    var shouldLoginUserCalled: Bool = false
+    var shouldLogoutUserCalled: Bool = false
+    
+    func shouldSetupUser() {
+        self.shouldSetupUserCalled = true
     }
     
     func shouldRefreshUser() {
@@ -39,5 +42,13 @@ class MyProfileBusinessLogicSpy: MyProfileBusinessLogic {
     
     func shouldSelectAvatar() {
         self.shouldSelectAvatarCalled = true
+    }
+    
+    func shouldLoginUser(request: MyProfileModels.UserLogin.Request) {
+        self.shouldLoginUserCalled = true
+    }
+    
+    func shouldLogoutUser() {
+        self.shouldLogoutUserCalled = true
     }
 }

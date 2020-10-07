@@ -13,13 +13,16 @@
 import UIKit
 
 protocol MyProfileBusinessLogic {
-    func shouldFetchUser()
+    func shouldSetupUser()
     func shouldRefreshUser()
     
     func shouldFetchImage(request: MyProfileModels.ImageFetching.Request)
     
     func shouldSelectItem(request: MyProfileModels.ItemSelection.Request)
     func shouldSelectAvatar()
+    
+    func shouldLoginUser(request: MyProfileModels.UserLogin.Request)
+    func shouldLogoutUser()
 }
 
 class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
@@ -33,6 +36,7 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
     var userDefaultsManager = UserDefaultsManager.shared
     
     init() {
+        self.user = self.userDefaultsManager.user()
         self.worker = MyProfileWorker(delegate: self)
     }
     
@@ -59,26 +63,33 @@ class MyProfileInteractor: MyProfileBusinessLogic, MyProfileWorkerDelegate {
         self.presenter?.presentResetUser()
         self.presenter?.presentRemoveErrorState()
         self.presenter?.presentWillFetchUser()
-        self.worker?.fetchUser(userId: self.userDefaultsManager.userId())
+        self.worker?.fetchUser(userId: self.user?.id)
     }
     
     func shouldSelectAvatar() {
         self.presenter?.presentNavigateToFullscreenImage(response: MyProfileModels.FullscreenImageNavigation.Response(imageName: self.user?.photo?.imageName))
+    }
+    
+    func shouldLoginUser(request: MyProfileModels.UserLogin.Request) {
+        self.user = request.user
+        self.presenter?.presentRemoveErrorState()
+        self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: request.user))
+    }
+    
+    func shouldLogoutUser() {
+        self.user = nil
+        self.presenter?.presentResetUser()
     }
 }
 
 // MARK: - Fetch user
 
 extension MyProfileInteractor {
-    func shouldFetchUser() {
+    func shouldSetupUser() {
         self.presenter?.presentRemoveErrorState()
         
         if let user = self.user {
             self.presenter?.presentUser(response: MyProfileModels.UserPresentation.Response(user: user))
-        } else {
-            self.isFetchingUser = true
-            self.presenter?.presentWillFetchUser()
-            self.worker?.fetchUser(userId: self.userDefaultsManager.userId())
         }
     }
     

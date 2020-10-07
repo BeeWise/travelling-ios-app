@@ -152,7 +152,7 @@ extension MyProfilePresenter {
     
     private func displayedVersionItem() -> MyProfileModels.DisplayedItem {
         let version = Bundle.main.versionNumber
-        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.versionTitle(version: version).attributed(attributes: MyProfileStyle.shared.titleCellModel.titleAttributes()), isSelectable: false)
+        let model = MyProfileModels.TitleModel(title: MyProfileLocalization.shared.versionTitle(version: version).attributed(attributes: MyProfileStyle.shared.titleCellModel.versionAttributes()), isSelectable: false)
         return MyProfileModels.DisplayedItem(type: .version, model: model)
     }
 }

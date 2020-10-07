@@ -83,6 +83,6 @@ extension MyProfileViewController {
 
 extension MyProfileViewController: ErrorStateViewDelegate {
     func errorStateView(view: ErrorStateView?, touchUpInsideButton button: UIButton?) {
-        self.interactor?.shouldFetchUser()
+        self.interactor?.shouldRefreshUser()
     }
 }
