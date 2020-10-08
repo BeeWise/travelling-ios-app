@@ -357,6 +357,11 @@
 		28FDCA12252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA11252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift */; };
 		28FDCA14252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA13252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift */; };
 		28FDCA17252EE351002D7439 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 28FDCA19252EE351002D7439 /* Localizable.stringsdict */; };
+		28FDCA1E252EE975002D7439 /* GetPlaceOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA1D252EE975002D7439 /* GetPlaceOperationModels.swift */; };
+		28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA1F252EE97D002D7439 /* GetPlaceOperation.swift */; };
+		28FDCA22252EE986002D7439 /* GetPlaceLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */; };
+		28FDCA24252EE9C8002D7439 /* place.json in Resources */ = {isa = PBXBuildFile; fileRef = 28FDCA23252EE9C8002D7439 /* place.json */; };
+		28FDCA28252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -730,6 +735,11 @@
 		28FDCA13252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewControllerSpy.swift; sourceTree = "<group>"; };
 		28FDCA18252EE351002D7439 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		28FDCA1A252EE353002D7439 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ro; path = ro.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		28FDCA1D252EE975002D7439 /* GetPlaceOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceOperationModels.swift; sourceTree = "<group>"; };
+		28FDCA1F252EE97D002D7439 /* GetPlaceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceOperation.swift; sourceTree = "<group>"; };
+		28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceLocalOperation.swift; sourceTree = "<group>"; };
+		28FDCA23252EE9C8002D7439 /* place.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place.json; sourceTree = "<group>"; };
+		28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceLocalOperationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1069,6 +1079,7 @@
 		28179ED3250DFFF00081FD3A /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28FDCA1B252EE957002D7439 /* Place */,
 				28D3A81D25242F21008FFF92 /* Authentication */,
 				28BD8CFA2522FE6200C30F64 /* User */,
 				287A356C2517574300898B51 /* Image */,
@@ -1666,6 +1677,7 @@
 			children = (
 				2888978F250E29990017B0B1 /* places.json */,
 				28BD8D022522FFA300C30F64 /* user.json */,
+				28FDCA23252EE9C8002D7439 /* place.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1673,6 +1685,7 @@
 		28889793250E32DB0017B0B1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28FDCA25252EEA6E002D7439 /* Place */,
 				28D3A8252524302D008FFF92 /* Authentication */,
 				28BD8D042523057E00C30F64 /* User */,
 				287A3576251757C600898B51 /* Image */,
@@ -2336,6 +2349,40 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		28FDCA1B252EE957002D7439 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA1C252EE95F002D7439 /* Get */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		28FDCA1C252EE95F002D7439 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA1D252EE975002D7439 /* GetPlaceOperationModels.swift */,
+				28FDCA1F252EE97D002D7439 /* GetPlaceOperation.swift */,
+				28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
+		28FDCA25252EEA6E002D7439 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA26252EEA7C002D7439 /* Get */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		28FDCA26252EEA7C002D7439 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2424,6 +2471,7 @@
 				28889790250E29990017B0B1 /* places.json in Resources */,
 				28841A6E252040EC0072A515 /* InfoPlist.strings in Resources */,
 				28FDCA17252EE351002D7439 /* Localizable.stringsdict in Resources */,
+				28FDCA24252EE9C8002D7439 /* place.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2485,6 +2533,7 @@
 				283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */,
 				28CEC7C72529D79F0063DCFE /* LoginTextFieldCell.swift in Sources */,
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
+				28FDCA1E252EE975002D7439 /* GetPlaceOperationModels.swift in Sources */,
 				281F614E252C20FB00082CC5 /* SignUpRouter.swift in Sources */,
 				2888978D250E29530017B0B1 /* GetPlacesOperationModels.swift in Sources */,
 				281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */,
@@ -2522,6 +2571,7 @@
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				281F6170252C39B600082CC5 /* SignUpViewController+TableViewDataSource.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
+				28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */,
 				286D901E252AC97D0012DB1D /* ForgotPasswordLocalization.swift in Sources */,
 				28D4E60225297F1A00A1ED86 /* FullscreenImageInteractor.swift in Sources */,
 				28CEC7B92529D2510063DCFE /* LoginRouter.swift in Sources */,
@@ -2570,6 +2620,7 @@
 				28FDC9EC252EB968002D7439 /* PlaceDetailsWorker.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */,
+				28FDCA22252EE986002D7439 /* GetPlaceLocalOperation.swift in Sources */,
 				286D902C252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
 				28CEC7BC2529D2510063DCFE /* LoginInteractor.swift in Sources */,
@@ -2708,6 +2759,7 @@
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				28B3864C2529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift in Sources */,
 				28CEC7E72529E8160063DCFE /* LoginWorkerTests.swift in Sources */,
+				28FDCA28252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
 				28B3864E2529C6A000CA7840 /* OnboardingRouterTests.swift in Sources */,
 				28CEC7EC2529E8160063DCFE /* LoginPresenterTests.swift in Sources */,
