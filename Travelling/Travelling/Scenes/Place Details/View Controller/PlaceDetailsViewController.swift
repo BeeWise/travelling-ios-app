@@ -14,9 +14,10 @@ import UIKit
 
 class PlaceDetailsViewController: UITableViewController {
     var interactor: PlaceDetailsBusinessLogic?
-    var router: (NSObjectProtocol & PlaceDetailsRoutingLogic)?
+    var router: PlaceDetailsRoutingLogic?
     
     var place: Place?
+    var items: [PlaceDetailsModels.DisplayedItem] = []
     
     // MARK: - Object lifecycle
     

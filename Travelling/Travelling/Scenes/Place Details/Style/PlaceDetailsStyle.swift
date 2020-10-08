@@ -15,7 +15,97 @@ import UIKit
 class PlaceDetailsStyle {
     static let shared = PlaceDetailsStyle()
     
+    var navigationBarModel: NavigationBarModel
+    
+    var contentViewModel: ContentViewModel
+    var activityViewModel: ActivityViewModel
+    var tableViewModel: TableViewModel
+    var photoCellModel: PhotoCellModel
+    var descriptionCellModel: DescriptionCellModel
+    var commentsCellModel: CommentsCellModel
+    var errorStateViewModel: ErrorStateViewModel
+    
     private init() {
+        self.navigationBarModel = NavigationBarModel()
+        self.contentViewModel = ContentViewModel()
+        self.activityViewModel = ActivityViewModel()
+        self.tableViewModel = TableViewModel()
+        self.photoCellModel = PhotoCellModel()
+        self.descriptionCellModel = DescriptionCellModel()
+        self.commentsCellModel = CommentsCellModel()
+        self.errorStateViewModel = ErrorStateViewModel()
+    }
+    
+    struct NavigationBarModel {
+        var isTranslucent: Bool = false
+        var tintColor: UIColor = ApplicationStyle.colors.primary
+        var barTintColor: UIColor = ApplicationStyle.colors.primaryLight
         
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.bold(size: UIFont.labelFontSize)
+            ]
+        }
+    }
+    
+    struct ContentViewModel {
+        var backgroundColor = ApplicationStyle.colors.accentAlpha
+    }
+    
+    struct ActivityViewModel {
+        var size: CGFloat = 50
+        var color: UIColor = ApplicationStyle.colors.primary
+    }
+    
+    struct TableViewModel {
+        var backgroundColor = ApplicationStyle.colors.accentAlpha
+        var refreshControlColor = ApplicationStyle.colors.primary
+    }
+    
+    struct PhotoCellModel {
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+        
+        var imageHeight: CGFloat = 120
+        var imageBackgroundColor: UIColor = ApplicationStyle.colors.accent
+        var imageActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
+        var imagePlaceholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
+    }
+    
+    struct DescriptionCellModel {
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+            ]
+        }
+        
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+    }
+    
+    struct CommentsCellModel {
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+            ]
+        }
+        
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+    }
+    
+    struct ErrorStateViewModel {
+        var image: UIImage = ApplicationStyle.images.errorStateIcon.withRenderingMode(.alwaysTemplate)
+        var imageTintColor = ApplicationStyle.colors.primary
+        
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .title2).bold(),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
     }
 }

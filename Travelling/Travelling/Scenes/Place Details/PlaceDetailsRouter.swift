@@ -12,10 +12,23 @@
 
 import UIKit
 
-@objc protocol PlaceDetailsRoutingLogic {
-    
+protocol PlaceDetailsRoutingLogic {
+    func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction])
+    func navigateToFullscreenImage(imageName: String?)
 }
 
-class PlaceDetailsRouter: NSObject, PlaceDetailsRoutingLogic {
+class PlaceDetailsRouter: PlaceDetailsRoutingLogic {
     weak var viewController: PlaceDetailsViewController?
+    
+    func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        actions.forEach({ alertController.addAction($0) })
+        self.viewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    func navigateToFullscreenImage(imageName: String?) {
+        let fullscreenImageViewController = FullscreenImageViewController(imageName: imageName)
+        fullscreenImageViewController.modalPresentationStyle = .fullScreen
+        self.viewController?.present(fullscreenImageViewController, animated: true, completion: nil)
+    }
 }

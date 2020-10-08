@@ -14,6 +14,67 @@ import UIKit
 
 extension PlaceDetailsViewController {
     func setupSubviews() {
-        
+        self.setupNavigationBar()
+        self.setupContentView()
+        self.setupTableView()
+        self.setupRefreshControl()
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.isTranslucent = PlaceDetailsStyle.shared.navigationBarModel.isTranslucent
+        self.navigationController?.navigationBar.tintColor = PlaceDetailsStyle.shared.navigationBarModel.tintColor
+        self.navigationController?.navigationBar.barTintColor = PlaceDetailsStyle.shared.navigationBarModel.barTintColor
+        self.navigationController?.navigationBar.titleTextAttributes = PlaceDetailsStyle.shared.navigationBarModel.titleAttributes()
+    }
+    
+    private func setupContentView() {
+        self.view.backgroundColor = PlaceDetailsStyle.shared.contentViewModel.backgroundColor
+    }
+    
+    private func setupTableView() {
+        self.tableView?.backgroundColor = PlaceDetailsStyle.shared.tableViewModel.backgroundColor
+        self.tableView?.tableFooterView = UIView(frame: .zero)
+    }
+    
+    private func setupRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = PlaceDetailsStyle.shared.tableViewModel.refreshControlColor
+        refreshControl.addTarget(self, action: #selector(PlaceDetailsViewController.valueChangedRefreshControl(refreshControl:)), for: .valueChanged)
+        self.tableView?.refreshControl = refreshControl
+    }
+    
+    func setupActivityIndicatorView() -> UIActivityIndicatorView {
+        let size = PlaceDetailsStyle.shared.activityViewModel.size
+        let view = UIActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
+        view.color = PlaceDetailsStyle.shared.activityViewModel.color
+        view.hidesWhenStopped = false
+        view.startAnimating()
+        return view
+    }
+    
+    func errorStateView(image: UIImage?, attributedText: NSAttributedString?) -> ErrorStateView {
+        let view = ErrorStateView(frame: self.tableView.frame)
+        view.delegate = self
+        view.image = image
+        view.imageTintColor = PlaceDetailsStyle.shared.errorStateViewModel.imageTintColor
+        view.attributedText = attributedText
+        return view
+    }
+}
+
+// MARK: - Actions
+
+extension PlaceDetailsViewController {
+    @objc func valueChangedRefreshControl(refreshControl: UIRefreshControl) {
+        refreshControl.endRefreshing()
+//        self.interactor?.shouldRefreshUser()
+    }
+}
+
+// MARK: - Error state view delegate
+
+extension PlaceDetailsViewController: ErrorStateViewDelegate {
+    func errorStateView(view: ErrorStateView?, touchUpInsideButton button: UIButton?) {
+//        self.interactor?.shouldRefreshUser()
     }
 }

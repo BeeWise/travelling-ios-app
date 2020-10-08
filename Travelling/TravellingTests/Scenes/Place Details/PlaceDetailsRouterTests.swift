@@ -15,7 +15,7 @@ import XCTest
 
 class PlaceDetailsRouterTests: XCTestCase {
     var sut: PlaceDetailsRouter!
-    var viewController: PlaceDetailsViewController!
+    var viewControllerSpy: PlaceDetailsViewControllerSpy!
     
     // MARK: - Test lifecycle
     
@@ -33,11 +33,19 @@ class PlaceDetailsRouterTests: XCTestCase {
     func setupPlaceDetailsRouter() {
         self.sut = PlaceDetailsRouter()
         
-        self.viewController = PlaceDetailsViewController(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
-        self.sut.viewController = self.viewController
+        self.viewControllerSpy = PlaceDetailsViewControllerSpy(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
+        self.sut.viewController = self.viewControllerSpy
     }
     
     // MARK: - Tests
     
+    func testNavigateToAlert() {
+        self.sut.navigateToAlert(title: "Title", message: "Message", actions: [UIAlertAction(title: "Cancel", style: .cancel, handler: nil)])
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
     
+    func testNavigateToFullscreenImage() {
+        self.sut.navigateToFullscreenImage(imageName: "imageName")
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
 }

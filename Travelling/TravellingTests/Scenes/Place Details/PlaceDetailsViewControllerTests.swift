@@ -49,7 +49,134 @@ class PlaceDetailsViewControllerTests: XCTestCase {
         RunLoop.current.run(until: Date())
     }
     
+    private func waitForMainQueue() {
+        let waitExpectation = expectation(description: "Waiting for main queue.")
+        DispatchQueue.main.async {
+            waitExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 1.0)
+    }
+    
     // MARK: - Tests
     
     
+    
+    // MARK: - Display logic tests
+    
+    func testDisplayWillFetchPlace() {
+        self.loadView()
+        self.sut.tableView?.tableFooterView = nil
+        self.sut.displayWillFetchPlace()
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.tableView?.tableFooterView)
+        XCTAssertTrue(self.sut.tableView?.tableFooterView is UIActivityIndicatorView)
+    }
+    
+    func testDisplayDidFetchPlace() {
+        self.loadView()
+        self.sut.tableView?.tableFooterView = UIActivityIndicatorView(style: .medium)
+        self.sut.displayDidFetchPlace()
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.tableView?.tableFooterView)
+        XCTAssertFalse(self.sut.tableView?.tableFooterView is UIActivityIndicatorView)
+    }
+    
+    func testDisplayPlaceShouldUpdateDisplayedItems() {
+        self.sut.items = []
+        let items: [PlaceDetailsModels.DisplayedItem] = [PlaceDetailsModels.DisplayedItem(type: .photo, model: nil)]
+        self.sut.displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel(items: items))
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.items, items)
+    }
+    
+    func testDisplayPlaceShouldAskTheTableViewToReloadData() {
+        self.loadView()
+        let tableViewSpy = UITableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel(items: []))
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.reloadDataCalled)
+    }
+    
+    func testDisplayResetPlaceShouldResetDisplayedItems() {
+        self.sut.items = [PlaceDetailsModels.DisplayedItem(type: .photo, model: nil)]
+        self.sut.displayResetPlace()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.sut.items.isEmpty)
+    }
+    
+    func testDisplayResetPlaceShouldAskTheTableViewToReloadData() {
+        self.loadView()
+        let tableViewSpy = UITableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.displayResetPlace()
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.reloadDataCalled)
+    }
+    
+    func testDisplayWillFetchImage() {
+        let spy = PlaceDetailsPhotoTableViewCellInterfaceSpy()
+        let model = PlaceDetailsModels.PhotoModel()
+        model.cellInterface = spy
+        model.isLoadingImage = false
+        self.sut.displayWillFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel(model: model))
+        self.waitForMainQueue()
+        XCTAssertTrue(model.isLoadingImage)
+        XCTAssertTrue(spy.setIsLoadingImageCalled)
+    }
+    
+    func testDisplayDidFetchImage() {
+        let spy = PlaceDetailsPhotoTableViewCellInterfaceSpy()
+        let model = PlaceDetailsModels.PhotoModel()
+        model.cellInterface = spy
+        model.isLoadingImage = true
+        self.sut.displayDidFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel(model: model))
+        self.waitForMainQueue()
+        XCTAssertFalse(model.isLoadingImage)
+        XCTAssertTrue(spy.setIsLoadingImageCalled)
+    }
+    
+    func testDisplayImage() {
+        let spy = PlaceDetailsPhotoTableViewCellInterfaceSpy()
+        let model = PlaceDetailsModels.PhotoModel()
+        model.cellInterface = spy
+        model.image = nil
+        model.imageContentMode = .center
+        let image = UIImage()
+        let contentMode = UIView.ContentMode.scaleAspectFill
+        self.sut.displayImage(viewModel: PlaceDetailsModels.ImagePresentation.ViewModel(model: model, image: image, contentMode: contentMode))
+        self.waitForMainQueue()
+        XCTAssertEqual(model.image, image)
+        XCTAssertEqual(model.imageContentMode, contentMode)
+        XCTAssertTrue(spy.setImageCalled)
+    }
+    
+    func testDisplayErrorStateShouldSetTableViewBackgroundView() {
+        self.loadView()
+        self.sut.tableView?.backgroundView = nil
+        self.sut.displayErrorState(viewModel: PlaceDetailsModels.ErrorStatePresentation.ViewModel(image: nil, text: "Text".attributed()))
+        self.waitForMainQueue()
+        XCTAssertNotNil(self.sut.tableView?.backgroundView)
+        XCTAssertTrue(self.sut.tableView?.backgroundView is ErrorStateView)
+    }
+    
+    func testDisplayRemoveErrorStateShouldRemoveTableViewBackgroundView() {
+        self.loadView()
+        self.sut.tableView?.backgroundView = ErrorStateView(frame: .zero)
+        self.sut.displayRemoveErrorState()
+        self.waitForMainQueue()
+        XCTAssertNil(self.sut.tableView?.backgroundView)
+    }
+    
+    func testDisplayErrorAlertShouldAskTheRouterToNavigateToAlert() {
+        self.sut.displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel(title: "Title", message: "Message", cancelTitle: "Cancel"))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToAlertCalled)
+    }
+    
+    func testDisplayNavigateToFullscreenImageShouldAskTheRouterToNavigateToFullscreenImage() {
+        self.sut.displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel(imageName: "imageName"))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToFullscreenImageCalled)
+    }
 }

@@ -13,6 +13,8 @@ public class Place: Codable {
     var location: Location
     
     var name: String?
+    var description: String?
+    var commentCount: Int = 0
     
     var photo: Photo?
     
@@ -25,6 +27,8 @@ public class Place: Codable {
         case id
         case location
         case name
+        case description
+        case commentCount = "comment_count"
         case photo
     }
 }

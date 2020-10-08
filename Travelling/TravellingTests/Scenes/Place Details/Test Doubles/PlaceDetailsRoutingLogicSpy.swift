@@ -13,6 +13,15 @@
 @testable import Travelling
 import UIKit
 
-class PlaceDetailsRoutingLogicSpy: NSObject, PlaceDetailsRoutingLogic {
+class PlaceDetailsRoutingLogicSpy: PlaceDetailsRoutingLogic {
+    var navigateToAlertCalled: Bool = false
+    var navigateToFullscreenImageCalled: Bool = false
+        
+    func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
+        self.navigateToAlertCalled = true
+    }
     
+    func navigateToFullscreenImage(imageName: String?) {
+        self.navigateToFullscreenImageCalled = true
+    }
 }

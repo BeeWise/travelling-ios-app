@@ -13,5 +13,103 @@
 import UIKit
 
 enum PlaceDetailsModels {
+    enum ItemType: CaseIterable {
+        case photo
+        case description
+        case comments
+    }
     
+    struct DisplayedItem: Equatable {
+        static func == (lhs: PlaceDetailsModels.DisplayedItem, rhs: PlaceDetailsModels.DisplayedItem) -> Bool {
+            return lhs.type == rhs.type
+        }
+        
+        var type: ItemType
+        var model: Any?
+    }
+    
+    class PhotoModel {
+        var image: UIImage?
+        var imageName: String?
+        var imageContentMode: UIView.ContentMode = .scaleAspectFill
+        var imageDominantColor: UIColor?
+        var isLoadingImage: Bool = false
+        
+        weak var cellInterface: PlaceDetailsPhotoTableViewCellInterface?
+    }
+    
+    struct DescriptionModel {
+        var text: NSAttributedString?
+    }
+    
+    struct CommentsModel {
+        var text: NSAttributedString?
+        var time: NSAttributedString?
+    }
+    
+    enum PlacePresentation {
+        struct Response {
+            let place: Place
+        }
+        
+        struct ViewModel {
+            let items: [DisplayedItem]
+        }
+    }
+    
+    enum ImageFetching {
+        struct Request {
+            let model: PhotoModel
+        }
+        
+        struct Response {
+            let model: PhotoModel
+        }
+        
+        struct ViewModel {
+            let model: PhotoModel
+        }
+    }
+    
+    enum ImagePresentation {
+        struct Response {
+            let model: PhotoModel
+            let image: UIImage?
+        }
+        
+        struct ViewModel {
+            let model: PhotoModel
+            let image: UIImage?
+            let contentMode: UIView.ContentMode
+        }
+    }
+    
+    enum ErrorStatePresentation {
+        struct ViewModel {
+            let image: UIImage?
+            let text: NSAttributedString?
+        }
+    }
+    
+    enum ErrorAlertPresentation {
+        struct Response {
+            let error: OperationError
+        }
+        
+        struct ViewModel {
+            let title: String?
+            let message: String?
+            let cancelTitle: String?
+        }
+    }
+    
+    enum FullscreenImageNavigation {
+        struct Response {
+            let imageName: String?
+        }
+        
+        struct ViewModel {
+            let imageName: String?
+        }
+    }
 }

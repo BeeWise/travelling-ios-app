@@ -13,5 +13,64 @@
 @testable import Travelling
 
 class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
+    var displayWillFetchPlaceCalled: Bool = false
+    var displayDidFetchPlaceCalled: Bool = false
     
+    var displayPlaceCalled: Bool = false
+    var displayResetPlaceCalled: Bool = false
+    
+    var displayWillFetchImageCalled: Bool = false
+    var displayDidFetchImageCalled: Bool = false
+    var displayImageCalled: Bool = false
+    
+    var displayErrorStateCalled: Bool = false
+    var displayRemoveErrorStateCalled: Bool = false
+    
+    var displayErrorAlertCalled: Bool = false
+    
+    var displayNavigateToFullscreenImageCalled: Bool = false
+    
+    func displayWillFetchPlace() {
+        self.displayWillFetchPlaceCalled = true
+    }
+    
+    func displayDidFetchPlace() {
+        self.displayDidFetchPlaceCalled = true
+    }
+    
+    func displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel) {
+        self.displayPlaceCalled = true
+    }
+    
+    func displayResetPlace() {
+        self.displayResetPlaceCalled = true
+    }
+    
+    func displayWillFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel) {
+        self.displayWillFetchImageCalled = true
+    }
+    
+    func displayDidFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel) {
+        self.displayDidFetchImageCalled = true
+    }
+    
+    func displayImage(viewModel: PlaceDetailsModels.ImagePresentation.ViewModel) {
+        self.displayImageCalled = true
+    }
+    
+    func displayErrorState(viewModel: PlaceDetailsModels.ErrorStatePresentation.ViewModel) {
+        self.displayErrorStateCalled = true
+    }
+    
+    func displayRemoveErrorState() {
+        self.displayRemoveErrorStateCalled = true
+    }
+    
+    func displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel) {
+        self.displayErrorAlertCalled = true
+    }
+    
+    func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel) {
+        self.displayNavigateToFullscreenImageCalled = true
+    }
 }

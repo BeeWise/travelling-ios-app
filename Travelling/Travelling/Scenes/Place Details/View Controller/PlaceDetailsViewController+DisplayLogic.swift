@@ -13,9 +13,94 @@
 import UIKit
 
 protocol PlaceDetailsDisplayLogic: class {
+    func displayWillFetchPlace()
+    func displayDidFetchPlace()
+    func displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel)
+    func displayResetPlace()
     
+    func displayWillFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel)
+    func displayDidFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel)
+    func displayImage(viewModel: PlaceDetailsModels.ImagePresentation.ViewModel)
+    
+    func displayErrorState(viewModel: PlaceDetailsModels.ErrorStatePresentation.ViewModel)
+    func displayRemoveErrorState()
+    
+    func displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel)
+    
+    func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel)
 }
 
 extension PlaceDetailsViewController: PlaceDetailsDisplayLogic {
+    func displayWillFetchPlace() {
+        DispatchQueue.main.async {
+            self.tableView?.tableFooterView = self.setupActivityIndicatorView()
+        }
+    }
     
+    func displayDidFetchPlace() {
+        DispatchQueue.main.async {
+            self.tableView?.tableFooterView = UIView(frame: .zero)
+        }
+    }
+    
+    func displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.items = viewModel.items
+            self.tableView?.reloadData()
+        }
+    }
+    
+    func displayResetPlace() {
+        DispatchQueue.main.async {
+            self.items = []
+            self.tableView?.reloadData()
+        }
+    }
+    
+    func displayWillFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.model.isLoadingImage = true
+            viewModel.model.cellInterface?.setIsLoadingImage(isLoading: true)
+        }
+    }
+    
+    func displayDidFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.model.isLoadingImage = false
+            viewModel.model.cellInterface?.setIsLoadingImage(isLoading: false)
+        }
+    }
+    
+    func displayImage(viewModel: PlaceDetailsModels.ImagePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.model.image = viewModel.image
+            viewModel.model.imageContentMode = viewModel.contentMode
+            viewModel.model.cellInterface?.setImage(image: viewModel.image, contentMode: viewModel.contentMode)
+        }
+    }
+    
+    func displayErrorState(viewModel: PlaceDetailsModels.ErrorStatePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.tableView?.backgroundView = self.errorStateView(image: viewModel.image, attributedText: viewModel.text)
+        }
+    }
+    
+    func displayRemoveErrorState() {
+        DispatchQueue.main.async {
+            self.tableView?.backgroundView = nil
+        }
+    }
+    
+    func displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            let cancelAction = UIAlertAction(title: viewModel.cancelTitle, style: .cancel, handler: nil)
+            self.router?.navigateToAlert(title: viewModel.title, message: viewModel.message, actions: [cancelAction])
+        }
+    }
+    
+    func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel) {
+        DispatchQueue.main.async {
+            self.router?.navigateToFullscreenImage(imageName: viewModel.imageName)
+        }
+    }
 }

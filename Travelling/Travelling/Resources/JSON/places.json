@@ -2,6 +2,8 @@
     {
         "id": "0",
         "name": "The Six",
+        "description": "",
+        "comment_count": 108,
         "location": {
             "id": "0",
             "latitude": 43.651070,
@@ -19,6 +21,8 @@
     {
         "id": "1",
         "name": "City by the Bay",
+        "description": "",
+        "comment_count": 56,
         "location": {
             "id": "1",
             "latitude": 37.773972,
@@ -36,6 +40,8 @@
     {
         "id": "2",
         "name": "La Serenissima",
+        "description": "",
+        "comment_count": 230,
         "location": {
             "id": "2",
             "latitude": 45.438759,
@@ -53,6 +59,8 @@
     {
         "id": "3",
         "name": "The City of Lights",
+        "description": "",
+        "comment_count": 403,
         "location": {
             "id": "3",
             "latitude": 48.864716,
@@ -70,6 +78,8 @@
     {
         "id": "4",
         "name": "The City of a Hundred Spires",
+        "description": "",
+        "comment_count": 23,
         "location": {
             "id": "4",
             "latitude": 50.073658,
