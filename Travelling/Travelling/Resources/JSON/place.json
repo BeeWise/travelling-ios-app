@@ -1,0 +1,20 @@
+{
+    "id": "0",
+    "created_at": "2018-11-01T21:10:56Z",
+    "name": "The Six",
+    "description": "Toronto is the capital city of the Canadian province of Ontario. With a recorded population of 2,731,571 in 2016, it is the most populous city in Canada and the fourth most populous city in North America. The city is the anchor of the Golden Horseshoe, an urban agglomeration of 9,245,438 people (as of 2016) surrounding the western end of Lake Ontario, while the Greater Toronto Area (GTA) proper had a 2016 population of 6,417,516. Toronto is an international centre of business, finance, arts, and culture, and is recognized as one of the most multicultural and cosmopolitan cities in the world.",
+    "comment_count": 108,
+    "location": {
+        "id": "0",
+        "latitude": 43.651070,
+        "longitude": -79.347015,
+        "city": "Toronto",
+        "country": "Canada"
+    },
+    "photo": {
+        "id": "0",
+        "image_url": "",
+        "image_name": "toronto_canada",
+        "image_dominant_color": "#8e7866"
+    }
+}

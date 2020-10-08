@@ -332,6 +332,40 @@
 		28D4E621252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */; };
 		28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */; };
 		28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */; };
+		28FDC9E9252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */; };
+		28FDC9EA252EB968002D7439 /* PlaceDetailsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E0252EB968002D7439 /* PlaceDetailsStyle.swift */; };
+		28FDC9EB252EB968002D7439 /* PlaceDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E1252EB968002D7439 /* PlaceDetailsPresenter.swift */; };
+		28FDC9EC252EB968002D7439 /* PlaceDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E2252EB968002D7439 /* PlaceDetailsWorker.swift */; };
+		28FDC9ED252EB968002D7439 /* PlaceDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E3252EB968002D7439 /* PlaceDetailsRouter.swift */; };
+		28FDC9EE252EB968002D7439 /* PlaceDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E4252EB968002D7439 /* PlaceDetailsModels.swift */; };
+		28FDC9EF252EB968002D7439 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */; };
+		28FDC9F0252EB968002D7439 /* PlaceDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */; };
+		28FDC9F1252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */; };
+		28FDC9F2252EB968002D7439 /* PlaceDetailsLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */; };
+		28FDCA02252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9F7252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift */; };
+		28FDCA03252EBBED002D7439 /* PlaceDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9F8252EBBED002D7439 /* PlaceDetailsInteractorTests.swift */; };
+		28FDCA04252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9F9252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift */; };
+		28FDCA05252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FA252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift */; };
+		28FDCA06252EBBED002D7439 /* PlaceDetailsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FB252EBBED002D7439 /* PlaceDetailsWorkerTests.swift */; };
+		28FDCA07252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FC252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift */; };
+		28FDCA08252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FD252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift */; };
+		28FDCA09252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FE252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift */; };
+		28FDCA0A252EBBED002D7439 /* PlaceDetailsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FF252EBBED002D7439 /* PlaceDetailsRouterTests.swift */; };
+		28FDCA0B252EBBED002D7439 /* PlaceDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA00252EBBED002D7439 /* PlaceDetailsPresenterTests.swift */; };
+		28FDCA0C252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA01252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift */; };
+		28FDCA10252ED484002D7439 /* PlaceDetailsPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA0F252ED484002D7439 /* PlaceDetailsPhotoTableViewCell.swift */; };
+		28FDCA12252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA11252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift */; };
+		28FDCA14252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA13252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift */; };
+		28FDCA17252EE351002D7439 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 28FDCA19252EE351002D7439 /* Localizable.stringsdict */; };
+		28FDCA1E252EE975002D7439 /* GetPlaceOperationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA1D252EE975002D7439 /* GetPlaceOperationModels.swift */; };
+		28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA1F252EE97D002D7439 /* GetPlaceOperation.swift */; };
+		28FDCA22252EE986002D7439 /* GetPlaceLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */; };
+		28FDCA24252EE9C8002D7439 /* place.json in Resources */ = {isa = PBXBuildFile; fileRef = 28FDCA23252EE9C8002D7439 /* place.json */; };
+		28FDCA28252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */; };
+		28FDCA2A252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA29252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift */; };
+		28FDCA2C252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA2B252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift */; };
+		28FDCA2E252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA2D252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift */; };
+		28FDCA31252F1639002D7439 /* UIButton+ContentSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA30252F1639002D7439 /* UIButton+ContentSpacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -679,6 +713,41 @@
 		28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewControllerSpy.swift; sourceTree = "<group>"; };
 		28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerSpy.swift; sourceTree = "<group>"; };
+		28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+Subviews.swift"; sourceTree = "<group>"; };
+		28FDC9E0252EB968002D7439 /* PlaceDetailsStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsStyle.swift; sourceTree = "<group>"; };
+		28FDC9E1252EB968002D7439 /* PlaceDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPresenter.swift; sourceTree = "<group>"; };
+		28FDC9E2252EB968002D7439 /* PlaceDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorker.swift; sourceTree = "<group>"; };
+		28FDC9E3252EB968002D7439 /* PlaceDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsRouter.swift; sourceTree = "<group>"; };
+		28FDC9E4252EB968002D7439 /* PlaceDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsModels.swift; sourceTree = "<group>"; };
+		28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
+		28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsInteractor.swift; sourceTree = "<group>"; };
+		28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsLocalization.swift; sourceTree = "<group>"; };
+		28FDC9F7252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		28FDC9F8252EBBED002D7439 /* PlaceDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		28FDC9F9252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FA252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		28FDC9FB252EBBED002D7439 /* PlaceDetailsWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorkerTests.swift; sourceTree = "<group>"; };
+		28FDC9FC252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FD252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FE252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FF252EBBED002D7439 /* PlaceDetailsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsRouterTests.swift; sourceTree = "<group>"; };
+		28FDCA00252EBBED002D7439 /* PlaceDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPresenterTests.swift; sourceTree = "<group>"; };
+		28FDCA01252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorkerSpy.swift; sourceTree = "<group>"; };
+		28FDCA0F252ED484002D7439 /* PlaceDetailsPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPhotoTableViewCell.swift; sourceTree = "<group>"; };
+		28FDCA11252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPhotoTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
+		28FDCA13252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewControllerSpy.swift; sourceTree = "<group>"; };
+		28FDCA18252EE351002D7439 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		28FDCA1A252EE353002D7439 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ro; path = ro.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		28FDCA1D252EE975002D7439 /* GetPlaceOperationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceOperationModels.swift; sourceTree = "<group>"; };
+		28FDCA1F252EE97D002D7439 /* GetPlaceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceOperation.swift; sourceTree = "<group>"; };
+		28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceLocalOperation.swift; sourceTree = "<group>"; };
+		28FDCA23252EE9C8002D7439 /* place.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place.json; sourceTree = "<group>"; };
+		28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceLocalOperationTests.swift; sourceTree = "<group>"; };
+		28FDCA29252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		28FDCA2B252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		28FDCA2D252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		28FDCA30252F1639002D7439 /* UIButton+ContentSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ContentSpacing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -702,6 +771,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28FDC9DE252EB95A002D7439 /* Place Details */,
 				281F613F252C20E500082CC5 /* Sign Up */,
 				286D900A252AC96D0012DB1D /* Forgot Password */,
 				28CEC7AA2529D2360063DCFE /* Login */,
@@ -759,6 +829,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28FDC9F6252EBBDF002D7439 /* Place Details */,
 				281F6171252C3F7900082CC5 /* Sign Up */,
 				286D9031252AE6250012DB1D /* Forgot Password */,
 				28CEC7D72529E8090063DCFE /* Login */,
@@ -801,6 +872,7 @@
 		2812D489250CDF010079F879 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				28FDCA2F252F162C002D7439 /* UIButton */,
 				281F6157252C249900082CC5 /* UIImage */,
 				286D9022252ACC420012DB1D /* UIApplication */,
 				28CEC7D42529DD290063DCFE /* Case Iterable */,
@@ -1016,6 +1088,7 @@
 		28179ED3250DFFF00081FD3A /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28FDCA1B252EE957002D7439 /* Place */,
 				28D3A81D25242F21008FFF92 /* Authentication */,
 				28BD8CFA2522FE6200C30F64 /* User */,
 				287A356C2517574300898B51 /* Image */,
@@ -1394,6 +1467,7 @@
 			children = (
 				283B5726250CC29300EFA651 /* Localizable.strings */,
 				28841A70252040EC0072A515 /* InfoPlist.strings */,
+				28FDCA19252EE351002D7439 /* Localizable.stringsdict */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -1612,6 +1686,7 @@
 			children = (
 				2888978F250E29990017B0B1 /* places.json */,
 				28BD8D022522FFA300C30F64 /* user.json */,
+				28FDCA23252EE9C8002D7439 /* place.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1619,6 +1694,7 @@
 		28889793250E32DB0017B0B1 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				28FDCA25252EEA6E002D7439 /* Place */,
 				28D3A8252524302D008FFF92 /* Authentication */,
 				28BD8D042523057E00C30F64 /* User */,
 				287A3576251757C600898B51 /* Image */,
@@ -2204,6 +2280,129 @@
 			path = "User Defaults";
 			sourceTree = "<group>";
 		};
+		28FDC9DE252EB95A002D7439 /* Place Details */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA0E252ED46E002D7439 /* Cells */,
+				28FDC9F5252EB983002D7439 /* View Controller */,
+				28FDC9F4252EB97B002D7439 /* Style */,
+				28FDC9F3252EB973002D7439 /* Localization */,
+				28FDC9E1252EB968002D7439 /* PlaceDetailsPresenter.swift */,
+				28FDC9E2252EB968002D7439 /* PlaceDetailsWorker.swift */,
+				28FDC9E3252EB968002D7439 /* PlaceDetailsRouter.swift */,
+				28FDC9E4252EB968002D7439 /* PlaceDetailsModels.swift */,
+				28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */,
+			);
+			path = "Place Details";
+			sourceTree = "<group>";
+		};
+		28FDC9F3252EB973002D7439 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		28FDC9F4252EB97B002D7439 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9E0252EB968002D7439 /* PlaceDetailsStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		28FDC9F5252EB983002D7439 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */,
+				28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */,
+				28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */,
+				28FDCA2B252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		28FDC9F6252EBBDF002D7439 /* Place Details */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA0D252EBC0A002D7439 /* Test Doubles */,
+				28FDC9F7252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift */,
+				28FDC9F8252EBBED002D7439 /* PlaceDetailsInteractorTests.swift */,
+				28FDC9FB252EBBED002D7439 /* PlaceDetailsWorkerTests.swift */,
+				28FDC9FF252EBBED002D7439 /* PlaceDetailsRouterTests.swift */,
+				28FDCA00252EBBED002D7439 /* PlaceDetailsPresenterTests.swift */,
+			);
+			path = "Place Details";
+			sourceTree = "<group>";
+		};
+		28FDCA0D252EBC0A002D7439 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9F9252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift */,
+				28FDC9FA252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift */,
+				28FDC9FC252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift */,
+				28FDC9FD252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift */,
+				28FDC9FE252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift */,
+				28FDCA01252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift */,
+				28FDCA11252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift */,
+				28FDCA13252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift */,
+			);
+			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
+		28FDCA0E252ED46E002D7439 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA0F252ED484002D7439 /* PlaceDetailsPhotoTableViewCell.swift */,
+				28FDCA29252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift */,
+				28FDCA2D252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		28FDCA1B252EE957002D7439 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA1C252EE95F002D7439 /* Get */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		28FDCA1C252EE95F002D7439 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA1D252EE975002D7439 /* GetPlaceOperationModels.swift */,
+				28FDCA1F252EE97D002D7439 /* GetPlaceOperation.swift */,
+				28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
+		28FDCA25252EEA6E002D7439 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA26252EEA7C002D7439 /* Get */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		28FDCA26252EEA7C002D7439 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
+		28FDCA2F252F162C002D7439 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA30252F1639002D7439 /* UIButton+ContentSpacing.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2291,6 +2490,8 @@
 				283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */,
 				28889790250E29990017B0B1 /* places.json in Resources */,
 				28841A6E252040EC0072A515 /* InfoPlist.strings in Resources */,
+				28FDCA17252EE351002D7439 /* Localizable.stringsdict in Resources */,
+				28FDCA24252EE9C8002D7439 /* place.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2313,6 +2514,7 @@
 				28D4E5FF25297F1A00A1ED86 /* FullscreenImageRouter.swift in Sources */,
 				28CEC7D12529DBB50063DCFE /* LoginInteractor+Validations.swift in Sources */,
 				28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */,
+				28FDCA2C252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift in Sources */,
 				28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
 				28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */,
@@ -2322,6 +2524,7 @@
 				281F4F8D2520CDA9008475D7 /* MyProfileViewController+Subviews.swift in Sources */,
 				287A356725173BAB00898B51 /* String+HexColor.swift in Sources */,
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
+				28FDC9F0252EB968002D7439 /* PlaceDetailsInteractor.swift in Sources */,
 				2812D462250CDAC90079F879 /* MainStyle.swift in Sources */,
 				28B3862F2529B6AB00CA7840 /* OnboardingRouter.swift in Sources */,
 				286D9029252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift in Sources */,
@@ -2337,6 +2540,7 @@
 				286D9027252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift in Sources */,
 				281F614F252C20FB00082CC5 /* SignUpModels.swift in Sources */,
 				28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */,
+				28FDC9ED252EB968002D7439 /* PlaceDetailsRouter.swift in Sources */,
 				286D9030252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift in Sources */,
 				28179ED6250E000E0081FD3A /* AsynchronousOperation.swift in Sources */,
 				28D4E60425297F1A00A1ED86 /* FullscreenImageLocalization.swift in Sources */,
@@ -2345,11 +2549,13 @@
 				2812D469250CDAC90079F879 /* MainViewController+DisplayLogic.swift in Sources */,
 				28D3A82025242F38008FFF92 /* LogoutUserOperationModels.swift in Sources */,
 				28179EAB250DFC700081FD3A /* ExploreViewController+TableViewDelegate.swift in Sources */,
+				28FDCA2A252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift in Sources */,
 				288897C6250E3DF30017B0B1 /* UIFont+WithTraits.swift in Sources */,
 				28179EA5250DFC700081FD3A /* ExploreStyle.swift in Sources */,
 				283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */,
 				28CEC7C72529D79F0063DCFE /* LoginTextFieldCell.swift in Sources */,
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
+				28FDCA1E252EE975002D7439 /* GetPlaceOperationModels.swift in Sources */,
 				281F614E252C20FB00082CC5 /* SignUpRouter.swift in Sources */,
 				2888978D250E29530017B0B1 /* GetPlacesOperationModels.swift in Sources */,
 				281F4F8F2520CDA9008475D7 /* MyProfilePresenter.swift in Sources */,
@@ -2363,6 +2569,7 @@
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
 				281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */,
 				281F615C252C275A00082CC5 /* SignUpTextFieldCell.swift in Sources */,
+				28FDC9F1252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift in Sources */,
 				28D3A82D2524316D008FFF92 /* AuthenticationTaskModels.swift in Sources */,
 				28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */,
 				28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */,
@@ -2376,6 +2583,7 @@
 				28179EAC250DFC700081FD3A /* ExploreInteractor.swift in Sources */,
 				28BD8D0C2523063A00C30F64 /* UsersTaskProtocol.swift in Sources */,
 				281F4F902520CDA9008475D7 /* MyProfileWorker.swift in Sources */,
+				28FDC9EE252EB968002D7439 /* PlaceDetailsModels.swift in Sources */,
 				28D4E5FB25297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift in Sources */,
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				28CEC7C92529D85B0063DCFE /* LoginButtonCell.swift in Sources */,
@@ -2385,12 +2593,14 @@
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				281F6170252C39B600082CC5 /* SignUpViewController+TableViewDataSource.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
+				28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */,
 				286D901E252AC97D0012DB1D /* ForgotPasswordLocalization.swift in Sources */,
 				28D4E60225297F1A00A1ED86 /* FullscreenImageInteractor.swift in Sources */,
 				28CEC7B92529D2510063DCFE /* LoginRouter.swift in Sources */,
 				28179EAF250DFC700081FD3A /* ExploreLocalization.swift in Sources */,
 				28CEC7D62529DD360063DCFE /* CaseIterable+Next.swift in Sources */,
 				28CEC7B52529D2510063DCFE /* LoginViewController+Subviews.swift in Sources */,
+				28FDCA10252ED484002D7439 /* PlaceDetailsPhotoTableViewCell.swift in Sources */,
 				281F4F812520CAD4008475D7 /* Photo.swift in Sources */,
 				287A356925174BC600898B51 /* String+NilOrEmpty.swift in Sources */,
 				281F6162252C28C400082CC5 /* PlaceholderTextView.swift in Sources */,
@@ -2409,9 +2619,11 @@
 				2812D468250CDAC90079F879 /* MainInteractor.swift in Sources */,
 				28D4E5FD25297F1A00A1ED86 /* FullscreenImagePresenter.swift in Sources */,
 				28D4E60325297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift in Sources */,
+				28FDC9E9252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift in Sources */,
 				28CEC7BA2529D2510063DCFE /* LoginModels.swift in Sources */,
 				281F4FBB2520DECE008475D7 /* Bundle+Version.swift in Sources */,
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
+				28FDC9EB252EB968002D7439 /* PlaceDetailsPresenter.swift in Sources */,
 				28179EAA250DFC700081FD3A /* ExploreViewController.swift in Sources */,
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
@@ -2427,20 +2639,26 @@
 				281F6164252C290100082CC5 /* SignUpTextViewCell.swift in Sources */,
 				28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */,
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
+				28FDC9EC252EB968002D7439 /* PlaceDetailsWorker.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */,
+				28FDCA22252EE986002D7439 /* GetPlaceLocalOperation.swift in Sources */,
 				286D902C252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift in Sources */,
 				28179EA9250DFC700081FD3A /* ExploreModels.swift in Sources */,
 				28CEC7BC2529D2510063DCFE /* LoginInteractor.swift in Sources */,
 				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
 				287A35802517592B00898B51 /* ImageTask.swift in Sources */,
 				281F6151252C20FB00082CC5 /* SignUpInteractor.swift in Sources */,
+				28FDCA2E252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift in Sources */,
+				28FDC9F2252EB968002D7439 /* PlaceDetailsLocalization.swift in Sources */,
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
+				28FDCA31252F1639002D7439 /* UIButton+ContentSpacing.swift in Sources */,
 				28D3A82F25243174008FFF92 /* AuthenticationTask.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28CEC7C42529D6DE0063DCFE /* TitleTextFieldView.swift in Sources */,
 				28BD8D1625230E4B00C30F64 /* LoadingImageView.swift in Sources */,
 				28CEC7BD2529D2510063DCFE /* LoginViewController+DisplayLogic.swift in Sources */,
+				28FDC9EF252EB968002D7439 /* PlaceDetailsViewController.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
 				28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */,
 				28B386312529B6AB00CA7840 /* OnboardingViewController.swift in Sources */,
@@ -2464,6 +2682,7 @@
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
 				281F6168252C2A6500082CC5 /* SignUpButtonCell.swift in Sources */,
 				286D901C252AC97D0012DB1D /* ForgotPasswordInteractor.swift in Sources */,
+				28FDC9EA252EB968002D7439 /* PlaceDetailsStyle.swift in Sources */,
 				28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */,
 				281F615F252C286900082CC5 /* Title Text View.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
@@ -2505,6 +2724,7 @@
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
 				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28CEC7EB2529E8160063DCFE /* LoginRouterTests.swift in Sources */,
+				28FDCA08252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift in Sources */,
 				286D904A252AE7970012DB1D /* URLOpenableSpy.swift in Sources */,
 				28889798250E33050017B0B1 /* DataTaskOperationTests.swift in Sources */,
 				28D4E61D2529846500A1ED86 /* FullscreenImagePresenterTests.swift in Sources */,
@@ -2512,18 +2732,22 @@
 				2812D493250CE7760079F879 /* AppPresenterTests.swift in Sources */,
 				28CEC7E92529E8160063DCFE /* LoginRoutingLogicSpy.swift in Sources */,
 				288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */,
+				28FDCA05252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift in Sources */,
 				28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */,
 				286D9041252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift in Sources */,
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
+				28FDCA0A252EBBED002D7439 /* PlaceDetailsRouterTests.swift in Sources */,
 				281F4FAE2520CDF6008475D7 /* MyProfileRouterTests.swift in Sources */,
 				28CEC7F02529E9240063DCFE /* LoginViewControllerSpy.swift in Sources */,
 				281F4FAF2520CDF6008475D7 /* MyProfilePresenterTests.swift in Sources */,
 				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
 				281F6187252C3F8800082CC5 /* SignUpWorkerSpy.swift in Sources */,
 				28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */,
+				28FDCA03252EBBED002D7439 /* PlaceDetailsInteractorTests.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
+				28FDCA07252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift in Sources */,
 				28B3864A2529C6A000CA7840 /* OnboardingWorkerTests.swift in Sources */,
 				281F617D252C3F8800082CC5 /* SignUpViewControllerTests.swift in Sources */,
 				2812D480250CDB150079F879 /* MainPresentationLogicSpy.swift in Sources */,
@@ -2544,9 +2768,12 @@
 				28CEC7ED2529E8160063DCFE /* LoginWorkerSpy.swift in Sources */,
 				288897BA250E34D00017B0B1 /* ExploreBusinessLogicSpy.swift in Sources */,
 				28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */,
+				28FDCA02252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift in Sources */,
+				28FDCA0B252EBBED002D7439 /* PlaceDetailsPresenterTests.swift in Sources */,
 				281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */,
 				281F618A252C407800082CC5 /* SignUpViewControllerSpy.swift in Sources */,
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
+				28FDCA09252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
 				286D9046252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift in Sources */,
 				286D9045252AE63E0012DB1D /* ForgotPasswordRouterTests.swift in Sources */,
@@ -2556,6 +2783,7 @@
 				281F4FA72520CDF6008475D7 /* MyProfileInteractorTests.swift in Sources */,
 				28B3864C2529C6A000CA7840 /* OnboardingRoutingLogicSpy.swift in Sources */,
 				28CEC7E72529E8160063DCFE /* LoginWorkerTests.swift in Sources */,
+				28FDCA28252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift in Sources */,
 				2812D47F250CDB150079F879 /* MainWorkerTests.swift in Sources */,
 				28B3864E2529C6A000CA7840 /* OnboardingRouterTests.swift in Sources */,
 				28CEC7EC2529E8160063DCFE /* LoginPresenterTests.swift in Sources */,
@@ -2563,6 +2791,7 @@
 				28D3A8282524304A008FFF92 /* LogoutUserLocalOperationTests.swift in Sources */,
 				28BD8D13252307C400C30F64 /* UsersTaskSpy.swift in Sources */,
 				281F6185252C3F8800082CC5 /* SignUpRouterTests.swift in Sources */,
+				28FDCA14252ED537002D7439 /* PlaceDetailsViewControllerSpy.swift in Sources */,
 				286D9047252AE63E0012DB1D /* ForgotPasswordWorkerSpy.swift in Sources */,
 				288897B5250E34D00017B0B1 /* ExploreDisplayLogicSpy.swift in Sources */,
 				288897BB250E34D00017B0B1 /* ExploreRouterTests.swift in Sources */,
@@ -2578,6 +2807,7 @@
 				28D4E6172529846500A1ED86 /* FullscreenImageWorkerDelegateSpy.swift in Sources */,
 				28B3864D2529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift in Sources */,
 				281F618C252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift in Sources */,
+				28FDCA12252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				28D4E6182529846500A1ED86 /* FullscreenImageWorkerTests.swift in Sources */,
@@ -2587,6 +2817,7 @@
 				28B3864B2529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift in Sources */,
 				28CEC7E42529E8160063DCFE /* LoginInteractorTests.swift in Sources */,
 				28D4E61C2529846500A1ED86 /* FullscreenImageRouterTests.swift in Sources */,
+				28FDCA04252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
 				281F6182252C3F8800082CC5 /* SignUpPresentationLogicSpy.swift in Sources */,
 				28D4E61E2529846500A1ED86 /* FullscreenImageWorkerSpy.swift in Sources */,
@@ -2617,6 +2848,8 @@
 				28B386492529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift in Sources */,
 				2812D47C250CDB150079F879 /* MainInteractorTests.swift in Sources */,
 				281F617F252C3F8800082CC5 /* SignUpDisplayLogicSpy.swift in Sources */,
+				28FDCA0C252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift in Sources */,
+				28FDCA06252EBBED002D7439 /* PlaceDetailsWorkerTests.swift in Sources */,
 				281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */,
 				288897B9250E34D00017B0B1 /* ExploreRoutingLogicSpy.swift in Sources */,
 				28B3864F2529C6A000CA7840 /* OnboardingPresenterTests.swift in Sources */,
@@ -2673,6 +2906,15 @@
 				28841A71252040EF0072A515 /* ro */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		28FDCA19252EE351002D7439 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28FDCA18252EE351002D7439 /* en */,
+				28FDCA1A252EE353002D7439 /* ro */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

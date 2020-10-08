@@ -7,7 +7,15 @@
 
 import Foundation
 
-public class Location: Codable {
+public class Location: Codable, Equatable {
+    public static func == (lhs: Location, rhs: Location) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.latitude == rhs.latitude &&
+            lhs.longitude == rhs.longitude &&
+            lhs.city == rhs.city &&
+            lhs.country == rhs.country
+    }
+    
     var id: String
     
     var latitude: Double
