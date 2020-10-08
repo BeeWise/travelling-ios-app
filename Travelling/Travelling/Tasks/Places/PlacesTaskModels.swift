@@ -9,7 +9,7 @@
 import Foundation
 
 public enum PlacesTaskModels {
-    public enum Fetch {
+    public enum FetchPlaces {
         public struct Request {
             let page: Int
             let limit: Int
@@ -19,6 +19,16 @@ public enum PlacesTaskModels {
             let places: [Place]
             let page: Int
             let limit: Int
+        }
+    }
+    
+    public enum FetchPlace {
+        public struct Request {
+            let placeId: String?
+        }
+        
+        public struct Response {
+            let place: Place
         }
     }
 }
