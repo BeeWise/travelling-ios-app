@@ -47,6 +47,12 @@ enum PlaceDetailsModels {
         var time: NSAttributedString?
     }
     
+    enum PlaceSetup {
+        struct Request {
+            let place: Place
+        }
+    }
+    
     enum PlacePresentation {
         struct Response {
             let place: Place

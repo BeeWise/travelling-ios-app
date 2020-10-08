@@ -67,7 +67,7 @@ extension PlaceDetailsViewController {
 extension PlaceDetailsViewController {
     @objc func valueChangedRefreshControl(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-//        self.interactor?.shouldRefreshUser()
+        self.interactor?.shouldRefreshPlace()
     }
 }
 
@@ -75,6 +75,6 @@ extension PlaceDetailsViewController {
 
 extension PlaceDetailsViewController: ErrorStateViewDelegate {
     func errorStateView(view: ErrorStateView?, touchUpInsideButton button: UIButton?) {
-//        self.interactor?.shouldRefreshUser()
+        self.interactor?.shouldRefreshPlace()
     }
 }

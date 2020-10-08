@@ -16,15 +16,15 @@ class PlaceDetailsViewController: UITableViewController {
     var interactor: PlaceDetailsBusinessLogic?
     var router: PlaceDetailsRoutingLogic?
     
-    var place: Place?
+    var place: Place
     var items: [PlaceDetailsModels.DisplayedItem] = []
     
     // MARK: - Object lifecycle
     
-    init(place: Place?) {
+    init(place: Place) {
+        self.place = place
         super.init(style: .plain)
         self.setup()
-        self.place = place
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,5 +50,6 @@ class PlaceDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
+        self.interactor?.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: self.place))
     }
 }

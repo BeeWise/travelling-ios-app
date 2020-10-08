@@ -274,6 +274,4 @@ class MyProfileInteractorTests: XCTestCase {
         self.sut.shouldSelectAvatar()
         XCTAssertTrue(self.presenterSpy.presentNavigateToFullscreenImageCalled)
     }
-    
-    
 }

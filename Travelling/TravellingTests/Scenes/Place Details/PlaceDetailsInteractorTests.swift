@@ -41,7 +41,157 @@ class PlaceDetailsInteractorTests: XCTestCase {
         self.sut.worker = self.workerSpy
     }
     
-    // MARK: - Tests
-  
+    // MARK: - Setup place tests
     
+    func testShouldSetupPlaceShouldUpdatePlace() {
+        self.sut.place = nil
+        let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))
+        self.sut.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: place))
+        XCTAssertEqual(self.sut.place, place)
+    }
+    
+    func testShouldSetupPlaceShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
+    func testShouldSetupPlaceShouldAskThePresenterToPresentPlaceWhenThereIsPlace() {
+        let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))
+        self.sut.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: place))
+        XCTAssertTrue(self.presenterSpy.presentPlaceCalled)
+    }
+    
+    // MARK: - Fetch place tests
+    
+    func testSuccessDidFetchPlaceShouldUpdateIsFetchingPlaceFlag() {
+        self.sut.isFetchingPlace = true
+        self.sut.successDidFetchPlace(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
+        XCTAssertFalse(self.sut.isFetchingPlace)
+    }
+    
+    func testSuccessDidFetchPlaceShouldUpdatePlace() {
+        self.sut.place = nil
+        let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))
+        self.sut.successDidFetchPlace(place: place)
+        XCTAssertEqual(self.sut.place, place)
+    }
+    
+    func testSuccessDidFetchPlaceShouldAskThePresenterToPresentPlace() {
+        self.sut.successDidFetchPlace(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
+        XCTAssertTrue(self.presenterSpy.presentPlaceCalled)
+    }
+    
+    func testSuccessDidFetchPlaceShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.successDidFetchPlace(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
+    func testSuccessDidFetchPlaceShouldAskThePresenterToPresentDidFetchPlace() {
+        self.sut.successDidFetchPlace(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
+        XCTAssertTrue(self.presenterSpy.presentDidFetchPlaceCalled)
+    }
+    
+    func testFailureDidFetchPlaceShouldUpdateIsFetchingPlaceFlag() {
+        self.sut.isFetchingPlace = true
+        self.sut.failureDidFetchPlace(error: OperationError.noDataAvailable)
+        XCTAssertFalse(self.sut.isFetchingPlace)
+    }
+    
+    func testFailureDidFetchPlaceShouldAskThePresenterToPresentErrorState() {
+        self.sut.failureDidFetchPlace(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentErrorStateCalled)
+    }
+    
+    func testFailureDidFetchPlaceShouldAskThePresenterToPresentDidFetchPlace() {
+        self.sut.failureDidFetchPlace(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchPlaceCalled)
+    }
+    
+    // MARK: - Refresh place tests
+    
+    func testShouldRefreshPlaceShouldUpdateIsFetchingPlaceFlag() {
+        self.sut.isFetchingPlace = false
+        self.sut.shouldRefreshPlace()
+        XCTAssertTrue(self.sut.isFetchingPlace)
+    }
+    
+    func testShouldRefreshPlaceShouldAskThePresenterToPresentResetPlace() {
+        self.sut.isFetchingPlace = false
+        self.sut.shouldRefreshPlace()
+        XCTAssertTrue(self.presenterSpy.presentResetPlaceCalled)
+    }
+    
+    func testShouldRefreshPlaceShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.isFetchingPlace = false
+        self.sut.shouldRefreshPlace()
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
+    func testShouldRefreshPlaceShouldAskThePresenterToPresentWillFetchPlace() {
+        self.sut.isFetchingPlace = false
+        self.sut.shouldRefreshPlace()
+        XCTAssertTrue(self.presenterSpy.presentWillFetchPlaceCalled)
+    }
+    
+    func testShouldRefreshPlaceShouldAskTheWorkerToFetchPlace() {
+        self.sut.isFetchingPlace = false
+        self.sut.shouldRefreshPlace()
+        XCTAssertTrue(self.workerSpy.fetchPlaceCalled)
+    }
+    
+    // MARK: - Fetch image tests
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndImageName() {
+        let model = PlaceDetailsModels.PhotoModel()
+        model.image = nil
+        model.imageName = nil
+        self.sut.shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndEmptyImageName() {
+        let model = PlaceDetailsModels.PhotoModel()
+        model.image = nil
+        model.imageName = ""
+        self.sut.shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentWillFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let model = PlaceDetailsModels.PhotoModel()
+        model.image = nil
+        model.imageName = "imageName"
+        model.isLoadingImage = false
+        self.sut.shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.presenterSpy.presentWillFetchImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskTheWorkerToFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let model = PlaceDetailsModels.PhotoModel()
+        model.image = nil
+        model.imageName = "imageName"
+        model.isLoadingImage = false
+        self.sut.shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request(model: model))
+        XCTAssertTrue(self.workerSpy.fetchImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentImage() {
+        self.sut.successDidFetchImage(model: PlaceDetailsModels.PhotoModel(), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.successDidFetchImage(model: PlaceDetailsModels.PhotoModel(), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentPlaceholderImage() {
+        self.sut.failureDidFetchImage(model: PlaceDetailsModels.PhotoModel(), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.failureDidFetchImage(model: PlaceDetailsModels.PhotoModel(), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
 }

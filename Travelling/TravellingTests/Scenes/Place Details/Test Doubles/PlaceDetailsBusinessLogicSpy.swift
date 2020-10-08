@@ -13,5 +13,19 @@
 @testable import Travelling
 
 class PlaceDetailsBusinessLogicSpy: PlaceDetailsBusinessLogic {
+    var shouldSetupPlaceCalled: Bool = false
+    var shouldRefreshPlaceCalled: Bool = false
+    var shouldFetchImageCalled: Bool = false
     
+    func shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request) {
+        self.shouldSetupPlaceCalled = true
+    }
+    
+    func shouldRefreshPlace() {
+        self.shouldRefreshPlaceCalled = true
+    }
+    
+    func shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request) {
+        self.shouldFetchImageCalled = true
+    }
 }
