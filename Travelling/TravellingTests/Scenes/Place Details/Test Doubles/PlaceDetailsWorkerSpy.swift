@@ -13,5 +13,14 @@
 @testable import Travelling
 
 class PlaceDetailsWorkerSpy: PlaceDetailsWorker {
+    var fetchPlaceCalled: Bool = false
+    var fetchImageCalled: Bool = false
     
+    override func fetchPlace(placeId: String?) {
+        self.fetchPlaceCalled = true
+    }
+    
+    override func fetchImage(model: PlaceDetailsModels.PhotoModel) {
+        self.fetchImageCalled = true
+    }
 }

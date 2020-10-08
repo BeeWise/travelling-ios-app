@@ -26,5 +26,19 @@ class PlaceDetailsInteractor: PlaceDetailsBusinessLogic {
 }
 
 extension PlaceDetailsInteractor: PlaceDetailsWorkerDelegate {
+    func successDidFetchPlace(place: Place) {
+        
+    }
     
+    func failureDidFetchPlace(error: OperationError) {
+        
+    }
+    
+    func successDidFetchImage(model: PlaceDetailsModels.PhotoModel, image: UIImage?) {
+        
+    }
+    
+    func failureDidFetchImage(model: PlaceDetailsModels.PhotoModel, error: OperationError) {
+        
+    }
 }

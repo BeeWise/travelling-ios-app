@@ -11,7 +11,28 @@
 //
 
 @testable import Travelling
+import UIKit
 
 class PlaceDetailsWorkerDelegateSpy: PlaceDetailsWorkerDelegate {
+    var successDidFetchImageCalled: Bool = false
+    var failureDidFetchPlaceCalled: Bool = false
     
+    var successDidFetchPlaceCalled: Bool = false
+    var failureDidFetchImageCalled: Bool = false
+    
+    func successDidFetchImage(model: PlaceDetailsModels.PhotoModel, image: UIImage?) {
+        self.successDidFetchImageCalled = true
+    }
+    
+    func failureDidFetchPlace(error: OperationError) {
+        self.failureDidFetchPlaceCalled = true
+    }
+    
+    func successDidFetchPlace(place: Place) {
+        self.successDidFetchPlaceCalled = true
+    }
+    
+    func failureDidFetchImage(model: PlaceDetailsModels.PhotoModel, error: OperationError) {
+        self.failureDidFetchImageCalled = true
+    }
 }
