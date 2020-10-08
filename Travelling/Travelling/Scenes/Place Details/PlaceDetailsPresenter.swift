@@ -13,9 +13,126 @@
 import UIKit
 
 protocol PlaceDetailsPresentationLogic {
+    func presentWillFetchPlace()
+    func presentDidFetchPlace()
+    func presentPlace(response: PlaceDetailsModels.PlacePresentation.Response)
+    func presentResetPlace()
     
+    func presentWillFetchImage(response: PlaceDetailsModels.ImageFetching.Response)
+    func presentDidFetchImage(response: PlaceDetailsModels.ImageFetching.Response)
+    func presentImage(response: PlaceDetailsModels.ImagePresentation.Response)
+    func presentPlaceholderImage(response: PlaceDetailsModels.ImagePresentation.Response)
+        
+    func presentErrorState()
+    func presentRemoveErrorState()
+    
+    func presentErrorAlert(response: PlaceDetailsModels.ErrorAlertPresentation.Response)
+    
+    func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response)
 }
 
 class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
     weak var displayer: PlaceDetailsDisplayLogic?
+    
+    var iso8601DateFormatter: ISO8601DateFormatter = ISO8601DateFormatter()
+    var dateFormatter: DateFormatter = DateFormatter()
+    
+    init() {
+        self.dateFormatter.dateStyle = .medium
+        self.dateFormatter.timeStyle = .none
+    }
+        
+    func presentWillFetchPlace() {
+        self.displayer?.displayWillFetchPlace()
+    }
+    
+    func presentDidFetchPlace() {
+        self.displayer?.displayDidFetchPlace()
+    }
+    
+    func presentPlace(response: PlaceDetailsModels.PlacePresentation.Response) {
+        self.displayer?.displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel(items: self.displayedItems(place: response.place)))
+    }
+    
+    func presentResetPlace() {
+        self.displayer?.displayResetPlace()
+    }
+    
+    func presentWillFetchImage(response: PlaceDetailsModels.ImageFetching.Response) {
+        self.displayer?.displayWillFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel(model: response.model))
+    }
+    
+    func presentDidFetchImage(response: PlaceDetailsModels.ImageFetching.Response) {
+        self.displayer?.displayDidFetchImage(viewModel: PlaceDetailsModels.ImageFetching.ViewModel(model: response.model))
+    }
+    
+    func presentImage(response: PlaceDetailsModels.ImagePresentation.Response) {
+        self.displayer?.displayImage(viewModel: PlaceDetailsModels.ImagePresentation.ViewModel(model: response.model, image: response.image, contentMode: .scaleAspectFill))
+    }
+    
+    func presentPlaceholderImage(response: PlaceDetailsModels.ImagePresentation.Response) {
+        let image = PlaceDetailsStyle.shared.photoCellModel.imagePlaceholderImage
+        self.displayer?.displayImage(viewModel: PlaceDetailsModels.ImagePresentation.ViewModel(model: response.model, image: image, contentMode: .center))
+    }
+    
+    func presentErrorState() {
+        let image = PlaceDetailsStyle.shared.errorStateViewModel.image
+        let text = PlaceDetailsLocalization.shared.errorStateText.attributed(attributes: PlaceDetailsStyle.shared.errorStateViewModel.textAttributes())
+        self.displayer?.displayErrorState(viewModel: PlaceDetailsModels.ErrorStatePresentation.ViewModel(image: image, text: text))
+    }
+    
+    func presentRemoveErrorState() {
+        self.displayer?.displayRemoveErrorState()
+    }
+    
+    func presentErrorAlert(response: PlaceDetailsModels.ErrorAlertPresentation.Response) {
+        let message = PlaceDetailsLocalization.shared.errorAlertMessage
+        let cancelTitle = PlaceDetailsLocalization.shared.errorAlertCancelTitle
+        self.displayer?.displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel(title: nil, message: message, cancelTitle: cancelTitle))
+    }
+    
+    func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response) {
+        self.displayer?.displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel(imageName: response.imageName))
+    }
+}
+
+// MARK: - Displayed items
+
+extension PlaceDetailsPresenter {
+    private func displayedItems(place: Place) -> [PlaceDetailsModels.DisplayedItem] {
+        return [
+            self.displayedPhotoItem(place: place),
+            self.displayedDescriptionItem(place: place),
+            self.displayedCommentsItem(place: place)
+        ]
+    }
+    
+    private func displayedPhotoItem(place: Place) -> PlaceDetailsModels.DisplayedItem {
+        let model = PlaceDetailsModels.PhotoModel()
+        model.imageName = place.photo?.imageName
+        model.imageDominantColor = place.photo?.imageDominantColor?.hexColor()
+        return PlaceDetailsModels.DisplayedItem(type: .photo, model: model)
+    }
+    
+    private func displayedDescriptionItem(place: Place) -> PlaceDetailsModels.DisplayedItem {
+        let model = PlaceDetailsModels.DescriptionModel(text: place.description?.attributed(attributes: PlaceDetailsStyle.shared.descriptionCellModel.textAttributes()))
+        return PlaceDetailsModels.DisplayedItem(type: .description, model: model)
+    }
+    
+    private func displayedCommentsItem(place: Place) -> PlaceDetailsModels.DisplayedItem {
+        let text = PlaceDetailsLocalization.shared.commentCount(place.commentCount).attributed(attributes: PlaceDetailsStyle.shared.commentsCellModel.textAttributes())
+        let time = self.displayedTime(createdAt: place.createdAt)?.attributed(attributes: PlaceDetailsStyle.shared.commentsCellModel.textAttributes())
+        let model = PlaceDetailsModels.CommentsModel(text: text, time: time)
+        return PlaceDetailsModels.DisplayedItem(type: .comments, model: model)
+    }
+    
+    private func displayedTime(createdAt: String?) -> String? {
+        guard let createdAt = createdAt else {
+            return nil
+        }
+        guard let date = self.iso8601DateFormatter.date(from: createdAt) else {
+            return nil
+        }
+        return self.dateFormatter.string(from: date)
+    }
 }

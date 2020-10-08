@@ -12,6 +12,7 @@ public class Place: Codable {
     
     var location: Location
     
+    var createdAt: String?
     var name: String?
     var description: String?
     var commentCount: Int = 0
@@ -26,6 +27,7 @@ public class Place: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case location
+        case createdAt = "created_at"
         case name
         case description
         case commentCount = "comment_count"

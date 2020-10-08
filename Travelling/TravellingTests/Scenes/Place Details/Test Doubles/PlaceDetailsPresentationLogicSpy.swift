@@ -13,5 +13,69 @@
 @testable import Travelling
 
 class PlaceDetailsPresentationLogicSpy: PlaceDetailsPresentationLogic {
+    var presentWillFetchPlaceCalled: Bool = false
+    var presentDidFetchPlaceCalled: Bool = false
     
+    var presentPlaceCalled: Bool = false
+    var presentResetPlaceCalled: Bool = false
+    
+    var presentWillFetchImageCalled: Bool = false
+    var presentDidFetchImageCalled: Bool = false
+    var presentImageCalled: Bool = false
+    var presentPlaceholderImageCalled: Bool = false
+    
+    var presentErrorStateCalled: Bool = false
+    var presentRemoveErrorStateCalled: Bool = false
+    
+    var presentErrorAlertCalled: Bool = false
+    
+    var presentNavigateToFullscreenImageCalled: Bool = false
+    
+    func presentWillFetchPlace() {
+        self.presentWillFetchPlaceCalled = true
+    }
+    
+    func presentDidFetchPlace() {
+        self.presentDidFetchPlaceCalled = true
+    }
+    
+    func presentPlace(response: PlaceDetailsModels.PlacePresentation.Response) {
+        self.presentPlaceCalled = true
+    }
+    
+    func presentResetPlace() {
+        self.presentResetPlaceCalled = true
+    }
+    
+    func presentWillFetchImage(response: PlaceDetailsModels.ImageFetching.Response) {
+        self.presentWillFetchImageCalled = true
+    }
+    
+    func presentDidFetchImage(response: PlaceDetailsModels.ImageFetching.Response) {
+        self.presentDidFetchImageCalled = true
+    }
+    
+    func presentImage(response: PlaceDetailsModels.ImagePresentation.Response) {
+        self.presentImageCalled = true
+    }
+    
+    func presentPlaceholderImage(response: PlaceDetailsModels.ImagePresentation.Response) {
+        self.presentPlaceholderImageCalled = true
+    }
+    
+    func presentErrorState() {
+        self.presentErrorStateCalled = true
+    }
+    
+    func presentRemoveErrorState() {
+        self.presentRemoveErrorStateCalled = true
+    }
+    
+    func presentErrorAlert(response: PlaceDetailsModels.ErrorAlertPresentation.Response) {
+        self.presentErrorAlertCalled = true
+    }
+    
+    func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response) {
+        self.presentNavigateToFullscreenImageCalled = true
+    }
 }

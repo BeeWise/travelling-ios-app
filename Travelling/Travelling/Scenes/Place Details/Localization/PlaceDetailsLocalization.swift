@@ -20,6 +20,19 @@ class PlaceDetailsLocalization {
     }
     
     struct LocalizedKey {
+        static let
+        errorStateText = "PlaceDetails.scene.error.state.text",
+        errorAlertMessage = "PlaceDetails.scene.error.alert.message",
+        errorAlertCancelTitle = "PlaceDetails.scene.error.alert.cancel.title",
         
+        commentCount = "PlaceDetails.scene.comment.count"
+    }
+    
+    let errorStateText = LocalizedKey.errorStateText.localized()
+    let errorAlertMessage = LocalizedKey.errorAlertMessage.localized()
+    let errorAlertCancelTitle = LocalizedKey.errorAlertCancelTitle.localized()
+    
+    func commentCount(_ count: Int) -> String {
+        return String.localizedStringWithFormat(LocalizedKey.commentCount.localized(), count)
     }
 }

@@ -17,6 +17,7 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     var displayDidFetchPlaceCalled: Bool = false
     
     var displayPlaceCalled: Bool = false
+    var displayPlaceViewModel: PlaceDetailsModels.PlacePresentation.ViewModel!
     var displayResetPlaceCalled: Bool = false
     
     var displayWillFetchImageCalled: Bool = false
@@ -40,6 +41,7 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     
     func displayPlace(viewModel: PlaceDetailsModels.PlacePresentation.ViewModel) {
         self.displayPlaceCalled = true
+        self.displayPlaceViewModel = viewModel
     }
     
     func displayResetPlace() {
