@@ -1,5 +1,5 @@
 //
-//  PlaceDetailsModels.swift
+//  PlaceDetailsRoutingLogicSpy.swift
 //  Travelling
 //
 //  Created by Dimitri Strauneanu on 08/10/2020.
@@ -10,8 +10,9 @@
 //  see http://clean-swift.com
 //
 
+@testable import Travelling
 import UIKit
 
-enum PlaceDetailsModels {
+class PlaceDetailsRoutingLogicSpy: NSObject, PlaceDetailsRoutingLogic {
     
 }

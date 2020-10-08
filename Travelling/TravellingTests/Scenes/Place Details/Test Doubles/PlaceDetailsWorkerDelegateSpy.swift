@@ -1,5 +1,5 @@
 //
-//  PlaceDetailsModels.swift
+//  PlaceDetailsWorkerDelegateSpy.swift
 //  Travelling
 //
 //  Created by Dimitri Strauneanu on 08/10/2020.
@@ -10,8 +10,8 @@
 //  see http://clean-swift.com
 //
 
-import UIKit
+@testable import Travelling
 
-enum PlaceDetailsModels {
+class PlaceDetailsWorkerDelegateSpy: PlaceDetailsWorkerDelegate {
     
 }

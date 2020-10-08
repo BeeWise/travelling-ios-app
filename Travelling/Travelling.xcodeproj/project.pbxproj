@@ -342,6 +342,17 @@
 		28FDC9F0252EB968002D7439 /* PlaceDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */; };
 		28FDC9F1252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */; };
 		28FDC9F2252EB968002D7439 /* PlaceDetailsLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */; };
+		28FDCA02252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9F7252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift */; };
+		28FDCA03252EBBED002D7439 /* PlaceDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9F8252EBBED002D7439 /* PlaceDetailsInteractorTests.swift */; };
+		28FDCA04252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9F9252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift */; };
+		28FDCA05252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FA252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift */; };
+		28FDCA06252EBBED002D7439 /* PlaceDetailsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FB252EBBED002D7439 /* PlaceDetailsWorkerTests.swift */; };
+		28FDCA07252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FC252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift */; };
+		28FDCA08252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FD252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift */; };
+		28FDCA09252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FE252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift */; };
+		28FDCA0A252EBBED002D7439 /* PlaceDetailsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9FF252EBBED002D7439 /* PlaceDetailsRouterTests.swift */; };
+		28FDCA0B252EBBED002D7439 /* PlaceDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA00252EBBED002D7439 /* PlaceDetailsPresenterTests.swift */; };
+		28FDCA0C252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA01252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -699,6 +710,17 @@
 		28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsInteractor.swift; sourceTree = "<group>"; };
 		28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
 		28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsLocalization.swift; sourceTree = "<group>"; };
+		28FDC9F7252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		28FDC9F8252EBBED002D7439 /* PlaceDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		28FDC9F9252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FA252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		28FDC9FB252EBBED002D7439 /* PlaceDetailsWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorkerTests.swift; sourceTree = "<group>"; };
+		28FDC9FC252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FD252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FE252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		28FDC9FF252EBBED002D7439 /* PlaceDetailsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsRouterTests.swift; sourceTree = "<group>"; };
+		28FDCA00252EBBED002D7439 /* PlaceDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPresenterTests.swift; sourceTree = "<group>"; };
+		28FDCA01252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorkerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -780,6 +802,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28FDC9F6252EBBDF002D7439 /* Place Details */,
 				281F6171252C3F7900082CC5 /* Sign Up */,
 				286D9031252AE6250012DB1D /* Forgot Password */,
 				28CEC7D72529E8090063DCFE /* Login */,
@@ -2266,6 +2289,32 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
+		28FDC9F6252EBBDF002D7439 /* Place Details */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA0D252EBC0A002D7439 /* Test Doubles */,
+				28FDC9F7252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift */,
+				28FDC9F8252EBBED002D7439 /* PlaceDetailsInteractorTests.swift */,
+				28FDC9FB252EBBED002D7439 /* PlaceDetailsWorkerTests.swift */,
+				28FDC9FF252EBBED002D7439 /* PlaceDetailsRouterTests.swift */,
+				28FDCA00252EBBED002D7439 /* PlaceDetailsPresenterTests.swift */,
+			);
+			path = "Place Details";
+			sourceTree = "<group>";
+		};
+		28FDCA0D252EBC0A002D7439 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9F9252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift */,
+				28FDC9FA252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift */,
+				28FDC9FC252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift */,
+				28FDC9FD252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift */,
+				28FDC9FE252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift */,
+				28FDCA01252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift */,
+			);
+			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2577,6 +2626,7 @@
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
 				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28CEC7EB2529E8160063DCFE /* LoginRouterTests.swift in Sources */,
+				28FDCA08252EBBED002D7439 /* PlaceDetailsRoutingLogicSpy.swift in Sources */,
 				286D904A252AE7970012DB1D /* URLOpenableSpy.swift in Sources */,
 				28889798250E33050017B0B1 /* DataTaskOperationTests.swift in Sources */,
 				28D4E61D2529846500A1ED86 /* FullscreenImagePresenterTests.swift in Sources */,
@@ -2584,18 +2634,22 @@
 				2812D493250CE7760079F879 /* AppPresenterTests.swift in Sources */,
 				28CEC7E92529E8160063DCFE /* LoginRoutingLogicSpy.swift in Sources */,
 				288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */,
+				28FDCA05252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift in Sources */,
 				28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */,
 				286D9041252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift in Sources */,
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
+				28FDCA0A252EBBED002D7439 /* PlaceDetailsRouterTests.swift in Sources */,
 				281F4FAE2520CDF6008475D7 /* MyProfileRouterTests.swift in Sources */,
 				28CEC7F02529E9240063DCFE /* LoginViewControllerSpy.swift in Sources */,
 				281F4FAF2520CDF6008475D7 /* MyProfilePresenterTests.swift in Sources */,
 				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
 				281F6187252C3F8800082CC5 /* SignUpWorkerSpy.swift in Sources */,
 				28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */,
+				28FDCA03252EBBED002D7439 /* PlaceDetailsInteractorTests.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
+				28FDCA07252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift in Sources */,
 				28B3864A2529C6A000CA7840 /* OnboardingWorkerTests.swift in Sources */,
 				281F617D252C3F8800082CC5 /* SignUpViewControllerTests.swift in Sources */,
 				2812D480250CDB150079F879 /* MainPresentationLogicSpy.swift in Sources */,
@@ -2616,9 +2670,12 @@
 				28CEC7ED2529E8160063DCFE /* LoginWorkerSpy.swift in Sources */,
 				288897BA250E34D00017B0B1 /* ExploreBusinessLogicSpy.swift in Sources */,
 				28D3A834252432AE008FFF92 /* AuthenticationTaskSpy.swift in Sources */,
+				28FDCA02252EBBED002D7439 /* PlaceDetailsViewControllerTests.swift in Sources */,
+				28FDCA0B252EBBED002D7439 /* PlaceDetailsPresenterTests.swift in Sources */,
 				281F4FAC2520CDF6008475D7 /* MyProfileRoutingLogicSpy.swift in Sources */,
 				281F618A252C407800082CC5 /* SignUpViewControllerSpy.swift in Sources */,
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
+				28FDCA09252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
 				286D9046252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift in Sources */,
 				286D9045252AE63E0012DB1D /* ForgotPasswordRouterTests.swift in Sources */,
@@ -2659,6 +2716,7 @@
 				28B3864B2529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift in Sources */,
 				28CEC7E42529E8160063DCFE /* LoginInteractorTests.swift in Sources */,
 				28D4E61C2529846500A1ED86 /* FullscreenImageRouterTests.swift in Sources */,
+				28FDCA04252EBBED002D7439 /* PlaceDetailsDisplayLogicSpy.swift in Sources */,
 				287A356B2517531400898B51 /* ExploreTableViewCellInterfaceSpy.swift in Sources */,
 				281F6182252C3F8800082CC5 /* SignUpPresentationLogicSpy.swift in Sources */,
 				28D4E61E2529846500A1ED86 /* FullscreenImageWorkerSpy.swift in Sources */,
@@ -2689,6 +2747,8 @@
 				28B386492529C6A000CA7840 /* OnboardingWorkerDelegateSpy.swift in Sources */,
 				2812D47C250CDB150079F879 /* MainInteractorTests.swift in Sources */,
 				281F617F252C3F8800082CC5 /* SignUpDisplayLogicSpy.swift in Sources */,
+				28FDCA0C252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift in Sources */,
+				28FDCA06252EBBED002D7439 /* PlaceDetailsWorkerTests.swift in Sources */,
 				281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */,
 				288897B9250E34D00017B0B1 /* ExploreRoutingLogicSpy.swift in Sources */,
 				28B3864F2529C6A000CA7840 /* OnboardingPresenterTests.swift in Sources */,
