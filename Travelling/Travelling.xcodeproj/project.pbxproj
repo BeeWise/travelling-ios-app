@@ -332,6 +332,16 @@
 		28D4E621252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */; };
 		28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */; };
 		28DC5A6F2524854200FFE2E1 /* UserDefaultsManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */; };
+		28FDC9E9252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */; };
+		28FDC9EA252EB968002D7439 /* PlaceDetailsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E0252EB968002D7439 /* PlaceDetailsStyle.swift */; };
+		28FDC9EB252EB968002D7439 /* PlaceDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E1252EB968002D7439 /* PlaceDetailsPresenter.swift */; };
+		28FDC9EC252EB968002D7439 /* PlaceDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E2252EB968002D7439 /* PlaceDetailsWorker.swift */; };
+		28FDC9ED252EB968002D7439 /* PlaceDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E3252EB968002D7439 /* PlaceDetailsRouter.swift */; };
+		28FDC9EE252EB968002D7439 /* PlaceDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E4252EB968002D7439 /* PlaceDetailsModels.swift */; };
+		28FDC9EF252EB968002D7439 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */; };
+		28FDC9F0252EB968002D7439 /* PlaceDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */; };
+		28FDC9F1252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */; };
+		28FDC9F2252EB968002D7439 /* PlaceDetailsLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -679,6 +689,16 @@
 		28D4E620252984ED00A1ED86 /* FullscreenImageViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewControllerSpy.swift; sourceTree = "<group>"; };
 		28DC5A6C2524817500FFE2E1 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		28DC5A6E2524854200FFE2E1 /* UserDefaultsManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerSpy.swift; sourceTree = "<group>"; };
+		28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+Subviews.swift"; sourceTree = "<group>"; };
+		28FDC9E0252EB968002D7439 /* PlaceDetailsStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsStyle.swift; sourceTree = "<group>"; };
+		28FDC9E1252EB968002D7439 /* PlaceDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsPresenter.swift; sourceTree = "<group>"; };
+		28FDC9E2252EB968002D7439 /* PlaceDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsWorker.swift; sourceTree = "<group>"; };
+		28FDC9E3252EB968002D7439 /* PlaceDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsRouter.swift; sourceTree = "<group>"; };
+		28FDC9E4252EB968002D7439 /* PlaceDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsModels.swift; sourceTree = "<group>"; };
+		28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
+		28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsInteractor.swift; sourceTree = "<group>"; };
+		28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsLocalization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -702,6 +722,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28FDC9DE252EB95A002D7439 /* Place Details */,
 				281F613F252C20E500082CC5 /* Sign Up */,
 				286D900A252AC96D0012DB1D /* Forgot Password */,
 				28CEC7AA2529D2360063DCFE /* Login */,
@@ -2204,6 +2225,47 @@
 			path = "User Defaults";
 			sourceTree = "<group>";
 		};
+		28FDC9DE252EB95A002D7439 /* Place Details */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9F5252EB983002D7439 /* View Controller */,
+				28FDC9F4252EB97B002D7439 /* Style */,
+				28FDC9F3252EB973002D7439 /* Localization */,
+				28FDC9E1252EB968002D7439 /* PlaceDetailsPresenter.swift */,
+				28FDC9E2252EB968002D7439 /* PlaceDetailsWorker.swift */,
+				28FDC9E3252EB968002D7439 /* PlaceDetailsRouter.swift */,
+				28FDC9E4252EB968002D7439 /* PlaceDetailsModels.swift */,
+				28FDC9E6252EB968002D7439 /* PlaceDetailsInteractor.swift */,
+			);
+			path = "Place Details";
+			sourceTree = "<group>";
+		};
+		28FDC9F3252EB973002D7439 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9E8252EB968002D7439 /* PlaceDetailsLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		28FDC9F4252EB97B002D7439 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9E0252EB968002D7439 /* PlaceDetailsStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		28FDC9F5252EB983002D7439 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */,
+				28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */,
+				28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2322,6 +2384,7 @@
 				281F4F8D2520CDA9008475D7 /* MyProfileViewController+Subviews.swift in Sources */,
 				287A356725173BAB00898B51 /* String+HexColor.swift in Sources */,
 				28889784250E25420017B0B1 /* GetPlacesOperation.swift in Sources */,
+				28FDC9F0252EB968002D7439 /* PlaceDetailsInteractor.swift in Sources */,
 				2812D462250CDAC90079F879 /* MainStyle.swift in Sources */,
 				28B3862F2529B6AB00CA7840 /* OnboardingRouter.swift in Sources */,
 				286D9029252ACE1A0012DB1D /* ForgotPasswordButtonCell.swift in Sources */,
@@ -2337,6 +2400,7 @@
 				286D9027252ACD9B0012DB1D /* ForgotPasswordTextFieldCell.swift in Sources */,
 				281F614F252C20FB00082CC5 /* SignUpModels.swift in Sources */,
 				28B386342529B6AB00CA7840 /* OnboardingLocalization.swift in Sources */,
+				28FDC9ED252EB968002D7439 /* PlaceDetailsRouter.swift in Sources */,
 				286D9030252AD98A0012DB1D /* ForgotPasswordViewController+TableViewDataSource.swift in Sources */,
 				28179ED6250E000E0081FD3A /* AsynchronousOperation.swift in Sources */,
 				28D4E60425297F1A00A1ED86 /* FullscreenImageLocalization.swift in Sources */,
@@ -2363,6 +2427,7 @@
 				288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */,
 				281F4F952520CDA9008475D7 /* MyProfileViewController+DisplayLogic.swift in Sources */,
 				281F615C252C275A00082CC5 /* SignUpTextFieldCell.swift in Sources */,
+				28FDC9F1252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift in Sources */,
 				28D3A82D2524316D008FFF92 /* AuthenticationTaskModels.swift in Sources */,
 				28D3A837252434F4008FFF92 /* ErrorStateView.swift in Sources */,
 				28BD8D1A2523191600C30F64 /* MyProfileTitleTableViewCell.swift in Sources */,
@@ -2376,6 +2441,7 @@
 				28179EAC250DFC700081FD3A /* ExploreInteractor.swift in Sources */,
 				28BD8D0C2523063A00C30F64 /* UsersTaskProtocol.swift in Sources */,
 				281F4F902520CDA9008475D7 /* MyProfileWorker.swift in Sources */,
+				28FDC9EE252EB968002D7439 /* PlaceDetailsModels.swift in Sources */,
 				28D4E5FB25297F1A00A1ED86 /* FullscreenImageViewController+Subviews.swift in Sources */,
 				283B5719250CC0F900EFA651 /* AppDelegate+DisplayLogic.swift in Sources */,
 				28CEC7C92529D85B0063DCFE /* LoginButtonCell.swift in Sources */,
@@ -2409,9 +2475,11 @@
 				2812D468250CDAC90079F879 /* MainInteractor.swift in Sources */,
 				28D4E5FD25297F1A00A1ED86 /* FullscreenImagePresenter.swift in Sources */,
 				28D4E60325297F1A00A1ED86 /* FullscreenImageViewController+DisplayLogic.swift in Sources */,
+				28FDC9E9252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift in Sources */,
 				28CEC7BA2529D2510063DCFE /* LoginModels.swift in Sources */,
 				281F4FBB2520DECE008475D7 /* Bundle+Version.swift in Sources */,
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
+				28FDC9EB252EB968002D7439 /* PlaceDetailsPresenter.swift in Sources */,
 				28179EAA250DFC700081FD3A /* ExploreViewController.swift in Sources */,
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
@@ -2427,6 +2495,7 @@
 				281F6164252C290100082CC5 /* SignUpTextViewCell.swift in Sources */,
 				28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */,
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
+				28FDC9EC252EB968002D7439 /* PlaceDetailsWorker.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */,
 				286D902C252AD0510012DB1D /* ForgotPasswordInteractor+Validations.swift in Sources */,
@@ -2435,12 +2504,14 @@
 				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
 				287A35802517592B00898B51 /* ImageTask.swift in Sources */,
 				281F6151252C20FB00082CC5 /* SignUpInteractor.swift in Sources */,
+				28FDC9F2252EB968002D7439 /* PlaceDetailsLocalization.swift in Sources */,
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
 				28D3A82F25243174008FFF92 /* AuthenticationTask.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28CEC7C42529D6DE0063DCFE /* TitleTextFieldView.swift in Sources */,
 				28BD8D1625230E4B00C30F64 /* LoadingImageView.swift in Sources */,
 				28CEC7BD2529D2510063DCFE /* LoginViewController+DisplayLogic.swift in Sources */,
+				28FDC9EF252EB968002D7439 /* PlaceDetailsViewController.swift in Sources */,
 				28179EA7250DFC700081FD3A /* ExploreWorker.swift in Sources */,
 				28BD8D232523336C00C30F64 /* EmailHandler.swift in Sources */,
 				28B386312529B6AB00CA7840 /* OnboardingViewController.swift in Sources */,
@@ -2464,6 +2535,7 @@
 				2812D488250CDE090079F879 /* MainViewController+ViewControllers.swift in Sources */,
 				281F6168252C2A6500082CC5 /* SignUpButtonCell.swift in Sources */,
 				286D901C252AC97D0012DB1D /* ForgotPasswordInteractor.swift in Sources */,
+				28FDC9EA252EB968002D7439 /* PlaceDetailsStyle.swift in Sources */,
 				28C1CB74252A29620083FBC7 /* SignUpUserLocalOperation.swift in Sources */,
 				281F615F252C286900082CC5 /* Title Text View.swift in Sources */,
 				28179EA3250DFC700081FD3A /* ExploreViewController+Subviews.swift in Sources */,
