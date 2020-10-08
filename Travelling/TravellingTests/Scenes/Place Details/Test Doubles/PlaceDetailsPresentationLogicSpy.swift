@@ -32,6 +32,7 @@ class PlaceDetailsPresentationLogicSpy: PlaceDetailsPresentationLogic {
     var presentNavigateToFullscreenImageCalled: Bool = false
     
     var presentPlaceTitleCalled: Bool = false
+    var presentSharePlaceCalled: Bool = false
     
     func presentWillFetchPlace() {
         self.presentWillFetchPlaceCalled = true
@@ -83,5 +84,9 @@ class PlaceDetailsPresentationLogicSpy: PlaceDetailsPresentationLogic {
     
     func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response) {
         self.presentPlaceTitleCalled = true
+    }
+    
+    func presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response) {
+        self.presentSharePlaceCalled = true
     }
 }

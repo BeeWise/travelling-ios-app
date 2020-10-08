@@ -129,4 +129,15 @@ enum PlaceDetailsModels {
             let title: String?
         }
     }
+    
+    enum PlaceSharing {
+        struct Response {
+            let place: Place?
+        }
+        
+        struct ViewModel {
+            let text: String
+            let excludedActivityTypes: [UIActivity.ActivityType]?
+        }
+    }
 }

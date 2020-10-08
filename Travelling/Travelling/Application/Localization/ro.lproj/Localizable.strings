@@ -99,3 +99,4 @@
 "PlaceDetails.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
 "PlaceDetails.scene.error.alert.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
 "PlaceDetails.scene.error.alert.cancel.title" = "OK";
+"PlaceDetails.scene.share.place.text" = "Verifică acest loc frumos numit %@ pe Travelling: %@";

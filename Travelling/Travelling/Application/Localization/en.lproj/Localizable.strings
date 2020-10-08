@@ -99,3 +99,4 @@
 "PlaceDetails.scene.error.state.text" = "An error occurred while fetching the place. Tap here to try again ↺";
 "PlaceDetails.scene.error.alert.message" = "An error occurred while saving your favorite place. Please try again.";
 "PlaceDetails.scene.error.alert.cancel.title" = "OK";
+"PlaceDetails.scene.share.place.text" = "Check out this cool place named %@ on Travelling: %@";

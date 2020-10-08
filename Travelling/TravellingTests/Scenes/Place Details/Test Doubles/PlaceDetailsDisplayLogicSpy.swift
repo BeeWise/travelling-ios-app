@@ -32,6 +32,7 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     var displayNavigateToFullscreenImageCalled: Bool = false
     
     var displayPlaceTitleCalled: Bool = false
+    var displaySharePlaceCalled: Bool = false
     
     func displayWillFetchPlace() {
         self.displayWillFetchPlaceCalled = true
@@ -80,5 +81,9 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     
     func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel) {
         self.displayPlaceTitleCalled = true
+    }
+    
+    func displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel) {
+        self.displaySharePlaceCalled = true
     }
 }

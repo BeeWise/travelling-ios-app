@@ -165,6 +165,11 @@ class PlaceDetailsViewControllerTests: XCTestCase {
         XCTAssertTrue(self.interactorSpy.shouldSelectPhotoCalled)
     }
     
+    func testTouchUpInsideShareButtonShouldAskTheInteractorToSharePlace() {
+        self.sut.touchUpInsideShareButton()
+        XCTAssertTrue(self.interactorSpy.shouldSharePlaceCalled)
+    }
+    
     // MARK: - Display logic tests
     
     func testDisplayWillFetchPlace() {
@@ -290,5 +295,11 @@ class PlaceDetailsViewControllerTests: XCTestCase {
         self.sut.displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel(title: title))
         self.waitForMainQueue()
         XCTAssertEqual(self.sut.navigationItem.title, title)
+    }
+    
+    func testDisplaySharePlaceShouldAskTheRouterToPresentViewController() {
+        self.sut.displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel(text: "Text", excludedActivityTypes: []))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.presentViewControllerCalled)
     }
 }

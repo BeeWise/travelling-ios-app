@@ -19,6 +19,7 @@ protocol PlaceDetailsBusinessLogic {
     func shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request)
     
     func shouldSelectPhoto()
+    func shouldSharePlace()
 }
 
 class PlaceDetailsInteractor: PlaceDetailsBusinessLogic, PlaceDetailsWorkerDelegate {
@@ -46,6 +47,10 @@ class PlaceDetailsInteractor: PlaceDetailsBusinessLogic, PlaceDetailsWorkerDeleg
     
     func shouldSelectPhoto() {
         self.presenter?.presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response(imageName: self.place?.photo?.imageName))
+    }
+    
+    func shouldSharePlace() {
+        self.presenter?.presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response(place: self.place))
     }
 }
 

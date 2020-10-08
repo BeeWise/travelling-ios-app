@@ -16,6 +16,7 @@ import UIKit
 class PlaceDetailsRoutingLogicSpy: PlaceDetailsRoutingLogic {
     var navigateToAlertCalled: Bool = false
     var navigateToFullscreenImageCalled: Bool = false
+    var presentViewControllerCalled: Bool = false
         
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
         self.navigateToAlertCalled = true
@@ -23,5 +24,9 @@ class PlaceDetailsRoutingLogicSpy: PlaceDetailsRoutingLogic {
     
     func navigateToFullscreenImage(imageName: String?) {
         self.navigateToFullscreenImageCalled = true
+    }
+    
+    func presentViewController(controller: UIViewController) {
+        self.presentViewControllerCalled = true
     }
 }

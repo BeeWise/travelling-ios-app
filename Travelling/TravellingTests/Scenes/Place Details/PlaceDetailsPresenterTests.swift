@@ -124,6 +124,11 @@ class PlaceDetailsPresenterTests: XCTestCase {
         self.sut.presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
         XCTAssertTrue(self.displayerSpy.displayPlaceTitleCalled)
     }
+    
+    func testPresentSharePlaceShouldAskTheDisplayerToDisplaySharePlace() {
+        self.sut.presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
+        XCTAssertTrue(self.displayerSpy.displaySharePlaceCalled)
+    }
 }
 
 // MARK: - Auxiliary

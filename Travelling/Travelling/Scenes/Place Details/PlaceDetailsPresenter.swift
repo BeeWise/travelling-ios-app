@@ -31,6 +31,7 @@ protocol PlaceDetailsPresentationLogic {
     func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response)
     
     func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response)
+    func presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response)
 }
 
 class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
@@ -100,6 +101,15 @@ class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
     func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response) {
         let title = response.place?.name
         self.displayer?.displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel(title: title))
+    }
+    
+    func presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response) {
+        let name = response.place?.name ?? ""
+        let url = BundleConfiguration.string(for: BundleConfiguration.Keys.appStoreUrl)
+        let text = PlaceDetailsLocalization.shared.sharePlaceText(name: name, url: url)
+        let excludedActivityTypes: [UIActivity.ActivityType] = [.print, .assignToContact, .saveToCameraRoll, .addToReadingList, .airDrop, .openInIBooks, .markupAsPDF]
+        
+        self.displayer?.displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel(text: text, excludedActivityTypes: excludedActivityTypes))
     }
 }
 

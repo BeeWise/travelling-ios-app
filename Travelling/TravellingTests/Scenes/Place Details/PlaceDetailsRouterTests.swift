@@ -48,4 +48,9 @@ class PlaceDetailsRouterTests: XCTestCase {
         self.sut.navigateToFullscreenImage(imageName: "imageName")
         XCTAssertTrue(self.viewControllerSpy.presentCalled)
     }
+    
+    func testPresentViewController() {
+        self.sut.presentViewController(controller: UIViewController())
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
 }

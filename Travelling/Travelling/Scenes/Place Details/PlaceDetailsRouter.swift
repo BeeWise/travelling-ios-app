@@ -15,6 +15,7 @@ import UIKit
 protocol PlaceDetailsRoutingLogic {
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction])
     func navigateToFullscreenImage(imageName: String?)
+    func presentViewController(controller: UIViewController)
 }
 
 class PlaceDetailsRouter: PlaceDetailsRoutingLogic {
@@ -30,5 +31,9 @@ class PlaceDetailsRouter: PlaceDetailsRoutingLogic {
         let fullscreenImageViewController = FullscreenImageViewController(imageName: imageName)
         fullscreenImageViewController.modalPresentationStyle = .fullScreen
         self.viewController?.present(fullscreenImageViewController, animated: true, completion: nil)
+    }
+    
+    func presentViewController(controller: UIViewController) {
+        self.viewController?.present(controller, animated: true, completion: nil)
     }
 }

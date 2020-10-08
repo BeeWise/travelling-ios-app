@@ -18,6 +18,7 @@ extension PlaceDetailsViewController {
         self.setupContentView()
         self.setupTableView()
         self.setupRefreshControl()
+        self.setupShareButton()
     }
     
     private func setupNavigationBar() {
@@ -47,6 +48,11 @@ extension PlaceDetailsViewController {
         self.tableView?.refreshControl = refreshControl
     }
     
+    private func setupShareButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(PlaceDetailsViewController.touchUpInsideShareButton))
+        self.navigationItem.setRightBarButton(button, animated: false)
+    }
+    
     func setupActivityIndicatorView() -> UIActivityIndicatorView {
         let size = PlaceDetailsStyle.shared.activityViewModel.size
         let view = UIActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
@@ -72,6 +78,10 @@ extension PlaceDetailsViewController {
     @objc func valueChangedRefreshControl(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
         self.interactor?.shouldRefreshPlace()
+    }
+    
+    @objc func touchUpInsideShareButton() {
+        self.interactor?.shouldSharePlace()
     }
 }
 

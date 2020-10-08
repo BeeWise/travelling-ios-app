@@ -25,7 +25,8 @@ class PlaceDetailsLocalization {
         errorAlertMessage = "PlaceDetails.scene.error.alert.message",
         errorAlertCancelTitle = "PlaceDetails.scene.error.alert.cancel.title",
         
-        commentCount = "PlaceDetails.scene.comment.count"
+        commentCount = "PlaceDetails.scene.comment.count",
+        sharePlaceText = "PlaceDetails.scene.share.place.text"
     }
     
     let errorStateText = LocalizedKey.errorStateText.localized()
@@ -34,5 +35,9 @@ class PlaceDetailsLocalization {
     
     func commentCount(_ count: Int) -> String {
         return String.localizedStringWithFormat(LocalizedKey.commentCount.localized(), count)
+    }
+    
+    func sharePlaceText(name: String, url: String) -> String {
+        return String.localizedStringWithFormat(LocalizedKey.sharePlaceText.localized(), name, url)
     }
 }

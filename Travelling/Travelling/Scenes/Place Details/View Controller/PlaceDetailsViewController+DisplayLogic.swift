@@ -30,6 +30,7 @@ protocol PlaceDetailsDisplayLogic: class {
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel)
     
     func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel)
+    func displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel)
 }
 
 extension PlaceDetailsViewController: PlaceDetailsDisplayLogic {
@@ -109,6 +110,14 @@ extension PlaceDetailsViewController: PlaceDetailsDisplayLogic {
     func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel) {
         DispatchQueue.main.async {
             self.navigationItem.title = viewModel.title
+        }
+    }
+    
+    func displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel) {
+        DispatchQueue.main.async {
+            let viewController = UIActivityViewController(activityItems: [viewModel.text], applicationActivities: nil)
+            viewController.excludedActivityTypes = viewModel.excludedActivityTypes
+            self.router?.presentViewController(controller: viewController)
         }
     }
 }

@@ -210,4 +210,11 @@ class PlaceDetailsInteractorTests: XCTestCase {
         self.sut.shouldSelectPhoto()
         XCTAssertTrue(self.presenterSpy.presentNavigateToFullscreenImageCalled)
     }
+    
+    // MARK: - Share place tests
+    
+    func testShouldSharePlaceShouldAskThePresenterToPresentSharePlace() {
+        self.sut.shouldSharePlace()
+        XCTAssertTrue(self.presenterSpy.presentSharePlaceCalled)
+    }
 }
