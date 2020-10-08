@@ -17,6 +17,8 @@ protocol PlaceDetailsBusinessLogic {
     func shouldRefreshPlace()
     
     func shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request)
+    
+    func shouldSelectPhoto()
 }
 
 class PlaceDetailsInteractor: PlaceDetailsBusinessLogic, PlaceDetailsWorkerDelegate {
@@ -41,6 +43,10 @@ class PlaceDetailsInteractor: PlaceDetailsBusinessLogic, PlaceDetailsWorkerDeleg
         self.presenter?.presentWillFetchPlace()
         self.worker?.fetchPlace(placeId: self.place?.id)
     }
+    
+    func shouldSelectPhoto() {
+        self.presenter?.presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response(imageName: self.place?.photo?.imageName))
+    }
 }
 
 // MARK: - Fetch place
@@ -50,12 +56,14 @@ extension PlaceDetailsInteractor {
         self.place = request.place
         
         self.presenter?.presentRemoveErrorState()
+        self.presenter?.presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response(place: request.place))
         self.presenter?.presentPlace(response: PlaceDetailsModels.PlacePresentation.Response(place: request.place))
     }
     
     func successDidFetchPlace(place: Place) {
         self.isFetchingPlace = false
         self.place = place
+        self.presenter?.presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response(place: place))
         self.presenter?.presentPlace(response: PlaceDetailsModels.PlacePresentation.Response(place: place))
         self.presenter?.presentRemoveErrorState()
         self.presenter?.presentDidFetchPlace()

@@ -29,6 +29,8 @@ protocol PlaceDetailsPresentationLogic {
     func presentErrorAlert(response: PlaceDetailsModels.ErrorAlertPresentation.Response)
     
     func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response)
+    
+    func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response)
 }
 
 class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
@@ -41,7 +43,7 @@ class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
         self.dateFormatter.dateStyle = .medium
         self.dateFormatter.timeStyle = .none
     }
-        
+    
     func presentWillFetchPlace() {
         self.displayer?.displayWillFetchPlace()
     }
@@ -94,6 +96,11 @@ class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
     func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response) {
         self.displayer?.displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel(imageName: response.imageName))
     }
+    
+    func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response) {
+        let title = response.place?.name
+        self.displayer?.displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel(title: title))
+    }
 }
 
 // MARK: - Displayed items
@@ -115,14 +122,23 @@ extension PlaceDetailsPresenter {
     }
     
     private func displayedDescriptionItem(place: Place) -> PlaceDetailsModels.DisplayedItem {
-        let model = PlaceDetailsModels.DescriptionModel(text: place.description?.attributed(attributes: PlaceDetailsStyle.shared.descriptionCellModel.textAttributes()))
+        let title = self.displayedTitle(place: place)?.attributed(attributes: PlaceDetailsStyle.shared.descriptionCellModel.titleAttributes())
+        let text = place.description?.attributed(attributes: PlaceDetailsStyle.shared.descriptionCellModel.textAttributes())
+        let model = PlaceDetailsModels.DescriptionModel(title: title, text: text)
         return PlaceDetailsModels.DisplayedItem(type: .description, model: model)
     }
     
+    private func displayedTitle(place: Place) -> String? {
+        guard let city = place.location.city, let country = place.location.country else {
+            return nil
+        }
+        return String(format: "%@, %@", city, country)
+    }
+    
     private func displayedCommentsItem(place: Place) -> PlaceDetailsModels.DisplayedItem {
-        let text = PlaceDetailsLocalization.shared.commentCount(place.commentCount).attributed(attributes: PlaceDetailsStyle.shared.commentsCellModel.textAttributes())
+        let comments = PlaceDetailsLocalization.shared.commentCount(place.commentCount).attributed(attributes: PlaceDetailsStyle.shared.commentsCellModel.textAttributes())
         let time = self.displayedTime(createdAt: place.createdAt)?.attributed(attributes: PlaceDetailsStyle.shared.commentsCellModel.textAttributes())
-        let model = PlaceDetailsModels.CommentsModel(text: text, time: time)
+        let model = PlaceDetailsModels.CommentsModel(comments: comments, time: time)
         return PlaceDetailsModels.DisplayedItem(type: .comments, model: model)
     }
     

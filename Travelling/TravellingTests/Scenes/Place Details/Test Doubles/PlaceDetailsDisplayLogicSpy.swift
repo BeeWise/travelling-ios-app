@@ -31,6 +31,8 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     
     var displayNavigateToFullscreenImageCalled: Bool = false
     
+    var displayPlaceTitleCalled: Bool = false
+    
     func displayWillFetchPlace() {
         self.displayWillFetchPlaceCalled = true
     }
@@ -74,5 +76,9 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel) {
         self.displayNavigateToFullscreenImageCalled = true
+    }
+    
+    func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel) {
+        self.displayPlaceTitleCalled = true
     }
 }

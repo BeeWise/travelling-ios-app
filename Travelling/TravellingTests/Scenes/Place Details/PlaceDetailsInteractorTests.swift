@@ -55,9 +55,13 @@ class PlaceDetailsInteractorTests: XCTestCase {
         XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
     }
     
+    func testShouldSetupPlaceShouldAskThePresenterToPresentPlaceTitleWhenThereIsPlace() {
+        self.sut.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
+        XCTAssertTrue(self.presenterSpy.presentPlaceTitleCalled)
+    }
+    
     func testShouldSetupPlaceShouldAskThePresenterToPresentPlaceWhenThereIsPlace() {
-        let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))
-        self.sut.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: place))
+        self.sut.shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
         XCTAssertTrue(self.presenterSpy.presentPlaceCalled)
     }
     
@@ -74,6 +78,11 @@ class PlaceDetailsInteractorTests: XCTestCase {
         let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))
         self.sut.successDidFetchPlace(place: place)
         XCTAssertEqual(self.sut.place, place)
+    }
+    
+    func testSuccessDidFetchPlaceShouldAskThePresenterToPresentPlaceTitle() {
+        self.sut.successDidFetchPlace(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20)))
+        XCTAssertTrue(self.presenterSpy.presentPlaceTitleCalled)
     }
     
     func testSuccessDidFetchPlaceShouldAskThePresenterToPresentPlace() {
@@ -193,5 +202,12 @@ class PlaceDetailsInteractorTests: XCTestCase {
     func testFailureDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
         self.sut.failureDidFetchImage(model: PlaceDetailsModels.PhotoModel(), error: .noDataAvailable)
         XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
+    
+    // MARK: - Select photo tests
+    
+    func testShouldSelectPhotoShouldAskThePresenterToPresentNavigateToFullscreenImage() {
+        self.sut.shouldSelectPhoto()
+        XCTAssertTrue(self.presenterSpy.presentNavigateToFullscreenImageCalled)
     }
 }

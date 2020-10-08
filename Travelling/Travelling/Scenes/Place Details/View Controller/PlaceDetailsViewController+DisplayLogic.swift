@@ -28,6 +28,8 @@ protocol PlaceDetailsDisplayLogic: class {
     func displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel)
     
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel)
+    
+    func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel)
 }
 
 extension PlaceDetailsViewController: PlaceDetailsDisplayLogic {
@@ -101,6 +103,12 @@ extension PlaceDetailsViewController: PlaceDetailsDisplayLogic {
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel) {
         DispatchQueue.main.async {
             self.router?.navigateToFullscreenImage(imageName: viewModel.imageName)
+        }
+    }
+    
+    func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.navigationItem.title = viewModel.title
         }
     }
 }

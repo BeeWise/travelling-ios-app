@@ -16,6 +16,7 @@ class PlaceDetailsBusinessLogicSpy: PlaceDetailsBusinessLogic {
     var shouldSetupPlaceCalled: Bool = false
     var shouldRefreshPlaceCalled: Bool = false
     var shouldFetchImageCalled: Bool = false
+    var shouldSelectPhotoCalled: Bool = false
     
     func shouldSetupPlace(request: PlaceDetailsModels.PlaceSetup.Request) {
         self.shouldSetupPlaceCalled = true
@@ -27,5 +28,9 @@ class PlaceDetailsBusinessLogicSpy: PlaceDetailsBusinessLogic {
     
     func shouldFetchImage(request: PlaceDetailsModels.ImageFetching.Request) {
         self.shouldFetchImageCalled = true
+    }
+    
+    func shouldSelectPhoto() {
+        self.shouldSelectPhotoCalled = true
     }
 }

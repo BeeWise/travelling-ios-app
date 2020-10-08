@@ -34,6 +34,10 @@ extension PlaceDetailsViewController {
     private func setupTableView() {
         self.tableView?.backgroundColor = PlaceDetailsStyle.shared.tableViewModel.backgroundColor
         self.tableView?.tableFooterView = UIView(frame: .zero)
+        self.tableView?.separatorStyle = .none
+        self.tableView?.register(PlaceDetailsPhotoTableViewCell.self, forCellReuseIdentifier: PlaceDetailsPhotoTableViewCell.defaultReuseIdentifier)
+        self.tableView?.register(PlaceDetailsDescriptionTableViewCell.self, forCellReuseIdentifier: PlaceDetailsDescriptionTableViewCell.defaultReuseIdentifier)
+        self.tableView?.register(PlaceDetailsCommentsTableViewCell.self, forCellReuseIdentifier: PlaceDetailsCommentsTableViewCell.defaultReuseIdentifier)
     }
     
     private func setupRefreshControl() {

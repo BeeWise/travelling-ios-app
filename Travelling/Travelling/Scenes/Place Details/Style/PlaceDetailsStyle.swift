@@ -66,24 +66,40 @@ class PlaceDetailsStyle {
     struct PhotoCellModel {
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
         
-        var imageHeight: CGFloat = 120
+        var imageHeight: CGFloat = 300
         var imageBackgroundColor: UIColor = ApplicationStyle.colors.accent
         var imageActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
         var imagePlaceholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
     }
     
     struct DescriptionCellModel {
-        func textAttributes() -> [NSAttributedString.Key: Any] {
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
             return [
                 NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
-                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .title3).bold()
+            ]
+        }
+        
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .justified
+            paragraphStyle.lineSpacing = 5
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
             ]
         }
         
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+        var labelSpacing: CGFloat = 15
     }
     
     struct CommentsCellModel {
+        var commentsImage = ApplicationStyle.images.commentsIcon
+        var timeImage = ApplicationStyle.images.timeIcon
+        
+        var tintColor = ApplicationStyle.colors.accent
         func textAttributes() -> [NSAttributedString.Key: Any] {
             return [
                 NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
@@ -92,6 +108,7 @@ class PlaceDetailsStyle {
         }
         
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+        var buttonSpacing: CGFloat = 5
     }
     
     struct ErrorStateViewModel {

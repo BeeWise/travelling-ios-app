@@ -37,7 +37,9 @@ class ApplicationStyle {
         errorStateIcon = UIImage(named: "error_state_icon", in: Bundle.main, compatibleWith: nil)!,
         emptyStateIcon = UIImage(named: "empty_state_icon", in: Bundle.main, compatibleWith: nil)!,
         closeIcon = UIImage(named: "close_icon", in: Bundle.main, compatibleWith: nil)!,
-        logoIcon = UIImage(named: "logo_icon", in: Bundle.main, compatibleWith: nil)!
+        logoIcon = UIImage(named: "logo_icon", in: Bundle.main, compatibleWith: nil)!,
+        commentsIcon = UIImage(named: "comments_icon", in: Bundle.main, compatibleWith: nil)!,
+        timeIcon = UIImage(named: "time_icon", in: Bundle.main, compatibleWith: nil)!
     }
     
     struct fonts {

@@ -119,6 +119,11 @@ class PlaceDetailsPresenterTests: XCTestCase {
         self.sut.presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response(imageName: "imageName"))
         XCTAssertTrue(self.displayerSpy.displayNavigateToFullscreenImageCalled)
     }
+    
+    func testPresentPlaceTitleShouldAskTheDisplayerToDisplayPlaceTitle() {
+        self.sut.presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
+        XCTAssertTrue(self.displayerSpy.displayPlaceTitleCalled)
+    }
 }
 
 // MARK: - Auxiliary

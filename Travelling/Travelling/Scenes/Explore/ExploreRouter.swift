@@ -20,8 +20,7 @@ class ExploreRouter: ExploreRoutingLogic {
     weak var viewController: ExploreViewController?
     
     func navigateToPlaceDetails(place: Place) {
-        // TODO: - Replace with place details view controller!
-        let placeDetailsViewController = UIViewController()
+        let placeDetailsViewController = PlaceDetailsViewController(place: place)
         placeDetailsViewController.hidesBottomBarWhenPushed = true
         self.viewController?.navigationController?.pushViewController(placeDetailsViewController, animated: true)
     }

@@ -57,9 +57,113 @@ class PlaceDetailsViewControllerTests: XCTestCase {
         waitForExpectations(timeout: 1.0)
     }
     
-    // MARK: - Tests
+    // MARK: - Table view tests
     
+    func testNumberOfRowsInItemsSectionShouldEqualItemsCount() {
+        self.loadView()
+        self.sut.items = [PlaceDetailsModels.DisplayedItem(type: .photo, model: nil)]
+        let numberOfRows = self.sut.tableView(self.sut.tableView, numberOfRowsInSection: 0)
+        XCTAssertEqual(numberOfRows, self.sut.items.count)
+    }
     
+    func testCellForRowShouldReturnCorrectCellForItems() {
+        self.loadView()
+        self.sut.items = [PlaceDetailsModels.DisplayedItem(type: .photo, model: PlaceDetailsModels.PhotoModel()), PlaceDetailsModels.DisplayedItem(type: .description, model: PlaceDetailsModels.DescriptionModel()), PlaceDetailsModels.DisplayedItem(type: .comments, model: PlaceDetailsModels.CommentsModel())]
+        
+        let photoCell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
+        let descriptionCell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: 1, section: 0))
+        let commentsCell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: 2, section: 0))
+        
+        XCTAssertTrue(photoCell is PlaceDetailsPhotoTableViewCell)
+        XCTAssertTrue(descriptionCell is PlaceDetailsDescriptionTableViewCell)
+        XCTAssertTrue(commentsCell is PlaceDetailsCommentsTableViewCell)
+    }
+    
+    func testShouldConfigurePhotoTableViewCell() {
+        self.loadView()
+        
+        let model = PlaceDetailsModels.PhotoModel()
+        model.isLoadingImage = true
+        model.image = UIImage()
+        model.imageContentMode = .center
+        model.imageDominantColor = UIColor.white
+        
+        let items = [PlaceDetailsModels.DisplayedItem(type: .photo, model: model)]
+        self.sut.items = items
+        items.enumerated().forEach { (index, item) in
+            let cell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: index, section: 0)) as! PlaceDetailsPhotoTableViewCell
+            guard let model = item.model as? PlaceDetailsModels.PhotoModel else {
+                return XCTAssertTrue(false, "Wrong model for item!")
+            }
+            XCTAssertNotNil(model.cellInterface)
+            XCTAssertNotNil(cell.delegate)
+            XCTAssertEqual(cell.photoImageView?.activityIndicatorView?.isHidden, !model.isLoadingImage)
+            XCTAssertEqual(cell.photoImageView?.image, model.image)
+            XCTAssertEqual(cell.photoImageView?.contentMode, model.imageContentMode)
+            XCTAssertEqual(cell.photoImageView?.backgroundColor, model.imageDominantColor)
+            XCTAssertTrue(self.interactorSpy.shouldFetchImageCalled)
+        }
+    }
+    
+    func testShouldConfigureDescriptionTableViewCell() {
+        self.loadView()
+        
+        let model = PlaceDetailsModels.DescriptionModel(title: "Title".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]), text: "Text".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue]))
+        let items = [PlaceDetailsModels.DisplayedItem(type: .description, model: model)]
+        self.sut.items = items
+        items.enumerated().forEach { (index, item) in
+            let cell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: index, section: 0)) as! PlaceDetailsDescriptionTableViewCell
+            guard let model = item.model as? PlaceDetailsModels.DescriptionModel else {
+                return XCTAssertTrue(false, "Wrong model for item!")
+            }
+            XCTAssertEqual(cell.titleLabel?.attributedText, model.title)
+            XCTAssertEqual(cell.subtitleLabel?.attributedText, model.text)
+        }
+    }
+    
+    func testShouldConfigureCommentsTableViewCell() {
+        self.loadView()
+        
+        let model = PlaceDetailsModels.CommentsModel(comments: "10 comments".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]), time: "Time".attributed(attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue]))
+        let items = [PlaceDetailsModels.DisplayedItem(type: .comments, model: model)]
+        self.sut.items = items
+        items.enumerated().forEach { (index, item) in
+            let cell = self.sut.tableView(self.sut.tableView, cellForRowAt: IndexPath(row: index, section: 0)) as! PlaceDetailsCommentsTableViewCell
+            guard let model = item.model as? PlaceDetailsModels.CommentsModel else {
+                return XCTAssertTrue(false, "Wrong model for item!")
+            }
+            XCTAssertEqual(cell.commentsButton?.currentAttributedTitle, model.comments)
+            XCTAssertEqual(cell.timeButton?.currentAttributedTitle, model.time)
+        }
+    }
+    
+    // MARK: - Business logic tests
+    
+    func testViewDidLoadShouldAskTheInteractorToSetupPlace() {
+        self.loadView()
+        XCTAssertTrue(self.interactorSpy.shouldSetupPlaceCalled)
+    }
+    
+    func testErrorStateViewTouchUpInsideButtonShouldAskTheInteractorToRefreshPlace() {
+        self.sut.errorStateView(view: nil, touchUpInsideButton: nil)
+        XCTAssertTrue(self.interactorSpy.shouldRefreshPlaceCalled)
+    }
+    
+    func testValueChangedRefreshControlShouldAskTheInteractorToRefreshPlace() {
+        self.sut.valueChangedRefreshControl(refreshControl: UIRefreshControl())
+        XCTAssertTrue(self.interactorSpy.shouldRefreshPlaceCalled)
+    }
+    
+    func testValueChangedRefreshControlShouldAskTheRefreshControlToEndRefreshing() {
+        let refreshControlSpy = UIRefreshControlSpy()
+        self.sut.valueChangedRefreshControl(refreshControl: refreshControlSpy)
+        XCTAssertTrue(refreshControlSpy.endRefreshingCalled)
+    }
+    
+    func testPlaceDetailsPhotoTableViewCell() {
+        self.sut.placeDetailsPhotoTableViewCell(cell: nil, touchUpInsidePhoto: nil)
+        XCTAssertTrue(self.interactorSpy.shouldSelectPhotoCalled)
+    }
     
     // MARK: - Display logic tests
     
@@ -178,5 +282,13 @@ class PlaceDetailsViewControllerTests: XCTestCase {
         self.sut.displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel(imageName: "imageName"))
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.navigateToFullscreenImageCalled)
+    }
+    
+    func testDisplayPlaceTitleShouldUpdateNavigationItemTitle() {
+        self.sut.navigationItem.title = nil
+        let title = "Title"
+        self.sut.displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel(title: title))
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.navigationItem.title, title)
     }
 }

@@ -3,7 +3,7 @@
         "id": "0",
         "created_at": "2018-11-01T21:10:56Z",
         "name": "The Six",
-        "description": "",
+        "description": "Toronto is the capital city of the Canadian province of Ontario. With a recorded population of 2,731,571 in 2016, it is the most populous city in Canada and the fourth most populous city in North America. The city is the anchor of the Golden Horseshoe, an urban agglomeration of 9,245,438 people (as of 2016) surrounding the western end of Lake Ontario, while the Greater Toronto Area (GTA) proper had a 2016 population of 6,417,516. Toronto is an international centre of business, finance, arts, and culture, and is recognized as one of the most multicultural and cosmopolitan cities in the world.",
         "comment_count": 108,
         "location": {
             "id": "0",
@@ -23,7 +23,7 @@
         "id": "1",
         "created_at": "2017-05-11T11:30:36Z",
         "name": "City by the Bay",
-        "description": "",
+        "description": "San Francisco, officially the City and County of San Francisco is the cultural, commercial, and financial center of Northern California. San Francisco is the 16th most populous city in the United States, and the fourth most populous in California, with 881,549 residents as of 2019. It covers an area of about 46.89 square miles (121.4 km2), mostly at the north end of the San Francisco Peninsula in the San Francisco Bay Area, making it the second most densely populated large U.S. city, and the fifth most densely populated U.S. county, behind only four of the five New York City boroughs. San Francisco is the 12th-largest metropolitan statistical area in the United States by population, with 4.7 million people, and the fourth-largest by economic output, with GDP of $549 billion in 2018. With San Jose, it forms the fifth most populous combined statistical area in the United States, the San Jose–San Francisco–Oakland, CA Combined Statistical Area (9.67 million residents in 2018). Colloquial nicknames for San Francisco include The City, SF, Frisco and San Fran.",
         "comment_count": 56,
         "location": {
             "id": "1",
@@ -43,7 +43,7 @@
         "id": "2",
         "created_at": "2019-04-20T17:50:12Z",
         "name": "La Serenissima",
-        "description": "",
+        "description": "Venice is a city in northeastern Italy and the capital of the Veneto region. It is situated on a group of 118 small islands that are separated by canals and linked by over 400 bridges. The islands are located in the shallow Venetian Lagoon, an enclosed bay that lies between the mouths of the Po and the Piave rivers (more exactly between the Brenta and the Sile). In 2018, 260,897 people resided in the Comune di Venezia, of whom around 55,000 live in the historical city of Venice (centro storico). Together with Padua and Treviso, the city is included in the Padua-Treviso-Venice Metropolitan Area (PATREVE), which is considered a statistical metropolitan area, with a total population of 2.6 million.",
         "comment_count": 230,
         "location": {
             "id": "2",
@@ -63,7 +63,7 @@
         "id": "3",
         "created_at": "2020-06-14T10:20:46Z",
         "name": "The City of Lights",
-        "description": "",
+        "description": "Paris is the capital and most populous city of France, with an estimated population of 2,148,271 residents as of 2020, in an area of 105 square kilometres (41 square miles). Since the 17th century, Paris has been one of Europe's major centres of finance, diplomacy, commerce, fashion, science and arts. The City of Paris is the centre and seat of government of the Île-de-France, or Paris Region, which has an estimated official 2020 population of 12,278,210, or about 18 percent of the population of France. The Paris Region had a GDP of €709 billion ($808 billion) in 2017. According to the Economist Intelligence Unit Worldwide Cost of Living Survey in 2018, Paris was the second most expensive city in the world, after Singapore, and ahead of Zürich, Hong Kong, Oslo and Geneva. Another source ranked Paris as most expensive, on a par with Singapore and Hong Kong, in 2018.",
         "comment_count": 403,
         "location": {
             "id": "3",
@@ -83,7 +83,7 @@
         "id": "4",
         "created_at": "2015-08-15T20:05:16Z",
         "name": "The City of a Hundred Spires",
-        "description": "",
+        "description": "Prague is the capital and largest city in the Czech Republic, the 13th largest city in the European Union and the historical capital of Bohemia. Situated on the Vltava river, Prague is home to about 1.3 million people, while its metropolitan area is estimated to have a population of 2.7 million. The city has a temperate oceanic climate, with relatively warm summers and chilly winters.",
         "comment_count": 23,
         "location": {
             "id": "4",

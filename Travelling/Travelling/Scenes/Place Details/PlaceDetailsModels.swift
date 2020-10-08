@@ -39,11 +39,12 @@ enum PlaceDetailsModels {
     }
     
     struct DescriptionModel {
+        var title: NSAttributedString?
         var text: NSAttributedString?
     }
     
     struct CommentsModel {
-        var text: NSAttributedString?
+        var comments: NSAttributedString?
         var time: NSAttributedString?
     }
     
@@ -116,6 +117,16 @@ enum PlaceDetailsModels {
         
         struct ViewModel {
             let imageName: String?
+        }
+    }
+    
+    enum TitlePresentation {
+        struct Response {
+            let place: Place?
+        }
+        
+        struct ViewModel {
+            let title: String?
         }
     }
 }

@@ -362,6 +362,10 @@
 		28FDCA22252EE986002D7439 /* GetPlaceLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */; };
 		28FDCA24252EE9C8002D7439 /* place.json in Resources */ = {isa = PBXBuildFile; fileRef = 28FDCA23252EE9C8002D7439 /* place.json */; };
 		28FDCA28252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */; };
+		28FDCA2A252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA29252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift */; };
+		28FDCA2C252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA2B252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift */; };
+		28FDCA2E252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA2D252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift */; };
+		28FDCA31252F1639002D7439 /* UIButton+ContentSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDCA30252F1639002D7439 /* UIButton+ContentSpacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -740,6 +744,10 @@
 		28FDCA21252EE986002D7439 /* GetPlaceLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceLocalOperation.swift; sourceTree = "<group>"; };
 		28FDCA23252EE9C8002D7439 /* place.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place.json; sourceTree = "<group>"; };
 		28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceLocalOperationTests.swift; sourceTree = "<group>"; };
+		28FDCA29252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		28FDCA2B252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceDetailsViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		28FDCA2D252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		28FDCA30252F1639002D7439 /* UIButton+ContentSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ContentSpacing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -864,6 +872,7 @@
 		2812D489250CDF010079F879 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				28FDCA2F252F162C002D7439 /* UIButton */,
 				281F6157252C249900082CC5 /* UIImage */,
 				286D9022252ACC420012DB1D /* UIApplication */,
 				28CEC7D42529DD290063DCFE /* Case Iterable */,
@@ -2309,6 +2318,7 @@
 				28FDC9E7252EB968002D7439 /* PlaceDetailsViewController+DisplayLogic.swift */,
 				28FDC9E5252EB968002D7439 /* PlaceDetailsViewController.swift */,
 				28FDC9DF252EB968002D7439 /* PlaceDetailsViewController+Subviews.swift */,
+				28FDCA2B252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -2345,6 +2355,8 @@
 			isa = PBXGroup;
 			children = (
 				28FDCA0F252ED484002D7439 /* PlaceDetailsPhotoTableViewCell.swift */,
+				28FDCA29252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift */,
+				28FDCA2D252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2381,6 +2393,14 @@
 				28FDCA27252EEA8E002D7439 /* GetPlaceLocalOperationTests.swift */,
 			);
 			path = Get;
+			sourceTree = "<group>";
+		};
+		28FDCA2F252F162C002D7439 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				28FDCA30252F1639002D7439 /* UIButton+ContentSpacing.swift */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2494,6 +2514,7 @@
 				28D4E5FF25297F1A00A1ED86 /* FullscreenImageRouter.swift in Sources */,
 				28CEC7D12529DBB50063DCFE /* LoginInteractor+Validations.swift in Sources */,
 				28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */,
+				28FDCA2C252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift in Sources */,
 				28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
 				28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */,
@@ -2528,6 +2549,7 @@
 				2812D469250CDAC90079F879 /* MainViewController+DisplayLogic.swift in Sources */,
 				28D3A82025242F38008FFF92 /* LogoutUserOperationModels.swift in Sources */,
 				28179EAB250DFC700081FD3A /* ExploreViewController+TableViewDelegate.swift in Sources */,
+				28FDCA2A252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift in Sources */,
 				288897C6250E3DF30017B0B1 /* UIFont+WithTraits.swift in Sources */,
 				28179EA5250DFC700081FD3A /* ExploreStyle.swift in Sources */,
 				283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */,
@@ -2627,8 +2649,10 @@
 				281F4F7E2520CA9E008475D7 /* User.swift in Sources */,
 				287A35802517592B00898B51 /* ImageTask.swift in Sources */,
 				281F6151252C20FB00082CC5 /* SignUpInteractor.swift in Sources */,
+				28FDCA2E252F1187002D7439 /* PlaceDetailsCommentsTableViewCell.swift in Sources */,
 				28FDC9F2252EB968002D7439 /* PlaceDetailsLocalization.swift in Sources */,
 				28179EB9250DFDB50081FD3A /* DefaultReuseIdentifier.swift in Sources */,
+				28FDCA31252F1639002D7439 /* UIButton+ContentSpacing.swift in Sources */,
 				28D3A82F25243174008FFF92 /* AuthenticationTask.swift in Sources */,
 				28179EEE250E01C20081FD3A /* DataTaskOperation.swift in Sources */,
 				28CEC7C42529D6DE0063DCFE /* TitleTextFieldView.swift in Sources */,
