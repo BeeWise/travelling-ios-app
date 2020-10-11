@@ -100,3 +100,10 @@
 "PlaceDetails.scene.error.alert.message" = "An error occurred while saving your favorite place. Please try again.";
 "PlaceDetails.scene.error.alert.cancel.title" = "OK";
 "PlaceDetails.scene.share.place.text" = "Check out this cool place named %@ on Travelling: %@";
+
+// My Favorite Places scene
+
+"MyFavoritePlaces.scene.title" = "My favorite places";
+"MyFavoritePlaces.scene.empty.state.text" = "No places found";
+"MyFavoritePlaces.scene.no.more.places.text" = "No more places";
+"MyFavoritePlaces.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";

@@ -20,6 +20,15 @@ class MyFavoritePlacesLocalization {
     }
     
     struct LocalizedKey {
-        
+        static let
+        title = "MyFavoritePlaces.scene.title",
+        emptyStateText = "MyFavoritePlaces.scene.empty.state.text",
+        noMorePlacesText = "MyFavoritePlaces.scene.no.more.places.text",
+        errorStateText = "MyFavoritePlaces.scene.error.state.text"
     }
+    
+    let title = LocalizedKey.title.localized()
+    let emptyStateText = LocalizedKey.emptyStateText.localized()
+    let noMorePlacesText = LocalizedKey.noMorePlacesText.localized()
+    let errorStateText = LocalizedKey.errorStateText.localized()
 }
