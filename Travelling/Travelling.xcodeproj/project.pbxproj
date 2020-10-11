@@ -276,6 +276,7 @@
 		28CBCADA2532D7B300AC819E /* MyFavoritePlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAD02532D7B300AC819E /* MyFavoritePlacesInteractor.swift */; };
 		28CBCADB2532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAD12532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift */; };
 		28CBCADC2532D7B300AC819E /* MyFavoritePlacesLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAD22532D7B300AC819E /* MyFavoritePlacesLocalization.swift */; };
+		28CBCAE22532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE12532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift */; };
 		28CEC7B52529D2510063DCFE /* LoginViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */; };
 		28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AC2529D2510063DCFE /* LoginStyle.swift */; };
 		28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */; };
@@ -667,6 +668,7 @@
 		28CBCAD02532D7B300AC819E /* MyFavoritePlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesInteractor.swift; sourceTree = "<group>"; };
 		28CBCAD12532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFavoritePlacesViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
 		28CBCAD22532D7B300AC819E /* MyFavoritePlacesLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesLocalization.swift; sourceTree = "<group>"; };
+		28CBCAE12532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesTableViewCell.swift; sourceTree = "<group>"; };
 		28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Subviews.swift"; sourceTree = "<group>"; };
 		28CEC7AC2529D2510063DCFE /* LoginStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStyle.swift; sourceTree = "<group>"; };
 		28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -2040,6 +2042,7 @@
 		28CBCAC82532D79C00AC819E /* My Favorite Places */ = {
 			isa = PBXGroup;
 			children = (
+				28CBCAE02532DFA700AC819E /* Cells */,
 				28CBCADF2532D81900AC819E /* View Controller */,
 				28CBCADE2532D81000AC819E /* Style */,
 				28CBCADD2532D80800AC819E /* Localization */,
@@ -2076,6 +2079,14 @@
 				28CBCAC92532D7B300AC819E /* MyFavoritePlacesViewController+Subviews.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		28CBCAE02532DFA700AC819E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAE12532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		28CEC7AA2529D2360063DCFE /* Login */ = {
@@ -2692,6 +2703,7 @@
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
 				28FDC9EB252EB968002D7439 /* PlaceDetailsPresenter.swift in Sources */,
 				28179EAA250DFC700081FD3A /* ExploreViewController.swift in Sources */,
+				28CBCAE22532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift in Sources */,
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
 				28179ED0250DFFAE0081FD3A /* TableViewLoadingHeaderFooterView.swift in Sources */,

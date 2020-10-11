@@ -50,6 +50,8 @@ enum MyFavoritePlacesModels {
         
         var isFavorite: Bool = false
         
+        weak var cellInterface: MyFavoritePlacesTableViewCellInterface?
+        
         init(id: String) {
             self.id = id
         }
