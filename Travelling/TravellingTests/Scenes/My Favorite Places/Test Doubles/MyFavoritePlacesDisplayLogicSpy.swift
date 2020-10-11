@@ -13,5 +13,96 @@
 @testable import Travelling
 
 class MyFavoritePlacesDisplayLogicSpy: MyFavoritePlacesDisplayLogic {
+    var displayWillFetchItemsCalled: Bool = false
+    var displayDidFetchItemsCalled: Bool = false
     
+    var displayItemsCalled: Bool = false
+    var displayItemsViewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel!
+    
+    var displayNewItemsCalled: Bool = false
+    var displayNewItemsViewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel!
+    
+    var displayNoMoreItemsCalled: Bool = false
+    var displayRemoveNoMoreItemsCalled: Bool = false
+    
+    var displayEmptyStateCalled: Bool = false
+    var displayRemoveEmptyStateCalled: Bool = false
+    
+    var displayErrorStateCalled: Bool = false
+    var displayRemoveErrorStateCalled: Bool = false
+    
+    var displayWillFetchImageCalled: Bool = false
+    var displayDidFetchImageCalled: Bool = false
+    var displayImageCalled: Bool = false
+    
+    var displayEnableSearchBarCalled: Bool = false
+    var displayDisableSearchBarCalled: Bool = false
+    
+    var displayNavigateToPlaceDetailsCalled: Bool = false
+    
+    func displayWillFetchItems() {
+        self.displayWillFetchItemsCalled = true
+    }
+    
+    func displayDidFetchItems() {
+        self.displayDidFetchItemsCalled = true
+    }
+    
+    func displayItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel) {
+        self.displayItemsCalled = true
+        self.displayItemsViewModel = viewModel
+    }
+    
+    func displayNewItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel) {
+        self.displayNewItemsCalled = true
+        self.displayNewItemsViewModel = viewModel
+    }
+    
+    func displayNoMoreItems(viewModel: MyFavoritePlacesModels.NoMoreItemsPresentation.ViewModel) {
+        self.displayNoMoreItemsCalled = true
+    }
+    
+    func displayRemoveNoMoreItems() {
+        self.displayRemoveNoMoreItemsCalled = true
+    }
+    
+    func displayEmptyState(viewModel: MyFavoritePlacesModels.EmptyStatePresentation.ViewModel) {
+        self.displayEmptyStateCalled = true
+    }
+    
+    func displayRemoveEmptyState() {
+        self.displayRemoveEmptyStateCalled = true
+    }
+    
+    func displayErrorState(viewModel: MyFavoritePlacesModels.ErrorStatePresentation.ViewModel) {
+        self.displayErrorStateCalled = true
+    }
+    
+    func displayRemoveErrorState() {
+        self.displayRemoveErrorStateCalled = true
+    }
+    
+    func displayWillFetchImage(viewModel: MyFavoritePlacesModels.ImageFetching.ViewModel) {
+        self.displayWillFetchImageCalled = true
+    }
+    
+    func displayDidFetchImage(viewModel: MyFavoritePlacesModels.ImageFetching.ViewModel) {
+        self.displayDidFetchImageCalled = true
+    }
+    
+    func displayImage(viewModel: MyFavoritePlacesModels.ImagePresentation.ViewModel) {
+        self.displayImageCalled = true
+    }
+    
+    func displayEnableSearchBar() {
+        self.displayEnableSearchBarCalled = true
+    }
+    
+    func displayDisableSearchBar() {
+        self.displayDisableSearchBarCalled = true
+    }
+    
+    func displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel) {
+        self.displayNavigateToPlaceDetailsCalled = true
+    }
 }

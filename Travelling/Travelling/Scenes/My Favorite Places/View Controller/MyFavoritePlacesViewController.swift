@@ -52,6 +52,7 @@ class MyFavoritePlacesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
+        self.interactor?.shouldFetchItems()
     }
 }
 
@@ -59,25 +60,25 @@ extension MyFavoritePlacesViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory {
-            
+            self.interactor?.shouldFetchItems()
         }
     }
 }
 
 extension MyFavoritePlacesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        self.interactor?.shouldSearchItems(request: MyFavoritePlacesModels.ItemsSearching.Request(text: searchController.searchBar.text))
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        self.interactor?.shouldSearchItems(request: MyFavoritePlacesModels.ItemsSearching.Request(text: searchBar.text))
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
+        self.interactor?.shouldEndSearchState()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
+        self.interactor?.shouldBeginSearchState()
     }
 }

@@ -49,9 +49,12 @@ extension MyFavoritePlacesViewController {
     
     private func setupTableView() {
         self.tableView?.backgroundColor = MyFavoritePlacesStyle.shared.tableViewModel.backgroundColor
-        self.tableView?.separatorStyle = .none
+        self.tableView?.separatorColor = MyFavoritePlacesStyle.shared.tableViewModel.separatorColor
         self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
         self.tableView?.register(MyFavoritePlacesTableViewCell.self, forCellReuseIdentifier: MyFavoritePlacesTableViewCell.defaultReuseIdentifier)
+        self.tableView?.register(TableViewLoadingHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewLoadingHeaderFooterView.defaultReuseIdentifier)
+        self.tableView?.register(TableViewTitleHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewTitleHeaderFooterView.defaultReuseIdentifier)
+        self.tableView?.register(TableViewErrorHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewErrorHeaderFooterView.defaultReuseIdentifier)
     }
     
     func emptyStateView(image: UIImage?, attributedText: NSAttributedString?) -> EmptyStateView {

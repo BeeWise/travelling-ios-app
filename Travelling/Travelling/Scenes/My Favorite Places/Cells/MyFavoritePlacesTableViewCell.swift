@@ -80,9 +80,8 @@ extension MyFavoritePlacesTableViewCell {
     }
     
     private func setupContentView() {
-        self.selectionStyle = .none
         self.contentView.clipsToBounds = true
-        self.contentView.backgroundColor = MyFavoritePlacesStyle.shared.cellModel.backgroundColor
+        self.backgroundColor = MyFavoritePlacesStyle.shared.cellModel.backgroundColor
     }
     
     private func setupPlaceImageView() {
@@ -152,7 +151,7 @@ extension MyFavoritePlacesTableViewCell {
             self.placeImageView.topAnchor.constraint(greaterThanOrEqualTo: self.contentView.topAnchor, constant: 15),
             self.placeImageView.bottomAnchor.constraint(lessThanOrEqualTo: self.contentView.bottomAnchor, constant: -15),
             self.placeImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),
-            self.placeImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            self.placeImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
             self.placeImageView.widthAnchor.constraint(equalToConstant: MyFavoritePlacesStyle.shared.cellModel.imageViewSize),
             self.placeImageView.heightAnchor.constraint(equalToConstant: MyFavoritePlacesStyle.shared.cellModel.imageViewSize)
         ])
@@ -163,15 +162,17 @@ extension MyFavoritePlacesTableViewCell {
             self.labelContainerView.topAnchor.constraint(greaterThanOrEqualTo: self.contentView.topAnchor, constant: 15),
             self.labelContainerView.bottomAnchor.constraint(lessThanOrEqualTo: self.contentView.bottomAnchor, constant: -15),
             self.labelContainerView.leadingAnchor.constraint(equalTo: self.placeImageView.trailingAnchor, constant: 15),
-            self.labelContainerView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor)
+            self.labelContainerView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     
     private func setupFavoriteButtonConstraints() {
         NSLayoutConstraint.activate([
-            self.favoriteButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            self.favoriteButton.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
             self.favoriteButton.leadingAnchor.constraint(equalTo: self.labelContainerView.trailingAnchor, constant: 15),
-            self.favoriteButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -15)
+            self.favoriteButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -15),
+            self.favoriteButton.widthAnchor.constraint(equalToConstant: MyFavoritePlacesStyle.shared.cellModel.favoriteButtonSize),
+            self.favoriteButton.heightAnchor.constraint(equalToConstant: MyFavoritePlacesStyle.shared.cellModel.favoriteButtonSize)
         ])
     }
 }
