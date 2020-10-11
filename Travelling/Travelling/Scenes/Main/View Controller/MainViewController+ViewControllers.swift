@@ -13,7 +13,7 @@ import UIKit
 extension MainViewController {
     func setupViewControllers() {
         self.setupExploreViewController()
-        self.setupMyFavoritesViewController()
+        self.setupMyFavoritePlacesViewController()
         self.setupMyProfileViewController()
     }
 }
@@ -33,12 +33,12 @@ extension MainViewController {
     }
 }
 
-// MARK: - MyFavorites scene
+// MARK: - My favorites Places scene
 
 extension MainViewController {
-    func setupMyFavoritesViewController() {
-        self.myFavoritesViewController = UIViewController()
-        self.myFavoritesViewController.tabBarItem = self.myFavoritesTabBarItem()
+    func setupMyFavoritePlacesViewController() {
+        self.myFavoritePlacesViewController = MyFavoritePlacesViewController()
+        self.myFavoritePlacesViewController.tabBarItem = self.myFavoritesTabBarItem()
     }
     
     private func myFavoritesTabBarItem() -> UITabBarItem {
@@ -48,7 +48,7 @@ extension MainViewController {
     }
 }
 
-// MARK: - MyProfile scene
+// MARK: - My profile scene
 
 extension MainViewController: MyProfileViewControllerDelegate {
     func setupMyProfileViewController() {

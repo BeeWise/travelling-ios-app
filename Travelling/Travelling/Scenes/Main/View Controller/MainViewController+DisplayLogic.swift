@@ -69,7 +69,7 @@ extension MainViewController {
         for index in indices {
             switch index {
                 case MainModels.Scenes.explore.rawValue: controllers.append(UINavigationController(rootViewController: self.exploreViewController)); break
-                case MainModels.Scenes.myFavorites.rawValue: controllers.append(UINavigationController(rootViewController: self.myFavoritesViewController)); break
+                case MainModels.Scenes.myFavorites.rawValue: controllers.append(UINavigationController(rootViewController: self.myFavoritePlacesViewController)); break
                 case MainModels.Scenes.myProfile.rawValue: controllers.append(UINavigationController(rootViewController: self.myProfileViewController)); break
                 default: break
             }

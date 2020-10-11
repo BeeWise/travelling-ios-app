@@ -14,6 +14,51 @@ import UIKit
 
 extension MyFavoritePlacesViewController {
     func setupSubviews() {
-        
+        self.setupNavigationBar()
+        self.setupNavigationItem()
+        self.setupContentView()
+        self.setupTableView()
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.isTranslucent = MyFavoritePlacesStyle.shared.navigationBarModel.isTranslucent
+        self.navigationController?.navigationBar.tintColor = MyFavoritePlacesStyle.shared.navigationBarModel.tintColor
+        self.navigationController?.navigationBar.barTintColor = MyFavoritePlacesStyle.shared.navigationBarModel.barTintColor
+        self.navigationController?.navigationBar.titleTextAttributes = MyFavoritePlacesStyle.shared.navigationBarModel.titleAttributes()
+    }
+    
+    private func setupNavigationItem() {
+        self.navigationItem.title = MyFavoritePlacesLocalization.shared.title
+        self.navigationItem.searchController = self.setupSearchController()
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    private func setupContentView() {
+        self.definesPresentationContext = true
+        self.view.backgroundColor = MyFavoritePlacesStyle.shared.contentViewModel.backgroundColor
+    }
+    
+    func setupSearchController() -> UISearchController {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        return searchController
+    }
+    
+    private func setupTableView() {
+        self.tableView?.backgroundColor = MyFavoritePlacesStyle.shared.tableViewModel.backgroundColor
+        self.tableView?.separatorStyle = .none
+        self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+        self.tableView?.register(MyFavoritePlacesTableViewCell.self, forCellReuseIdentifier: MyFavoritePlacesTableViewCell.defaultReuseIdentifier)
+    }
+    
+    func emptyStateView(image: UIImage?, attributedText: NSAttributedString?) -> EmptyStateView {
+        let view = EmptyStateView(frame: self.tableView.frame)
+        view.image = image
+        view.imageTintColor = MyFavoritePlacesStyle.shared.emptyStateViewModel.imageTintColor
+        view.attributedText = attributedText
+        return view
     }
 }

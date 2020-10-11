@@ -12,24 +12,25 @@
 
 import UIKit
 
-class MyFavoritePlacesViewController: UIViewController {
+class MyFavoritePlacesViewController: UITableViewController {
     var interactor: MyFavoritePlacesBusinessLogic?
     var router: (NSObjectProtocol & MyFavoritePlacesRoutingLogic)?
+    
+    var sections: [MyFavoritePlacesModels.Section] = [MyFavoritePlacesModels.Section(), MyFavoritePlacesModels.Section()]
     
     // MARK: - Object lifecycle
     
     convenience init() {
-        self.init(nibName: nil, bundle: nil)
+        self.init(style: .plain)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init(style: UITableView.Style) {
+        super.init(style: style)
         self.setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setup()
+        return nil
     }
     
     // MARK: - Setup
@@ -51,5 +52,32 @@ class MyFavoritePlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
+    }
+}
+
+extension MyFavoritePlacesViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory {
+            
+        }
+    }
+}
+
+extension MyFavoritePlacesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
     }
 }
