@@ -13,6 +13,10 @@
 @testable import Travelling
 import UIKit
 
-class MyFavoritePlacesRoutingLogicSpy: NSObject, MyFavoritePlacesRoutingLogic {
+class MyFavoritePlacesRoutingLogicSpy: MyFavoritePlacesRoutingLogic {
+    var navigateToPlaceDetailsCalled: Bool = false
     
+    func navigateToPlaceDetails(place: Place) {
+        self.navigateToPlaceDetailsCalled = true
+    }
 }

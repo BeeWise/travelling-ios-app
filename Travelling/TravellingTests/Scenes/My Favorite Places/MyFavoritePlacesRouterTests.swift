@@ -39,5 +39,9 @@ class MyFavoritePlacesRouterTests: XCTestCase {
     
     // MARK: - Tests
     
-    
+    func testNavigateToPlaceDetails() {
+        let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
+        self.sut.navigateToPlaceDetails(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27)))
+        XCTAssertTrue(navigationControllerSpy.pushedViewController is PlaceDetailsViewController)
+    }
 }

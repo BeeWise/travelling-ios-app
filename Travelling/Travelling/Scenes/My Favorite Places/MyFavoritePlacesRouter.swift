@@ -12,10 +12,16 @@
 
 import UIKit
 
-@objc protocol MyFavoritePlacesRoutingLogic {
-    
+protocol MyFavoritePlacesRoutingLogic {
+    func navigateToPlaceDetails(place: Place)
 }
 
-class MyFavoritePlacesRouter: NSObject, MyFavoritePlacesRoutingLogic {
+class MyFavoritePlacesRouter: MyFavoritePlacesRoutingLogic {
     weak var viewController: MyFavoritePlacesViewController?
+    
+    func navigateToPlaceDetails(place: Place) {
+        let placeDetailsViewController = PlaceDetailsViewController(place: place)
+        placeDetailsViewController.hidesBottomBarWhenPushed = true
+        self.viewController?.navigationController?.pushViewController(placeDetailsViewController, animated: true)
+    }
 }

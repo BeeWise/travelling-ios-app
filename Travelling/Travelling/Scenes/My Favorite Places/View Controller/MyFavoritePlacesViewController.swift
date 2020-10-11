@@ -14,7 +14,7 @@ import UIKit
 
 class MyFavoritePlacesViewController: UITableViewController {
     var interactor: MyFavoritePlacesBusinessLogic?
-    var router: (NSObjectProtocol & MyFavoritePlacesRoutingLogic)?
+    var router: MyFavoritePlacesRoutingLogic?
     
     var sections: [MyFavoritePlacesModels.Section] = [MyFavoritePlacesModels.Section(), MyFavoritePlacesModels.Section()]
     
