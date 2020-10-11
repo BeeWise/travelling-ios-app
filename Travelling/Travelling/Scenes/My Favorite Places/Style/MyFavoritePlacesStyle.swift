@@ -70,7 +70,7 @@ class MyFavoritePlacesStyle {
         
         func boldTitleAttributes() -> [NSAttributedString.Key: Any] {
             return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryLight,
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
                 NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body).bold()
             ]
         }
@@ -88,6 +88,8 @@ class MyFavoritePlacesStyle {
         var activityIndicatorColor: UIColor = ApplicationStyle.colors.white
         var imageViewSize: CGFloat = 75
         var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
+        
+        var favoriteButtonSize: CGFloat = 50
     }
     
     struct EmptyStateViewModel {

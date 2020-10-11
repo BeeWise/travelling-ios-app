@@ -13,5 +13,101 @@
 @testable import Travelling
 
 class MyFavoritePlacesPresentationLogicSpy: MyFavoritePlacesPresentationLogic {
+    var presentWillFetchItemsCalled: Bool = false
+    var presentDidFetchItemsCalled: Bool = false
     
+    var presentItemsCalled: Bool = false
+    var presentNewItemsCalled: Bool = false
+    var presentSearchedItemsCalled: Bool = false
+    
+    var presentNoMoreItemsCalled: Bool = false
+    var presentRemoveNoMoreItemsCalled: Bool = false
+    
+    var presentEmptyStateCalled: Bool = false
+    var presentRemoveEmptyStateCalled: Bool = false
+    
+    var presentErrorStateCalled: Bool = false
+    var presentRemoveErrorStateCalled: Bool = false
+    
+    var presentWillFetchImageCalled: Bool = false
+    var presentDidFetchImageCalled: Bool = false
+    var presentImageCalled: Bool = false
+    var presentPlaceholderImageCalled: Bool = false
+    
+    var presentEnableSearchBarCalled: Bool = false
+    var presentDisableSearchBarCalled: Bool = false
+    
+    var presentNavigateToPlaceDetailsCalled: Bool = false
+    
+    func presentWillFetchItems() {
+        self.presentWillFetchItemsCalled = true
+    }
+    
+    func presentDidFetchItems() {
+        self.presentDidFetchItemsCalled = true
+    }
+    
+    func presentItems(response: MyFavoritePlacesModels.ItemsPresentation.Response) {
+        self.presentItemsCalled = true
+    }
+    
+    func presentNewItems(response: MyFavoritePlacesModels.ItemsPresentation.Response) {
+        self.presentNewItemsCalled = true
+    }
+    
+    func presentSearchedItems(response: MyFavoritePlacesModels.ItemsSearching.Response) {
+        self.presentSearchedItemsCalled = true
+    }
+    
+    func presentNoMoreItems() {
+        self.presentNoMoreItemsCalled = true
+    }
+    
+    func presentRemoveNoMoreItems() {
+        self.presentRemoveNoMoreItemsCalled = true
+    }
+    
+    func presentEmptyState() {
+        self.presentEmptyStateCalled = true
+    }
+    
+    func presentRemoveEmptyState() {
+        self.presentRemoveEmptyStateCalled = true
+    }
+    
+    func presentErrorState() {
+        self.presentErrorStateCalled = true
+    }
+    
+    func presentRemoveErrorState() {
+        self.presentRemoveErrorStateCalled = true
+    }
+    
+    func presentWillFetchImage(response: MyFavoritePlacesModels.ImageFetching.Response) {
+        self.presentWillFetchImageCalled = true
+    }
+    
+    func presentDidFetchImage(response: MyFavoritePlacesModels.ImageFetching.Response) {
+        self.presentDidFetchImageCalled = true
+    }
+    
+    func presentImage(response: MyFavoritePlacesModels.ImagePresentation.Response) {
+        self.presentImageCalled = true
+    }
+    
+    func presentPlaceholderImage(response: MyFavoritePlacesModels.ImagePresentation.Response) {
+        self.presentPlaceholderImageCalled = true
+    }
+    
+    func presentEnableSearchBar() {
+        self.presentEnableSearchBarCalled = true
+    }
+    
+    func presentDisableSearchBar() {
+        self.presentDisableSearchBarCalled = true
+    }
+    
+    func presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response) {
+        self.presentNavigateToPlaceDetailsCalled = true
+    }
 }

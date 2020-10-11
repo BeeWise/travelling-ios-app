@@ -13,9 +13,152 @@
 import UIKit
 
 protocol MyFavoritePlacesPresentationLogic {
+    func presentWillFetchItems()
+    func presentDidFetchItems()
     
+    func presentItems(response: MyFavoritePlacesModels.ItemsPresentation.Response)
+    func presentNewItems(response: MyFavoritePlacesModels.ItemsPresentation.Response)
+    func presentSearchedItems(response: MyFavoritePlacesModels.ItemsSearching.Response)
+    
+    func presentNoMoreItems()
+    func presentRemoveNoMoreItems()
+    
+    func presentEmptyState()
+    func presentRemoveEmptyState()
+    
+    func presentErrorState()
+    func presentRemoveErrorState()
+    
+    func presentWillFetchImage(response: MyFavoritePlacesModels.ImageFetching.Response)
+    func presentDidFetchImage(response: MyFavoritePlacesModels.ImageFetching.Response)
+    func presentImage(response: MyFavoritePlacesModels.ImagePresentation.Response)
+    func presentPlaceholderImage(response: MyFavoritePlacesModels.ImagePresentation.Response)
+    
+    func presentEnableSearchBar()
+    func presentDisableSearchBar()
+    
+    func presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response)
 }
 
 class MyFavoritePlacesPresenter: MyFavoritePlacesPresentationLogic {
     weak var displayer: MyFavoritePlacesDisplayLogic?
+    
+    func presentWillFetchItems() {
+        self.displayer?.displayWillFetchItems()
+    }
+    
+    func presentDidFetchItems() {
+        self.displayer?.displayDidFetchItems()
+    }
+    
+    func presentItems(response: MyFavoritePlacesModels.ItemsPresentation.Response) {
+        self.displayer?.displayItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel(displayedItems: self.displayedItems(items: response.items)))
+    }
+    
+    func presentNewItems(response: MyFavoritePlacesModels.ItemsPresentation.Response) {
+        self.displayer?.displayNewItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel(displayedItems: self.displayedItems(items: response.items)))
+    }
+    
+    func presentSearchedItems(response: MyFavoritePlacesModels.ItemsSearching.Response) {
+        self.displayer?.displayItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel(displayedItems: self.displayedSearchedItems(items: response.items, text: response.text)))
+    }
+    
+    func presentNoMoreItems() {
+        let text = NSAttributedString(string: MyFavoritePlacesLocalization.shared.noMorePlacesText, attributes: MyFavoritePlacesStyle.shared.noMorePlacesViewModel.textAttributes())
+        self.displayer?.displayNoMoreItems(viewModel: MyFavoritePlacesModels.NoMoreItemsPresentation.ViewModel(text: text))
+    }
+    
+    func presentRemoveNoMoreItems() {
+        self.displayer?.displayRemoveNoMoreItems()
+    }
+    
+    func presentEmptyState() {
+        let image = MyFavoritePlacesStyle.shared.emptyStateViewModel.image
+        let text = NSAttributedString(string: MyFavoritePlacesLocalization.shared.emptyStateText, attributes: MyFavoritePlacesStyle.shared.emptyStateViewModel.textAttributes())
+        self.displayer?.displayEmptyState(viewModel: MyFavoritePlacesModels.EmptyStatePresentation.ViewModel(image: image, text: text))
+    }
+    
+    func presentRemoveEmptyState() {
+        self.displayer?.displayRemoveEmptyState()
+    }
+    
+    func presentErrorState() {
+        let text = NSAttributedString(string: MyFavoritePlacesLocalization.shared.errorStateText, attributes: MyFavoritePlacesStyle.shared.errorStateViewModel.textAttributes())
+        self.displayer?.displayErrorState(viewModel: MyFavoritePlacesModels.ErrorStatePresentation.ViewModel(text: text))
+    }
+    
+    func presentRemoveErrorState() {
+        self.displayer?.displayRemoveErrorState()
+    }
+    
+    func presentWillFetchImage(response: MyFavoritePlacesModels.ImageFetching.Response) {
+        self.displayer?.displayWillFetchImage(viewModel: MyFavoritePlacesModels.ImageFetching.ViewModel(item: response.item))
+    }
+    
+    func presentDidFetchImage(response: MyFavoritePlacesModels.ImageFetching.Response) {
+        self.displayer?.displayDidFetchImage(viewModel: MyFavoritePlacesModels.ImageFetching.ViewModel(item: response.item))
+    }
+    
+    func presentImage(response: MyFavoritePlacesModels.ImagePresentation.Response) {
+        self.displayer?.displayImage(viewModel: MyFavoritePlacesModels.ImagePresentation.ViewModel(item: response.item, image: response.image, contentMode: .scaleAspectFill))
+    }
+    
+    func presentPlaceholderImage(response: MyFavoritePlacesModels.ImagePresentation.Response) {
+        let image = MyFavoritePlacesStyle.shared.cellModel.placeholderImage
+        self.displayer?.displayImage(viewModel: MyFavoritePlacesModels.ImagePresentation.ViewModel(item: response.item, image: image, contentMode: .center))
+    }
+    
+    func presentEnableSearchBar() {
+        self.displayer?.displayEnableSearchBar()
+    }
+    
+    func presentDisableSearchBar() {
+        self.displayer?.displayDisableSearchBar()
+    }
+    
+    func presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response) {
+        self.displayer?.displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel(place: response.place))
+    }
+}
+
+// MARK: - Auxiliary
+
+extension MyFavoritePlacesPresenter {
+    private func displayedItems(items: [Place]) -> [MyFavoritePlacesModels.DisplayedItem] {
+        return items.map({ self.displayedItem(item: $0) })
+    }
+    
+    private func displayedItem(item: Place) -> MyFavoritePlacesModels.DisplayedItem {
+        let displayedItem = MyFavoritePlacesModels.DisplayedItem(id: item.id)
+        displayedItem.title = item.name?.attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.titleAttributes())
+        displayedItem.subtitle = self.displayedLocation(location: item.location).attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.subtitleAttributes())
+        displayedItem.imageName = item.photo?.imageName
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        return displayedItem
+    }
+    
+    private func displayedLocation(location: Location) -> String {
+        let city = location.city ?? ""
+        let country = location.country ?? ""
+        return String(format: "%@, %@", city, country)
+    }
+    
+    private func displayedSearchedItems(items: [Place], text: String) -> [MyFavoritePlacesModels.DisplayedItem] {
+        return items.map({ self.displayedSearchedItem(item: $0, text: text) })
+    }
+    
+    private func displayedSearchedItem(item: Place, text: String) -> MyFavoritePlacesModels.DisplayedItem {
+        let title = item.name ?? ""
+        let displayedTitle = title.attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.titleAttributes())
+        if let range = title.rangeOf(value: text) {
+            displayedTitle.setAttributes(MyFavoritePlacesStyle.shared.cellModel.boldTitleAttributes(), range: range)
+        }
+        
+        let displayedItem = MyFavoritePlacesModels.DisplayedItem(id: item.id)
+        displayedItem.title = displayedTitle
+        displayedItem.subtitle = self.displayedLocation(location: item.location).attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.subtitleAttributes())
+        displayedItem.imageName = item.photo?.imageName
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        return displayedItem
+    }
 }
