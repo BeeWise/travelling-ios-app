@@ -15,7 +15,117 @@ import UIKit
 class MyFavoritePlacesStyle {
     static let shared = MyFavoritePlacesStyle()
     
+    var navigationBarModel: NavigationBarModel
+    
+    var contentViewModel: ContentViewModel
+    var tableViewModel: TableViewModel
+    var cellModel: CellModel
+    var emptyStateViewModel: EmptyStateViewModel
+    var noMorePlacesViewModel: NoMorePlacesViewModel
+    var errorStateViewModel: ErrorStateViewModel
+    
     private init() {
+        self.navigationBarModel = NavigationBarModel()
+        self.contentViewModel = ContentViewModel()
+        self.tableViewModel = TableViewModel()
+        self.cellModel = CellModel()
+        self.emptyStateViewModel = EmptyStateViewModel()
+        self.noMorePlacesViewModel = NoMorePlacesViewModel()
+        self.errorStateViewModel = ErrorStateViewModel()
+    }
+    
+    struct NavigationBarModel {
+        var isTranslucent: Bool = false
+        var tintColor: UIColor = ApplicationStyle.colors.primary
+        var barTintColor: UIColor = ApplicationStyle.colors.primaryLight
         
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.bold(size: UIFont.labelFontSize)
+            ]
+        }
+    }
+    
+    struct ContentViewModel {
+        var backgroundColor = ApplicationStyle.colors.accentAlpha
+    }
+    
+    struct TableViewModel {
+        var backgroundColor = ApplicationStyle.colors.accentAlpha
+        var separatorColor: UIColor = ApplicationStyle.colors.accent
+        var activityIndicatorColor: UIColor = ApplicationStyle.colors.primary
+        
+        var itemsSectionFooterHeight: CGFloat = 8
+        var footerSectionFooterHeight: CGFloat = 15
+    }
+    
+    struct CellModel {
+        func titleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
+            ]
+        }
+        
+        func boldTitleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryLight,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body).bold()
+            ]
+        }
+        
+        func subtitleAttributes() -> [NSAttributedString.Key: Any] {
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .callout)
+            ]
+        }
+        
+        var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
+        
+        var imageBackgroundColor: UIColor = ApplicationStyle.colors.accentAlpha
+        var activityIndicatorColor: UIColor = ApplicationStyle.colors.white
+        
+        var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
+    }
+    
+    struct EmptyStateViewModel {
+        var image: UIImage = ApplicationStyle.images.emptyStateIcon.withRenderingMode(.alwaysTemplate)
+        var imageTintColor = ApplicationStyle.colors.primary
+        
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .title2).bold(),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
+    }
+    
+    struct NoMorePlacesViewModel {
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.regular(size: UIFont.smallSystemFontSize),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
+    }
+    
+    struct ErrorStateViewModel {
+        func textAttributes() -> [NSAttributedString.Key: Any] {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            return [
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.accent,
+                NSAttributedString.Key.font: ApplicationStyle.fonts.regular(size: UIFont.smallSystemFontSize),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        }
     }
 }
