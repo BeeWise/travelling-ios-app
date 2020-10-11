@@ -13,5 +13,36 @@
 @testable import Travelling
 
 class MyFavoritePlacesBusinessLogicSpy: MyFavoritePlacesBusinessLogic {
+    var shouldFetchItemsCalled: Bool = false
+    var shouldFetchImageCalled: Bool = false
     
+    var shouldBeginSearchStateCalled: Bool = false
+    var shouldEndSearchStateCalled: Bool = false
+    var shouldSearchItemsCalled: Bool = false
+    
+    var shouldNavigateToPlaceDetailsCalled: Bool = false
+    
+    func shouldFetchItems() {
+        self.shouldFetchItemsCalled = true
+    }
+    
+    func shouldFetchImage(request: MyFavoritePlacesModels.ImageFetching.Request) {
+        self.shouldFetchImageCalled = true
+    }
+    
+    func shouldBeginSearchState() {
+        self.shouldBeginSearchStateCalled = true
+    }
+    
+    func shouldEndSearchState() {
+        self.shouldEndSearchStateCalled = true
+    }
+    
+    func shouldSearchItems(request: MyFavoritePlacesModels.ItemsSearching.Request) {
+        self.shouldSearchItemsCalled = true
+    }
+    
+    func shouldNavigateToPlaceDetails(request: MyFavoritePlacesModels.ItemNavigation.Request) {
+        self.shouldNavigateToPlaceDetailsCalled = true
+    }
 }
