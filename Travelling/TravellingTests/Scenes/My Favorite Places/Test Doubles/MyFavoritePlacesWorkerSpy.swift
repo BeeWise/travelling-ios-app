@@ -13,5 +13,14 @@
 @testable import Travelling
 
 class MyFavoritePlacesWorkerSpy: MyFavoritePlacesWorker {
+    var fetchItemsCalled: Bool = false
+    var fetchImageCalled: Bool = false
     
+    override func fetchItems(page: Int, limit: Int) {
+        self.fetchItemsCalled = true
+    }
+    
+    override func fetchImage(item: MyFavoritePlacesModels.DisplayedItem) {
+        self.fetchImageCalled = true
+    }
 }

@@ -37,5 +37,49 @@ class MyFavoritePlacesWorkerTests: XCTestCase {
     
     // MARK: - Tests
     
+    func testFetchItemsShouldAskThePlacesTaskToFetchPlaces() {
+        let taskSpy = PlacesTaskSpy()
+        self.sut.placesTask = taskSpy
+        self.sut.fetchItems(page: 0, limit: 30)
+        XCTAssertTrue(taskSpy.fetchPlacesCalled)
+    }
     
+    func testFetchItemsShouldAskTheDelegateToSendPlacesForSuccessCase() {
+        let taskSpy = PlacesTaskSpy()
+        taskSpy.shouldFailFetchPlaces = false
+        self.sut.placesTask = taskSpy
+        self.sut.fetchItems(page: 0, limit: 30)
+        XCTAssertTrue(self.delegateSpy.successDidFetchItemsCalled)
+    }
+    
+    func testFetchItemsShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = PlacesTaskSpy()
+        taskSpy.shouldFailFetchPlaces = true
+        self.sut.placesTask = taskSpy
+        self.sut.fetchItems(page: 0, limit: 30)
+        XCTAssertTrue(self.delegateSpy.failureDidFetchItemsCalled)
+    }
+    
+    func testFetchImage() {
+        let taskSpy = ImageTaskSpy()
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: MyFavoritePlacesModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(taskSpy.fetchImageCalled)
+    }
+    
+    func testFetchImageShouldAskTheDelegateToSendImageForSuccessCase() {
+        let taskSpy = ImageTaskSpy()
+        taskSpy.shouldFailFetchImage = false
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: MyFavoritePlacesModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(self.delegateSpy.successDidFetchImageCalled)
+    }
+    
+    func testFetchImageShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = ImageTaskSpy()
+        taskSpy.shouldFailFetchImage = true
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: MyFavoritePlacesModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(self.delegateSpy.failureDidFetchImageCalled)
+    }
 }

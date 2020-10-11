@@ -13,13 +13,38 @@
 import UIKit
 
 protocol MyFavoritePlacesWorkerDelegate: class {
+    func successDidFetchItems(items: [Place])
+    func failureDidFetchItems(error: OperationError)
     
+    func successDidFetchImage(item: MyFavoritePlacesModels.DisplayedItem, image: UIImage?)
+    func failureDidFetchImage(item: MyFavoritePlacesModels.DisplayedItem, error: OperationError)
 }
 
 class MyFavoritePlacesWorker {
     weak var delegate: MyFavoritePlacesWorkerDelegate?
     
+    var placesTask: PlacesTaskProtocol = TaskConfigurator.shared.placesTask()
+    var imageTask: ImageTaskProtocol = TaskConfigurator.shared.imageTask()
+    
     init(delegate: MyFavoritePlacesWorkerDelegate?) {
         self.delegate = delegate
+    }
+    
+    func fetchItems(page: Int, limit: Int) {
+        self.placesTask.fetchPlaces(model: PlacesTaskModels.FetchPlaces.Request(page: page, limit: limit)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidFetchItems(items: value.places); break
+                case .failure(let error): self.delegate?.failureDidFetchItems(error: error); break
+            }
+        }
+    }
+    
+    func fetchImage(item: MyFavoritePlacesModels.DisplayedItem) {
+        self.imageTask.fetchImage(model: ImageTaskModels.Fetch.Request(imageName: item.imageName)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidFetchImage(item: item, image: value.image); break
+                case .failure(let error): self.delegate?.failureDidFetchImage(item: item, error: error); break
+            }
+        }
     }
 }
