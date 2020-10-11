@@ -46,18 +46,4 @@ extension SignUpViewController {
         self.tableView?.register(SignUpPhotoCell.self, forCellReuseIdentifier: SignUpPhotoCell.defaultReuseIdentifier)
         self.tableView?.register(SignUpTextViewCell.self, forCellReuseIdentifier: SignUpTextViewCell.defaultReuseIdentifier)
     }
-    
-    func imagePickerController(sourceView: UIView) -> UIImagePickerController {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.navigationBar.isTranslucent = SignUpStyle.shared.navigationBarModel.isTranslucent
-        imagePickerController.navigationBar.tintColor = SignUpStyle.shared.navigationBarModel.tintColor
-        imagePickerController.navigationBar.barTintColor = SignUpStyle.shared.navigationBarModel.barTintColor
-        imagePickerController.navigationBar.titleTextAttributes = SignUpStyle.shared.navigationBarModel.titleAttributes()
-        imagePickerController.modalPresentationStyle = .popover
-        imagePickerController.popoverPresentationController?.sourceView = sourceView
-        imagePickerController.popoverPresentationController?.sourceRect = sourceView.bounds
-        imagePickerController.popoverPresentationController?.permittedArrowDirections = .up
-        imagePickerController.delegate = self
-        return imagePickerController
-    }
 }
