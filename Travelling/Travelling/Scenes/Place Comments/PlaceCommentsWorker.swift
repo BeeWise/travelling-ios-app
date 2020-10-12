@@ -13,13 +13,38 @@
 import UIKit
 
 protocol PlaceCommentsWorkerDelegate: class {
+    func successDidFetchItems(items: [Comment])
+    func failureDidFetchItems(error: OperationError)
     
+    func successDidFetchImage(item: PlaceCommentsModels.DisplayedItem, image: UIImage?)
+    func failureDidFetchImage(item: PlaceCommentsModels.DisplayedItem, error: OperationError)
 }
 
 class PlaceCommentsWorker {
     weak var delegate: PlaceCommentsWorkerDelegate?
     
+    var placesTask: PlacesTaskProtocol = TaskConfigurator.shared.placesTask()
+    var imageTask: ImageTaskProtocol = TaskConfigurator.shared.imageTask()
+    
     init(delegate: PlaceCommentsWorkerDelegate?) {
         self.delegate = delegate
+    }
+    
+    func fetchItems(placeId: String?, page: Int, limit: Int) {
+        self.placesTask.fetchPlaceComments(model: PlacesTaskModels.FetchPlaceComments.Request(placeId: placeId, page: page, limit: limit)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidFetchItems(items: value.comments); break
+                case .failure(let error): self.delegate?.failureDidFetchItems(error: error); break
+            }
+        }
+    }
+    
+    func fetchImage(item: PlaceCommentsModels.DisplayedItem) {
+        self.imageTask.fetchImage(model: ImageTaskModels.Fetch.Request(imageName: item.imageName)) { result in
+            switch result {
+                case .success(let value): self.delegate?.successDidFetchImage(item: item, image: value.image); break
+                case .failure(let error): self.delegate?.failureDidFetchImage(item: item, error: error); break
+            }
+        }
     }
 }

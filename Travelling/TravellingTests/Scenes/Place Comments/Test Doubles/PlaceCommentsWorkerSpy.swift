@@ -13,5 +13,14 @@
 @testable import Travelling
 
 class PlaceCommentsWorkerSpy: PlaceCommentsWorker {
+    var fetchItemsCalled: Bool = false
+    var fetchImageCalled: Bool = false
     
+    override func fetchItems(placeId: String?, page: Int, limit: Int) {
+        self.fetchItemsCalled = true
+    }
+    
+    override func fetchImage(item: PlaceCommentsModels.DisplayedItem) {
+        self.fetchImageCalled = true
+    }
 }

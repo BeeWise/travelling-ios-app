@@ -37,5 +37,49 @@ class PlaceCommentsWorkerTests: XCTestCase {
     
     // MARK: - Tests
     
+    func testFetchItemsShouldAskThePlacesTaskToFetchPlaceComments() {
+        let taskSpy = PlacesTaskSpy()
+        self.sut.placesTask = taskSpy
+        self.sut.fetchItems(placeId: "placeId", page: 0, limit: 30)
+        XCTAssertTrue(taskSpy.fetchPlaceCommentsCalled)
+    }
     
+    func testFetchItemsShouldAskTheDelegateToSendCommentsForSuccessCase() {
+        let taskSpy = PlacesTaskSpy()
+        taskSpy.shouldFailFetchPlaceComments = false
+        self.sut.placesTask = taskSpy
+        self.sut.fetchItems(placeId: "placeId", page: 0, limit: 30)
+        XCTAssertTrue(self.delegateSpy.successDidFetchItemsCalled)
+    }
+    
+    func testFetchItemsShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = PlacesTaskSpy()
+        taskSpy.shouldFailFetchPlaceComments = true
+        self.sut.placesTask = taskSpy
+        self.sut.fetchItems(placeId: "placeId", page: 0, limit: 30)
+        XCTAssertTrue(self.delegateSpy.failureDidFetchItemsCalled)
+    }
+    
+    func testFetchImage() {
+        let taskSpy = ImageTaskSpy()
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(taskSpy.fetchImageCalled)
+    }
+    
+    func testFetchImageShouldAskTheDelegateToSendImageForSuccessCase() {
+        let taskSpy = ImageTaskSpy()
+        taskSpy.shouldFailFetchImage = false
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(self.delegateSpy.successDidFetchImageCalled)
+    }
+    
+    func testFetchImageShouldAskTheDelegateToSendErrorForFailureCase() {
+        let taskSpy = ImageTaskSpy()
+        taskSpy.shouldFailFetchImage = true
+        self.sut.imageTask = taskSpy
+        self.sut.fetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"))
+        XCTAssertTrue(self.delegateSpy.failureDidFetchImageCalled)
+    }
 }

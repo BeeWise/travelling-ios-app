@@ -26,5 +26,19 @@ class PlaceCommentsInteractor: PlaceCommentsBusinessLogic {
 }
 
 extension PlaceCommentsInteractor: PlaceCommentsWorkerDelegate {
+    func successDidFetchItems(items: [Comment]) {
+        
+    }
     
+    func failureDidFetchItems(error: OperationError) {
+        
+    }
+    
+    func successDidFetchImage(item: PlaceCommentsModels.DisplayedItem, image: UIImage?) {
+        
+    }
+    
+    func failureDidFetchImage(item: PlaceCommentsModels.DisplayedItem, error: OperationError) {
+        
+    }
 }

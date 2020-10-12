@@ -11,7 +11,28 @@
 //
 
 @testable import Travelling
+import UIKit
 
 class PlaceCommentsWorkerDelegateSpy: PlaceCommentsWorkerDelegate {
+    var successDidFetchItemsCalled: Bool = false
+    var failureDidFetchItemsCalled: Bool = false
     
+    var successDidFetchImageCalled: Bool = false
+    var failureDidFetchImageCalled: Bool = false
+    
+    func successDidFetchItems(items: [Comment]) {
+        self.successDidFetchItemsCalled = true
+    }
+    
+    func failureDidFetchItems(error: OperationError) {
+        self.failureDidFetchItemsCalled = true
+    }
+    
+    func successDidFetchImage(item: PlaceCommentsModels.DisplayedItem, image: UIImage?) {
+        self.successDidFetchImageCalled = true
+    }
+    
+    func failureDidFetchImage(item: PlaceCommentsModels.DisplayedItem, error: OperationError) {
+        self.failureDidFetchImageCalled = true
+    }
 }
