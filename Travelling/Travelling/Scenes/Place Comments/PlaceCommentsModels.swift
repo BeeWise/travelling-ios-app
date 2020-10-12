@@ -13,5 +13,110 @@
 import UIKit
 
 enum PlaceCommentsModels {
+    class PaginationModel {
+        var isSearchingItems: Bool = false
+        var isFetchingItems: Bool = false
+        var noMoreItems: Bool = false
+        var hasError: Bool = false
+        var currentPage: Int = 0
+        var limit: Int = 30
+        var items: [Place] = []
+    }
     
+    class Section {
+        var items: [DisplayedItem] = []
+        var isLoading: Bool = false
+        var hasError: Bool = false
+        var errorText: NSAttributedString?
+        var noMoreItems: Bool = false
+        var noMoreItemsText: NSAttributedString?
+    }
+    
+    enum SectionIndex: Int {
+        case items = 0
+        case footer = 1
+    }
+    
+    class DisplayedItem {
+        var id: String
+        var text: NSAttributedString?
+        var time: NSAttributedString?
+        
+        var image: UIImage?
+        var imageName: String?
+        var imageContentMode: UIView.ContentMode = .scaleAspectFill
+        var imageDominantColor: UIColor?
+        var isLoadingImage: Bool = false
+        
+        init(id: String) {
+            self.id = id
+        }
+    }
+    
+    enum ItemsPresentation {
+        struct Response {
+            let items: [Place]
+        }
+        
+        struct ViewModel {
+            let displayedItems: [DisplayedItem]
+        }
+    }
+    
+    enum NoMoreItemsPresentation {
+        struct ViewModel {
+            let text: NSAttributedString?
+        }
+    }
+    
+    enum EmptyStatePresentation {
+        struct ViewModel {
+            let image: UIImage?
+            let text: NSAttributedString?
+        }
+    }
+    
+    enum ErrorStatePresentation {
+        struct ViewModel {
+            let text: NSAttributedString?
+        }
+    }
+    
+    enum ImageFetching {
+        struct Request {
+            let item: DisplayedItem
+        }
+        
+        struct Response {
+            let item: DisplayedItem
+        }
+        
+        struct ViewModel {
+            let item: DisplayedItem
+        }
+    }
+    
+    enum ImagePresentation {
+        struct Response {
+            let item: DisplayedItem
+            let image: UIImage?
+        }
+        
+        struct ViewModel {
+            let item: DisplayedItem
+            let image: UIImage?
+            let contentMode: UIView.ContentMode
+        }
+    }
+    
+    enum ItemsSearching {
+        struct Request {
+            let text: String?
+        }
+        
+        struct Response {
+            let text: String
+            let items: [Place]
+        }
+    }
 }
