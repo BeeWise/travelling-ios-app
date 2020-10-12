@@ -48,4 +48,24 @@ class MainPresenterTests: XCTestCase {
         self.sut.presentSelectScene(response: MainModels.SceneSelection.Response(index: 0))
         XCTAssertTrue(self.displayerSpy.displaySelectSceneCalled)
     }
+    
+    func testPresentNavigateToOnboardingShouldAskTheDisplayerToDisplayNavigateToOnboarding() {
+        self.sut.presentNavigateToOnboarding()
+        XCTAssertTrue(self.displayerSpy.displayNavigateToOnboardingCalled)
+    }
+    
+    func testPresentDismissOnboardingShouldAskTheDisplayerToDisplayDismissOnboarding() {
+        self.sut.presentDismissOnboarding()
+        XCTAssertTrue(self.displayerSpy.displayDismissOnboardingCalled)
+    }
+    
+    func testPresentLoginUserShouldAskTheDisplayerToDisplayLoginUser() {
+        self.sut.presentLoginUser(response: MainModels.UserLogin.Response(user: User(id: "id")))
+        XCTAssertTrue(self.displayerSpy.displayLoginUserCalled)
+    }
+    
+    func testPresentLogoutUserShouldAskTheDisplayerToDisplayLogoutUser() {
+        self.sut.presentLogoutUser()
+        XCTAssertTrue(self.displayerSpy.displayLogoutUserCalled)
+    }
 }

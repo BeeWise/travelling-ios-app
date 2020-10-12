@@ -10,7 +10,7 @@ import UIKit
 
 public class EmptyStateView: UIView {
     private let imageSize: CGFloat = 120
-    private let spacing: CGFloat = 20
+    private let spacing: CGFloat = 40
     
     public weak var imageView: UIImageView!
     public weak var spacerView: UIView!
@@ -21,6 +21,13 @@ public class EmptyStateView: UIView {
             self.imageView?.image = self.image
         }
     }
+    
+    public var imageTintColor: UIColor? {
+        didSet {
+            self.imageView?.tintColor = self.imageTintColor
+        }
+    }
+    
     public var attributedText: NSAttributedString? {
         didSet {
             self.textLabel?.attributedText = self.attributedText
@@ -55,6 +62,7 @@ extension EmptyStateView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = self.image
+        imageView.tintColor = self.imageTintColor
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         self.addSubview(imageView)

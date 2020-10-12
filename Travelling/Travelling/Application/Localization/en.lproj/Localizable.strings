@@ -16,3 +16,94 @@
 "Explore.scene.empty.state.text" = "No places found";
 "Explore.scene.no.more.places.text" = "No more places";
 "Explore.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";
+
+// My Profile scene
+
+"MyProfile.scene.title" = "Profile";
+"MyProfile.scene.logout.title" = "Logout";
+"MyProfile.scene.report.issue.title" = "Report issue";
+"MyProfile.scene.version.title" = "Version %@";
+"MyProfile.scene.report.issue.email.subject" = "[%@] iOS App Issue - Version %@";
+"MyProfile.scene.error.state.text" = "An error occurred while fetching your details. Tap here to try again ↺";
+"MyProfile.scene.error.alert.message" = "An error occurred while logging out. Please try again.";
+"MyProfile.scene.error.alert.cancel.title" = "OK";
+
+// Onboarding scene
+
+"Onboarding.scene.login.title" = "Login";
+"Onboarding.scene.sign.up.title" = "Sign Up";
+
+// Login scene
+
+"Login.scene.title" = "Login";
+"Login.scene.email.or.username.title" = "Email or username";
+"Login.scene.email.or.username.placeholder" = "";
+"Login.scene.email.or.username.error.text" = "Email or username must have at least 6 characters.";
+"Login.scene.password.title" = "Password";
+"Login.scene.password.placeholder" = "";
+"Login.scene.password.error.text" = "Your password must have at least 6 characters.";
+"Login.scene.forgot.password.button.title" = "Forgot your password?";
+"Login.scene.button.title" = "Login";
+"Login.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
+"Login.scene.ok.title" = "OK";
+"Login.scene.cancel.title" = "Cancel";
+
+// Forgot password scene
+
+"ForgotPassword.scene.title" = "Forgot Password";
+"ForgotPassword.scene.email.title" = "Email";
+"ForgotPassword.scene.send.reset.link.button.title" = "Send Reset Link";
+"ForgotPassword.scene.email.error.text" = "Your email is incorrect.";
+"ForgotPassword.scene.confirmation.message" = "An email has been sent to %@ with further instructions.";
+"ForgotPassword.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
+"ForgotPassword.scene.go.to.mail.title" = "Go to Mail";
+"ForgotPassword.scene.ok.title" = "OK";
+
+// Sign up scene
+
+"SignUp.scene.title" = "Sign Up";
+
+"SignUp.scene.upload.photo.title" = "Upload Photo";
+"SignUp.scene.email.title" = "Email (required)";
+"SignUp.scene.username.title" = "Username (required)";
+"SignUp.scene.password.title" = "Password (required)";
+"SignUp.scene.first.name.title" = "First name (required)";
+"SignUp.scene.last.name.title" = "Last name (required)";
+"SignUp.scene.description.title" = "Description";
+
+"SignUp.scene.email.placeholder" = "";
+"SignUp.scene.username.placeholder" = "";
+"SignUp.scene.password.placeholder" = "";
+"SignUp.scene.first.name.placeholder" = "";
+"SignUp.scene.last.name.placeholder" = "";
+"SignUp.scene.description.placeholder" = "";
+
+"SignUp.scene.button.title" = "Sign Up";
+
+"SignUp.scene.email.error.text" = "Your email is incorrect.";
+"SignUp.scene.username.error.text" = "Your username must have at least 6 characters and must contain only letters, numbers, periods, hyphens or underscores.";
+"SignUp.scene.password.error.text" = "Your password must have at least 6 characters.";
+"SignUp.scene.first.name.error.text" = "Your first name must have at least one character.";
+"SignUp.scene.last.name.error.text" = "Your last name must have at least one character.";
+
+"SignUp.scene.photo.library.title" = "Photo Library";
+"SignUp.scene.camera.title" = "Camera";
+"SignUp.scene.remove.photo.title" = "Remove Photo";
+"SignUp.scene.cancel.title" = "Cancel";
+
+"SignUp.scene.generic.error.message" = "An unexpected error occurred. Please try again.";
+"SignUp.scene.ok.title" = "OK";
+
+// Place details scene
+
+"PlaceDetails.scene.error.state.text" = "An error occurred while fetching the place. Tap here to try again ↺";
+"PlaceDetails.scene.error.alert.message" = "An error occurred while saving your favorite place. Please try again.";
+"PlaceDetails.scene.error.alert.cancel.title" = "OK";
+"PlaceDetails.scene.share.place.text" = "Check out this cool place named %@ on Travelling: %@";
+
+// My Favorite Places scene
+
+"MyFavoritePlaces.scene.title" = "My favorite places";
+"MyFavoritePlaces.scene.empty.state.text" = "You don't have favorite places";
+"MyFavoritePlaces.scene.no.more.places.text" = "No more favorite places";
+"MyFavoritePlaces.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";

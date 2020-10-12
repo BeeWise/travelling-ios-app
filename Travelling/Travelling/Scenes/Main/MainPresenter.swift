@@ -15,6 +15,12 @@ import UIKit
 protocol MainPresentationLogic {
     func presentSetupScenes()
     func presentSelectScene(response: MainModels.SceneSelection.Response)
+    
+    func presentNavigateToOnboarding()
+    func presentDismissOnboarding()
+    
+    func presentLoginUser(response: MainModels.UserLogin.Response)
+    func presentLogoutUser()
 }
 
 class MainPresenter: MainPresentationLogic {
@@ -26,5 +32,21 @@ class MainPresenter: MainPresentationLogic {
     
     func presentSelectScene(response: MainModels.SceneSelection.Response) {
         self.displayer?.displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel(index: response.index))
+    }
+    
+    func presentNavigateToOnboarding() {
+        self.displayer?.displayNavigateToOnboarding()
+    }
+    
+    func presentDismissOnboarding() {
+        self.displayer?.displayDismissOnboarding()
+    }
+    
+    func presentLoginUser(response: MainModels.UserLogin.Response) {
+        self.displayer?.displayLoginUser(viewModel: MainModels.UserLogin.ViewModel(user: response.user))
+    }
+    
+    func presentLogoutUser() {
+        self.displayer?.displayLogoutUser()
     }
 }

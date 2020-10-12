@@ -47,7 +47,28 @@ class PlacesTaskTests: XCTestCase {
         self.sut.environment = environment
         let operationQueueSpy = OperationQueueSpy()
         self.sut.fetchPlacesOperationQueue = operationQueueSpy
-        self.sut.fetchPlaces(model: PlacesTaskModels.Fetch.Request(page: 0, limit: 0), completionHandler: { _ in })
+        self.sut.fetchPlaces(model: PlacesTaskModels.FetchPlaces.Request(page: 0, limit: 0), completionHandler: { _ in })
+        XCTAssertTrue(operationQueueSpy.addOperationCalled)
+        XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
+    }
+    
+    func testFetchPlaceForProduction() {
+        self.shouldTestFetchPlaceForEnvironment(environment: .production, operationClass: GetPlaceOperation.self)
+    }
+    
+    func testFetchPlaceForDevelopment() {
+        self.shouldTestFetchPlaceForEnvironment(environment: .development, operationClass: GetPlaceOperation.self)
+    }
+    
+    func testFetchPlaceForMemory() {
+        self.shouldTestFetchPlaceForEnvironment(environment: .memory, operationClass: GetPlaceLocalOperation.self)
+    }
+    
+    private func shouldTestFetchPlaceForEnvironment(environment: TaskEnvironment, operationClass: AnyClass) {
+        self.sut.environment = environment
+        let operationQueueSpy = OperationQueueSpy()
+        self.sut.fetchPlaceOperationQueue = operationQueueSpy
+        self.sut.fetchPlace(model: PlacesTaskModels.FetchPlace.Request(placeId: "placeId"), completionHandler: { _ in })
         XCTAssertTrue(operationQueueSpy.addOperationCalled)
         XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
     }

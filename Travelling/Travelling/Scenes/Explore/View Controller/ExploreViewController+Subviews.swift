@@ -48,16 +48,19 @@ extension ExploreViewController {
     }
     
     private func setupTableView() {
-        self.tableView.backgroundColor = ExploreStyle.shared.tableViewModel.backgroundColor
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.tableView.separatorStyle = .none
-        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
-        self.tableView.register(ExploreTableViewCell.self, forCellReuseIdentifier: ExploreTableViewCell.defaultReuseIdentifier)
+        self.tableView?.backgroundColor = ExploreStyle.shared.tableViewModel.backgroundColor
+        self.tableView?.separatorStyle = .none
+        self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+        self.tableView?.register(ExploreTableViewCell.self, forCellReuseIdentifier: ExploreTableViewCell.defaultReuseIdentifier)
+        self.tableView?.register(TableViewLoadingHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewLoadingHeaderFooterView.defaultReuseIdentifier)
+        self.tableView?.register(TableViewTitleHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewTitleHeaderFooterView.defaultReuseIdentifier)
+        self.tableView?.register(TableViewErrorHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewErrorHeaderFooterView.defaultReuseIdentifier)
     }
     
     func emptyStateView(image: UIImage?, attributedText: NSAttributedString?) -> EmptyStateView {
         let view = EmptyStateView(frame: self.tableView.frame)
         view.image = image
+        view.imageTintColor = ExploreStyle.shared.emptyStateViewModel.imageTintColor
         view.attributedText = attributedText
         return view
     }

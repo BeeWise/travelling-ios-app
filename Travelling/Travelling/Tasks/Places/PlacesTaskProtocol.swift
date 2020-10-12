@@ -9,6 +9,9 @@
 import Foundation
 
 protocol PlacesTaskProtocol: TaskProtocol {
-    func fetchPlaces(model: PlacesTaskModels.Fetch.Request, completionHandler: @escaping (Result<PlacesTaskModels.Fetch.Response, OperationError>) -> Void)
+    func fetchPlaces(model: PlacesTaskModels.FetchPlaces.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlaces.Response, OperationError>) -> Void)
     func cancelFetchPlacesOperation()
+    
+    func fetchPlace(model: PlacesTaskModels.FetchPlace.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlace.Response, OperationError>) -> Void)
+    func cancelFetchPlaceOperation()
 }

@@ -15,6 +15,12 @@ import UIKit
 protocol MainDisplayLogic: class {
     func displaySetupScenes(viewModel: MainModels.ScenesSetup.ViewModel)
     func displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel)
+    
+    func displayNavigateToOnboarding()
+    func displayDismissOnboarding()
+    
+    func displayLoginUser(viewModel: MainModels.UserLogin.ViewModel)
+    func displayLogoutUser()
 }
 
 extension MainViewController: MainDisplayLogic {
@@ -29,6 +35,32 @@ extension MainViewController: MainDisplayLogic {
             self.selectedIndex = viewModel.index
         }
     }
+    
+    func displayNavigateToOnboarding() {
+        DispatchQueue.main.async {
+            self.router?.navigateToOnboarding()
+        }
+    }
+    
+    func displayDismissOnboarding() {
+        DispatchQueue.main.async {
+            self.router?.dismissViewController()
+        }
+    }
+    
+    func displayLoginUser(viewModel: MainModels.UserLogin.ViewModel) {
+        DispatchQueue.main.async {
+            self.myProfileViewController?.shouldLoginUser(user: viewModel.user)
+            self.myFavoritePlacesViewController?.shouldLoginUser(user: viewModel.user)
+        }
+    }
+    
+    func displayLogoutUser() {
+        DispatchQueue.main.async {
+            self.myProfileViewController?.shouldLogoutUser()
+            self.myFavoritePlacesViewController?.shouldLogoutUser()
+        }
+    }
 }
 
 // MARK: - Auxiliary
@@ -39,7 +71,7 @@ extension MainViewController {
         for index in indices {
             switch index {
                 case MainModels.Scenes.explore.rawValue: controllers.append(UINavigationController(rootViewController: self.exploreViewController)); break
-                case MainModels.Scenes.myFavorites.rawValue: controllers.append(UINavigationController(rootViewController: self.myFavoritesViewController)); break
+                case MainModels.Scenes.myFavorites.rawValue: controllers.append(UINavigationController(rootViewController: self.myFavoritePlacesViewController)); break
                 case MainModels.Scenes.myProfile.rawValue: controllers.append(UINavigationController(rootViewController: self.myProfileViewController)); break
                 default: break
             }

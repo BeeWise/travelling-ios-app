@@ -9,6 +9,7 @@ import Foundation
 
 enum GetPlacesOperationModels {
     struct Request {
+        let userId: String?
         let page: Int
         let limit: Int
     }

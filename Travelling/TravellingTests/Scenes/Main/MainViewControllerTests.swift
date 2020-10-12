@@ -17,6 +17,8 @@ class MainViewControllerTests: BaseTestCase {
     var sut: MainViewController!
     var interactorSpy: MainBusinessLogicSpy!
     var routerSpy: MainRoutingLogicSpy!
+    var myProfileViewControllerSpy: MyProfileViewControllerSpy!
+    var myFavoritePlacesViewControllerSpy: MyFavoritePlacesViewControllerSpy!
     var window: UIWindow!
     
     // MARK: - Test lifecycle
@@ -42,6 +44,12 @@ class MainViewControllerTests: BaseTestCase {
         
         self.routerSpy = MainRoutingLogicSpy()
         self.sut.router = self.routerSpy
+        
+        self.myProfileViewControllerSpy = MyProfileViewControllerSpy()
+        self.sut.myProfileViewController = self.myProfileViewControllerSpy
+        
+        self.myFavoritePlacesViewControllerSpy = MyFavoritePlacesViewControllerSpy()
+        self.sut.myFavoritePlacesViewController = self.myFavoritePlacesViewControllerSpy
     }
     
     func loadView() {
@@ -49,10 +57,40 @@ class MainViewControllerTests: BaseTestCase {
         RunLoop.current.run(until: Date())
     }
     
-    // MARK: - Business logic tests
-    
     func testEmptyInitializer() {
         XCTAssertNotNil(MainViewController())
+    }
+    
+    // MARK: - Business logic tests
+    
+    func testMyProfileViewControllerDidLogoutUserShouldAskTheInteractorToLogoutUser() {
+        self.sut.myProfileViewControllerDidLogoutUser(viewController: nil)
+        XCTAssertTrue(self.interactorSpy.shouldLogoutUserCalled)
+    }
+    
+    func testTabBarControllerShouldSelectViewControllerShouldAskTheInteractorToSelectScene() {
+        self.waitForMainQueue()
+        let viewController = UIViewController()
+        self.sut.setViewControllers([viewController], animated: false)
+        let _ = self.sut.tabBarController(self.sut, shouldSelect: viewController)
+        XCTAssertTrue(self.interactorSpy.shouldSelectSceneCalled)
+    }
+    
+    func testTabBarControllerShouldSelectViewControllerShouldAskTheInteractorToNavigateToOnboarding() {
+        let viewController = UIViewController()
+        self.sut.setViewControllers([viewController], animated: false)
+        let _ = self.sut.tabBarController(self.sut, shouldSelect: viewController)
+        XCTAssertTrue(self.interactorSpy.shouldNavigateToOnboardingCalled)
+    }
+    
+    func testOnboardingViewControllerDidLoginUser() {
+        self.sut.onboardingViewController(nil, didLoginUser: User(id: "userId"))
+        XCTAssertTrue(self.interactorSpy.shouldLoginUserCalled)
+    }
+    
+    func testOnboardingViewControllerDidSignUpUser() {
+        self.sut.onboardingViewController(nil, didSignUpUser: User(id: "userId"))
+        XCTAssertTrue(self.interactorSpy.shouldLoginUserCalled)
     }
     
     // MARK: - Display logic tests
@@ -74,5 +112,41 @@ class MainViewControllerTests: BaseTestCase {
         self.sut.displaySelectScene(viewModel: MainModels.SceneSelection.ViewModel(index: index))
         self.waitForMainQueue()
         XCTAssertEqual(self.sut.selectedIndex, index)
+    }
+    
+    func testDisplayNavigateToOnboardingShouldAskTheRouterToNavigateToOnboarding() {
+        self.sut.displayNavigateToOnboarding()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToOnboardingCalled)
+    }
+    
+    func testDisplayDismissOnboardingShouldAskTheRouterToDismissViewController() {
+        self.sut.displayDismissOnboarding()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.dismissViewControllerCalled)
+    }
+    
+    func testDisplayLoginUserShouldAskMyProfileViewControllerToLoginUser() {
+        self.sut.displayLoginUser(viewModel: MainModels.UserLogin.ViewModel(user: User(id: "id")))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myProfileViewControllerSpy.shouldLoginUserCalled)
+    }
+    
+    func testDisplayLoginUserShouldAskMyFavoritePlacesViewControllerToLoginUser() {
+        self.sut.displayLoginUser(viewModel: MainModels.UserLogin.ViewModel(user: User(id: "id")))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myFavoritePlacesViewControllerSpy.shouldLoginUserCalled)
+    }
+    
+    func testDisplayLogoutUserShouldAskMyProfileViewControllerToLogoutUser() {
+        self.sut.displayLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myProfileViewControllerSpy.shouldLogoutUserCalled)
+    }
+    
+    func testDisplayLogoutUserShouldAskMyFavoritePlacesViewControllerToLogoutUser() {
+        self.sut.displayLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myFavoritePlacesViewControllerSpy.shouldLogoutUserCalled)
     }
 }

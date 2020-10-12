@@ -37,6 +37,8 @@ enum BundleConfiguration {
     
     struct Keys {
         static let
-        taskConfiguratorEnvironment = "TASK_CONFIGURATOR_ENVIRONMENT"
+        taskConfiguratorEnvironment = "TASK_CONFIGURATOR_ENVIRONMENT",
+        reportIssueRecipientEmail = "REPORT_ISSUE_RECIPIENT_EMAIL",
+        appStoreUrl = "APP_STORE_URL"
     }
 }

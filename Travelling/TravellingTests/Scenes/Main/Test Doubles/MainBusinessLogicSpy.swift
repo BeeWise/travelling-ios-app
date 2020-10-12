@@ -13,8 +13,16 @@
 @testable import Travelling
 
 class MainBusinessLogicSpy: MainBusinessLogic {
+    var shouldSelectScene: Bool = false
+    var shouldSelectSceneCalled: Bool = false
+    
     var shouldSetupScenesCalled: Bool = false
     var shouldSelectInitialSceneCalled: Bool = false
+    
+    var shouldNavigateToOnboardingCalled: Bool = false
+    
+    var shouldLoginUserCalled: Bool = false
+    var shouldLogoutUserCalled: Bool = false
     
     func shouldSetupScenes() {
         self.shouldSetupScenesCalled = true
@@ -22,5 +30,22 @@ class MainBusinessLogicSpy: MainBusinessLogic {
     
     func shouldSelectInitialScene() {
         self.shouldSelectInitialSceneCalled = true
+    }
+    
+    func shouldSelectScene(index: Int) -> Bool {
+        self.shouldSelectSceneCalled = true
+        return self.shouldSelectScene
+    }
+    
+    func shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request) {
+        self.shouldNavigateToOnboardingCalled = true
+    }
+    
+    func shouldLoginUser(request: MainModels.UserLogin.Request) {
+        self.shouldLoginUserCalled = true
+    }
+    
+    func shouldLogoutUser() {
+        self.shouldLogoutUserCalled = true
     }
 }

@@ -1,0 +1,14 @@
+{
+    "id": "0",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@explorer.com",
+    "username": "john.doe.the.explorer",
+    "description": "Born in Neverland. Always striving to explore the unknown and mysterious places around the world.",
+    "photo": {
+        "id": "0",
+        "image_url": "",
+        "image_name": "john_doe",
+        "image_dominant_color": "#9c6112"
+    }
+}

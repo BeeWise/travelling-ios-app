@@ -14,11 +14,11 @@ import UIKit
 
 class MainViewController: UITabBarController {
     var interactor: MainBusinessLogic?
-    var router: (NSObjectProtocol & MainRoutingLogic)?
+    var router: MainRoutingLogic?
     
     var exploreViewController: ExploreViewController!
-    var myFavoritesViewController: UIViewController!
-    var myProfileViewController: UIViewController!
+    var myFavoritePlacesViewController: MyFavoritePlacesViewController!
+    var myProfileViewController: MyProfileViewController!
     
     // MARK: - Object lifecycle
     
@@ -56,8 +56,33 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         self.setup()
         self.setupSubviews()
+        self.delegate = self
         self.setupViewControllers()
         self.interactor?.shouldSetupScenes()
         self.interactor?.shouldSelectInitialScene()
+    }
+}
+
+// MARK: - Tab bar controller delegate
+
+extension MainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if let interactor = self.interactor, let index = self.viewControllers?.firstIndex(of: viewController) {
+            self.interactor?.shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request(index: index))
+            return interactor.shouldSelectScene(index: index)
+        }
+        return false
+    }
+}
+
+// MARK: - Onboarding view controller delegate
+
+extension MainViewController: OnboardingViewControllerDelegate {
+    func onboardingViewController(_ viewController: OnboardingViewController?, didLoginUser user: User) {
+        self.interactor?.shouldLoginUser(request: MainModels.UserLogin.Request(user: user))
+    }
+    
+    func onboardingViewController(_ viewController: OnboardingViewController?, didSignUpUser user: User) {
+        self.interactor?.shouldLoginUser(request: MainModels.UserLogin.Request(user: user))
     }
 }

@@ -23,4 +23,12 @@ class TaskConfigurator {
     func imageTask() -> ImageTaskProtocol {
         return ImageTask(environment: self.environment)
     }
+    
+    func usersTask() -> UsersTaskProtocol {
+        return UsersTask(environment: self.environment)
+    }
+    
+    func authenticationTask() -> AuthenticationTaskProtocol {
+        return AuthenticationTask(environment: self.environment)
+    }
 }

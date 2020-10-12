@@ -15,7 +15,7 @@ import XCTest
 
 class MainRouterTests: XCTestCase {
     var sut: MainRouter!
-    var viewController: MainViewController!
+    var viewControllerSpy: MainViewControllerSpy!
     
     // MARK: - Test lifecycle
     
@@ -33,11 +33,19 @@ class MainRouterTests: XCTestCase {
     func setupMainRouter() {
         self.sut = MainRouter()
         
-        self.viewController = MainViewController()
-        self.sut.viewController = self.viewController
+        self.viewControllerSpy = MainViewControllerSpy()
+        self.sut.viewController = self.viewControllerSpy
     }
     
     // MARK: - Tests
     
+    func testNavigateToOnboarding() {
+        self.sut.navigateToOnboarding()
+        XCTAssertTrue(self.viewControllerSpy.presentCalled)
+    }
     
+    func testDismissViewController() {
+        self.sut.dismissViewController()
+        XCTAssertTrue(self.viewControllerSpy.dismissCalled)
+    }
 }

@@ -16,11 +16,33 @@ class MainPresentationLogicSpy: MainPresentationLogic {
     var presentSetupScenesCalled: Bool = false
     var presentSelectSceneCalled: Bool = false
     
+    var presentNavigateToOnboardingCalled: Bool = false
+    var presentDismissOnboardingCalled: Bool = false
+    
+    var presentLoginUserCalled: Bool = false
+    var presentLogoutUserCalled: Bool = false
+    
     func presentSetupScenes() {
         self.presentSetupScenesCalled = true
     }
     
     func presentSelectScene(response: MainModels.SceneSelection.Response) {
         self.presentSelectSceneCalled = true
+    }
+    
+    func presentNavigateToOnboarding() {
+        self.presentNavigateToOnboardingCalled = true
+    }
+    
+    func presentDismissOnboarding() {
+        self.presentDismissOnboardingCalled = true
+    }
+    
+    func presentLoginUser(response: MainModels.UserLogin.Response) {
+        self.presentLoginUserCalled = true
+    }
+    
+    func presentLogoutUser() {
+        self.presentLogoutUserCalled = true
     }
 }

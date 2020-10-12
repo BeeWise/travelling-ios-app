@@ -13,7 +13,7 @@ import UIKit
 extension MainViewController {
     func setupViewControllers() {
         self.setupExploreViewController()
-        self.setupMyFavoritesViewController()
+        self.setupMyFavoritePlacesViewController()
         self.setupMyProfileViewController()
     }
 }
@@ -33,12 +33,12 @@ extension MainViewController {
     }
 }
 
-// MARK: - MyFavorites scene
+// MARK: - My favorites Places scene
 
 extension MainViewController {
-    func setupMyFavoritesViewController() {
-        self.myFavoritesViewController = UIViewController()
-        self.myFavoritesViewController.tabBarItem = self.myFavoritesTabBarItem()
+    func setupMyFavoritePlacesViewController() {
+        self.myFavoritePlacesViewController = MyFavoritePlacesViewController()
+        self.myFavoritePlacesViewController.tabBarItem = self.myFavoritesTabBarItem()
     }
     
     private func myFavoritesTabBarItem() -> UITabBarItem {
@@ -48,11 +48,12 @@ extension MainViewController {
     }
 }
 
-// MARK: - MyProfile scene
+// MARK: - My profile scene
 
-extension MainViewController {
+extension MainViewController: MyProfileViewControllerDelegate {
     func setupMyProfileViewController() {
-        self.myProfileViewController = UIViewController()
+        self.myProfileViewController = MyProfileViewController()
+        self.myProfileViewController?.delegate = self
         self.myProfileViewController.tabBarItem = self.myProfileTabBarItem()
     }
     
@@ -60,5 +61,9 @@ extension MainViewController {
         let item = UITabBarItem(title: MainLocalization.shared.myProfileTabTitle, image: ApplicationStyle.images.myProfileTabIcon, selectedImage: ApplicationStyle.images.myProfileTabIcon)
         self.setupTabBarItem(item: item)
         return item
+    }
+    
+    func myProfileViewControllerDidLogoutUser(viewController: MyProfileViewController?) {
+        self.interactor?.shouldLogoutUser()
     }
 }

@@ -10,7 +10,100 @@
 "MyFavorites.tab.title" = "Favorite";
 "MyProfile.tab.title" = "Profil";
 
+// Explore scene
+
 "Explore.scene.title" = "Explorează";
 "Explore.scene.empty.state.text" = "Nu sunt locuri";
 "Explore.scene.no.more.places.text" = "Nu mai sunt locuri";
 "Explore.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
+
+// My Profile scene
+
+"MyProfile.scene.title" = "Profil";
+"MyProfile.scene.logout.title" = "Deconectare";
+"MyProfile.scene.report.issue.title" = "Raportează o problemă";
+"MyProfile.scene.version.title" = "Versiunea %@";
+"MyProfile.scene.report.issue.email.subject" = "[%@] Problemă Aplicație iOS - Versiunea %@";
+"MyProfile.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
+"MyProfile.scene.error.alert.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"MyProfile.scene.error.alert.cancel.title" = "OK";
+
+// Onboarding scene
+
+"Onboarding.scene.login.title" = "Autentificare";
+"Onboarding.scene.sign.up.title" = "Înregistrare";
+
+// Login scene
+
+"Login.scene.title" = "Autentificare";
+"Login.scene.email.or.username.title" = "Email sau username";
+"Login.scene.email.or.username.placeholder" = "";
+"Login.scene.email.or.username.error.text" = "Email-ul sau username-ul tău trebuie să aibă cel puțin 6 caractere.";
+"Login.scene.password.title" = "Parolă";
+"Login.scene.password.placeholder" = "";
+"Login.scene.password.error.text" = "Parola ta trebuie să aibă cel puțin 6 caractere.";
+"Login.scene.forgot.password.button.title" = "Ai uitat parola?";
+"Login.scene.button.title" = "Conectează-te";
+"Login.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"Login.scene.ok.title" = "OK";
+"Login.scene.cancel.title" = "Anulează";
+
+// Forgot password scene
+
+"ForgotPassword.scene.title" = "Parolă uitată";
+"ForgotPassword.scene.email.title" = "Email";
+"ForgotPassword.scene.send.reset.link.button.title" = "Trimite link de resetare";
+"ForgotPassword.scene.email.error.text" = "Email-ul tău este incorect.";
+"ForgotPassword.scene.confirmation.message" = "Un email cu instrucțiuni a fost trimis pe adresa de email: %@.";
+"ForgotPassword.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"ForgotPassword.scene.go.to.mail.title" = "Deschide Mail";
+"ForgotPassword.scene.ok.title" = "OK";
+
+// Sign up scene
+
+"SignUp.scene.title" = "Înregistrare";
+
+"SignUp.scene.upload.photo.title" = "Încarcă poză";
+"SignUp.scene.email.title" = "Email (obligatoriu)";
+"SignUp.scene.username.title" = "Username (obligatoriu)";
+"SignUp.scene.password.title" = "Parolă (obligatorie)";
+"SignUp.scene.first.name.title" = "Prenume (obligatoriu)";
+"SignUp.scene.last.name.title" = "Nume (obligatoriu)";
+"SignUp.scene.description.title" = "Descriere";
+
+"SignUp.scene.email.placeholder" = "";
+"SignUp.scene.username.placeholder" = "";
+"SignUp.scene.password.placeholder" = "";
+"SignUp.scene.first.name.placeholder" = "";
+"SignUp.scene.last.name.placeholder" = "";
+"SignUp.scene.description.placeholder" = "";
+
+"SignUp.scene.button.title" = "Înscrie-te";
+
+"SignUp.scene.email.error.text" = "Email-ul tău este incorect.";
+"SignUp.scene.username.error.text" = "Username-ul tău trebuie să aibă cel puțin 6 caractere și să conțină doar litere, numere, puncte, cratime sau bară jos.";
+"SignUp.scene.password.error.text" = "Parola ta trebuie să aibă cel puțin 6 caractere.";
+"SignUp.scene.first.name.error.text" = "Prenumele tău trebuie să aibă cel puțin 1 caracter.";
+"SignUp.scene.last.name.error.text" = "Numele tău trebuie să aibă cel puțin 1 caracter.";
+
+"SignUp.scene.photo.library.title" = "Album de poze";
+"SignUp.scene.camera.title" = "Cameră";
+"SignUp.scene.remove.photo.title" = "Șterge poza";
+"SignUp.scene.cancel.title" = "Anulează";
+
+"SignUp.scene.generic.error.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"SignUp.scene.ok.title" = "OK";
+
+// Place details scene
+
+"PlaceDetails.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
+"PlaceDetails.scene.error.alert.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
+"PlaceDetails.scene.error.alert.cancel.title" = "OK";
+"PlaceDetails.scene.share.place.text" = "Verifică acest loc frumos numit %@ pe Travelling: %@";
+
+// My Favorite Places scene
+
+"MyFavoritePlaces.scene.title" = "Locuri favorite";
+"MyFavoritePlaces.scene.empty.state.text" = "Nu ai locuri favorite";
+"MyFavoritePlaces.scene.no.more.places.text" = "Nu mai ai locuri favorite";
+"MyFavoritePlaces.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";

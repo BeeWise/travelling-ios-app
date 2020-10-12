@@ -18,6 +18,7 @@ class UITableViewSpy: UITableView {
     var deleteRowsCalled: Bool = false
     var beginUpdatesCalled: Bool = false
     var endUpdatesCalled: Bool = false
+    var deselectRowCalled: Bool = false
     
     override func reloadData() {
         self.reloadDataCalled = true
@@ -59,5 +60,9 @@ class UITableViewSpy: UITableView {
     override func endUpdates() {
         self.endUpdatesCalled = true
         super.endUpdates()
+    }
+    
+    override func deselectRow(at indexPath: IndexPath, animated: Bool) {
+        self.deselectRowCalled = true
     }
 }

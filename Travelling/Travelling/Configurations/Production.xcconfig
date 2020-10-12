@@ -9,5 +9,7 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 TASK_CONFIGURATOR_ENVIRONMENT = environment
+REPORT_ISSUE_RECIPIENT_EMAIL = recipient
+APP_STORE_URL = url
 
 #include? "LocalProduction.xcconfig"

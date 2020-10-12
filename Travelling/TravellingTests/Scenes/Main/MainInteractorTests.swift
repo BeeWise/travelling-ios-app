@@ -17,6 +17,7 @@ class MainInteractorTests: XCTestCase {
     var sut: MainInteractor!
     var presenterSpy: MainPresentationLogicSpy!
     var workerSpy: MainWorkerSpy!
+    var userDefaultsManagerSpy: UserDefaultsManagerSpy!
     
     // MARK: - Test lifecycle
     
@@ -39,9 +40,30 @@ class MainInteractorTests: XCTestCase {
         
         self.workerSpy = MainWorkerSpy(delegate: self.sut)
         self.sut.worker = self.workerSpy
+        
+        self.userDefaultsManagerSpy = UserDefaultsManagerSpy()
+        self.sut.userDefaultsManager = self.userDefaultsManagerSpy
     }
     
     // MARK: - Tests
+    
+    func testShouldSelectSceneShouldReturnTrueForExploreScene() {
+        self.sut.user = nil
+        let value = self.sut.shouldSelectScene(index: MainModels.Scenes.explore.rawValue)
+        XCTAssertTrue(value)
+    }
+    
+    func testShouldSelectSceneShouldReturnTrueForCurrentUser() {
+        self.sut.user = User(id: "userId")
+        let value = self.sut.shouldSelectScene(index: MainModels.Scenes.myProfile.rawValue)
+        XCTAssertTrue(value)
+    }
+    
+    func testShouldSelectSceneShouldReturnFalseWhenThereIsNoUser() {
+        self.sut.user = nil
+        let value = self.sut.shouldSelectScene(index: MainModels.Scenes.myProfile.rawValue)
+        XCTAssertFalse(value)
+    }
     
     func testShouldSetupScenesShouldAskThePresenterToPresentSetupScenes() {
         self.sut.shouldSetupScenes()
@@ -51,5 +73,72 @@ class MainInteractorTests: XCTestCase {
     func testShouldSelectInitialSceneShouldAskThePresenterToPresentInitialSelectScene() {
         self.sut.shouldSelectInitialScene()
         XCTAssertTrue(self.presenterSpy.presentSelectSceneCalled)
+    }
+    
+    // MARK: - Navigation tests
+    
+    func testShouldNavigateToOnboardingShouldAskThePresenterToPresentNavigateToOnboardingForNoUser() {
+        self.sut.user = nil
+        self.sut.shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request(index: MainModels.Scenes.myProfile.rawValue))
+        XCTAssertTrue(self.presenterSpy.presentNavigateToOnboardingCalled)
+    }
+    
+    func testShouldNavigateToOnboardingShouldNotAskThePresenterToPresentNavigateToOnboardingForNoUserForExploreScene() {
+        self.sut.user = nil
+        self.sut.shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request(index: MainModels.Scenes.explore.rawValue))
+        XCTAssertFalse(self.presenterSpy.presentNavigateToOnboardingCalled)
+    }
+    
+    func testShouldNavigateToOnboardingShouldNotAskThePresenterToPresentNavigateToOnboardingForCurrentUser() {
+        self.sut.user = User(id: "userId")
+        self.sut.shouldNavigateToOnboarding(request: MainModels.OnboardingNavigation.Request(index: MainModels.Scenes.myProfile.rawValue))
+        XCTAssertFalse(self.presenterSpy.presentNavigateToOnboardingCalled)
+    }
+    
+    // MARK: - Login tests
+    
+    func testShouldLoginUserShouldAskTheUserDefaultsManagerToSaveUser() {
+        self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: User(id: "id")))
+        XCTAssertTrue(self.userDefaultsManagerSpy.saveUserCalled)
+    }
+    
+    func testShouldLoginUserShouldUpdateUserModel() {
+        self.sut.user = nil
+        let user = User(id: "userId")
+        self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: user))
+        XCTAssertEqual(self.sut.user, user)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentLoginUser() {
+        self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: User(id: "id")))
+        XCTAssertTrue(self.presenterSpy.presentLoginUserCalled)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentDismissOnboarding() {
+        self.sut.shouldLoginUser(request: MainModels.UserLogin.Request(user: User(id: "id")))
+        XCTAssertTrue(self.presenterSpy.presentDismissOnboardingCalled)
+    }
+        
+    // MARK: - Logout tests
+        
+    func testShouldLogoutUserShouldAskThePresenterToPresentSelectScene() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.presenterSpy.presentSelectSceneCalled)
+    }
+    
+    func testShouldLogoutUserShouldAskThePresenterToPresentLogoutUser() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.presenterSpy.presentLogoutUserCalled)
+    }
+    
+    func testShouldLogoutUserShouldAskTheUserDefaultsManagerToRemoveUser() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.userDefaultsManagerSpy.removeUserCalled)
+    }
+    
+    func testShouldLogoutUserShouldUpdateUserModel() {
+        self.sut.user = User(id: "id")
+        self.sut.shouldLogoutUser()
+        XCTAssertNil(self.sut.user)
     }
 }
