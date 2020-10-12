@@ -20,11 +20,15 @@ class SignUpViewControllerSpy: SignUpViewController {
         self.dismissCalled = true
     }
     
-    override func photoLibraryController(sourceView: UIView) -> UIViewController {
-        return UIViewController()
+    override func imagePickerController(sourceView: UIView) -> UIViewController? {
+        return nil
     }
     
-    override func cameraController(sourceView: UIView) -> UIViewController {
-        return UIViewController()
+    override func photoLibraryController(sourceView: UIView) -> UIViewController? {
+        return nil
+    }
+    
+    override func cameraController(sourceView: UIView) -> UIViewController? {
+        return nil
     }
 }

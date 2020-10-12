@@ -129,6 +129,7 @@
 		281F618A252C407800082CC5 /* SignUpViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F6189252C407800082CC5 /* SignUpViewControllerSpy.swift */; };
 		281F618C252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F618B252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift */; };
 		281F618E252C411900082CC5 /* PhotoLibraryHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F618D252C411900082CC5 /* PhotoLibraryHandlerSpy.swift */; };
+		2838299D2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
 		283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B56FA250CBCB000EFA651 /* LaunchScreen.storyboard */; };
@@ -266,6 +267,31 @@
 		28C1CB7E252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */; };
 		28C1CB81252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */; };
 		28C1CB83252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */; };
+		28CBCAD32532D7B300AC819E /* MyFavoritePlacesViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAC92532D7B300AC819E /* MyFavoritePlacesViewController+Subviews.swift */; };
+		28CBCAD42532D7B300AC819E /* MyFavoritePlacesStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCACA2532D7B300AC819E /* MyFavoritePlacesStyle.swift */; };
+		28CBCAD52532D7B300AC819E /* MyFavoritePlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCACB2532D7B300AC819E /* MyFavoritePlacesPresenter.swift */; };
+		28CBCAD62532D7B300AC819E /* MyFavoritePlacesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCACC2532D7B300AC819E /* MyFavoritePlacesWorker.swift */; };
+		28CBCAD72532D7B300AC819E /* MyFavoritePlacesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCACD2532D7B300AC819E /* MyFavoritePlacesRouter.swift */; };
+		28CBCAD82532D7B300AC819E /* MyFavoritePlacesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCACE2532D7B300AC819E /* MyFavoritePlacesModels.swift */; };
+		28CBCAD92532D7B300AC819E /* MyFavoritePlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCACF2532D7B300AC819E /* MyFavoritePlacesViewController.swift */; };
+		28CBCADA2532D7B300AC819E /* MyFavoritePlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAD02532D7B300AC819E /* MyFavoritePlacesInteractor.swift */; };
+		28CBCADB2532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAD12532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift */; };
+		28CBCADC2532D7B300AC819E /* MyFavoritePlacesLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAD22532D7B300AC819E /* MyFavoritePlacesLocalization.swift */; };
+		28CBCAE22532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE12532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift */; };
+		28CBCAF02532E76C00AC819E /* MyFavoritePlacesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE52532E76C00AC819E /* MyFavoritePlacesViewControllerTests.swift */; };
+		28CBCAF12532E76C00AC819E /* MyFavoritePlacesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE62532E76C00AC819E /* MyFavoritePlacesInteractorTests.swift */; };
+		28CBCAF22532E76C00AC819E /* MyFavoritePlacesDisplayLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE72532E76C00AC819E /* MyFavoritePlacesDisplayLogicSpy.swift */; };
+		28CBCAF32532E76C00AC819E /* MyFavoritePlacesWorkerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE82532E76C00AC819E /* MyFavoritePlacesWorkerDelegateSpy.swift */; };
+		28CBCAF42532E76C00AC819E /* MyFavoritePlacesWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAE92532E76C00AC819E /* MyFavoritePlacesWorkerTests.swift */; };
+		28CBCAF52532E76C00AC819E /* MyFavoritePlacesPresentationLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAEA2532E76C00AC819E /* MyFavoritePlacesPresentationLogicSpy.swift */; };
+		28CBCAF62532E76C00AC819E /* MyFavoritePlacesRoutingLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAEB2532E76C00AC819E /* MyFavoritePlacesRoutingLogicSpy.swift */; };
+		28CBCAF72532E76C00AC819E /* MyFavoritePlacesBusinessLogicSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAEC2532E76C00AC819E /* MyFavoritePlacesBusinessLogicSpy.swift */; };
+		28CBCAF82532E76C00AC819E /* MyFavoritePlacesRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAED2532E76C00AC819E /* MyFavoritePlacesRouterTests.swift */; };
+		28CBCAF92532E76C00AC819E /* MyFavoritePlacesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAEE2532E76C00AC819E /* MyFavoritePlacesPresenterTests.swift */; };
+		28CBCAFA2532E76C00AC819E /* MyFavoritePlacesWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAEF2532E76C00AC819E /* MyFavoritePlacesWorkerSpy.swift */; };
+		28CBCAFD2532ECA500AC819E /* MyFavoritePlacesTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAFC2532ECA500AC819E /* MyFavoritePlacesTableViewCellInterfaceSpy.swift */; };
+		28CBCAFF2532EF7600AC819E /* MyFavoritePlacesViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCAFE2532EF7600AC819E /* MyFavoritePlacesViewController+TableViewDataSource.swift */; };
+		28CBCB012532EFAA00AC819E /* MyFavoritePlacesViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBCB002532EFAA00AC819E /* MyFavoritePlacesViewController+TableViewDelegate.swift */; };
 		28CEC7B52529D2510063DCFE /* LoginViewController+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */; };
 		28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AC2529D2510063DCFE /* LoginStyle.swift */; };
 		28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */; };
@@ -501,6 +527,7 @@
 		281F6189252C407800082CC5 /* SignUpViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewControllerSpy.swift; sourceTree = "<group>"; };
 		281F618B252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		281F618D252C411900082CC5 /* PhotoLibraryHandlerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryHandlerSpy.swift; sourceTree = "<group>"; };
+		2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesViewControllerSpy.swift; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283B56F8250CBCB000EFA651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -647,6 +674,31 @@
 		28C1CB7D252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalOperation.swift; sourceTree = "<group>"; };
 		28C1CB80252A2DC60083FBC7 /* ForgotPasswordLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordLocalOperationTests.swift; sourceTree = "<group>"; };
 		28C1CB82252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
+		28CBCAC92532D7B300AC819E /* MyFavoritePlacesViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFavoritePlacesViewController+Subviews.swift"; sourceTree = "<group>"; };
+		28CBCACA2532D7B300AC819E /* MyFavoritePlacesStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesStyle.swift; sourceTree = "<group>"; };
+		28CBCACB2532D7B300AC819E /* MyFavoritePlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesPresenter.swift; sourceTree = "<group>"; };
+		28CBCACC2532D7B300AC819E /* MyFavoritePlacesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesWorker.swift; sourceTree = "<group>"; };
+		28CBCACD2532D7B300AC819E /* MyFavoritePlacesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesRouter.swift; sourceTree = "<group>"; };
+		28CBCACE2532D7B300AC819E /* MyFavoritePlacesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesModels.swift; sourceTree = "<group>"; };
+		28CBCACF2532D7B300AC819E /* MyFavoritePlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesViewController.swift; sourceTree = "<group>"; };
+		28CBCAD02532D7B300AC819E /* MyFavoritePlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesInteractor.swift; sourceTree = "<group>"; };
+		28CBCAD12532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFavoritePlacesViewController+DisplayLogic.swift"; sourceTree = "<group>"; };
+		28CBCAD22532D7B300AC819E /* MyFavoritePlacesLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesLocalization.swift; sourceTree = "<group>"; };
+		28CBCAE12532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesTableViewCell.swift; sourceTree = "<group>"; };
+		28CBCAE52532E76C00AC819E /* MyFavoritePlacesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesViewControllerTests.swift; sourceTree = "<group>"; };
+		28CBCAE62532E76C00AC819E /* MyFavoritePlacesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesInteractorTests.swift; sourceTree = "<group>"; };
+		28CBCAE72532E76C00AC819E /* MyFavoritePlacesDisplayLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesDisplayLogicSpy.swift; sourceTree = "<group>"; };
+		28CBCAE82532E76C00AC819E /* MyFavoritePlacesWorkerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesWorkerDelegateSpy.swift; sourceTree = "<group>"; };
+		28CBCAE92532E76C00AC819E /* MyFavoritePlacesWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesWorkerTests.swift; sourceTree = "<group>"; };
+		28CBCAEA2532E76C00AC819E /* MyFavoritePlacesPresentationLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesPresentationLogicSpy.swift; sourceTree = "<group>"; };
+		28CBCAEB2532E76C00AC819E /* MyFavoritePlacesRoutingLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesRoutingLogicSpy.swift; sourceTree = "<group>"; };
+		28CBCAEC2532E76C00AC819E /* MyFavoritePlacesBusinessLogicSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesBusinessLogicSpy.swift; sourceTree = "<group>"; };
+		28CBCAED2532E76C00AC819E /* MyFavoritePlacesRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesRouterTests.swift; sourceTree = "<group>"; };
+		28CBCAEE2532E76C00AC819E /* MyFavoritePlacesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesPresenterTests.swift; sourceTree = "<group>"; };
+		28CBCAEF2532E76C00AC819E /* MyFavoritePlacesWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesWorkerSpy.swift; sourceTree = "<group>"; };
+		28CBCAFC2532ECA500AC819E /* MyFavoritePlacesTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
+		28CBCAFE2532EF7600AC819E /* MyFavoritePlacesViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFavoritePlacesViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		28CBCB002532EFAA00AC819E /* MyFavoritePlacesViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFavoritePlacesViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		28CEC7AB2529D2510063DCFE /* LoginViewController+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Subviews.swift"; sourceTree = "<group>"; };
 		28CEC7AC2529D2510063DCFE /* LoginStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStyle.swift; sourceTree = "<group>"; };
 		28CEC7AD2529D2510063DCFE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -771,6 +823,7 @@
 		2812D455250CDAB30079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28CBCAC82532D79C00AC819E /* My Favorite Places */,
 				28FDC9DE252EB95A002D7439 /* Place Details */,
 				281F613F252C20E500082CC5 /* Sign Up */,
 				286D900A252AC96D0012DB1D /* Forgot Password */,
@@ -829,6 +882,7 @@
 		2812D46E250CDB020079F879 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				28CBCAE42532E75C00AC819E /* My Favorite Places */,
 				28FDC9F6252EBBDF002D7439 /* Place Details */,
 				281F6171252C3F7900082CC5 /* Sign Up */,
 				286D9031252AE6250012DB1D /* Forgot Password */,
@@ -2016,6 +2070,86 @@
 			path = "Forgot Password";
 			sourceTree = "<group>";
 		};
+		28CBCAC82532D79C00AC819E /* My Favorite Places */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAE02532DFA700AC819E /* Cells */,
+				28CBCADF2532D81900AC819E /* View Controller */,
+				28CBCADE2532D81000AC819E /* Style */,
+				28CBCADD2532D80800AC819E /* Localization */,
+				28CBCACB2532D7B300AC819E /* MyFavoritePlacesPresenter.swift */,
+				28CBCACC2532D7B300AC819E /* MyFavoritePlacesWorker.swift */,
+				28CBCACD2532D7B300AC819E /* MyFavoritePlacesRouter.swift */,
+				28CBCACE2532D7B300AC819E /* MyFavoritePlacesModels.swift */,
+				28CBCAD02532D7B300AC819E /* MyFavoritePlacesInteractor.swift */,
+			);
+			path = "My Favorite Places";
+			sourceTree = "<group>";
+		};
+		28CBCADD2532D80800AC819E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAD22532D7B300AC819E /* MyFavoritePlacesLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		28CBCADE2532D81000AC819E /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCACA2532D7B300AC819E /* MyFavoritePlacesStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		28CBCADF2532D81900AC819E /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAD12532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift */,
+				28CBCACF2532D7B300AC819E /* MyFavoritePlacesViewController.swift */,
+				28CBCAC92532D7B300AC819E /* MyFavoritePlacesViewController+Subviews.swift */,
+				28CBCAFE2532EF7600AC819E /* MyFavoritePlacesViewController+TableViewDataSource.swift */,
+				28CBCB002532EFAA00AC819E /* MyFavoritePlacesViewController+TableViewDelegate.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		28CBCAE02532DFA700AC819E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAE12532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		28CBCAE42532E75C00AC819E /* My Favorite Places */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAFB2532E78400AC819E /* Test Doubles */,
+				28CBCAE52532E76C00AC819E /* MyFavoritePlacesViewControllerTests.swift */,
+				28CBCAE62532E76C00AC819E /* MyFavoritePlacesInteractorTests.swift */,
+				28CBCAE92532E76C00AC819E /* MyFavoritePlacesWorkerTests.swift */,
+				28CBCAED2532E76C00AC819E /* MyFavoritePlacesRouterTests.swift */,
+				28CBCAEE2532E76C00AC819E /* MyFavoritePlacesPresenterTests.swift */,
+			);
+			path = "My Favorite Places";
+			sourceTree = "<group>";
+		};
+		28CBCAFB2532E78400AC819E /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				28CBCAE72532E76C00AC819E /* MyFavoritePlacesDisplayLogicSpy.swift */,
+				28CBCAE82532E76C00AC819E /* MyFavoritePlacesWorkerDelegateSpy.swift */,
+				28CBCAEA2532E76C00AC819E /* MyFavoritePlacesPresentationLogicSpy.swift */,
+				28CBCAEB2532E76C00AC819E /* MyFavoritePlacesRoutingLogicSpy.swift */,
+				28CBCAEC2532E76C00AC819E /* MyFavoritePlacesBusinessLogicSpy.swift */,
+				28CBCAEF2532E76C00AC819E /* MyFavoritePlacesWorkerSpy.swift */,
+				28CBCAFC2532ECA500AC819E /* MyFavoritePlacesTableViewCellInterfaceSpy.swift */,
+				2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */,
+			);
+			path = "Test Doubles";
+			sourceTree = "<group>";
+		};
 		28CEC7AA2529D2360063DCFE /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -2515,6 +2649,8 @@
 				28CEC7D12529DBB50063DCFE /* LoginInteractor+Validations.swift in Sources */,
 				28DC5A6D2524817500FFE2E1 /* UserDefaultsManager.swift in Sources */,
 				28FDCA2C252EFF5A002D7439 /* PlaceDetailsViewController+TableViewDataSource.swift in Sources */,
+				28CBCAD72532D7B300AC819E /* MyFavoritePlacesRouter.swift in Sources */,
+				28CBCADC2532D7B300AC819E /* MyFavoritePlacesLocalization.swift in Sources */,
 				28CEC7B72529D2510063DCFE /* LoginPresenter.swift in Sources */,
 				2812D48C250CDF170079F879 /* String+Localized.swift in Sources */,
 				28CEC7B62529D2510063DCFE /* LoginStyle.swift in Sources */,
@@ -2533,6 +2669,7 @@
 				28179EEC250E01120081FD3A /* PlacesTask.swift in Sources */,
 				28179EBC250DFDD80081FD3A /* UITableViewCell+DefaultReuseIdentifier.swift in Sources */,
 				28D4E5FE25297F1A00A1ED86 /* FullscreenImageWorker.swift in Sources */,
+				28CBCAD32532D7B300AC819E /* MyFavoritePlacesViewController+Subviews.swift in Sources */,
 				28C1CB72252A29570083FBC7 /* SignUpUserOperation.swift in Sources */,
 				281F614D252C20FB00082CC5 /* SignUpWorker.swift in Sources */,
 				28179EE3250E00CE0081FD3A /* TaskProtocol.swift in Sources */,
@@ -2551,7 +2688,9 @@
 				28179EAB250DFC700081FD3A /* ExploreViewController+TableViewDelegate.swift in Sources */,
 				28FDCA2A252EFBD7002D7439 /* PlaceDetailsDescriptionTableViewCell.swift in Sources */,
 				288897C6250E3DF30017B0B1 /* UIFont+WithTraits.swift in Sources */,
+				28CBCAD62532D7B300AC819E /* MyFavoritePlacesWorker.swift in Sources */,
 				28179EA5250DFC700081FD3A /* ExploreStyle.swift in Sources */,
+				28CBCAD52532D7B300AC819E /* MyFavoritePlacesPresenter.swift in Sources */,
 				283B571E250CC15F00EFA651 /* ApplicationStyle.swift in Sources */,
 				28CEC7C72529D79F0063DCFE /* LoginTextFieldCell.swift in Sources */,
 				28179EBF250DFE430081FD3A /* UITableView+NoAnimation.swift in Sources */,
@@ -2591,6 +2730,7 @@
 				287A35712517576E00898B51 /* GetImageOperation.swift in Sources */,
 				281F6166252C298300082CC5 /* SignUpPhotoCell.swift in Sources */,
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
+				28CBCB012532EFAA00AC819E /* MyFavoritePlacesViewController+TableViewDelegate.swift in Sources */,
 				281F6170252C39B600082CC5 /* SignUpViewController+TableViewDataSource.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
 				28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */,
@@ -2625,6 +2765,7 @@
 				28179EE0250E00980081FD3A /* TaskConfigurator.swift in Sources */,
 				28FDC9EB252EB968002D7439 /* PlaceDetailsPresenter.swift in Sources */,
 				28179EAA250DFC700081FD3A /* ExploreViewController.swift in Sources */,
+				28CBCAE22532DFBA00AC819E /* MyFavoritePlacesTableViewCell.swift in Sources */,
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
 				28179ED0250DFFAE0081FD3A /* TableViewLoadingHeaderFooterView.swift in Sources */,
@@ -2640,6 +2781,7 @@
 				28B3862E2529B6AB00CA7840 /* OnboardingWorker.swift in Sources */,
 				283B5715250CC0E500EFA651 /* AppPresenter.swift in Sources */,
 				28FDC9EC252EB968002D7439 /* PlaceDetailsWorker.swift in Sources */,
+				28CBCAD42532D7B300AC819E /* MyFavoritePlacesStyle.swift in Sources */,
 				283B5717250CC0EC00EFA651 /* AppModels.swift in Sources */,
 				28C1CB66252A27480083FBC7 /* LoginUserOperationModels.swift in Sources */,
 				28FDCA22252EE986002D7439 /* GetPlaceLocalOperation.swift in Sources */,
@@ -2666,10 +2808,12 @@
 				281F4F962520CDA9008475D7 /* MyProfileLocalization.swift in Sources */,
 				28BD8D18252310AE00C30F64 /* MyProfileViewController+TableViewDataSource.swift in Sources */,
 				286D901A252AC97D0012DB1D /* ForgotPasswordModels.swift in Sources */,
+				28CBCAD92532D7B300AC819E /* MyFavoritePlacesViewController.swift in Sources */,
 				2812D466250CDAC90079F879 /* MainModels.swift in Sources */,
 				281F4FB62520D571008475D7 /* MyProfileInformationTableViewCell.swift in Sources */,
 				28B3862C2529B6AB00CA7840 /* OnboardingStyle.swift in Sources */,
 				28C1CB7C252A2CFA0083FBC7 /* ForgotPasswordOperation.swift in Sources */,
+				28CBCADA2532D7B300AC819E /* MyFavoritePlacesInteractor.swift in Sources */,
 				281F616B252C377700082CC5 /* SignUpInteractor+Validations.swift in Sources */,
 				28179EAE250DFC700081FD3A /* ExploreTableViewCell.swift in Sources */,
 				28D4E5FC25297F1A00A1ED86 /* FullscreenImageStyle.swift in Sources */,
@@ -2689,11 +2833,14 @@
 				2812D464250CDAC90079F879 /* MainWorker.swift in Sources */,
 				28B3862B2529B6AB00CA7840 /* OnboardingViewController+Subviews.swift in Sources */,
 				2812D465250CDAC90079F879 /* MainRouter.swift in Sources */,
+				28CBCAD82532D7B300AC819E /* MyFavoritePlacesModels.swift in Sources */,
+				28CBCADB2532D7B300AC819E /* MyFavoritePlacesViewController+DisplayLogic.swift in Sources */,
 				28B386332529B6AB00CA7840 /* OnboardingViewController+DisplayLogic.swift in Sources */,
 				281F6159252C24A100082CC5 /* UIImage+CorrectOrientation.swift in Sources */,
 				281F4F942520CDA9008475D7 /* MyProfileInteractor.swift in Sources */,
 				28C1CB7E252A2D050083FBC7 /* ForgotPasswordLocalOperation.swift in Sources */,
 				28CEC7D32529DC130063DCFE /* LoginViewController+TableViewDataSource.swift in Sources */,
+				28CBCAFF2532EF7600AC819E /* MyFavoritePlacesViewController+TableViewDataSource.swift in Sources */,
 				28D4E60025297F1A00A1ED86 /* FullscreenImageModels.swift in Sources */,
 				286D901B252AC97D0012DB1D /* ForgotPasswordViewController.swift in Sources */,
 				2812D461250CDAC90079F879 /* MainViewController+Subviews.swift in Sources */,
@@ -2735,6 +2882,7 @@
 				28FDCA05252EBBED002D7439 /* PlaceDetailsWorkerDelegateSpy.swift in Sources */,
 				28BD8D072523059600C30F64 /* GetUserLocalOperationTests.swift in Sources */,
 				286D9041252AE63E0012DB1D /* ForgotPasswordWorkerTests.swift in Sources */,
+				28CBCAF42532E76C00AC819E /* MyFavoritePlacesWorkerTests.swift in Sources */,
 				2812D484250CDB150079F879 /* MainPresenterTests.swift in Sources */,
 				2812D482250CDB150079F879 /* MainBusinessLogicSpy.swift in Sources */,
 				288897B3250E34D00017B0B1 /* ExploreViewControllerTests.swift in Sources */,
@@ -2742,10 +2890,12 @@
 				281F4FAE2520CDF6008475D7 /* MyProfileRouterTests.swift in Sources */,
 				28CEC7F02529E9240063DCFE /* LoginViewControllerSpy.swift in Sources */,
 				281F4FAF2520CDF6008475D7 /* MyProfilePresenterTests.swift in Sources */,
+				28CBCAFD2532ECA500AC819E /* MyFavoritePlacesTableViewCellInterfaceSpy.swift in Sources */,
 				287A358325175DC000898B51 /* ImageTaskTests.swift in Sources */,
 				281F6187252C3F8800082CC5 /* SignUpWorkerSpy.swift in Sources */,
 				28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */,
 				28FDCA03252EBBED002D7439 /* PlaceDetailsInteractorTests.swift in Sources */,
+				28CBCAF92532E76C00AC819E /* MyFavoritePlacesPresenterTests.swift in Sources */,
 				28889796250E32F00017B0B1 /* OperationQueueSpy.swift in Sources */,
 				28FDCA07252EBBED002D7439 /* PlaceDetailsPresentationLogicSpy.swift in Sources */,
 				28B3864A2529C6A000CA7840 /* OnboardingWorkerTests.swift in Sources */,
@@ -2775,6 +2925,7 @@
 				288897B8250E34D00017B0B1 /* ExplorePresentationLogicSpy.swift in Sources */,
 				28FDCA09252EBBED002D7439 /* PlaceDetailsBusinessLogicSpy.swift in Sources */,
 				288897B4250E34D00017B0B1 /* ExploreInteractorTests.swift in Sources */,
+				28CBCAF12532E76C00AC819E /* MyFavoritePlacesInteractorTests.swift in Sources */,
 				286D9046252AE63E0012DB1D /* ForgotPasswordPresenterTests.swift in Sources */,
 				286D9045252AE63E0012DB1D /* ForgotPasswordRouterTests.swift in Sources */,
 				288897A4250E34340017B0B1 /* PlacesTaskTests.swift in Sources */,
@@ -2799,6 +2950,7 @@
 				28C1CB83252A37970083FBC7 /* OnboardingViewControllerDelegateSpy.swift in Sources */,
 				28BD8D272523360C00C30F64 /* MyProfileViewControllerSpy.swift in Sources */,
 				28B386472529C6A000CA7840 /* OnboardingInteractorTests.swift in Sources */,
+				28CBCAF32532E76C00AC819E /* MyFavoritePlacesWorkerDelegateSpy.swift in Sources */,
 				28D3A83225243243008FFF92 /* AuthenticationTaskTests.swift in Sources */,
 				281F6184252C3F8800082CC5 /* SignUpBusinessLogicSpy.swift in Sources */,
 				28B386482529C6A000CA7840 /* OnboardingDisplayLogicSpy.swift in Sources */,
@@ -2808,11 +2960,13 @@
 				28B3864D2529C6A000CA7840 /* OnboardingBusinessLogicSpy.swift in Sources */,
 				281F618C252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift in Sources */,
 				28FDCA12252ED501002D7439 /* PlaceDetailsPhotoTableViewCellInterfaceSpy.swift in Sources */,
+				28CBCAF02532E76C00AC819E /* MyFavoritePlacesViewControllerTests.swift in Sources */,
 				288897A6250E346F0017B0B1 /* PlacesTaskSpy.swift in Sources */,
 				2812D47E250CDB150079F879 /* MainWorkerDelegateSpy.swift in Sources */,
 				28D4E6182529846500A1ED86 /* FullscreenImageWorkerTests.swift in Sources */,
 				281F6180252C3F8800082CC5 /* SignUpWorkerDelegateSpy.swift in Sources */,
 				286D903E252AE63E0012DB1D /* ForgotPasswordInteractorTests.swift in Sources */,
+				28CBCAF82532E76C00AC819E /* MyFavoritePlacesRouterTests.swift in Sources */,
 				28CEC7E82529E8160063DCFE /* LoginPresentationLogicSpy.swift in Sources */,
 				28B3864B2529C6A000CA7840 /* OnboardingPresentationLogicSpy.swift in Sources */,
 				28CEC7E42529E8160063DCFE /* LoginInteractorTests.swift in Sources */,
@@ -2834,9 +2988,11 @@
 				28D4E61B2529846500A1ED86 /* FullscreenImageBusinessLogicSpy.swift in Sources */,
 				2812D483250CDB150079F879 /* MainRouterTests.swift in Sources */,
 				281F4FAB2520CDF6008475D7 /* MyProfilePresentationLogicSpy.swift in Sources */,
+				28CBCAF62532E76C00AC819E /* MyFavoritePlacesRoutingLogicSpy.swift in Sources */,
 				281F4FA92520CDF6008475D7 /* MyProfileWorkerDelegateSpy.swift in Sources */,
 				286D903D252AE63E0012DB1D /* ForgotPasswordViewControllerTests.swift in Sources */,
 				28D4E6152529846500A1ED86 /* FullscreenImageInteractorTests.swift in Sources */,
+				28CBCAFA2532E76C00AC819E /* MyFavoritePlacesWorkerSpy.swift in Sources */,
 				281F618E252C411900082CC5 /* PhotoLibraryHandlerSpy.swift in Sources */,
 				281F4FA62520CDF6008475D7 /* MyProfileViewControllerTests.swift in Sources */,
 				28C1CB6D252A28AC0083FBC7 /* LoginUserLocalOperationTests.swift in Sources */,
@@ -2851,6 +3007,7 @@
 				28FDCA0C252EBBED002D7439 /* PlaceDetailsWorkerSpy.swift in Sources */,
 				28FDCA06252EBBED002D7439 /* PlaceDetailsWorkerTests.swift in Sources */,
 				281F4FA82520CDF6008475D7 /* MyProfileDisplayLogicSpy.swift in Sources */,
+				28CBCAF72532E76C00AC819E /* MyFavoritePlacesBusinessLogicSpy.swift in Sources */,
 				288897B9250E34D00017B0B1 /* ExploreRoutingLogicSpy.swift in Sources */,
 				28B3864F2529C6A000CA7840 /* OnboardingPresenterTests.swift in Sources */,
 				281F6181252C3F8800082CC5 /* SignUpWorkerTests.swift in Sources */,
@@ -2859,10 +3016,13 @@
 				286D9044252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift in Sources */,
 				2812D498250CE7930079F879 /* AppPresentationLogicSpy.swift in Sources */,
 				2812D47B250CDB150079F879 /* MainViewControllerTests.swift in Sources */,
+				2838299D2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift in Sources */,
 				28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */,
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
 				287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */,
+				28CBCAF52532E76C00AC819E /* MyFavoritePlacesPresentationLogicSpy.swift in Sources */,
 				28CEC7E62529E8160063DCFE /* LoginWorkerDelegateSpy.swift in Sources */,
+				28CBCAF22532E76C00AC819E /* MyFavoritePlacesDisplayLogicSpy.swift in Sources */,
 				28C1CB77252A2B0C0083FBC7 /* SignUpUserLocalOperationTests.swift in Sources */,
 				28D3A839252462A2008FFF92 /* UIRefreshControlSpy.swift in Sources */,
 				281F6183252C3F8800082CC5 /* SignUpRoutingLogicSpy.swift in Sources */,

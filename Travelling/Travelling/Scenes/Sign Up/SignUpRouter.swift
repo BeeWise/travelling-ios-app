@@ -58,7 +58,7 @@ class SignUpRouter: SignUpRoutingLogic {
         self.viewController?.present(imagePickerController, animated: true, completion: nil)
     }
     
-    private func imagePickerController(sourceView: UIView) -> UIImagePickerController {
-        return self.viewController?.imagePickerController(sourceView: sourceView) ?? UIImagePickerController()
+    private func imagePickerController(sourceView: UIView) -> UIViewController {
+        return self.viewController?.imagePickerController(sourceView: sourceView) ?? UIViewController()
     }
 }

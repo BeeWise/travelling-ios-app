@@ -11,8 +11,15 @@ import Foundation
 public enum PlacesTaskModels {
     public enum FetchPlaces {
         public struct Request {
+            let userId: String?
             let page: Int
             let limit: Int
+            
+            init(userId: String? = nil, page: Int, limit: Int) {
+                self.userId = userId
+                self.page = page
+                self.limit = limit
+            }
         }
         
         public struct Response {

@@ -64,16 +64,32 @@ class SignUpViewController: UITableViewController {
         self.showNavigationBar()
     }
     
-    open func photoLibraryController(sourceView: UIView) -> UIViewController {
-        let imagePickerController = self.imagePickerController(sourceView: sourceView)
-        imagePickerController.sourceType = .photoLibrary
+    // MARK: - Image picker controller
+    
+    open func imagePickerController(sourceView: UIView) -> UIViewController? {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.navigationBar.isTranslucent = SignUpStyle.shared.navigationBarModel.isTranslucent
+        imagePickerController.navigationBar.tintColor = SignUpStyle.shared.navigationBarModel.tintColor
+        imagePickerController.navigationBar.barTintColor = SignUpStyle.shared.navigationBarModel.barTintColor
+        imagePickerController.navigationBar.titleTextAttributes = SignUpStyle.shared.navigationBarModel.titleAttributes()
+        imagePickerController.modalPresentationStyle = .popover
+        imagePickerController.popoverPresentationController?.sourceView = sourceView
+        imagePickerController.popoverPresentationController?.sourceRect = sourceView.bounds
+        imagePickerController.popoverPresentationController?.permittedArrowDirections = .up
+        imagePickerController.delegate = self
         return imagePickerController
     }
     
-    open func cameraController(sourceView: UIView) -> UIViewController {
-        let imagePickerController = self.imagePickerController(sourceView: sourceView)
-        imagePickerController.sourceType = .camera
-        imagePickerController.cameraDevice = .front
+    open func photoLibraryController(sourceView: UIView) -> UIViewController? {
+        let imagePickerController = self.imagePickerController(sourceView: sourceView) as? UIImagePickerController
+        imagePickerController?.sourceType = .photoLibrary
+        return imagePickerController
+    }
+    
+    open func cameraController(sourceView: UIView) -> UIViewController? {
+        let imagePickerController = self.imagePickerController(sourceView: sourceView) as? UIImagePickerController
+        imagePickerController?.sourceType = .camera
+        imagePickerController?.cameraDevice = .front
         return imagePickerController
     }
 }

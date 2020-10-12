@@ -24,7 +24,7 @@ open class PlacesTask: PlacesTaskProtocol {
     }
     
     private func fetchPlacesOperation(model: PlacesTaskModels.FetchPlaces.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlaces.Response, OperationError>) -> Void) -> DataTaskOperation<GetPlacesOperationModels.Response> {
-        let operationModel = GetPlacesOperationModels.Request(page: model.page, limit: model.limit)
+        let operationModel = GetPlacesOperationModels.Request(userId: model.userId, page: model.page, limit: model.limit)
         let operationCompletionHandler: ((Result<GetPlacesOperationModels.Response, OperationError>) -> Void) = { result in
             switch result {
                 case .success(let response): completionHandler(.success(PlacesTaskModels.FetchPlaces.Response(places: response.places, page: response.page, limit: response.limit))); break
