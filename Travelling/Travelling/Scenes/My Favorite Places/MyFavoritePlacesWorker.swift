@@ -30,8 +30,8 @@ class MyFavoritePlacesWorker {
         self.delegate = delegate
     }
     
-    func fetchItems(page: Int, limit: Int) {
-        self.placesTask.fetchPlaces(model: PlacesTaskModels.FetchPlaces.Request(page: page, limit: limit)) { result in
+    func fetchItems(userId: String, page: Int, limit: Int) {
+        self.placesTask.fetchPlaces(model: PlacesTaskModels.FetchPlaces.Request(userId: userId, page: page, limit: limit)) { result in
             switch result {
                 case .success(let value): self.delegate?.successDidFetchItems(items: value.places); break
                 case .failure(let error): self.delegate?.failureDidFetchItems(error: error); break

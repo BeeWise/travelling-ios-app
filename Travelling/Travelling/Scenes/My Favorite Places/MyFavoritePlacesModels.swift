@@ -137,4 +137,10 @@ enum MyFavoritePlacesModels {
             let place: Place
         }
     }
+    
+    enum UserLogin {
+        struct Request {
+            let user: User
+        }
+    }
 }

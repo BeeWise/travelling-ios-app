@@ -22,6 +22,8 @@ class MyFavoritePlacesDisplayLogicSpy: MyFavoritePlacesDisplayLogic {
     var displayNewItemsCalled: Bool = false
     var displayNewItemsViewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel!
     
+    var displayResetItemsCalled: Bool = false
+    
     var displayNoMoreItemsCalled: Bool = false
     var displayRemoveNoMoreItemsCalled: Bool = false
     
@@ -56,6 +58,10 @@ class MyFavoritePlacesDisplayLogicSpy: MyFavoritePlacesDisplayLogic {
     func displayNewItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel) {
         self.displayNewItemsCalled = true
         self.displayNewItemsViewModel = viewModel
+    }
+    
+    func displayResetItems() {
+        self.displayResetItemsCalled = true
     }
     
     func displayNoMoreItems(viewModel: MyFavoritePlacesModels.NoMoreItemsPresentation.ViewModel) {

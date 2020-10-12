@@ -19,6 +19,7 @@ protocol MyFavoritePlacesPresentationLogic {
     func presentItems(response: MyFavoritePlacesModels.ItemsPresentation.Response)
     func presentNewItems(response: MyFavoritePlacesModels.ItemsPresentation.Response)
     func presentSearchedItems(response: MyFavoritePlacesModels.ItemsSearching.Response)
+    func presentResetItems()
     
     func presentNoMoreItems()
     func presentRemoveNoMoreItems()
@@ -61,6 +62,10 @@ class MyFavoritePlacesPresenter: MyFavoritePlacesPresentationLogic {
     
     func presentSearchedItems(response: MyFavoritePlacesModels.ItemsSearching.Response) {
         self.displayer?.displayItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel(displayedItems: self.displayedSearchedItems(items: response.items, text: response.text)))
+    }
+    
+    func presentResetItems() {
+        self.displayer?.displayResetItems()
     }
     
     func presentNoMoreItems() {

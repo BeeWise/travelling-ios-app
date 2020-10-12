@@ -54,6 +54,14 @@ class MyFavoritePlacesViewController: UITableViewController {
         self.setupSubviews()
         self.interactor?.shouldFetchItems()
     }
+    
+    open func shouldLoginUser(user: User) {
+        self.interactor?.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: user))
+    }
+    
+    open func shouldLogoutUser() {
+        self.interactor?.shouldLogoutUser()
+    }
 }
 
 extension MyFavoritePlacesViewController {

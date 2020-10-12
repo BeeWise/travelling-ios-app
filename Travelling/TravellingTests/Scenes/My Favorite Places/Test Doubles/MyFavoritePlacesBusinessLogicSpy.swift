@@ -22,6 +22,9 @@ class MyFavoritePlacesBusinessLogicSpy: MyFavoritePlacesBusinessLogic {
     
     var shouldNavigateToPlaceDetailsCalled: Bool = false
     
+    var shouldLoginUserCalled: Bool = false
+    var shouldLogoutUserCalled: Bool = false
+    
     func shouldFetchItems() {
         self.shouldFetchItemsCalled = true
     }
@@ -44,5 +47,13 @@ class MyFavoritePlacesBusinessLogicSpy: MyFavoritePlacesBusinessLogic {
     
     func shouldNavigateToPlaceDetails(request: MyFavoritePlacesModels.ItemNavigation.Request) {
         self.shouldNavigateToPlaceDetailsCalled = true
+    }
+    
+    func shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request) {
+        self.shouldLoginUserCalled = true
+    }
+    
+    func shouldLogoutUser() {
+        self.shouldLogoutUserCalled = true
     }
 }

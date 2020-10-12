@@ -18,6 +18,7 @@ class MainViewControllerTests: BaseTestCase {
     var interactorSpy: MainBusinessLogicSpy!
     var routerSpy: MainRoutingLogicSpy!
     var myProfileViewControllerSpy: MyProfileViewControllerSpy!
+    var myFavoritePlacesViewControllerSpy: MyFavoritePlacesViewControllerSpy!
     var window: UIWindow!
     
     // MARK: - Test lifecycle
@@ -46,6 +47,9 @@ class MainViewControllerTests: BaseTestCase {
         
         self.myProfileViewControllerSpy = MyProfileViewControllerSpy()
         self.sut.myProfileViewController = self.myProfileViewControllerSpy
+        
+        self.myFavoritePlacesViewControllerSpy = MyFavoritePlacesViewControllerSpy()
+        self.sut.myFavoritePlacesViewController = self.myFavoritePlacesViewControllerSpy
     }
     
     func loadView() {
@@ -128,9 +132,21 @@ class MainViewControllerTests: BaseTestCase {
         XCTAssertTrue(self.myProfileViewControllerSpy.shouldLoginUserCalled)
     }
     
+    func testDisplayLoginUserShouldAskMyFavoritePlacesViewControllerToLoginUser() {
+        self.sut.displayLoginUser(viewModel: MainModels.UserLogin.ViewModel(user: User(id: "id")))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myFavoritePlacesViewControllerSpy.shouldLoginUserCalled)
+    }
+    
     func testDisplayLogoutUserShouldAskMyProfileViewControllerToLogoutUser() {
         self.sut.displayLogoutUser()
         self.waitForMainQueue()
         XCTAssertTrue(self.myProfileViewControllerSpy.shouldLogoutUserCalled)
+    }
+    
+    func testDisplayLogoutUserShouldAskMyFavoritePlacesViewControllerToLogoutUser() {
+        self.sut.displayLogoutUser()
+        self.waitForMainQueue()
+        XCTAssertTrue(self.myFavoritePlacesViewControllerSpy.shouldLogoutUserCalled)
     }
 }

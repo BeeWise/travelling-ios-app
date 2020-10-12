@@ -17,6 +17,7 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
     var sut: MyFavoritePlacesInteractor!
     var presenterSpy: MyFavoritePlacesPresentationLogicSpy!
     var workerSpy: MyFavoritePlacesWorkerSpy!
+    var userDefaultsManagerSpy: UserDefaultsManagerSpy!
   
     // MARK: - Test lifecycle
   
@@ -39,11 +40,15 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
         
         self.workerSpy = MyFavoritePlacesWorkerSpy(delegate: self.sut)
         self.sut.worker = self.workerSpy
+        
+        self.userDefaultsManagerSpy = UserDefaultsManagerSpy()
+        self.sut.userDefaultsManager = self.userDefaultsManagerSpy
     }
     
     // MARK: - Fetch items tests
     
     func testShouldFetchItemsShouldSetIsFetchingItemsToTrueForPaginationModel() {
+        self.sut.user = User(id: "userId")
         self.sut.paginationModel.isFetchingItems = false
         self.sut.paginationModel.noMoreItems = false
         self.sut.shouldFetchItems()
@@ -51,6 +56,7 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
     }
     
     func testShouldFetchItemsShouldAskThePresenterToPresentWillFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.user = User(id: "userId")
         self.sut.paginationModel.isFetchingItems = false
         self.sut.paginationModel.noMoreItems = false
         self.sut.shouldFetchItems()
@@ -58,6 +64,7 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
     }
     
     func testShouldFetchItemsShouldAskThePresenterToPresentDisableSearchBarWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.user = User(id: "userId")
         self.sut.paginationModel.isFetchingItems = false
         self.sut.paginationModel.noMoreItems = false
         self.sut.shouldFetchItems()
@@ -65,6 +72,7 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
     }
     
     func testShouldFetchItemsShouldAskTheWorkerToFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.user = User(id: "userId")
         self.sut.paginationModel.isFetchingItems = false
         self.sut.paginationModel.noMoreItems = false
         self.sut.shouldFetchItems()
@@ -263,5 +271,83 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
         let place = Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))
         place.name = "Name"
         return place
+    }
+    
+    // MARK: - Login user tests
+        
+    func testShouldLoginUserShouldUpdateUser() {
+        let user = User(id: "userId")
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: user))
+        XCTAssertEqual(self.sut.user, user)
+    }
+    
+    func testShouldLoginUserShouldResetPaginationModel() {
+        let paginationModel = MyFavoritePlacesModels.PaginationModel()
+        paginationModel.isFetchingItems = true
+        paginationModel.noMoreItems = true
+        paginationModel.hasError = true
+        paginationModel.isSearchingItems = true
+        paginationModel.currentPage = 5
+        paginationModel.limit = 50
+        paginationModel.items = [Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))]
+        self.sut.paginationModel = paginationModel
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertFalse(self.sut.paginationModel.noMoreItems)
+        XCTAssertFalse(self.sut.paginationModel.hasError)
+        XCTAssertFalse(self.sut.paginationModel.isSearchingItems)
+        XCTAssertEqual(self.sut.paginationModel.currentPage, 0)
+        XCTAssertEqual(self.sut.paginationModel.limit, 10)
+        XCTAssertTrue(self.sut.paginationModel.items.isEmpty)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentRemoveEmptyState() {
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertTrue(self.presenterSpy.presentRemoveEmptyStateCalled)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentResetItems() {
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertTrue(self.presenterSpy.presentResetItemsCalled)
+    }
+    
+    func testShouldLoginUserShouldSetIsFetchingItemsToTrueForPaginationModel() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertTrue(self.sut.paginationModel.isFetchingItems)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentWillFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertTrue(self.presenterSpy.presentWillFetchItemsCalled)
+    }
+    
+    func testShouldLoginUserShouldAskThePresenterToPresentDisableSearchBarWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertTrue(self.presenterSpy.presentDisableSearchBarCalled)
+    }
+    
+    func testShouldLoginUserShouldAskTheWorkerToFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request(user: User(id: "userId")))
+        XCTAssertTrue(self.workerSpy.fetchItemsCalled)
+    }
+    
+    // MARK: - Logout user tests
+    
+    func testShouldLogoutUserShouldResetUser() {
+        self.sut.user = User(id: "userId")
+        self.sut.shouldLogoutUser()
+        XCTAssertNil(self.sut.user)
+    }
+    
+    func testShouldLogoutUserShouldAskThePresenterToPresentResetItems() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.presenterSpy.presentResetItemsCalled)
     }
 }

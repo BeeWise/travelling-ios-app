@@ -28,7 +28,7 @@ class GetPlacesLocalOperationTests: XCTestCase {
     // MARK: - Test setup
     
     func setupSubjectUnderTest() {
-        let model = GetPlacesOperationModels.Request(page: 0, limit: 0)
+        let model = GetPlacesOperationModels.Request(userId: nil, page: 0, limit: 0)
         self.sut = GetPlacesLocalOperation(model: model, completionHandler: { result in
             switch result {
                 case .success(let value): self.value = value.places; break

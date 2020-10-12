@@ -18,6 +18,7 @@ protocol MyFavoritePlacesDisplayLogic: class {
     
     func displayItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel)
     func displayNewItems(viewModel: MyFavoritePlacesModels.ItemsPresentation.ViewModel)
+    func displayResetItems()
     
     func displayNoMoreItems(viewModel: MyFavoritePlacesModels.NoMoreItemsPresentation.ViewModel)
     func displayRemoveNoMoreItems()
@@ -72,6 +73,13 @@ extension MyFavoritePlacesViewController: MyFavoritePlacesDisplayLogic {
                 self.sections[section].items.append(contentsOf: viewModel.displayedItems)
                 self.tableView?.insertRowsWithoutAnimation(at: indexPaths)
             }, completion: nil)
+        }
+    }
+    
+    func displayResetItems() {
+        DispatchQueue.main.async {
+            self.sections = [MyFavoritePlacesModels.Section(), MyFavoritePlacesModels.Section()]
+            self.tableView?.reloadDataWithoutAnimation()
         }
     }
     

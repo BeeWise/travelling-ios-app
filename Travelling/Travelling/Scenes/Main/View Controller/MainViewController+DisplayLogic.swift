@@ -51,12 +51,14 @@ extension MainViewController: MainDisplayLogic {
     func displayLoginUser(viewModel: MainModels.UserLogin.ViewModel) {
         DispatchQueue.main.async {
             self.myProfileViewController?.shouldLoginUser(user: viewModel.user)
+            self.myFavoritePlacesViewController?.shouldLoginUser(user: viewModel.user)
         }
     }
     
     func displayLogoutUser() {
         DispatchQueue.main.async {
             self.myProfileViewController?.shouldLogoutUser()
+            self.myFavoritePlacesViewController?.shouldLogoutUser()
         }
     }
 }

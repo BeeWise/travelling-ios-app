@@ -19,6 +19,7 @@ class MyFavoritePlacesPresentationLogicSpy: MyFavoritePlacesPresentationLogic {
     var presentItemsCalled: Bool = false
     var presentNewItemsCalled: Bool = false
     var presentSearchedItemsCalled: Bool = false
+    var presentResetItemsCalled: Bool = false
     
     var presentNoMoreItemsCalled: Bool = false
     var presentRemoveNoMoreItemsCalled: Bool = false
@@ -57,6 +58,10 @@ class MyFavoritePlacesPresentationLogicSpy: MyFavoritePlacesPresentationLogic {
     
     func presentSearchedItems(response: MyFavoritePlacesModels.ItemsSearching.Response) {
         self.presentSearchedItemsCalled = true
+    }
+    
+    func presentResetItems() {
+        self.presentResetItemsCalled = true
     }
     
     func presentNoMoreItems() {

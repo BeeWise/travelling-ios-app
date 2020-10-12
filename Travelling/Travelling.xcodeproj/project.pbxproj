@@ -129,6 +129,7 @@
 		281F618A252C407800082CC5 /* SignUpViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F6189252C407800082CC5 /* SignUpViewControllerSpy.swift */; };
 		281F618C252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F618B252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift */; };
 		281F618E252C411900082CC5 /* PhotoLibraryHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F618D252C411900082CC5 /* PhotoLibraryHandlerSpy.swift */; };
+		2838299D2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
 		283B56FC250CBCB000EFA651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B56FA250CBCB000EFA651 /* LaunchScreen.storyboard */; };
@@ -526,6 +527,7 @@
 		281F6189252C407800082CC5 /* SignUpViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewControllerSpy.swift; sourceTree = "<group>"; };
 		281F618B252C40D900082CC5 /* SignUpViewControllerDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewControllerDelegateSpy.swift; sourceTree = "<group>"; };
 		281F618D252C411900082CC5 /* PhotoLibraryHandlerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryHandlerSpy.swift; sourceTree = "<group>"; };
+		2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesViewControllerSpy.swift; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283B56F8250CBCB000EFA651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2143,6 +2145,7 @@
 				28CBCAEC2532E76C00AC819E /* MyFavoritePlacesBusinessLogicSpy.swift */,
 				28CBCAEF2532E76C00AC819E /* MyFavoritePlacesWorkerSpy.swift */,
 				28CBCAFC2532ECA500AC819E /* MyFavoritePlacesTableViewCellInterfaceSpy.swift */,
+				2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -3013,6 +3016,7 @@
 				286D9044252AE63E0012DB1D /* ForgotPasswordBusinessLogicSpy.swift in Sources */,
 				2812D498250CE7930079F879 /* AppPresentationLogicSpy.swift in Sources */,
 				2812D47B250CDB150079F879 /* MainViewControllerTests.swift in Sources */,
+				2838299D2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift in Sources */,
 				28BD8D25252333B200C30F64 /* EmailHandlerSpy.swift in Sources */,
 				2812D491250CE76E0079F879 /* AppInteractorTests.swift in Sources */,
 				287A3579251757DD00898B51 /* GetImageLocalOperationTests.swift in Sources */,

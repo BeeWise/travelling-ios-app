@@ -21,15 +21,21 @@ protocol MyFavoritePlacesBusinessLogic {
     func shouldSearchItems(request: MyFavoritePlacesModels.ItemsSearching.Request)
     
     func shouldNavigateToPlaceDetails(request: MyFavoritePlacesModels.ItemNavigation.Request)
+    
+    func shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request)
+    func shouldLogoutUser()
 }
 
 class MyFavoritePlacesInteractor: MyFavoritePlacesBusinessLogic, MyFavoritePlacesWorkerDelegate {
     var presenter: MyFavoritePlacesPresentationLogic?
     var worker: MyFavoritePlacesWorker?
     
+    var user: User?
     var paginationModel: MyFavoritePlacesModels.PaginationModel
+    var userDefaultsManager = UserDefaultsManager.shared
     
     init() {
+        self.user = self.userDefaultsManager.user()
         self.paginationModel = MyFavoritePlacesModels.PaginationModel()
         self.worker = MyFavoritePlacesWorker(delegate: self)
     }
@@ -55,6 +61,30 @@ class MyFavoritePlacesInteractor: MyFavoritePlacesBusinessLogic, MyFavoritePlace
         if let place = self.paginationModel.items.first(where: { $0.id == request.id }) {
             self.presenter?.presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response(place: place))
         }
+    }
+    
+    func shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request) {
+        self.user = request.user
+        
+        self.resetPaginationModel()
+        self.presenter?.presentRemoveEmptyState()
+        self.presenter?.presentResetItems()
+        self.shouldFetchItems()
+    }
+    
+    private func resetPaginationModel() {
+        self.paginationModel.isFetchingItems = false
+        self.paginationModel.noMoreItems = false
+        self.paginationModel.hasError = false
+        self.paginationModel.isSearchingItems = false
+        self.paginationModel.currentPage = 0
+        self.paginationModel.limit = 10
+        self.paginationModel.items = []
+    }
+        
+    func shouldLogoutUser() {
+        self.user = nil
+        self.presenter?.presentResetItems()
     }
 }
 
@@ -86,11 +116,15 @@ extension MyFavoritePlacesInteractor  {
             return
         }
         
+        guard let user = self.user else {
+            return
+        }
+        
         if !self.paginationModel.isFetchingItems && !self.paginationModel.noMoreItems {
             self.paginationModel.isFetchingItems = true
             self.presenter?.presentWillFetchItems()
             self.presenter?.presentDisableSearchBar()
-            self.worker?.fetchItems(page: self.paginationModel.currentPage, limit: self.paginationModel.limit)
+            self.worker?.fetchItems(userId: user.id, page: self.paginationModel.currentPage, limit: self.paginationModel.limit)
         }
     }
     

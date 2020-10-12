@@ -16,7 +16,7 @@ class MyFavoritePlacesWorkerSpy: MyFavoritePlacesWorker {
     var fetchItemsCalled: Bool = false
     var fetchImageCalled: Bool = false
     
-    override func fetchItems(page: Int, limit: Int) {
+    override func fetchItems(userId: String, page: Int, limit: Int) {
         self.fetchItemsCalled = true
     }
     

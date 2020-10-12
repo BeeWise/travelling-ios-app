@@ -319,6 +319,16 @@ class MyFavoritePlacesViewControllerTests: XCTestCase {
         XCTAssertTrue(self.interactorSpy.shouldNavigateToPlaceDetailsCalled)
     }
     
+    func testShouldLoginUserShouldAskTheInteractorToLoginUser() {
+        self.sut.shouldLoginUser(user: User(id: "userId"))
+        XCTAssertTrue(self.interactorSpy.shouldLoginUserCalled)
+    }
+    
+    func testShouldLogoutUserShouldAskTheInteractorToLogoutUser() {
+        self.sut.shouldLogoutUser()
+        XCTAssertTrue(self.interactorSpy.shouldLogoutUserCalled)
+    }
+    
     // MARK: - Display logic tests
     
     func testDisplayWillFetchItemsShouldUpdateFooterSectionIsLoading() {
@@ -405,6 +415,21 @@ class MyFavoritePlacesViewControllerTests: XCTestCase {
         self.waitForMainQueue()
         XCTAssertTrue(tableViewSpy.performBatchUpdatesCalled)
         XCTAssertTrue(tableViewSpy.insertRowsCalled)
+    }
+    
+    func testDisplayResetItemsShouldResetSections() {
+        self.sut.sections = []
+        self.sut.displayResetItems()
+        self.waitForMainQueue()
+        XCTAssertEqual(self.sut.sections.count, 2)
+    }
+    
+    func testDisplayResetItemsShouldAskTheTableViewToReloadData() {
+        let tableViewSpy = self.tableViewSpy()
+        self.sut.tableView = tableViewSpy
+        self.sut.displayResetItems()
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.reloadDataCalled)
     }
     
     func testDisplayNoMoreItemsShouldUpdateFooterSectionNoMoreItems() {

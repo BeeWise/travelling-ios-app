@@ -86,6 +86,11 @@ class MyFavoritePlacesPresenterTests: XCTestCase {
         XCTAssertTrue(self.displayerSpy.displayItemsCalled)
     }
     
+    func testPresentResetItemsShouldAskTheDisplayerToResetItems() {
+        self.sut.presentResetItems()
+        XCTAssertTrue(self.displayerSpy.displayResetItemsCalled)
+    }
+    
     func testPresentNoMoreItemsShouldAskTheDisplayerToDisplayNoMoreItems() {
         self.sut.presentNoMoreItems()
         XCTAssertTrue(self.displayerSpy.displayNoMoreItemsCalled)

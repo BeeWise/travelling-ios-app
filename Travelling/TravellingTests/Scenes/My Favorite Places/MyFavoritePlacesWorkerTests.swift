@@ -40,7 +40,7 @@ class MyFavoritePlacesWorkerTests: XCTestCase {
     func testFetchItemsShouldAskThePlacesTaskToFetchPlaces() {
         let taskSpy = PlacesTaskSpy()
         self.sut.placesTask = taskSpy
-        self.sut.fetchItems(page: 0, limit: 30)
+        self.sut.fetchItems(userId: "userId", page: 0, limit: 30)
         XCTAssertTrue(taskSpy.fetchPlacesCalled)
     }
     
@@ -48,7 +48,7 @@ class MyFavoritePlacesWorkerTests: XCTestCase {
         let taskSpy = PlacesTaskSpy()
         taskSpy.shouldFailFetchPlaces = false
         self.sut.placesTask = taskSpy
-        self.sut.fetchItems(page: 0, limit: 30)
+        self.sut.fetchItems(userId: "userId", page: 0, limit: 30)
         XCTAssertTrue(self.delegateSpy.successDidFetchItemsCalled)
     }
     
@@ -56,7 +56,7 @@ class MyFavoritePlacesWorkerTests: XCTestCase {
         let taskSpy = PlacesTaskSpy()
         taskSpy.shouldFailFetchPlaces = true
         self.sut.placesTask = taskSpy
-        self.sut.fetchItems(page: 0, limit: 30)
+        self.sut.fetchItems(userId: "userId", page: 0, limit: 30)
         XCTAssertTrue(self.delegateSpy.failureDidFetchItemsCalled)
     }
     
