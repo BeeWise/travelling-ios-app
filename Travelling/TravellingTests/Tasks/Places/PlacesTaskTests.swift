@@ -72,4 +72,25 @@ class PlacesTaskTests: XCTestCase {
         XCTAssertTrue(operationQueueSpy.addOperationCalled)
         XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
     }
+    
+    func testFetchPlaceCommentsForProduction() {
+        self.shouldTestFetchPlaceCommentsForEnvironment(environment: .production, operationClass: GetPlaceCommentsOperation.self)
+    }
+    
+    func testFetchPlaceCommentsForDevelopment() {
+        self.shouldTestFetchPlaceCommentsForEnvironment(environment: .development, operationClass: GetPlaceCommentsOperation.self)
+    }
+    
+    func testFetchPlaceCommentsForMemory() {
+        self.shouldTestFetchPlaceCommentsForEnvironment(environment: .memory, operationClass: GetPlaceCommentsLocalOperation.self)
+    }
+    
+    private func shouldTestFetchPlaceCommentsForEnvironment(environment: TaskEnvironment, operationClass: AnyClass) {
+        self.sut.environment = environment
+        let operationQueueSpy = OperationQueueSpy()
+        self.sut.fetchPlaceCommentsOperationQueue = operationQueueSpy
+        self.sut.fetchPlaceComments(model: PlacesTaskModels.FetchPlaceComments.Request(placeId: "placeId", page: 0, limit: 10), completionHandler: { _ in })
+        XCTAssertTrue(operationQueueSpy.addOperationCalled)
+        XCTAssertTrue(operationQueueSpy.addedOperation.isKind(of: operationClass))
+    }
 }
