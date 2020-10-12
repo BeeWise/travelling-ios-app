@@ -143,4 +143,18 @@ enum MyFavoritePlacesModels {
             let user: User
         }
     }
+    
+    enum ItemDelete {
+        struct Request {
+            let id: String
+        }
+        
+        struct Response {
+            let id: String
+        }
+        
+        struct ViewModel {
+            let id: String
+        }
+    }
 }

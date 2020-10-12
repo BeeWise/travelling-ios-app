@@ -90,6 +90,9 @@ class MyFavoritePlacesStyle {
         var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
         
         var favoriteButtonSize: CGFloat = 50
+        var favoriteButtonTintColor = ApplicationStyle.colors.primary
+        var favoriteButtonSelectedIcon = ApplicationStyle.images.favoriteIcon
+        var favoriteButtonUnselectedIcon = ApplicationStyle.images.notFavoriteIcon
     }
     
     struct EmptyStateViewModel {

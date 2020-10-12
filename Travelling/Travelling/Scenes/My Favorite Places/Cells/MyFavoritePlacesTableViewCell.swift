@@ -13,7 +13,7 @@ protocol MyFavoritePlacesTableViewCellInterface: AnyObject {
 }
 
 protocol MyFavoritePlacesTableViewCellDelegate: AnyObject {
-    func myFavoritePlacesTableViewCell(_ cell: MyFavoritePlacesTableViewCell?, touchUpInsideFavorite button: UIButton?)
+    func myFavoritePlacesTableViewCell(_ cell: MyFavoritePlacesTableViewCell?, touchUpInsideFavorite button: UIButton?, forItem id: String)
 }
 
 class MyFavoritePlacesTableViewCell: UITableViewCell, MyFavoritePlacesTableViewCellInterface {
@@ -26,6 +26,8 @@ class MyFavoritePlacesTableViewCell: UITableViewCell, MyFavoritePlacesTableViewC
     weak var favoriteButton: UIButton!
     
     weak var delegate: MyFavoritePlacesTableViewCellDelegate?
+    
+    var itemId: String!
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: MyFavoritePlacesTableViewCell.defaultReuseIdentifier)
@@ -63,7 +65,11 @@ class MyFavoritePlacesTableViewCell: UITableViewCell, MyFavoritePlacesTableViewC
     }
     
     func setIsFavorite(isFavorite: Bool) {
-        
+        if isFavorite {
+            self.favoriteButton?.setImage(MyFavoritePlacesStyle.shared.cellModel.favoriteButtonSelectedIcon, for: .normal)
+        } else {
+            self.favoriteButton?.setImage(MyFavoritePlacesStyle.shared.cellModel.favoriteButtonUnselectedIcon, for: .normal)
+        }
     }
 }
 
@@ -123,6 +129,7 @@ extension MyFavoritePlacesTableViewCell {
     private func setupFavoriteButton() {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = MyFavoritePlacesStyle.shared.cellModel.favoriteButtonTintColor
         button.addTarget(self, action: #selector(MyFavoritePlacesTableViewCell.touchUpInsideFavoriteButton), for: .touchUpInside)
         self.contentView.addSubview(button)
         self.favoriteButton = button
@@ -133,7 +140,7 @@ extension MyFavoritePlacesTableViewCell {
 
 extension MyFavoritePlacesTableViewCell {
     @objc func touchUpInsideFavoriteButton() {
-        self.delegate?.myFavoritePlacesTableViewCell(self, touchUpInsideFavorite: self.favoriteButton)
+        self.delegate?.myFavoritePlacesTableViewCell(self, touchUpInsideFavorite: self.favoriteButton, forItem: self.itemId)
     }
 }
 

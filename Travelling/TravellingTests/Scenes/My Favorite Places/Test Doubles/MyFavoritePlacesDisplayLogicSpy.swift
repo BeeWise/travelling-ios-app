@@ -42,6 +42,8 @@ class MyFavoritePlacesDisplayLogicSpy: MyFavoritePlacesDisplayLogic {
     
     var displayNavigateToPlaceDetailsCalled: Bool = false
     
+    var displayDeleteItemCalled: Bool = false
+    
     func displayWillFetchItems() {
         self.displayWillFetchItemsCalled = true
     }
@@ -110,5 +112,9 @@ class MyFavoritePlacesDisplayLogicSpy: MyFavoritePlacesDisplayLogic {
     
     func displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel) {
         self.displayNavigateToPlaceDetailsCalled = true
+    }
+    
+    func displayDeleteItem(viewModel: MyFavoritePlacesModels.ItemDelete.ViewModel) {
+        self.displayDeleteItemCalled = true
     }
 }

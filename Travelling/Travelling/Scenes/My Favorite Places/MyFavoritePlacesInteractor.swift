@@ -24,6 +24,8 @@ protocol MyFavoritePlacesBusinessLogic {
     
     func shouldLoginUser(request: MyFavoritePlacesModels.UserLogin.Request)
     func shouldLogoutUser()
+    
+    func shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request)
 }
 
 class MyFavoritePlacesInteractor: MyFavoritePlacesBusinessLogic, MyFavoritePlacesWorkerDelegate {
@@ -85,6 +87,12 @@ class MyFavoritePlacesInteractor: MyFavoritePlacesBusinessLogic, MyFavoritePlace
     func shouldLogoutUser() {
         self.user = nil
         self.presenter?.presentResetItems()
+    }
+    
+    func shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request) {
+        self.paginationModel.items.removeAll(where: { $0.id == request.id })
+        self.presenter?.presentDeleteItem(response: MyFavoritePlacesModels.ItemDelete.Response(id: request.id))
+        self.shouldVerifyEmptyState(count: 0)
     }
 }
 

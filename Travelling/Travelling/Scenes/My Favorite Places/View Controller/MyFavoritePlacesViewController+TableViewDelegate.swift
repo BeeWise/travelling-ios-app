@@ -15,6 +15,13 @@ extension MyFavoritePlacesViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let item = self.sections[indexPath.section].items[indexPath.row]
+        if editingStyle == .delete {
+            self.interactor?.shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request(id: item.id))
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = self.sections[indexPath.section].items[indexPath.row]
         self.interactor?.shouldNavigateToPlaceDetails(request: MyFavoritePlacesModels.ItemNavigation.Request(id: item.id))

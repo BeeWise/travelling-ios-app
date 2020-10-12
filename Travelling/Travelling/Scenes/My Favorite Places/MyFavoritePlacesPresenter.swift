@@ -39,6 +39,8 @@ protocol MyFavoritePlacesPresentationLogic {
     func presentDisableSearchBar()
     
     func presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response)
+    
+    func presentDeleteItem(response: MyFavoritePlacesModels.ItemDelete.Response)
 }
 
 class MyFavoritePlacesPresenter: MyFavoritePlacesPresentationLogic {
@@ -124,6 +126,10 @@ class MyFavoritePlacesPresenter: MyFavoritePlacesPresentationLogic {
     func presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response) {
         self.displayer?.displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel(place: response.place))
     }
+    
+    func presentDeleteItem(response: MyFavoritePlacesModels.ItemDelete.Response) {
+        self.displayer?.displayDeleteItem(viewModel: MyFavoritePlacesModels.ItemDelete.ViewModel(id: response.id))
+    }
 }
 
 // MARK: - Auxiliary
@@ -139,6 +145,7 @@ extension MyFavoritePlacesPresenter {
         displayedItem.subtitle = self.displayedLocation(location: item.location).attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.subtitleAttributes())
         displayedItem.imageName = item.photo?.imageName
         displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        displayedItem.isFavorite = true
         return displayedItem
     }
     
@@ -164,6 +171,7 @@ extension MyFavoritePlacesPresenter {
         displayedItem.subtitle = self.displayedLocation(location: item.location).attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.subtitleAttributes())
         displayedItem.imageName = item.photo?.imageName
         displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        displayedItem.isFavorite = true
         return displayedItem
     }
 }

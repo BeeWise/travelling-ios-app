@@ -155,4 +155,9 @@ class MyFavoritePlacesPresenterTests: XCTestCase {
         self.sut.presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))))
         XCTAssertTrue(self.displayerSpy.displayNavigateToPlaceDetailsCalled)
     }
+    
+    func testPresentDeleteItemShouldAskTheDisplayerToDisplayDeleteItem() {
+        self.sut.presentDeleteItem(response: MyFavoritePlacesModels.ItemDelete.Response(id: "id"))
+        XCTAssertTrue(self.displayerSpy.displayDeleteItemCalled)
+    }
 }

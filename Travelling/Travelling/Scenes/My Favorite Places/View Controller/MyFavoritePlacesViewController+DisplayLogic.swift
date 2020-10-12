@@ -37,6 +37,8 @@ protocol MyFavoritePlacesDisplayLogic: class {
     func displayDisableSearchBar()
     
     func displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel)
+    
+    func displayDeleteItem(viewModel: MyFavoritePlacesModels.ItemDelete.ViewModel)
 }
 
 extension MyFavoritePlacesViewController: MyFavoritePlacesDisplayLogic {
@@ -170,6 +172,18 @@ extension MyFavoritePlacesViewController: MyFavoritePlacesDisplayLogic {
     func displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel) {
         DispatchQueue.main.async {
             self.router?.navigateToPlaceDetails(place: viewModel.place)
+        }
+    }
+    
+    func displayDeleteItem(viewModel: MyFavoritePlacesModels.ItemDelete.ViewModel) {
+        DispatchQueue.main.async {
+            self.tableView?.performBatchUpdates({
+                let section = MyFavoritePlacesModels.SectionIndex.items.rawValue
+                if let index = self.sections[section].items.firstIndex(where: { $0.id == viewModel.id }) {
+                    self.sections[section].items.remove(at: index)
+                    self.tableView?.deleteRowsWithoutAnimation(at: [IndexPath(row: index, section: section)])
+                }
+            }, completion: nil)
         }
     }
 }

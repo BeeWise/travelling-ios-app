@@ -350,4 +350,30 @@ class MyFavoritePlacesInteractorTests: XCTestCase {
         self.sut.shouldLogoutUser()
         XCTAssertTrue(self.presenterSpy.presentResetItemsCalled)
     }
+    
+    // MARK: - Delete item tests
+        
+    func testShouldDeleteItemShouldDeleteItemInPaginationModel() {
+        let id = "id"
+        self.sut.paginationModel.items = [Place(id: id, location: Location(id: "locationId", latitude: 20, longitude: 20))]
+        self.sut.shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request(id: id))
+        XCTAssertNil(self.sut.paginationModel.items.first(where: { $0.id == id }))
+    }
+    
+    func testShouldDeleteItemShouldAskThePresenterToPresentDeleteItem() {
+        self.sut.shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request(id: "id"))
+        XCTAssertTrue(self.presenterSpy.presentDeleteItemCalled)
+    }
+    
+    func testShouldDeleteItemShouldAskThePresenterToPresentEmptyState() {
+        self.sut.paginationModel.items = []
+        self.sut.shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request(id: "id"))
+        XCTAssertTrue(self.presenterSpy.presentEmptyStateCalled)
+    }
+    
+    func testShouldDeleteItemShouldAskThePresenterToPresentRemoveNoMoreItems() {
+        self.sut.paginationModel.items = []
+        self.sut.shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request(id: "id"))
+        XCTAssertTrue(self.presenterSpy.presentRemoveNoMoreItemsCalled)
+    }
 }

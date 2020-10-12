@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension MyFavoritePlacesViewController {
+extension MyFavoritePlacesViewController: MyFavoritePlacesTableViewCellDelegate {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.sections.count
     }
@@ -21,6 +21,8 @@ extension MyFavoritePlacesViewController {
         let displayedItem = self.sections[indexPath.section].items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: MyFavoritePlacesTableViewCell.defaultReuseIdentifier, for: indexPath) as! MyFavoritePlacesTableViewCell
         displayedItem.cellInterface = cell
+        cell.itemId = displayedItem.id
+        cell.delegate = self
         cell.setTitle(title: displayedItem.title)
         cell.setSubtitle(subtitle: displayedItem.subtitle)
         cell.setImageDominantColor(color: displayedItem.imageDominantColor)
@@ -29,5 +31,9 @@ extension MyFavoritePlacesViewController {
         cell.setIsFavorite(isFavorite: displayedItem.isFavorite)
         self.interactor?.shouldFetchImage(request: MyFavoritePlacesModels.ImageFetching.Request(item: displayedItem))
         return cell
+    }
+    
+    func myFavoritePlacesTableViewCell(_ cell: MyFavoritePlacesTableViewCell?, touchUpInsideFavorite button: UIButton?, forItem id: String) {
+        self.interactor?.shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request(id: id))
     }
 }

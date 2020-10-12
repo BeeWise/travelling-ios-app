@@ -40,6 +40,8 @@ class MyFavoritePlacesPresentationLogicSpy: MyFavoritePlacesPresentationLogic {
     
     var presentNavigateToPlaceDetailsCalled: Bool = false
     
+    var presentDeleteItemCalled: Bool = false
+    
     func presentWillFetchItems() {
         self.presentWillFetchItemsCalled = true
     }
@@ -114,5 +116,9 @@ class MyFavoritePlacesPresentationLogicSpy: MyFavoritePlacesPresentationLogic {
     
     func presentNavigateToPlaceDetails(response: MyFavoritePlacesModels.ItemNavigation.Response) {
         self.presentNavigateToPlaceDetailsCalled = true
+    }
+    
+    func presentDeleteItem(response: MyFavoritePlacesModels.ItemDelete.Response) {
+        self.presentDeleteItemCalled = true
     }
 }

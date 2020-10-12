@@ -143,6 +143,8 @@ class MyFavoritePlacesViewControllerTests: XCTestCase {
         items.enumerated().forEach { (index, item) in
             let cell = self.sut.tableView(tableView!, cellForRowAt: IndexPath(row: index, section: section)) as! MyFavoritePlacesTableViewCell
             XCTAssertNotNil(item.cellInterface)
+            XCTAssertNotNil(cell.delegate)
+            XCTAssertEqual(cell.itemId, item.id)
             XCTAssertEqual(cell.titleLabel?.attributedText, item.title)
             XCTAssertEqual(cell.subtitleLabel?.attributedText, item.subtitle)
             XCTAssertEqual(cell.placeImageView?.activityIndicatorView?.isHidden, !item.isLoadingImage)
@@ -327,6 +329,19 @@ class MyFavoritePlacesViewControllerTests: XCTestCase {
     func testShouldLogoutUserShouldAskTheInteractorToLogoutUser() {
         self.sut.shouldLogoutUser()
         XCTAssertTrue(self.interactorSpy.shouldLogoutUserCalled)
+    }
+    
+    func testMyFavoritePlacesTableViewCellTouchUpInsideFavoriteButtonForItemIdShouldAskTheInteractorToDeleteItem() {
+        self.sut.myFavoritePlacesTableViewCell(nil, touchUpInsideFavorite: nil, forItem: "id")
+        XCTAssertTrue(self.interactorSpy.shouldDeleteItemCalled)
+    }
+    
+    func testTableViewCommitEditingStyleForRowAtShouldAskTheInteractorToDeleteItem() {
+        self.setupSections()
+        let section = MyFavoritePlacesModels.SectionIndex.items.rawValue
+        self.sut.sections[section].items = [MyFavoritePlacesModels.DisplayedItem(id: "id")]
+        self.sut.tableView(self.sut.tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: section))
+        XCTAssertTrue(self.interactorSpy.shouldDeleteItemCalled)
     }
     
     // MARK: - Display logic tests
@@ -621,6 +636,31 @@ class MyFavoritePlacesViewControllerTests: XCTestCase {
         self.sut.displayNavigateToPlaceDetails(viewModel: MyFavoritePlacesModels.ItemNavigation.ViewModel(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 47, longitude: 27))))
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.navigateToPlaceDetailsCalled)
+    }
+    
+    func testDisplayDeleteItemShouldDeleteDisplayedItems() {
+        self.setupSections()
+        let section = MyFavoritePlacesModels.SectionIndex.items.rawValue
+        let tableViewSpy = self.tableViewSpy()
+        self.sut.tableView = tableViewSpy
+        let id = "itemId"
+        self.sut.sections[section].items = [MyFavoritePlacesModels.DisplayedItem(id: id)]
+        self.sut.displayDeleteItem(viewModel: MyFavoritePlacesModels.ItemDelete.ViewModel(id: id))
+        self.waitForMainQueue()
+        XCTAssertNil(self.sut.sections[section].items.first(where: { $0.id == id }))
+    }
+    
+    func testDisplayDeleteItemShouldAskTheTableViewToDeleteRowsInBatchUpdates() {
+        self.setupSections()
+        let section = MyFavoritePlacesModels.SectionIndex.items.rawValue
+        let tableViewSpy = self.tableViewSpy()
+        self.sut.tableView = tableViewSpy
+        let id = "itemId"
+        self.sut.sections[section].items = [MyFavoritePlacesModels.DisplayedItem(id: id)]
+        self.sut.displayDeleteItem(viewModel: MyFavoritePlacesModels.ItemDelete.ViewModel(id: id))
+        self.waitForMainQueue()
+        XCTAssertTrue(tableViewSpy.performBatchUpdatesCalled)
+        XCTAssertTrue(tableViewSpy.deleteRowsCalled)
     }
     
     private func setupSections() {

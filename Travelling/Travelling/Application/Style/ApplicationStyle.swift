@@ -39,7 +39,9 @@ class ApplicationStyle {
         closeIcon = UIImage(named: "close_icon", in: Bundle.main, compatibleWith: nil)!,
         logoIcon = UIImage(named: "logo_icon", in: Bundle.main, compatibleWith: nil)!,
         commentsIcon = UIImage(named: "comments_icon", in: Bundle.main, compatibleWith: nil)!,
-        timeIcon = UIImage(named: "time_icon", in: Bundle.main, compatibleWith: nil)!
+        timeIcon = UIImage(named: "time_icon", in: Bundle.main, compatibleWith: nil)!,
+        favoriteIcon = UIImage(named: "favorite_icon", in: Bundle.main, compatibleWith: nil)!,
+        notFavoriteIcon = UIImage(named: "not_favorite_icon", in: Bundle.main, compatibleWith: nil)!
     }
     
     struct fonts {

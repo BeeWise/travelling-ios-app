@@ -25,6 +25,8 @@ class MyFavoritePlacesBusinessLogicSpy: MyFavoritePlacesBusinessLogic {
     var shouldLoginUserCalled: Bool = false
     var shouldLogoutUserCalled: Bool = false
     
+    var shouldDeleteItemCalled: Bool = false
+    
     func shouldFetchItems() {
         self.shouldFetchItemsCalled = true
     }
@@ -55,5 +57,9 @@ class MyFavoritePlacesBusinessLogicSpy: MyFavoritePlacesBusinessLogic {
     
     func shouldLogoutUser() {
         self.shouldLogoutUserCalled = true
+    }
+    
+    func shouldDeleteItem(request: MyFavoritePlacesModels.ItemDelete.Request) {
+        self.shouldDeleteItemCalled = true
     }
 }

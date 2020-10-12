@@ -104,6 +104,6 @@
 // My Favorite Places scene
 
 "MyFavoritePlaces.scene.title" = "My favorite places";
-"MyFavoritePlaces.scene.empty.state.text" = "No places found";
-"MyFavoritePlaces.scene.no.more.places.text" = "No more places";
+"MyFavoritePlaces.scene.empty.state.text" = "You don't have favorite places";
+"MyFavoritePlaces.scene.no.more.places.text" = "No more favorite places";
 "MyFavoritePlaces.scene.error.state.text" = "An error occurred while fetching places. Tap here to reload ↺";
