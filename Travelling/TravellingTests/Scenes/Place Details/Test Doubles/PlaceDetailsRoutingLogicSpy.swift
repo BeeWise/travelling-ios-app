@@ -17,6 +17,7 @@ class PlaceDetailsRoutingLogicSpy: PlaceDetailsRoutingLogic {
     var navigateToAlertCalled: Bool = false
     var navigateToFullscreenImageCalled: Bool = false
     var presentViewControllerCalled: Bool = false
+    var navigateToPlaceCommentsCalled: Bool = false
         
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction]) {
         self.navigateToAlertCalled = true
@@ -28,5 +29,9 @@ class PlaceDetailsRoutingLogicSpy: PlaceDetailsRoutingLogic {
     
     func presentViewController(controller: UIViewController) {
         self.presentViewControllerCalled = true
+    }
+    
+    func navigateToPlaceComments(placeId: String?) {
+        self.navigateToPlaceCommentsCalled = true
     }
 }
