@@ -120,7 +120,7 @@ extension PlaceCommentsPresenter {
         displayedItem.text = item.text?.attributed(attributes: PlaceCommentsStyle.shared.cellModel.textAttributes())
         displayedItem.time = self.displayedTime(createdAt: item.createdAt)?.attributed(attributes: PlaceCommentsStyle.shared.cellModel.timeAttributes())
         displayedItem.imageName = item.user?.photo?.imageName
-        displayedItem.imageDominantColor = item.user?.photo?.imageDominantColor?.hexColor()
+        displayedItem.imageDominantColor = item.user?.photo?.imageDominantColor?.hexColor() ?? PlaceCommentsStyle.shared.cellModel.imageBackgroundColor
         return displayedItem
     }
     

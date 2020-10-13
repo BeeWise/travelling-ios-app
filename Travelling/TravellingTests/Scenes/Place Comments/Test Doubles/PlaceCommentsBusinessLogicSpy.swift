@@ -13,5 +13,19 @@
 @testable import Travelling
 
 class PlaceCommentsBusinessLogicSpy: PlaceCommentsBusinessLogic {
+    var shouldSetPlaceCalled: Bool = false
+    var shouldFetchItemsCalled: Bool = false
+    var shouldFetchImageCalled: Bool = false
     
+    func shouldSetPlace(request: PlaceCommentsModels.PlaceSetup.Request) {
+        self.shouldSetPlaceCalled = true
+    }
+    
+    func shouldFetchItems() {
+        self.shouldFetchItemsCalled = true
+    }
+    
+    func shouldFetchImage(request: PlaceCommentsModels.ImageFetching.Request) {
+        self.shouldFetchImageCalled = true
+    }
 }

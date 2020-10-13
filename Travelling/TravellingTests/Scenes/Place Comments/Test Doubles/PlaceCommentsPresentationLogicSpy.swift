@@ -33,11 +33,6 @@ class PlaceCommentsPresentationLogicSpy: PlaceCommentsPresentationLogic {
     var presentImageCalled: Bool = false
     var presentPlaceholderImageCalled: Bool = false
     
-    var presentEnableSearchBarCalled: Bool = false
-    var presentDisableSearchBarCalled: Bool = false
-    
-    var presentNavigateToPlaceDetailsCalled: Bool = false
-    
     func presentWillFetchItems() {
         self.presentWillFetchItemsCalled = true
     }

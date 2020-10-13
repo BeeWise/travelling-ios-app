@@ -16,12 +16,14 @@ class PlaceCommentsViewController: UITableViewController {
     var interactor: PlaceCommentsBusinessLogic?
     var router: PlaceCommentsRoutingLogic?
     
+    var placeId: String?
     var sections: [PlaceCommentsModels.Section] = [PlaceCommentsModels.Section(), PlaceCommentsModels.Section()]
     
     // MARK: - Object lifecycle
     
-    convenience init() {
+    convenience init(placeId: String?) {
         self.init(style: .plain)
+        self.placeId = placeId
     }
     
     override init(style: UITableView.Style) {
@@ -52,5 +54,16 @@ class PlaceCommentsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubviews()
+        self.interactor?.shouldSetPlace(request: PlaceCommentsModels.PlaceSetup.Request(placeId: self.placeId))
+        self.interactor?.shouldFetchItems()
+    }
+}
+
+extension PlaceCommentsViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory != self.traitCollection.preferredContentSizeCategory {
+            self.interactor?.shouldFetchItems()
+        }
     }
 }

@@ -26,6 +26,7 @@ extension PlaceCommentsViewController {
         cell.setImageDominantColor(color: displayedItem.imageDominantColor)
         cell.setImage(image: displayedItem.image, contentMode: displayedItem.imageContentMode)
         cell.setIsLoadingImage(isLoading: displayedItem.isLoadingImage)
+        self.interactor?.shouldFetchImage(request: PlaceCommentsModels.ImageFetching.Request(item: displayedItem))
         return cell
     }
 }

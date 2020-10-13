@@ -14,13 +14,12 @@ import UIKit
 
 enum PlaceCommentsModels {
     class PaginationModel {
-        var isSearchingItems: Bool = false
         var isFetchingItems: Bool = false
         var noMoreItems: Bool = false
         var hasError: Bool = false
         var currentPage: Int = 0
         var limit: Int = 30
-        var items: [Place] = []
+        var items: [Comment] = []
     }
     
     class Section {
@@ -54,6 +53,12 @@ enum PlaceCommentsModels {
         
         init(id: String) {
             self.id = id
+        }
+    }
+    
+    enum PlaceSetup {
+        struct Request {
+            let placeId: String?
         }
     }
     

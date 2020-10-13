@@ -33,7 +33,7 @@ class PlaceCommentsRouterTests: XCTestCase {
     func setupPlaceCommentsRouter() {
         self.sut = PlaceCommentsRouter()
         
-        self.viewController = PlaceCommentsViewController()
+        self.viewController = PlaceCommentsViewController(placeId: "placeId")
         self.sut.viewController = self.viewController
     }
     

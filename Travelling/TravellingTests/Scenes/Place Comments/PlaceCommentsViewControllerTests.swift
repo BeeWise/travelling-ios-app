@@ -35,7 +35,7 @@ class PlaceCommentsViewControllerTests: XCTestCase {
     // MARK: - Test setup
     
     func setupPlaceCommentsViewController() {
-        self.sut = PlaceCommentsViewController()
+        self.sut = PlaceCommentsViewController(placeId: "placeId")
         
         self.interactorSpy = PlaceCommentsBusinessLogicSpy()
         self.sut.interactor = self.interactorSpy
@@ -119,6 +119,7 @@ class PlaceCommentsViewControllerTests: XCTestCase {
             XCTAssertEqual(cell.avatarImageView?.image, item.image)
             XCTAssertEqual(cell.avatarImageView?.contentMode, item.imageContentMode)
             XCTAssertEqual(cell.avatarImageView?.backgroundColor, item.imageDominantColor)
+            XCTAssertTrue(self.interactorSpy.shouldFetchImageCalled)
         }
     }
     
@@ -226,6 +227,42 @@ class PlaceCommentsViewControllerTests: XCTestCase {
         self.loadView()
         let height = self.sut.tableView(self.sut.tableView, estimatedHeightForFooterInSection: 2)
         XCTAssertEqual(height, CGFloat.leastNonzeroMagnitude)
+    }
+    
+    // MARK: - Business logic tests
+    
+    func testViewDidLoadShouldAskTheInteractorToSetPlace() {
+        self.loadView()
+        XCTAssertTrue(self.interactorSpy.shouldSetPlaceCalled)
+    }
+    
+    func testViewDidLoadShouldAskTheInteractorToFetchItems() {
+        self.loadView()
+        XCTAssertTrue(self.interactorSpy.shouldFetchItemsCalled)
+    }
+    
+    func testShouldFetchItemsWhenScrollViewDidScroll() {
+        let threshold: CGFloat = 50
+        let contentSizeHeight: CGFloat = 400
+        let frameSizeHeight: CGFloat = 100
+        let scrollViewSpy = UIScrollViewSpy()
+        scrollViewSpy.shouldDecelerate = true
+        scrollViewSpy.contentSize.height = contentSizeHeight
+        scrollViewSpy.frame.size.height = frameSizeHeight
+        scrollViewSpy.contentOffset.y = contentSizeHeight - frameSizeHeight - threshold
+        self.sut.scrollViewDidScroll(scrollViewSpy)
+        XCTAssertTrue(self.interactorSpy.shouldFetchItemsCalled)
+    }
+    
+    func testShouldFetchItemsWhenSelectingErrorTitleButtonFromSectionFooterView() {
+        self.sut.tableViewErrorHeaderFooterView(view: nil, didSelectTitle: nil)
+        XCTAssertTrue(self.interactorSpy.shouldFetchItemsCalled)
+    }
+    
+    func testTraitCollectionDidChangeShouldAskTheInteractorToFetchItems() {
+        let traitCollection = UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory.unspecified)
+        self.sut.traitCollectionDidChange(traitCollection)
+        XCTAssertTrue(self.interactorSpy.shouldFetchItemsCalled)
     }
     
     // MARK: - Display logic tests

@@ -42,6 +42,177 @@ class PlaceCommentsInteractorTests: XCTestCase {
     }
     
     // MARK: - Tests
-  
     
+    func testShouldSetPlaceShouldUpdatePlaceId() {
+        self.sut.placeId = nil
+        let placeId = "placeId"
+        self.sut.shouldSetPlace(request: PlaceCommentsModels.PlaceSetup.Request(placeId: placeId))
+        XCTAssertEqual(self.sut.placeId, placeId)
+    }
+    
+    // MARK: - Fetch items tests
+    
+    func testShouldFetchItemsShouldSetIsFetchingItemsToTrueForPaginationModel() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldFetchItems()
+        XCTAssertTrue(self.sut.paginationModel.isFetchingItems)
+    }
+    
+    func testShouldFetchItemsShouldAskThePresenterToPresentWillFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldFetchItems()
+        XCTAssertTrue(self.presenterSpy.presentWillFetchItemsCalled)
+    }
+    
+    func testShouldFetchItemsShouldAskTheWorkerToFetchItemsWhenItIsNotFetchingItemsAndThereAreMoreItems() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.shouldFetchItems()
+        XCTAssertTrue(self.workerSpy.fetchItemsCalled)
+    }
+    
+    func testSuccessDidFetchItemsShouldAppendItemsForPaginationModel() {
+        self.sut.paginationModel.items = [Comment(id: "id1")]
+        let count =  self.sut.paginationModel.items.count
+        let items = [Comment(id: "id2")]
+        self.sut.successDidFetchItems(items: items)
+        XCTAssertEqual(self.sut.paginationModel.items.count, count + items.count)
+    }
+    
+    func testSuccessDidFetchItemsShouldIncrementByOneCurrentPageForPaginationModel() {
+        let currentPage = self.sut.paginationModel.currentPage
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertEqual(self.sut.paginationModel.currentPage, currentPage + 1)
+    }
+    
+    func testSuccessDidFetchItemsShouldSetIsFetchingItemsToFalseForPaginationModel() {
+        self.sut.paginationModel.isFetchingItems = true
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertFalse(self.sut.paginationModel.isFetchingItems)
+    }
+    
+    func testSuccessDidFetchItemsShouldSetHasErrorToFalseForPaginationModel() {
+        self.sut.paginationModel.hasError = true
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertFalse(self.sut.paginationModel.hasError)
+    }
+    
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresentDidFetchItems() {
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentDidFetchItemsCalled)
+    }
+    
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresentRemoveErrorState() {
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentRemoveErrorStateCalled)
+    }
+    
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresentNewItems() {
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentNewItemsCalled)
+    }
+    
+    func testSuccessDidFetchItemsShouldSetNoMoreItemsToTrueForPaginationModelWhenThereAreNoMoreItemsToFetch() {
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.sut.paginationModel.noMoreItems)
+    }
+    
+    func testSuccessDidFetchItemsShouldShouldAskThePresenterToPresentNoMoreItemsWhenThereAreNoMoreItemsToFetch() {
+        self.sut.paginationModel.noMoreItems = false
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentNoMoreItemsCalled)
+    }
+    
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresentEmptyStateWhenThereAreNoMoreItemsAndThereAreNoItems() {
+        self.sut.paginationModel.items.removeAll()
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentEmptyStateCalled)
+    }
+    
+    func testSuccessDidFetchItemsShouldAskThePresenterToPresenterRemoveNoMoreItemsWhenThereAreNoMoreItemsAndThereAreNoItems() {
+        self.sut.paginationModel.items.removeAll()
+        self.sut.successDidFetchItems(items: [])
+        XCTAssertTrue(self.presenterSpy.presentRemoveNoMoreItemsCalled)
+    }
+    
+    func testFailureDidFetchItemsShouldSetIsFetchingItemsToFalseForPaginationModel() {
+        self.sut.paginationModel.isFetchingItems = true
+        self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
+        XCTAssertFalse(self.sut.paginationModel.isFetchingItems)
+    }
+    
+    func testFailureDidFetchItemsShouldSetHasErrorToTrueForPaginationModel() {
+        self.sut.paginationModel.isFetchingItems = false
+        self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.sut.paginationModel.hasError)
+    }
+    
+    func testFailureDidFetchItemsShouldAskThePresenterToPresentDidFetchItems() {
+        self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchItemsCalled)
+    }
+    
+    func testFailureDidFetchItemsShouldAskThePresenterToPresentErrorState() {
+        self.sut.failureDidFetchItems(error: OperationError.noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentErrorStateCalled)
+    }
+    
+    // MARK: - Fetch image tests
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndImageName() {
+        let item = PlaceCommentsModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = nil
+        self.sut.shouldFetchImage(request: PlaceCommentsModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentPlaceholderImageWhenThereIsNoImageAndEmptyImageName() {
+        let item = PlaceCommentsModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = ""
+        self.sut.shouldFetchImage(request: PlaceCommentsModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskThePresenterToPresentWillFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let item = PlaceCommentsModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = "imageName"
+        item.isLoadingImage = false
+        self.sut.shouldFetchImage(request: PlaceCommentsModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.presenterSpy.presentWillFetchImageCalled)
+    }
+    
+    func testShouldFetchImageShouldAskTheWorkerToFetchImageWhenThereIsNoImageAndIsNotLoading() {
+        let item = PlaceCommentsModels.DisplayedItem(id: "id")
+        item.image = nil
+        item.imageName = "imageName"
+        item.isLoadingImage = false
+        self.sut.shouldFetchImage(request: PlaceCommentsModels.ImageFetching.Request(item: item))
+        XCTAssertTrue(self.workerSpy.fetchImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentImage() {
+        self.sut.successDidFetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentImageCalled)
+    }
+    
+    func testSuccessDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.successDidFetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"), image: nil)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentPlaceholderImage() {
+        self.sut.failureDidFetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentPlaceholderImageCalled)
+    }
+    
+    func testFailureDidFetchImageShouldAskThePresenterToPresentDidFetchImage() {
+        self.sut.failureDidFetchImage(item: PlaceCommentsModels.DisplayedItem(id: "id"), error: .noDataAvailable)
+        XCTAssertTrue(self.presenterSpy.presentDidFetchImageCalled)
+    }
 }

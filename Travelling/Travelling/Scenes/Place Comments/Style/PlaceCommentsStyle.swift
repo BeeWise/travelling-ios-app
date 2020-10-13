@@ -86,6 +86,7 @@ class PlaceCommentsStyle {
         var labelSpacing: CGFloat = 5
         
         var imageSize: CGFloat = 75
+        var imageBackgroundColor = ApplicationStyle.colors.accent
         var imageActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
         
         var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon

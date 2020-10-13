@@ -11,7 +11,7 @@ import UIKit
 extension PlaceCommentsViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.shouldLoadMoreBeforeReaching(threshold: 50) {
-            
+            self.interactor?.shouldFetchItems()
         }
     }
         
@@ -72,6 +72,6 @@ extension PlaceCommentsViewController {
 
 extension PlaceCommentsViewController: TableViewErrorHeaderFooterViewDelegate {
     func tableViewErrorHeaderFooterView(view: TableViewErrorHeaderFooterView?, didSelectTitle button: UIButton?) {
-        
+        self.interactor?.shouldFetchItems()
     }
 }
