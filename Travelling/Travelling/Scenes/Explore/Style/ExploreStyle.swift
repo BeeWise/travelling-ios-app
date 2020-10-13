@@ -63,14 +63,14 @@ class ExploreStyle {
     struct CellModel {
         func titleAttributes() -> [NSAttributedString.Key: Any] {
             return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryLight,
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
                 NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body)
             ]
         }
         
         func boldTitleAttributes() -> [NSAttributedString.Key: Any] {
             return [
-                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primaryLight,
+                NSAttributedString.Key.foregroundColor: ApplicationStyle.colors.primary,
                 NSAttributedString.Key.font: ApplicationStyle.fonts.preferredFont(style: .body).bold()
             ]
         }
@@ -79,9 +79,11 @@ class ExploreStyle {
         
         var containerViewBackgroundColor = ApplicationStyle.colors.primaryLight
         var containerViewCornerRadius: CGFloat = 10
+        var containerViewBorderColor = ApplicationStyle.colors.primary.cgColor
+        var containerViewBorderWidth: CGFloat = 1 / UIScreen.main.scale
         var containerViewMinimumHeight: CGFloat = 150
         
-        var blurredBackgroundColor: UIColor = ApplicationStyle.colors.primary.withAlphaComponent(0.5)
+        var blurredBackgroundColor: UIColor = ApplicationStyle.colors.primaryLight.withAlphaComponent(0.9)
         var imageBackgroundColor = ApplicationStyle.colors.accent
         var activityIndicatorColor: UIColor = ApplicationStyle.colors.white
         
