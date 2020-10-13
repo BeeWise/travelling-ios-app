@@ -14,6 +14,41 @@ import UIKit
 
 extension PlaceCommentsViewController {
     func setupSubviews() {
-        
+        self.setupNavigationBar()
+        self.setupNavigationItem()
+        self.setupContentView()
+        self.setupTableView()
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.isTranslucent = PlaceCommentsStyle.shared.navigationBarModel.isTranslucent
+        self.navigationController?.navigationBar.tintColor = PlaceCommentsStyle.shared.navigationBarModel.tintColor
+        self.navigationController?.navigationBar.barTintColor = PlaceCommentsStyle.shared.navigationBarModel.barTintColor
+        self.navigationController?.navigationBar.titleTextAttributes = PlaceCommentsStyle.shared.navigationBarModel.titleAttributes()
+    }
+    
+    private func setupNavigationItem() {
+        self.navigationItem.title = PlaceCommentsLocalization.shared.title
+    }
+    
+    private func setupContentView() {
+        self.view.backgroundColor = PlaceCommentsStyle.shared.contentViewModel.backgroundColor
+    }
+    
+    private func setupTableView() {
+        self.tableView?.backgroundColor = PlaceCommentsStyle.shared.tableViewModel.backgroundColor
+        self.tableView?.separatorStyle = .none
+        self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+        self.tableView?.register(TableViewLoadingHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewLoadingHeaderFooterView.defaultReuseIdentifier)
+        self.tableView?.register(TableViewTitleHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewTitleHeaderFooterView.defaultReuseIdentifier)
+        self.tableView?.register(TableViewErrorHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewErrorHeaderFooterView.defaultReuseIdentifier)
+    }
+    
+    func emptyStateView(image: UIImage?, attributedText: NSAttributedString?) -> EmptyStateView {
+        let view = EmptyStateView(frame: self.tableView.frame)
+        view.image = image
+        view.imageTintColor = PlaceCommentsStyle.shared.emptyStateViewModel.imageTintColor
+        view.attributedText = attributedText
+        return view
     }
 }

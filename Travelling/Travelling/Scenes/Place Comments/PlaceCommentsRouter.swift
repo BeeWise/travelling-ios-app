@@ -12,10 +12,10 @@
 
 import UIKit
 
-@objc protocol PlaceCommentsRoutingLogic {
+protocol PlaceCommentsRoutingLogic {
     
 }
 
-class PlaceCommentsRouter: NSObject, PlaceCommentsRoutingLogic {
+class PlaceCommentsRouter: PlaceCommentsRoutingLogic {
     weak var viewController: PlaceCommentsViewController?
 }

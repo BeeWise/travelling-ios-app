@@ -20,6 +20,9 @@ class PlaceCommentsLocalization {
     }
     
     struct LocalizedKey {
-        
+        static let
+        title = "PlaceComments.scene.title"
     }
+    
+    let title = LocalizedKey.title.localized()
 }

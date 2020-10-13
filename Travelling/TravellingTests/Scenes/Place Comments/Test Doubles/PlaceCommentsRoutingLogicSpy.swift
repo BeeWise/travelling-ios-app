@@ -13,6 +13,6 @@
 @testable import Travelling
 import UIKit
 
-class PlaceCommentsRoutingLogicSpy: NSObject, PlaceCommentsRoutingLogic {
+class PlaceCommentsRoutingLogicSpy: PlaceCommentsRoutingLogic {
     
 }

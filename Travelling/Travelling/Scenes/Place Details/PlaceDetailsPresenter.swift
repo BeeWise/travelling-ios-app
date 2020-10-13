@@ -105,8 +105,9 @@ class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
     
     func presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response) {
         let name = response.place?.name ?? ""
+        let applicationName = Bundle.main.applicationName
         let url = BundleConfiguration.string(for: BundleConfiguration.Keys.appStoreUrl)
-        let text = PlaceDetailsLocalization.shared.sharePlaceText(name: name, url: url)
+        let text = PlaceDetailsLocalization.shared.sharePlaceText(name: name, applicationName: applicationName, url: url)
         let excludedActivityTypes: [UIActivity.ActivityType] = [.print, .assignToContact, .saveToCameraRoll, .addToReadingList, .airDrop, .openInIBooks, .markupAsPDF]
         
         self.displayer?.displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel(text: text, excludedActivityTypes: excludedActivityTypes))

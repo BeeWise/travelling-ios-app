@@ -39,6 +39,7 @@ enum PlaceCommentsModels {
     
     class DisplayedItem {
         var id: String
+        var name: NSAttributedString?
         var text: NSAttributedString?
         var time: NSAttributedString?
         

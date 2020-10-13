@@ -12,24 +12,23 @@
 
 import UIKit
 
-class PlaceCommentsViewController: UIViewController {
+class PlaceCommentsViewController: UITableViewController {
     var interactor: PlaceCommentsBusinessLogic?
-    var router: (NSObjectProtocol & PlaceCommentsRoutingLogic)?
+    var router: PlaceCommentsRoutingLogic?
     
     // MARK: - Object lifecycle
     
     convenience init() {
-        self.init(nibName: nil, bundle: nil)
+        self.init(style: .plain)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init(style: UITableView.Style) {
+        super.init(style: style)
         self.setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setup()
+        return nil
     }
     
     // MARK: - Setup
