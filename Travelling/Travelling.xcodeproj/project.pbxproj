@@ -237,6 +237,7 @@
 		288897C3250E38640017B0B1 /* UIScrollViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */; };
 		288897C6250E3DF30017B0B1 /* UIFont+WithTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C5250E3DF30017B0B1 /* UIFont+WithTraits.swift */; };
 		288897C9250E40040017B0B1 /* String+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288897C8250E40040017B0B1 /* String+Attributes.swift */; };
+		289DF13125355AFE000F5430 /* PlaceCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289DF13025355AFE000F5430 /* PlaceCommentsTableViewCell.swift */; };
 		28B0FC8825177C23007E276D /* String+Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8725177C23007E276D /* String+Contains.swift */; };
 		28B0FC8A25177DD2007E276D /* String+RangeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8925177DD2007E276D /* String+RangeOf.swift */; };
 		28B0FC8C25179A19007E276D /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */; };
@@ -671,6 +672,7 @@
 		288897C2250E38640017B0B1 /* UIScrollViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewSpy.swift; sourceTree = "<group>"; };
 		288897C5250E3DF30017B0B1 /* UIFont+WithTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+WithTraits.swift"; sourceTree = "<group>"; };
 		288897C8250E40040017B0B1 /* String+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributes.swift"; sourceTree = "<group>"; };
+		289DF13025355AFE000F5430 /* PlaceCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		28B0FC8725177C23007E276D /* String+Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Contains.swift"; sourceTree = "<group>"; };
 		28B0FC8925177DD2007E276D /* String+RangeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RangeOf.swift"; sourceTree = "<group>"; };
 		28B0FC8B25179A19007E276D /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
@@ -1504,6 +1506,7 @@
 		28226A3E25348F1F00946F5C /* Place Comments */ = {
 			isa = PBXGroup;
 			children = (
+				289DF12F25355AF3000F5430 /* Cells */,
 				28226A5525348F4E00946F5C /* View Controller */,
 				28226A5425348F4500946F5C /* Style */,
 				28226A5325348F3D00946F5C /* Localization */,
@@ -2044,6 +2047,14 @@
 			isa = PBXGroup;
 			children = (
 				28179EA1250DFC700081FD3A /* ExploreTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		289DF12F25355AF3000F5430 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				289DF13025355AFE000F5430 /* PlaceCommentsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2908,6 +2919,7 @@
 				281F6170252C39B600082CC5 /* SignUpViewController+TableViewDataSource.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
 				28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */,
+				289DF13125355AFE000F5430 /* PlaceCommentsTableViewCell.swift in Sources */,
 				286D901E252AC97D0012DB1D /* ForgotPasswordLocalization.swift in Sources */,
 				28D4E60225297F1A00A1ED86 /* FullscreenImageInteractor.swift in Sources */,
 				28CEC7B92529D2510063DCFE /* LoginRouter.swift in Sources */,

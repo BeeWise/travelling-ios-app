@@ -39,6 +39,7 @@ enum PlaceCommentsModels {
     
     class DisplayedItem {
         var id: String
+        
         var name: NSAttributedString?
         var text: NSAttributedString?
         var time: NSAttributedString?
@@ -48,6 +49,8 @@ enum PlaceCommentsModels {
         var imageContentMode: UIView.ContentMode = .scaleAspectFill
         var imageDominantColor: UIColor?
         var isLoadingImage: Bool = false
+        
+        weak var cellInterface: PlaceCommentsTableViewCellInterface?
         
         init(id: String) {
             self.id = id

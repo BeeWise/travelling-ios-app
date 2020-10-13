@@ -83,7 +83,8 @@ class PlaceCommentsStyle {
         }
         
         var backgroundColor: UIColor = ApplicationStyle.colors.primaryLight
-                
+        var labelSpacing: CGFloat = 5
+        
         var imageSize: CGFloat = 75
         var imageActivityIndicatorColor: UIColor = ApplicationStyle.colors.white
         
