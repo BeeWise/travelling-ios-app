@@ -13,5 +13,79 @@
 @testable import Travelling
 
 class PlaceCommentsDisplayLogicSpy: PlaceCommentsDisplayLogic {
+    var displayWillFetchItemsCalled: Bool = false
+    var displayDidFetchItemsCalled: Bool = false
     
+    var displayItemsCalled: Bool = false
+    var displayItemsViewModel: PlaceCommentsModels.ItemsPresentation.ViewModel!
+    
+    var displayNewItemsCalled: Bool = false
+    var displayNewItemsViewModel: PlaceCommentsModels.ItemsPresentation.ViewModel!
+    
+    var displayNoMoreItemsCalled: Bool = false
+    var displayRemoveNoMoreItemsCalled: Bool = false
+    
+    var displayEmptyStateCalled: Bool = false
+    var displayRemoveEmptyStateCalled: Bool = false
+    
+    var displayErrorStateCalled: Bool = false
+    var displayRemoveErrorStateCalled: Bool = false
+    
+    var displayWillFetchImageCalled: Bool = false
+    var displayDidFetchImageCalled: Bool = false
+    var displayImageCalled: Bool = false
+    
+    func displayWillFetchItems() {
+        self.displayWillFetchItemsCalled = true
+    }
+    
+    func displayDidFetchItems() {
+        self.displayDidFetchItemsCalled = true
+    }
+    
+    func displayItems(viewModel: PlaceCommentsModels.ItemsPresentation.ViewModel) {
+        self.displayItemsCalled = true
+        self.displayItemsViewModel = viewModel
+    }
+    
+    func displayNewItems(viewModel: PlaceCommentsModels.ItemsPresentation.ViewModel) {
+        self.displayNewItemsCalled = true
+        self.displayNewItemsViewModel = viewModel
+    }
+    
+    func displayNoMoreItems(viewModel: PlaceCommentsModels.NoMoreItemsPresentation.ViewModel) {
+        self.displayNoMoreItemsCalled = true
+    }
+    
+    func displayRemoveNoMoreItems() {
+        self.displayRemoveNoMoreItemsCalled = true
+    }
+    
+    func displayEmptyState(viewModel: PlaceCommentsModels.EmptyStatePresentation.ViewModel) {
+        self.displayEmptyStateCalled = true
+    }
+    
+    func displayRemoveEmptyState() {
+        self.displayRemoveEmptyStateCalled = true
+    }
+    
+    func displayErrorState(viewModel: PlaceCommentsModels.ErrorStatePresentation.ViewModel) {
+        self.displayErrorStateCalled = true
+    }
+    
+    func displayRemoveErrorState() {
+        self.displayRemoveErrorStateCalled = true
+    }
+    
+    func displayWillFetchImage(viewModel: PlaceCommentsModels.ImageFetching.ViewModel) {
+        self.displayWillFetchImageCalled = true
+    }
+    
+    func displayDidFetchImage(viewModel: PlaceCommentsModels.ImageFetching.ViewModel) {
+        self.displayDidFetchImageCalled = true
+    }
+    
+    func displayImage(viewModel: PlaceCommentsModels.ImagePresentation.ViewModel) {
+        self.displayImageCalled = true
+    }
 }

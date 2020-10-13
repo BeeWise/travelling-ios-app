@@ -156,6 +156,9 @@
 		28226A7825349DF000946F5C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28226A7725349DF000946F5C /* Comment.swift */; };
 		28226A7A25349EBB00946F5C /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 28226A7925349EBB00946F5C /* comments.json */; };
 		28226A7E2534A1FD00946F5C /* GetPlaceCommentsLocalOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28226A7D2534A1FD00946F5C /* GetPlaceCommentsLocalOperationTests.swift */; };
+		2829EB7525359A5A0070C378 /* PlaceCommentsTableViewCellInterfaceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2829EB7425359A5A0070C378 /* PlaceCommentsTableViewCellInterfaceSpy.swift */; };
+		2829EB7925359BEC0070C378 /* PlaceCommentsViewController+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2829EB7825359BEC0070C378 /* PlaceCommentsViewController+TableViewDataSource.swift */; };
+		2829EB7D25359C560070C378 /* PlaceCommentsViewController+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2829EB7C25359C560070C378 /* PlaceCommentsViewController+TableViewDelegate.swift */; };
 		2838299D2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */; };
 		283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B56EF250CBCAF00EFA651 /* AppDelegate.swift */; };
 		283B56F9250CBCB000EFA651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B56F8250CBCB000EFA651 /* Assets.xcassets */; };
@@ -582,6 +585,9 @@
 		28226A7725349DF000946F5C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		28226A7925349EBB00946F5C /* comments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
 		28226A7D2534A1FD00946F5C /* GetPlaceCommentsLocalOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCommentsLocalOperationTests.swift; sourceTree = "<group>"; };
+		2829EB7425359A5A0070C378 /* PlaceCommentsTableViewCellInterfaceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCommentsTableViewCellInterfaceSpy.swift; sourceTree = "<group>"; };
+		2829EB7825359BEC0070C378 /* PlaceCommentsViewController+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceCommentsViewController+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		2829EB7C25359C560070C378 /* PlaceCommentsViewController+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceCommentsViewController+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		2838299C2533FE4A006545DB /* MyFavoritePlacesViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoritePlacesViewControllerSpy.swift; sourceTree = "<group>"; };
 		283B56EC250CBCAF00EFA651 /* Travelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283B56EF250CBCAF00EFA651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1541,6 +1547,8 @@
 				28226A4725348F2D00946F5C /* PlaceCommentsViewController+DisplayLogic.swift */,
 				28226A4525348F2D00946F5C /* PlaceCommentsViewController.swift */,
 				28226A3F25348F2D00946F5C /* PlaceCommentsViewController+Subviews.swift */,
+				2829EB7825359BEC0070C378 /* PlaceCommentsViewController+TableViewDataSource.swift */,
+				2829EB7C25359C560070C378 /* PlaceCommentsViewController+TableViewDelegate.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1567,6 +1575,7 @@
 				28226A5D25348FD500946F5C /* PlaceCommentsRoutingLogicSpy.swift */,
 				28226A5E25348FD500946F5C /* PlaceCommentsBusinessLogicSpy.swift */,
 				28226A6125348FD500946F5C /* PlaceCommentsWorkerSpy.swift */,
+				2829EB7425359A5A0070C378 /* PlaceCommentsTableViewCellInterfaceSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -2762,7 +2771,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					283B56EB250CBCAF00EFA651 = {
 						CreatedOnToolsVersion = 11.5;
@@ -2917,6 +2926,7 @@
 				28179EB6250DFCE90081FD3A /* Place.swift in Sources */,
 				28CBCB012532EFAA00AC819E /* MyFavoritePlacesViewController+TableViewDelegate.swift in Sources */,
 				281F6170252C39B600082CC5 /* SignUpViewController+TableViewDataSource.swift in Sources */,
+				2829EB7D25359C560070C378 /* PlaceCommentsViewController+TableViewDelegate.swift in Sources */,
 				281F4F922520CDA9008475D7 /* MyProfileModels.swift in Sources */,
 				28FDCA20252EE97D002D7439 /* GetPlaceOperation.swift in Sources */,
 				289DF13125355AFE000F5430 /* PlaceCommentsTableViewCell.swift in Sources */,
@@ -2955,6 +2965,7 @@
 				28889786250E254C0017B0B1 /* GetPlacesLocalOperation.swift in Sources */,
 				2812D463250CDAC90079F879 /* MainPresenter.swift in Sources */,
 				28179ED0250DFFAE0081FD3A /* TableViewLoadingHeaderFooterView.swift in Sources */,
+				2829EB7925359BEC0070C378 /* PlaceCommentsViewController+TableViewDataSource.swift in Sources */,
 				28C1CB68252A274F0083FBC7 /* LoginUserOperation.swift in Sources */,
 				28BD8CFF2522FEA300C30F64 /* GetUserOperation.swift in Sources */,
 				283B56F0250CBCAF00EFA651 /* AppDelegate.swift in Sources */,
@@ -3064,6 +3075,7 @@
 			files = (
 				281F6186252C3F8800082CC5 /* SignUpPresenterTests.swift in Sources */,
 				28B386392529C62E00CA7840 /* MainViewControllerSpy.swift in Sources */,
+				2829EB7525359A5A0070C378 /* PlaceCommentsTableViewCellInterfaceSpy.swift in Sources */,
 				2888979C250E33430017B0B1 /* GetPlacesLocalOperationTests.swift in Sources */,
 				287A358525175DEC00898B51 /* ImageTaskSpy.swift in Sources */,
 				28CEC7EB2529E8160063DCFE /* LoginRouterTests.swift in Sources */,
@@ -3316,6 +3328,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3378,6 +3391,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

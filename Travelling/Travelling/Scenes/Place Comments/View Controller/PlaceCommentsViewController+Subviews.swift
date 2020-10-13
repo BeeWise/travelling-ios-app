@@ -37,7 +37,7 @@ extension PlaceCommentsViewController {
     
     private func setupTableView() {
         self.tableView?.backgroundColor = PlaceCommentsStyle.shared.tableViewModel.backgroundColor
-        self.tableView?.separatorStyle = .none
+        self.tableView?.separatorColor = PlaceCommentsStyle.shared.tableViewModel.separatorColor
         self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
         self.tableView?.register(PlaceCommentsTableViewCell.self, forCellReuseIdentifier: PlaceCommentsTableViewCell.defaultReuseIdentifier)
         self.tableView?.register(TableViewLoadingHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewLoadingHeaderFooterView.defaultReuseIdentifier)

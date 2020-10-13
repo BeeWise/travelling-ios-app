@@ -16,6 +16,8 @@ class PlaceCommentsViewController: UITableViewController {
     var interactor: PlaceCommentsBusinessLogic?
     var router: PlaceCommentsRoutingLogic?
     
+    var sections: [PlaceCommentsModels.Section] = [PlaceCommentsModels.Section(), PlaceCommentsModels.Section()]
+    
     // MARK: - Object lifecycle
     
     convenience init() {

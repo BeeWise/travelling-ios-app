@@ -13,9 +13,130 @@
 import UIKit
 
 protocol PlaceCommentsDisplayLogic: class {
+    func displayWillFetchItems()
+    func displayDidFetchItems()
     
+    func displayItems(viewModel: PlaceCommentsModels.ItemsPresentation.ViewModel)
+    func displayNewItems(viewModel: PlaceCommentsModels.ItemsPresentation.ViewModel)
+    
+    func displayNoMoreItems(viewModel: PlaceCommentsModels.NoMoreItemsPresentation.ViewModel)
+    func displayRemoveNoMoreItems()
+    
+    func displayEmptyState(viewModel: PlaceCommentsModels.EmptyStatePresentation.ViewModel)
+    func displayRemoveEmptyState()
+    
+    func displayErrorState(viewModel: PlaceCommentsModels.ErrorStatePresentation.ViewModel)
+    func displayRemoveErrorState()
+    
+    func displayWillFetchImage(viewModel: PlaceCommentsModels.ImageFetching.ViewModel)
+    func displayDidFetchImage(viewModel: PlaceCommentsModels.ImageFetching.ViewModel)
+    func displayImage(viewModel: PlaceCommentsModels.ImagePresentation.ViewModel)
 }
 
 extension PlaceCommentsViewController: PlaceCommentsDisplayLogic {
+    func displayWillFetchItems() {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.footer.rawValue
+            self.sections[section].isLoading = true
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
     
+    func displayDidFetchItems() {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.footer.rawValue
+            self.sections[section].isLoading = false
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayItems(viewModel: PlaceCommentsModels.ItemsPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.items.rawValue
+            self.sections[section].items = viewModel.displayedItems
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayNewItems(viewModel: PlaceCommentsModels.ItemsPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.tableView?.performBatchUpdates({
+                let section = PlaceCommentsModels.SectionIndex.items.rawValue
+                let index = self.sections[section].items.count
+                let indexPaths = viewModel.displayedItems.enumerated().map({ IndexPath(row: index + $0.offset, section: section) })
+                self.sections[section].items.append(contentsOf: viewModel.displayedItems)
+                self.tableView?.insertRowsWithoutAnimation(at: indexPaths)
+            }, completion: nil)
+        }
+    }
+    
+    func displayNoMoreItems(viewModel: PlaceCommentsModels.NoMoreItemsPresentation.ViewModel) {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.footer.rawValue
+            self.sections[section].noMoreItemsText = viewModel.text
+            self.sections[section].noMoreItems = true
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayRemoveNoMoreItems() {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.footer.rawValue
+            self.sections[section].noMoreItemsText = nil
+            self.sections[section].noMoreItems = false
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayEmptyState(viewModel: PlaceCommentsModels.EmptyStatePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            self.tableView?.backgroundView = self.emptyStateView(image: viewModel.image, attributedText: viewModel.text)
+        }
+    }
+    
+    func displayRemoveEmptyState() {
+        DispatchQueue.main.async {
+            self.tableView?.backgroundView = nil
+        }
+    }
+    
+    func displayErrorState(viewModel: PlaceCommentsModels.ErrorStatePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.footer.rawValue
+            self.sections[section].errorText = viewModel.text
+            self.sections[section].hasError = true
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayRemoveErrorState() {
+        DispatchQueue.main.async {
+            let section = PlaceCommentsModels.SectionIndex.footer.rawValue
+            self.sections[section].errorText = nil
+            self.sections[section].hasError = false
+            self.tableView?.reloadSectionsWithoutAnimation(sections: IndexSet(integer: section))
+        }
+    }
+    
+    func displayWillFetchImage(viewModel: PlaceCommentsModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.item.isLoadingImage = true
+            viewModel.item.cellInterface?.setIsLoadingImage(isLoading: true)
+        }
+    }
+    
+    func displayDidFetchImage(viewModel: PlaceCommentsModels.ImageFetching.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.item.isLoadingImage = false
+            viewModel.item.cellInterface?.setIsLoadingImage(isLoading: false)
+        }
+    }
+    
+    func displayImage(viewModel: PlaceCommentsModels.ImagePresentation.ViewModel) {
+        DispatchQueue.main.async {
+            viewModel.item.image = viewModel.image
+            viewModel.item.imageContentMode = viewModel.contentMode
+            viewModel.item.cellInterface?.setImage(image: viewModel.image, contentMode: viewModel.contentMode)
+        }
+    }
 }
