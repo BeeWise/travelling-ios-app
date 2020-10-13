@@ -90,7 +90,6 @@ extension MyProfileInformationTableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.isRounded = true
-        imageView.backgroundColor = MyProfileStyle.shared.informationCellModel.avatarBackgroundColor
         imageView.activityIndicatorColor = MyProfileStyle.shared.informationCellModel.avatarActivityIndicatorColor
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MyProfileInformationTableViewCell.touchUpInsideImageView)))

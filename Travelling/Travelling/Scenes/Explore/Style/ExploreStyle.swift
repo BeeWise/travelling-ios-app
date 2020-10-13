@@ -82,6 +82,7 @@ class ExploreStyle {
         var containerViewMinimumHeight: CGFloat = 150
         
         var blurredBackgroundColor: UIColor = ApplicationStyle.colors.primary.withAlphaComponent(0.5)
+        var imageBackgroundColor = ApplicationStyle.colors.accent
         var activityIndicatorColor: UIColor = ApplicationStyle.colors.white
         
         var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon

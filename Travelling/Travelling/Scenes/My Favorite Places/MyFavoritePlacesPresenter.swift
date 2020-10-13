@@ -144,7 +144,7 @@ extension MyFavoritePlacesPresenter {
         displayedItem.title = item.name?.attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.titleAttributes())
         displayedItem.subtitle = self.displayedLocation(location: item.location).attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.subtitleAttributes())
         displayedItem.imageName = item.photo?.imageName
-        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor() ?? MyFavoritePlacesStyle.shared.cellModel.imageBackgroundColor
         displayedItem.isFavorite = true
         return displayedItem
     }
@@ -170,7 +170,7 @@ extension MyFavoritePlacesPresenter {
         displayedItem.title = displayedTitle
         displayedItem.subtitle = self.displayedLocation(location: item.location).attributed(attributes: MyFavoritePlacesStyle.shared.cellModel.subtitleAttributes())
         displayedItem.imageName = item.photo?.imageName
-        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor() ?? MyFavoritePlacesStyle.shared.cellModel.imageBackgroundColor
         displayedItem.isFavorite = true
         return displayedItem
     }

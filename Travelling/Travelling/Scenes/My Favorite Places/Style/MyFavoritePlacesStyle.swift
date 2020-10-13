@@ -86,6 +86,7 @@ class MyFavoritePlacesStyle {
         
         var labelSpacing: CGFloat = 5
         var activityIndicatorColor: UIColor = ApplicationStyle.colors.white
+        var imageBackgroundColor = ApplicationStyle.colors.accent
         var imageViewSize: CGFloat = 75
         var placeholderImage: UIImage = ApplicationStyle.images.placeholderImageIcon
         

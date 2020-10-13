@@ -129,7 +129,7 @@ extension MyProfilePresenter {
         model.name = self.displayedName(user: user).attributed(attributes: MyProfileStyle.shared.informationCellModel.nameAttributes())
         model.title = user.username?.attributed(attributes: MyProfileStyle.shared.informationCellModel.titleAttributes())
         model.description = user.description?.attributed(attributes: MyProfileStyle.shared.informationCellModel.descriptionAttributes())
-        model.imageDominantColor = user.photo?.imageDominantColor?.hexColor()
+        model.imageDominantColor = user.photo?.imageDominantColor?.hexColor() ?? MyProfileStyle.shared.informationCellModel.avatarBackgroundColor
         model.imageName = user.photo?.imageName
         return MyProfileModels.DisplayedItem(type: .user, model: model)
     }

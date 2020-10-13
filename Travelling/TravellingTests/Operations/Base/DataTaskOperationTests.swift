@@ -11,7 +11,7 @@ import UIKit
 
 class DataTaskOperationTests: XCTestCase {
     struct Model: Codable, Equatable {
-        let id: String = UUID().uuidString
+        var id: String = UUID().uuidString
     }
     
     var sut: DataTaskOperation<Model>!
