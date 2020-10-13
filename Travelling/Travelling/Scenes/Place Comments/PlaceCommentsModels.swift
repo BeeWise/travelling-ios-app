@@ -59,7 +59,7 @@ enum PlaceCommentsModels {
     
     enum ItemsPresentation {
         struct Response {
-            let items: [Place]
+            let items: [Comment]
         }
         
         struct ViewModel {
@@ -110,17 +110,6 @@ enum PlaceCommentsModels {
             let item: DisplayedItem
             let image: UIImage?
             let contentMode: UIView.ContentMode
-        }
-    }
-    
-    enum ItemsSearching {
-        struct Request {
-            let text: String?
-        }
-        
-        struct Response {
-            let text: String
-            let items: [Place]
         }
     }
 }

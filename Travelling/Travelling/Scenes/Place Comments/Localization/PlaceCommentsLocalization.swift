@@ -21,8 +21,14 @@ class PlaceCommentsLocalization {
     
     struct LocalizedKey {
         static let
-        title = "PlaceComments.scene.title"
+            title = "PlaceComments.scene.title",
+            emptyStateText = "PlaceComments.scene.empty.state.text",
+            noMorePlacesText = "PlaceComments.scene.no.more.places.text",
+            errorStateText = "PlaceComments.scene.error.state.text"
     }
     
     let title = LocalizedKey.title.localized()
+    let emptyStateText = LocalizedKey.emptyStateText.localized()
+    let noMorePlacesText = LocalizedKey.noMorePlacesText.localized()
+    let errorStateText = LocalizedKey.errorStateText.localized()
 }

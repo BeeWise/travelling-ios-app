@@ -111,3 +111,6 @@
 // Place comments scene
 
 "PlaceComments.scene.title" = "Comentarii";
+"PlaceComments.scene.empty.state.text" = "Nu sunt comentarii";
+"PlaceComments.scene.no.more.places.text" = "Nu mai sunt comentarii";
+"PlaceComments.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";

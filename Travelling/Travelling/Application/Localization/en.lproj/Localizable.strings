@@ -111,3 +111,6 @@
 // Place comments scene
 
 "PlaceComments.scene.title" = "Comments";
+"PlaceComments.scene.empty.state.text" = "No comments found";
+"PlaceComments.scene.no.more.places.text" = "No more comments";
+"PlaceComments.scene.error.state.text" = "An error occurred while fetching comments. Tap here to reload ↺";

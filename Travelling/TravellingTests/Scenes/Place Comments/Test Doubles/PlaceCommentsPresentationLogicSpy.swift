@@ -13,5 +13,84 @@
 @testable import Travelling
 
 class PlaceCommentsPresentationLogicSpy: PlaceCommentsPresentationLogic {
+    var presentWillFetchItemsCalled: Bool = false
+    var presentDidFetchItemsCalled: Bool = false
     
+    var presentItemsCalled: Bool = false
+    var presentNewItemsCalled: Bool = false
+    
+    var presentNoMoreItemsCalled: Bool = false
+    var presentRemoveNoMoreItemsCalled: Bool = false
+    
+    var presentEmptyStateCalled: Bool = false
+    var presentRemoveEmptyStateCalled: Bool = false
+    
+    var presentErrorStateCalled: Bool = false
+    var presentRemoveErrorStateCalled: Bool = false
+    
+    var presentWillFetchImageCalled: Bool = false
+    var presentDidFetchImageCalled: Bool = false
+    var presentImageCalled: Bool = false
+    var presentPlaceholderImageCalled: Bool = false
+    
+    var presentEnableSearchBarCalled: Bool = false
+    var presentDisableSearchBarCalled: Bool = false
+    
+    var presentNavigateToPlaceDetailsCalled: Bool = false
+    
+    func presentWillFetchItems() {
+        self.presentWillFetchItemsCalled = true
+    }
+    
+    func presentDidFetchItems() {
+        self.presentDidFetchItemsCalled = true
+    }
+    
+    func presentItems(response: PlaceCommentsModels.ItemsPresentation.Response) {
+        self.presentItemsCalled = true
+    }
+    
+    func presentNewItems(response: PlaceCommentsModels.ItemsPresentation.Response) {
+        self.presentNewItemsCalled = true
+    }
+    
+    func presentNoMoreItems() {
+        self.presentNoMoreItemsCalled = true
+    }
+    
+    func presentRemoveNoMoreItems() {
+        self.presentRemoveNoMoreItemsCalled = true
+    }
+    
+    func presentEmptyState() {
+        self.presentEmptyStateCalled = true
+    }
+    
+    func presentRemoveEmptyState() {
+        self.presentRemoveEmptyStateCalled = true
+    }
+    
+    func presentErrorState() {
+        self.presentErrorStateCalled = true
+    }
+    
+    func presentRemoveErrorState() {
+        self.presentRemoveErrorStateCalled = true
+    }
+    
+    func presentWillFetchImage(response: PlaceCommentsModels.ImageFetching.Response) {
+        self.presentWillFetchImageCalled = true
+    }
+    
+    func presentDidFetchImage(response: PlaceCommentsModels.ImageFetching.Response) {
+        self.presentDidFetchImageCalled = true
+    }
+    
+    func presentImage(response: PlaceCommentsModels.ImagePresentation.Response) {
+        self.presentImageCalled = true
+    }
+    
+    func presentPlaceholderImage(response: PlaceCommentsModels.ImagePresentation.Response) {
+        self.presentPlaceholderImageCalled = true
+    }
 }
