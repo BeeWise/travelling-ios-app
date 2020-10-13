@@ -22,7 +22,7 @@ class PlaceCommentsViewController: UITableViewController {
     // MARK: - Object lifecycle
     
     convenience init(placeId: String?) {
-        self.init(style: .plain)
+        self.init(style: .grouped)
         self.placeId = placeId
     }
     
