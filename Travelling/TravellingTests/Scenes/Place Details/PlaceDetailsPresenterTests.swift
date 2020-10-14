@@ -120,6 +120,11 @@ class PlaceDetailsPresenterTests: XCTestCase {
         XCTAssertTrue(self.displayerSpy.displayNavigateToFullscreenImageCalled)
     }
     
+    func testPresentNavigateToPlaceCommentsShouldAskTheDisplayerToDisplayNavigateToPlaceComments() {
+        self.sut.presentNavigateToPlaceComments(response: PlaceDetailsModels.PlaceCommentsNavigation.Response(placeId: "placeId"))
+        XCTAssertTrue(self.displayerSpy.displayNavigateToPlaceCommentsCalled)
+    }
+    
     func testPresentPlaceTitleShouldAskTheDisplayerToDisplayPlaceTitle() {
         self.sut.presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response(place: Place(id: "placeId", location: Location(id: "locationId", latitude: 20, longitude: 20))))
         XCTAssertTrue(self.displayerSpy.displayPlaceTitleCalled)

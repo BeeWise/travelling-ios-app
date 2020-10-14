@@ -29,6 +29,7 @@ protocol PlaceDetailsPresentationLogic {
     func presentErrorAlert(response: PlaceDetailsModels.ErrorAlertPresentation.Response)
     
     func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response)
+    func presentNavigateToPlaceComments(response: PlaceDetailsModels.PlaceCommentsNavigation.Response)
     
     func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response)
     func presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response)
@@ -98,6 +99,10 @@ class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
         self.displayer?.displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel(imageName: response.imageName))
     }
     
+    func presentNavigateToPlaceComments(response: PlaceDetailsModels.PlaceCommentsNavigation.Response) {
+        self.displayer?.displayNavigateToPlaceComments(viewModel: PlaceDetailsModels.PlaceCommentsNavigation.ViewModel(placeId: response.placeId))
+    }
+    
     func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response) {
         let title = response.place?.name
         self.displayer?.displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel(title: title))
@@ -105,8 +110,9 @@ class PlaceDetailsPresenter: PlaceDetailsPresentationLogic {
     
     func presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response) {
         let name = response.place?.name ?? ""
+        let applicationName = Bundle.main.applicationName
         let url = BundleConfiguration.string(for: BundleConfiguration.Keys.appStoreUrl)
-        let text = PlaceDetailsLocalization.shared.sharePlaceText(name: name, url: url)
+        let text = PlaceDetailsLocalization.shared.sharePlaceText(name: name, applicationName: applicationName, url: url)
         let excludedActivityTypes: [UIActivity.ActivityType] = [.print, .assignToContact, .saveToCameraRoll, .addToReadingList, .airDrop, .openInIBooks, .markupAsPDF]
         
         self.displayer?.displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel(text: text, excludedActivityTypes: excludedActivityTypes))
@@ -127,7 +133,7 @@ extension PlaceDetailsPresenter {
     private func displayedPhotoItem(place: Place) -> PlaceDetailsModels.DisplayedItem {
         let model = PlaceDetailsModels.PhotoModel()
         model.imageName = place.photo?.imageName
-        model.imageDominantColor = place.photo?.imageDominantColor?.hexColor()
+        model.imageDominantColor = place.photo?.imageDominantColor?.hexColor() ?? PlaceDetailsStyle.shared.photoCellModel.imageBackgroundColor
         return PlaceDetailsModels.DisplayedItem(type: .photo, model: model)
     }
     

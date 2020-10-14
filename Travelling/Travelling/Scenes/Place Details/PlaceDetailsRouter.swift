@@ -16,6 +16,7 @@ protocol PlaceDetailsRoutingLogic {
     func navigateToAlert(title: String?, message: String?, actions: [UIAlertAction])
     func navigateToFullscreenImage(imageName: String?)
     func presentViewController(controller: UIViewController)
+    func navigateToPlaceComments(placeId: String?)
 }
 
 class PlaceDetailsRouter: PlaceDetailsRoutingLogic {
@@ -35,5 +36,11 @@ class PlaceDetailsRouter: PlaceDetailsRoutingLogic {
     
     func presentViewController(controller: UIViewController) {
         self.viewController?.present(controller, animated: true, completion: nil)
+    }
+    
+    func navigateToPlaceComments(placeId: String?) {
+        let placeCommentsViewController = PlaceCommentsViewController(placeId: placeId)
+        placeCommentsViewController.hidesBottomBarWhenPushed = true
+        self.viewController?.navigationController?.pushViewController(placeCommentsViewController, animated: true)
     }
 }

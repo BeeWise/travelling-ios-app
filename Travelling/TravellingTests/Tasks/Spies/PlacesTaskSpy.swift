@@ -27,7 +27,7 @@ class PlacesTaskSpy: PlacesTask {
         if self.shouldFailFetchPlaces {
             completionHandler(Result.failure(OperationError.noDataAvailable))
         } else {
-            completionHandler(Result.success(PlacesTaskModels.FetchPlaces.Response(places: self.places, page: 0, limit: 0)))
+            completionHandler(Result.success(PlacesTaskModels.FetchPlaces.Response(places: self.places, page: 0, limit: 10)))
         }
     }
     
@@ -55,5 +55,27 @@ class PlacesTaskSpy: PlacesTask {
     
     override func cancelFetchPlaceOperation() {
         self.cancelFetchPlaceOperationCalled = true
+    }
+    
+    // MARK: - Fetch place comments
+    
+    var placeComments: [Comment] = []
+    var fetchPlaceCommentsCalled: Bool = false
+    var shouldFailFetchPlaceComments: Bool = false
+    
+    var cancelFetchPlaceCommentsOperationCalled: Bool = false
+    
+    override func fetchPlaceComments(model: PlacesTaskModels.FetchPlaceComments.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlaceComments.Response, OperationError>) -> Void) {
+        self.fetchPlaceCommentsCalled = true
+        
+        if self.shouldFailFetchPlaceComments {
+            completionHandler(Result.failure(OperationError.noDataAvailable))
+        } else {
+            completionHandler(Result.success(PlacesTaskModels.FetchPlaceComments.Response(comments: self.placeComments, page: 0, limit: 10)))
+        }
+    }
+    
+    override func cancelFetchPlaceCommentsOperation() {
+        self.cancelFetchPlaceCommentsOperationCalled = true
     }
 }

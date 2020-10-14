@@ -21,7 +21,7 @@ class MyFavoritePlacesViewController: UITableViewController {
     // MARK: - Object lifecycle
     
     convenience init() {
-        self.init(style: .plain)
+        self.init(style: .grouped)
     }
     
     override init(style: UITableView.Style) {

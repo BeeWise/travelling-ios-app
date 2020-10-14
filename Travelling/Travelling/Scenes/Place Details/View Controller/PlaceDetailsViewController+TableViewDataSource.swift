@@ -61,14 +61,19 @@ extension PlaceDetailsViewController {
 
 // MARK: - Comments cell
 
-extension PlaceDetailsViewController {
+extension PlaceDetailsViewController: PlaceDetailsCommentsTableViewCellDelegate {
     private func commentsCell(_ tableView: UITableView, indexPath: IndexPath, item: PlaceDetailsModels.DisplayedItem) -> PlaceDetailsCommentsTableViewCell {
         guard let model = item.model as? PlaceDetailsModels.CommentsModel else {
             return PlaceDetailsCommentsTableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaceDetailsCommentsTableViewCell.defaultReuseIdentifier, for: indexPath) as? PlaceDetailsCommentsTableViewCell ?? PlaceDetailsCommentsTableViewCell()
+        cell.delegate = self
         cell.setComments(comments: model.comments)
         cell.setTime(time: model.time)
         return cell
+    }
+    
+    func placeDetailsCommentsTableViewCell(_ cell: PlaceDetailsCommentsTableViewCell?, didSelectComments button: UIButton?) {
+        self.interactor?.shouldNavigateToPlaceComments()
     }
 }

@@ -53,4 +53,10 @@ class PlaceDetailsRouterTests: XCTestCase {
         self.sut.presentViewController(controller: UIViewController())
         XCTAssertTrue(self.viewControllerSpy.presentCalled)
     }
+    
+    func testNavigateToPlaceComments() {
+        let navigationControllerSpy = UINavigationControllerSpy(rootViewController: self.sut.viewController!)
+        self.sut.navigateToPlaceComments(placeId: "placeId")
+        XCTAssertTrue(navigationControllerSpy.pushedViewController is PlaceCommentsViewController)
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public class EmptyStateView: UIView {
-    private let imageSize: CGFloat = 120
+    private let imageSize: CGFloat = 100
     private let spacing: CGFloat = 40
     
     public weak var imageView: UIImageView!

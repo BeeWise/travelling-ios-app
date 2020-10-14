@@ -217,4 +217,11 @@ class PlaceDetailsInteractorTests: XCTestCase {
         self.sut.shouldSharePlace()
         XCTAssertTrue(self.presenterSpy.presentSharePlaceCalled)
     }
+    
+    // MARK: - Place comments navigation tests
+    
+    func testShouldNavigateToPlaceCommentsShouldAskThePresenterToPresentNavigateToPlaceComments() {
+        self.sut.shouldNavigateToPlaceComments()
+        XCTAssertTrue(self.presenterSpy.presentNavigateToPlaceCommentsCalled)
+    }
 }

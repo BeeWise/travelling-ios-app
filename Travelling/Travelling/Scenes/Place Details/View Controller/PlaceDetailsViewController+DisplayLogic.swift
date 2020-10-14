@@ -28,6 +28,7 @@ protocol PlaceDetailsDisplayLogic: class {
     func displayErrorAlert(viewModel: PlaceDetailsModels.ErrorAlertPresentation.ViewModel)
     
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel)
+    func displayNavigateToPlaceComments(viewModel: PlaceDetailsModels.PlaceCommentsNavigation.ViewModel)
     
     func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel)
     func displaySharePlace(viewModel: PlaceDetailsModels.PlaceSharing.ViewModel)
@@ -104,6 +105,12 @@ extension PlaceDetailsViewController: PlaceDetailsDisplayLogic {
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel) {
         DispatchQueue.main.async {
             self.router?.navigateToFullscreenImage(imageName: viewModel.imageName)
+        }
+    }
+    
+    func displayNavigateToPlaceComments(viewModel: PlaceDetailsModels.PlaceCommentsNavigation.ViewModel) {
+        DispatchQueue.main.async {
+            self.router?.navigateToPlaceComments(placeId: viewModel.placeId)
         }
     }
     

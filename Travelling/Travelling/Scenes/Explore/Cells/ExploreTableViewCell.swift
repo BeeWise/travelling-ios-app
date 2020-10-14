@@ -86,6 +86,8 @@ extension ExploreTableViewCell {
         view.clipsToBounds = true
         view.backgroundColor = ExploreStyle.shared.cellModel.containerViewBackgroundColor
         view.layer.cornerRadius = ExploreStyle.shared.cellModel.containerViewCornerRadius
+        view.layer.borderColor = ExploreStyle.shared.cellModel.containerViewBorderColor
+        view.layer.borderWidth = ExploreStyle.shared.cellModel.containerViewBorderWidth
         self.contentView.addSubview(view)
         self.containerView = view
     }
@@ -158,7 +160,6 @@ extension ExploreTableViewCell {
     
     private func setupBlurredBackgroundViewConstraints() {
         NSLayoutConstraint.activate([
-            self.blurredBackgroundView.topAnchor.constraint(equalTo: self.containerView.topAnchor),
             self.blurredBackgroundView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor),
             self.blurredBackgroundView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
             self.blurredBackgroundView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor)

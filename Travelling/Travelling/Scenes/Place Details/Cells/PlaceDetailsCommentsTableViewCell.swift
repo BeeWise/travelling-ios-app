@@ -8,10 +8,16 @@
 import Foundation
 import UIKit
 
+protocol PlaceDetailsCommentsTableViewCellDelegate: AnyObject {
+    func placeDetailsCommentsTableViewCell(_ cell: PlaceDetailsCommentsTableViewCell?, didSelectComments button: UIButton?)
+}
+
 class PlaceDetailsCommentsTableViewCell: UITableViewCell {
     weak var containerView: UIStackView!
     weak var commentsButton: UIButton!
     weak var timeButton: UIButton!
+    
+    weak var delegate: PlaceDetailsCommentsTableViewCellDelegate?
     
     convenience init() {
         self.init(style: .default, reuseIdentifier: PlaceDetailsCommentsTableViewCell.defaultReuseIdentifier)
@@ -67,6 +73,7 @@ extension PlaceDetailsCommentsTableViewCell {
         button.tintColor = PlaceDetailsStyle.shared.commentsCellModel.tintColor
         button.setImage(PlaceDetailsStyle.shared.commentsCellModel.commentsImage, for: .normal)
         button.setContentSpacing(PlaceDetailsStyle.shared.commentsCellModel.buttonSpacing)
+        button.addTarget(self, action: #selector(PlaceDetailsCommentsTableViewCell.touchUpInsideCommentsButton), for: .touchUpInside)
         self.containerView?.addArrangedSubview(button)
         self.commentsButton = button
     }
@@ -80,6 +87,14 @@ extension PlaceDetailsCommentsTableViewCell {
         button.setContentSpacing(PlaceDetailsStyle.shared.commentsCellModel.buttonSpacing)
         self.containerView?.addArrangedSubview(button)
         self.timeButton = button
+    }
+}
+
+// MARK: - Actions
+
+extension PlaceDetailsCommentsTableViewCell {
+    @objc func touchUpInsideCommentsButton() {
+        self.delegate?.placeDetailsCommentsTableViewCell(self, didSelectComments: self.commentsButton)
     }
 }
 

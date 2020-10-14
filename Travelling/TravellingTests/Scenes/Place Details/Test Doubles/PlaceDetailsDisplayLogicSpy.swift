@@ -30,6 +30,7 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     var displayErrorAlertCalled: Bool = false
     
     var displayNavigateToFullscreenImageCalled: Bool = false
+    var displayNavigateToPlaceCommentsCalled: Bool = false
     
     var displayPlaceTitleCalled: Bool = false
     var displaySharePlaceCalled: Bool = false
@@ -77,6 +78,10 @@ class PlaceDetailsDisplayLogicSpy: PlaceDetailsDisplayLogic {
     
     func displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel) {
         self.displayNavigateToFullscreenImageCalled = true
+    }
+    
+    func displayNavigateToPlaceComments(viewModel: PlaceDetailsModels.PlaceCommentsNavigation.ViewModel) {
+        self.displayNavigateToPlaceCommentsCalled = true
     }
     
     func displayPlaceTitle(viewModel: PlaceDetailsModels.TitlePresentation.ViewModel) {

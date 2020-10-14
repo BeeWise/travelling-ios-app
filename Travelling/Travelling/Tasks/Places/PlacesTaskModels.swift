@@ -38,4 +38,24 @@ public enum PlacesTaskModels {
             let place: Place
         }
     }
+    
+    public enum FetchPlaceComments {
+        public struct Request {
+            let placeId: String?
+            let page: Int
+            let limit: Int
+            
+            init(placeId: String? = nil, page: Int, limit: Int) {
+                self.placeId = placeId
+                self.page = page
+                self.limit = limit
+            }
+        }
+        
+        public struct Response {
+            let comments: [Comment]
+            let page: Int
+            let limit: Int
+        }
+    }
 }
