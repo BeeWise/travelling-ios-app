@@ -68,7 +68,6 @@ extension PlaceDetailsPhotoTableViewCell {
         let imageView = LoadingImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.backgroundColor = PlaceDetailsStyle.shared.photoCellModel.imageBackgroundColor
         imageView.activityIndicatorColor = PlaceDetailsStyle.shared.photoCellModel.imageActivityIndicatorColor
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PlaceDetailsPhotoTableViewCell.touchUpInsideImageView)))

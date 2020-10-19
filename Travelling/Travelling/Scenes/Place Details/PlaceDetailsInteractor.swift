@@ -20,6 +20,8 @@ protocol PlaceDetailsBusinessLogic {
     
     func shouldSelectPhoto()
     func shouldSharePlace()
+    
+    func shouldNavigateToPlaceComments()
 }
 
 class PlaceDetailsInteractor: PlaceDetailsBusinessLogic, PlaceDetailsWorkerDelegate {
@@ -51,6 +53,10 @@ class PlaceDetailsInteractor: PlaceDetailsBusinessLogic, PlaceDetailsWorkerDeleg
     
     func shouldSharePlace() {
         self.presenter?.presentSharePlace(response: PlaceDetailsModels.PlaceSharing.Response(place: self.place))
+    }
+    
+    func shouldNavigateToPlaceComments() {
+        self.presenter?.presentNavigateToPlaceComments(response: PlaceDetailsModels.PlaceCommentsNavigation.Response(placeId: self.place?.id))
     }
 }
 

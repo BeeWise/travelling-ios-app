@@ -132,6 +132,7 @@ class PlaceDetailsViewControllerTests: XCTestCase {
             guard let model = item.model as? PlaceDetailsModels.CommentsModel else {
                 return XCTAssertTrue(false, "Wrong model for item!")
             }
+            XCTAssertNotNil(cell.delegate)
             XCTAssertEqual(cell.commentsButton?.currentAttributedTitle, model.comments)
             XCTAssertEqual(cell.timeButton?.currentAttributedTitle, model.time)
         }
@@ -168,6 +169,11 @@ class PlaceDetailsViewControllerTests: XCTestCase {
     func testTouchUpInsideShareButtonShouldAskTheInteractorToSharePlace() {
         self.sut.touchUpInsideShareButton()
         XCTAssertTrue(self.interactorSpy.shouldSharePlaceCalled)
+    }
+    
+    func testPlaceDetailsCommentsTableViewCellDidSelectCommentsShouldAskTheInteractorToNavigateToPlaceComments() {
+        self.sut.placeDetailsCommentsTableViewCell(nil, didSelectComments: nil)
+        XCTAssertTrue(self.interactorSpy.shouldNavigateToPlaceCommentsCalled)
     }
     
     // MARK: - Display logic tests
@@ -287,6 +293,12 @@ class PlaceDetailsViewControllerTests: XCTestCase {
         self.sut.displayNavigateToFullscreenImage(viewModel: PlaceDetailsModels.FullscreenImageNavigation.ViewModel(imageName: "imageName"))
         self.waitForMainQueue()
         XCTAssertTrue(self.routerSpy.navigateToFullscreenImageCalled)
+    }
+    
+    func testDisplayNavigateToPlaceCommentsShouldAskTheRouterToNavigateToPlaceComments() {
+        self.sut.displayNavigateToPlaceComments(viewModel: PlaceDetailsModels.PlaceCommentsNavigation.ViewModel(placeId: "placeId"))
+        self.waitForMainQueue()
+        XCTAssertTrue(self.routerSpy.navigateToPlaceCommentsCalled)
     }
     
     func testDisplayPlaceTitleShouldUpdateNavigationItemTitle() {

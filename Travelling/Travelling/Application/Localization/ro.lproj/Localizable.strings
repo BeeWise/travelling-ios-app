@@ -99,11 +99,18 @@
 "PlaceDetails.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
 "PlaceDetails.scene.error.alert.message" = "A apărut o eroare. Te rugăm să încerci din nou.";
 "PlaceDetails.scene.error.alert.cancel.title" = "OK";
-"PlaceDetails.scene.share.place.text" = "Verifică acest loc frumos numit %@ pe Travelling: %@";
+"PlaceDetails.scene.share.place.text" = "Verifică acest loc frumos numit %@ pe %@: %@";
 
-// My Favorite Places scene
+// My favorite places scene
 
 "MyFavoritePlaces.scene.title" = "Locuri favorite";
 "MyFavoritePlaces.scene.empty.state.text" = "Nu ai locuri favorite";
 "MyFavoritePlaces.scene.no.more.places.text" = "Nu mai ai locuri favorite";
 "MyFavoritePlaces.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";
+
+// Place comments scene
+
+"PlaceComments.scene.title" = "Comentarii";
+"PlaceComments.scene.empty.state.text" = "Nu sunt comentarii";
+"PlaceComments.scene.no.more.places.text" = "Nu mai sunt comentarii";
+"PlaceComments.scene.error.state.text" = "A apărut o eroare. Apasă aici ca să încerci din nou ↺";

@@ -132,7 +132,7 @@ extension ExplorePresenter {
         let displayedItem = ExploreModels.DisplayedItem(id: item.id)
         displayedItem.title = item.name?.attributed(attributes: ExploreStyle.shared.cellModel.titleAttributes())
         displayedItem.imageName = item.photo?.imageName
-        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor() ?? ExploreStyle.shared.cellModel.imageBackgroundColor
         return displayedItem
     }
     
@@ -150,7 +150,7 @@ extension ExplorePresenter {
         let displayedItem = ExploreModels.DisplayedItem(id: item.id)
         displayedItem.title = displayedTitle
         displayedItem.imageName = item.photo?.imageName
-        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor()
+        displayedItem.imageDominantColor = item.photo?.imageDominantColor?.hexColor() ?? ExploreStyle.shared.cellModel.imageBackgroundColor
         return displayedItem
     }
 }

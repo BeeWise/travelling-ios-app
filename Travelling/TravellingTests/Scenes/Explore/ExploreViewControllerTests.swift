@@ -68,39 +68,7 @@ class ExploreViewControllerTests: XCTestCase {
         XCTAssertEqual(self.sut.sections.count, 2)
     }
     
-    // MARK: - Subviews tests
-    
-    func testAddSubviewsWhenViewDidLoad() {
-        self.loadView()
-        XCTAssertNotNil(self.sut.tableView)
-    }
-    
     // MARK: - Table view tests
-    
-    func testIfViewControllerHasSetTableViewDataSource() {
-        self.loadView()
-        XCTAssertNotNil(self.sut.tableView.dataSource)
-    }
-    
-    func testIfViewControllerHasSetTableViewDelegate() {
-        self.loadView()
-        XCTAssertNotNil(self.sut.tableView.delegate)
-    }
-    
-    func testIfViewControllerConformsToTableViewDataSource() {
-        XCTAssertTrue(self.sut.conforms(to: UITableViewDataSource.self))
-    }
-    
-    func testIfViewControllerImplementsTableViewDataSourceMethods() {
-        XCTAssertTrue(self.sut.responds(to: #selector(UITableViewDataSource.numberOfSections(in:))))
-        XCTAssertTrue(self.sut.responds(to: #selector(UITableViewDataSource.tableView(_:numberOfRowsInSection:))))
-        XCTAssertTrue(self.sut.responds(to: #selector(UITableViewDataSource.tableView(_:cellForRowAt:))))
-    }
-    
-    func testIfViewControllerImplementsTableViewDelegateMethods() {
-        XCTAssertTrue(self.sut.responds(to: #selector(UITableViewDelegate.scrollViewDidScroll(_:))))
-        XCTAssertTrue(self.sut.responds(to: #selector(UITableViewDelegate.tableView(_:viewForHeaderInSection:))))
-    }
     
     func testNumberOfRowsInItemsSectionShouldEqualItemsCount() {
         self.loadView()

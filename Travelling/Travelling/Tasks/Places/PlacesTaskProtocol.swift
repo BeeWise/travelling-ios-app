@@ -14,4 +14,7 @@ protocol PlacesTaskProtocol: TaskProtocol {
     
     func fetchPlace(model: PlacesTaskModels.FetchPlace.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlace.Response, OperationError>) -> Void)
     func cancelFetchPlaceOperation()
+    
+    func fetchPlaceComments(model: PlacesTaskModels.FetchPlaceComments.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlaceComments.Response, OperationError>) -> Void)
+    func cancelFetchPlaceCommentsOperation()
 }

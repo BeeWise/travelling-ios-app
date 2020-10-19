@@ -140,4 +140,14 @@ enum PlaceDetailsModels {
             let excludedActivityTypes: [UIActivity.ActivityType]?
         }
     }
+    
+    enum PlaceCommentsNavigation {        
+        struct Response {
+            let placeId: String?
+        }
+        
+        struct ViewModel {
+            let placeId: String?
+        }
+    }
 }

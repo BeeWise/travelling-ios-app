@@ -37,7 +37,7 @@ class PlaceDetailsLocalization {
         return String.localizedStringWithFormat(LocalizedKey.commentCount.localized(), count)
     }
     
-    func sharePlaceText(name: String, url: String) -> String {
-        return String.localizedStringWithFormat(LocalizedKey.sharePlaceText.localized(), name, url)
+    func sharePlaceText(name: String, applicationName: String, url: String) -> String {
+        return String.localizedStringWithFormat(LocalizedKey.sharePlaceText.localized(), name, applicationName, url)
     }
 }

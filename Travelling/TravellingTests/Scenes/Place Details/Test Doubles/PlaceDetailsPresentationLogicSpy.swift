@@ -30,6 +30,7 @@ class PlaceDetailsPresentationLogicSpy: PlaceDetailsPresentationLogic {
     var presentErrorAlertCalled: Bool = false
     
     var presentNavigateToFullscreenImageCalled: Bool = false
+    var presentNavigateToPlaceCommentsCalled: Bool = false
     
     var presentPlaceTitleCalled: Bool = false
     var presentSharePlaceCalled: Bool = false
@@ -80,6 +81,10 @@ class PlaceDetailsPresentationLogicSpy: PlaceDetailsPresentationLogic {
     
     func presentNavigateToFullscreenImage(response: PlaceDetailsModels.FullscreenImageNavigation.Response) {
         self.presentNavigateToFullscreenImageCalled = true
+    }
+    
+    func presentNavigateToPlaceComments(response: PlaceDetailsModels.PlaceCommentsNavigation.Response) {
+        self.presentNavigateToPlaceCommentsCalled = true
     }
     
     func presentPlaceTitle(response: PlaceDetailsModels.TitlePresentation.Response) {

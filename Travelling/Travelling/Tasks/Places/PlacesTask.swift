@@ -71,4 +71,33 @@ open class PlacesTask: PlacesTaskProtocol {
     open func cancelFetchPlaceOperation() {
         self.fetchPlaceOperationQueue.cancelAllOperations()
     }
+    
+    // MARK: - Fetch place comments
+    
+    var fetchPlaceCommentsOperationQueue = OperationQueue()
+    
+    open func fetchPlaceComments(model: PlacesTaskModels.FetchPlaceComments.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlaceComments.Response, OperationError>) -> Void) {
+        let operation = self.fetchPlaceCommentsOperation(model: model, completionHandler: completionHandler)
+        self.fetchPlaceCommentsOperationQueue.addOperation(operation)
+    }
+    
+    private func fetchPlaceCommentsOperation(model: PlacesTaskModels.FetchPlaceComments.Request, completionHandler: @escaping (Result<PlacesTaskModels.FetchPlaceComments.Response, OperationError>) -> Void) -> DataTaskOperation<GetPlaceCommentsOperationModels.Response> {
+        let operationModel = GetPlaceCommentsOperationModels.Request(placeId: model.placeId, page: model.page, limit: model.limit)
+        let operationCompletionHandler: ((Result<GetPlaceCommentsOperationModels.Response, OperationError>) -> Void) = { result in
+            switch result {
+                case .success(let response): completionHandler(.success(PlacesTaskModels.FetchPlaceComments.Response(comments: response.comments, page: response.page, limit: response.limit))); break
+                case .failure(let error): completionHandler(.failure(error)); break
+            }
+        }
+        
+        switch self.environment {
+            case .production: return GetPlaceCommentsOperation(model: operationModel, completionHandler: operationCompletionHandler)
+            case .development: return GetPlaceCommentsOperation(model: operationModel, completionHandler: operationCompletionHandler)
+            case .memory: return GetPlaceCommentsLocalOperation(model: operationModel, completionHandler: operationCompletionHandler)
+        }
+    }
+    
+    open func cancelFetchPlaceCommentsOperation() {
+        self.fetchPlaceCommentsOperationQueue.cancelAllOperations()
+    }
 }
