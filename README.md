@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/StrauneanuDimitri/travelling-ios-app/blob/master/LICENSE)
 
-**Travelling** is an iOS application designed to exemplify the powerful architecture called ***DIP*** (Displayer - Interactor - Presenter). It supports *dynamic type*, *light/dark modes*, different *localizations* and *configurations* for both development and production.
+**Travelling** is an iOS application designed to exemplify the powerful architecture called ***DIP*** (Displayer - Interactor - Presenter), inspired from [Clean Swift](https://clean-swift.com). It supports *dynamic type*, *light/dark modes*, two *localizations* (English and Romanian) and *configurations* for both development and production.
 
 ## Main Scenes
 
@@ -66,9 +66,9 @@
 
 ## Content
 
-All icons used in the app are taken from [iconmonstr](https://iconmonstr.com).
-All images used in the app are taken from [Unsplash](https://unsplash.com).
-All information regarding the places presented in the app is taken from [Wikipedia](https://www.wikipedia.org).
+- All icons used in the app are taken from [iconmonstr](https://iconmonstr.com).
+- All images used in the app are taken from [Unsplash](https://unsplash.com).
+- All information regarding the places presented in the app is taken from [Wikipedia](https://www.wikipedia.org).
 
 ## Contributing
 
