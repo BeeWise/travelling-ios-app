@@ -6,9 +6,6 @@ on:
 jobs:
   build_and_test:
     runs-on: macOS-latest
-    defaults:
-      run:
-        working-directory: Travelling
 
     timeout-minutes: 60
 
@@ -24,6 +21,8 @@ jobs:
       run: |
         gem install bundler
         bundle install
+      working-directory: Travelling
 
     - name: "Run tests"
       run: "bundle exec fastlane tests"
+      working-directory: Travelling
