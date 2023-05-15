@@ -8,7 +8,7 @@ jobs:
     runs-on: macOS-latest
     defaults:
       run:
-        working-directory: ./Travelling
+        working-directory: Travelling
 
     timeout-minutes: 60
 
