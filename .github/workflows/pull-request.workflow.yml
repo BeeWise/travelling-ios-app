@@ -6,13 +6,14 @@ on:
 jobs:
   build_and_test:
     runs-on: macOS-latest
+    defaults:
+      run:
+        working-directory: ./Travelling
 
     timeout-minutes: 60
 
     env:
       XC_VERSION: ${{ '14.1' }}
-
-    working-directory: Travelling
 
     steps:
     - name: Select latest Xcode
