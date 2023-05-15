@@ -12,13 +12,12 @@ jobs:
     env:
       XC_VERSION: ${{ '14.1' }}
 
+    working-directory: Travelling
+
     steps:
     - name: Select latest Xcode
       run: "sudo xcode-select -s /Applications/Xcode_$XC_VERSION.app"
     - uses: actions/checkout@v2
-
-    - name: "Change project directory"
-      run: "cd Travelling"
 
     - name: "Install system dependencies"
       run: |
